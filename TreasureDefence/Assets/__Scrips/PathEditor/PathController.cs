@@ -59,27 +59,10 @@ public class PathController : MonoBehaviour
 	/// </summary>
 	void OnDrawGizmos()
 	{
-		GetApproxLength();
+		// GetApproxLength();
 		
+		refreshControlPoints();
 		
-		List<Transform> remove = new List<Transform>();
-		for (int i = 0; i < controlPoints.Count; i++)
-		{
-			if(controlPoints[i] == null)
-			{
-				remove.Add(controlPoints[i]);
-				
-				controlPoints.Remove(controlPoints[i]);
-				return;
-			}
-		}
-		if(remove.Count != 0)
-		{
-			foreach(Transform found in remove)
-			{
-				controlPoints.Remove(found);
-			}
-		}
 		
 		if(controlPoints.Count == 0)
 			return;
@@ -102,6 +85,8 @@ public class PathController : MonoBehaviour
 				if(Camera.current != null)
 					handleSize = Vector3.Distance(Camera.current.gameObject.transform.position, GetPos(j, i));
 				Gizmos.DrawSphere(GetPos(j, i), 0.02f* handleSize);
+				Gizmos.DrawLine(GetPos(j, 1), GetPos(j, 0));
+				Gizmos.DrawLine(GetPos(j, 2), GetPos(j, 3));
 			}	
 			
 			Handles.DrawBezier(
@@ -122,18 +107,16 @@ public class PathController : MonoBehaviour
 				Handles.DrawLine(point.pos, point.LocalToWorldPos(up));
 				
 				
+				//extracting up vector from quaternion
 				// float x = 2f * (point.rot.x*point.rot.y - point.rot.w*point.rot.z);
 				// float y = 1f - 2f * (point.rot.x*point.rot.x + point.rot.z*point.rot.z);
 				// float z = 2f * (point.rot.y*point.rot.z + point.rot.w*point.rot.x);
-				// float x = 2 * (point.rot.x*point.rot.z + point.rot.w*point.rot.y);
-				// float y = 2 * (point.rot.y*point.rot.z - point.rot.w*point.rot.x);
-				// float z = 1 - 2 * (point.rot.x*point.rot.x + point.rot.y*point.rot.y);
 				
 				// Vector3 up = new Vector3(x,y,z);
 				// Vector3 up = point.tangent.normalized;
 			}
 		} 
-		OrientedPoint testPoint = SelectBezierSegment(tTest);
+		OrientedPoint testPoint = GetPathOP(tTest);
 		Handles.PositionHandle(testPoint.pos, testPoint.rot);
 	}
 	
@@ -160,17 +143,18 @@ public class PathController : MonoBehaviour
 		return new OrientedPoint(pos, rot);
 	}
 	
-	OrientedPoint SelectBezierSegment(float t)
+	// ?? somehow an invisible segment at the beginning of t that makes it unresponsive
+	OrientedPoint GetPathOP(float t)
 	{
 		int selectedSegment = 0;
 		float[] segments = new float[controlPoints.Count];
 		segments[0] = 0;
 		segments[segments.Length-1] = 1;
-		for (int i = 1; i < segments.Length; i++)
+		for (int i = 1; i < segments.Length-1; i++)
 		{
 			segments[i] = 1 / ((float)segments.Length) * (i+1);
 		}
-		for (int i = 0; i < segments.Length; i++)
+		for (int i = 1; i < segments.Length; i++)
 		{
 			if(t <= segments[i])
 			{
@@ -183,11 +167,9 @@ public class PathController : MonoBehaviour
 			tPos = ExtensionMethods.Remap(t, segments[selectedSegment], segments[selectedSegment-1], 0, 1);
 		else
 			tPos = ExtensionMethods.Remap(t, segments[selectedSegment], segments[selectedSegment+1], 0, 1);
+		tPos = 1-tPos;
 		
 		selectedSegment = Mathf.Clamp((selectedSegment-1), 0, segments.Length-1);
-		Debug.Log(tPos + " " + selectedSegment);
-		if(selectedSegment != segments.Length-1)
-			tPos = 1-tPos;
 		OrientedPoint point = GetBezierOP(selectedSegment, tPos);
 		return point;
 	}
@@ -230,6 +212,34 @@ public class PathController : MonoBehaviour
 		end = controlPoints[i+1];
 	}
 	
+	void refreshControlPoints()
+	{
+		List<Transform> remove = new List<Transform>();
+		for (int i = 0; i < controlPoints.Count; i++)
+		{
+			if(controlPoints[i] == null)
+			{
+				remove.Add(controlPoints[i]);
+				
+				controlPoints.Remove(controlPoints[i]);
+				return;
+			}
+		}
+		if(remove.Count != 0)
+		{
+			foreach(Transform found in remove)
+			{
+				controlPoints.Remove(found);
+			}
+		}
+		for (int i = 0; i < transform.childCount; i++)
+		{
+			if(!controlPoints.Contains(transform.GetChild(i)))
+			{
+				controlPoints.Add(transform.GetChild(i));
+			}
+		}
+	}
 		
 	/// <summary>
 	/// Called when the script is loaded or a value is changed in the

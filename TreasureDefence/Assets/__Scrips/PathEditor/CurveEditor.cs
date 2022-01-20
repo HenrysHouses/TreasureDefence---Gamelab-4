@@ -36,6 +36,7 @@ public class CurveEditor : Editor
 				newPoint.transform.position = pos;
 				int n = newSegment.controlPoints.Count;
 				newPoint.name = "p"+n;
+				newPoint.transform.localScale = new Vector3(0,0,3);
 				newPoint.AddComponent<CurveExtender>();
 				newSegment.controlPoints.Add(newPoint.transform);
 				

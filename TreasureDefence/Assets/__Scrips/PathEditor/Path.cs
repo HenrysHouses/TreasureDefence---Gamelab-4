@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+
+static public class Path
+{	
+	[MenuItem("GameObject/Level Design/Path", false, 10)]
+	static public void CreatePath()
+	{
+		GameObject gameObject = new GameObject("Path");
+		gameObject.hideFlags = HideFlags.NotEditable;
+		PathController controller = gameObject.AddComponent<PathController>();
+		controller.hideFlags = HideFlags.None;
+		for (int i = 0; i < 2; i++)
+		{
+			GameObject controlPoint = new GameObject();
+			controlPoint.transform.SetParent(gameObject.transform);
+			controlPoint.name = "p" + i;
+			controlPoint.transform.localScale = new Vector3(0,0,3);
+			controlPoint.AddComponent<CurveExtender>();
+			controller.controlPoints.Add(controlPoint.transform);
+		}
+	}
+
+}
