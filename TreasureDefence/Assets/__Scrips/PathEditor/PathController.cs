@@ -36,7 +36,7 @@ public class PathController : MonoBehaviour
 	// public Transform endPoint;
 	[HideInInspector] public Transform startPoint;
 	[HideInInspector] public Transform endPoint;
-	public List<Transform> controlPoints = new List<Transform>();
+	[HideInInspector] public List<Transform> controlPoints = new List<Transform>();
 	Vector3 GetPos(int pair, int i)
 	{
 		GetStartEndPoints(pair, ref startPoint, ref endPoint);
