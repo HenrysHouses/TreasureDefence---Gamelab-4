@@ -239,6 +239,9 @@ public class PathController : MonoBehaviour
 				controlPoints.Add(transform.GetChild(i));
 			}
 		}
+		
+		if(transform.childCount == 0)
+			DestroyImmediate(gameObject);
 	}
 		
 	/// <summary>
