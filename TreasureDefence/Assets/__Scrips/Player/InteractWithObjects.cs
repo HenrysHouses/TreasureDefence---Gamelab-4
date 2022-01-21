@@ -49,6 +49,7 @@ public class InteractWithObjects : MonoBehaviour
             {
                 objectHolderPosition.transform.position += cam.transform.forward * Time.deltaTime * Input.mouseScrollDelta.y * 50;
             }
+               
         }
            
     }
