@@ -26,7 +26,8 @@ public static class ExtensionMethods
 
 public class PathController : MonoBehaviour
 {
-	
+	[SerializeField] bool DrawUpVector;
+	[SerializeField] bool DrawtTest;
 	[Range(2, 32)]
 	[SerializeField] int edgeRingCount = 8;
 	
@@ -73,6 +74,8 @@ public class PathController : MonoBehaviour
 	{
 		refreshControlPoints();
 		DrawBezierCurve();
+		if(DrawUpVector)
+			DrawUpVectorGizmo();
 	}
 	
 	private bool nullCheckControlPoints()
@@ -102,6 +105,14 @@ public class PathController : MonoBehaviour
 				GetPos(j, 1), 
 				GetPos(j, 2), Color.white, EditorGUIUtility.whiteTexture, 1f);
 			
+			
+		}
+	}
+	
+	private void DrawUpVectorGizmo()
+	{
+		for (int j = 0; j < controlPoints.Count-1; j++)
+		{
 			// Draw Up Vector Gizmos;
 			for (int i = 0; i < edgeRingCount+1; i++)
 			{
@@ -153,8 +164,11 @@ public class PathController : MonoBehaviour
 			}	
 		}
 		// Draw GetPathOP tTest
-		OrientedPoint testPoint = GetPathOP(tTest);
-		Handles.PositionHandle(testPoint.pos, testPoint.rot);
+		if(DrawtTest)
+		{
+			OrientedPoint testPoint = GetPathOP(tTest);
+			Handles.PositionHandle(testPoint.pos, testPoint.rot);
+		}
 	}
 	
 	/// <summary>Get a OrientedPoint of a specific bezier curve within the path</summary>

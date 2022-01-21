@@ -1072,8 +1072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 971728537}
-  tPosition: 0
-  speed: 22.9
+  speed: 1
 --- !u!136 &651031785
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1626,7 +1625,7 @@ Transform:
   m_GameObject: {fileID: 951021906}
   m_LocalRotation: {x: -0, y: -0.2731629, z: -0, w: 0.9619678}
   m_LocalPosition: {x: 0.081, y: 0.483, z: -2.78}
-  m_LocalScale: {x: 0, y: 0, z: 0.8295815}
+  m_LocalScale: {x: 0, y: 0, z: 0.6455803}
   m_Children: []
   m_Father: {fileID: 971728538}
   m_RootOrder: 0
@@ -1755,8 +1754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06073334b7335ae4299ce00af1d4e23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  edgeRingCount: 8
-  tTest: 1
+  DrawUpVector: 0
+  DrawtTest: 0
+  edgeRingCount: 32
+  tTest: 0
   startPoint: {fileID: 900124604}
   endPoint: {fileID: 579860082}
   controlPoints:
