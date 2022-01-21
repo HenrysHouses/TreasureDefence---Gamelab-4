@@ -32,11 +32,14 @@ public class PathController : MonoBehaviour
 	
 	[Range(0,1)]
 	[SerializeField] float tTest = 0;
-	// public Transform startPoint;
-	// public Transform endPoint;
 	[HideInInspector] public Transform startPoint;
 	[HideInInspector] public Transform endPoint;
 	[HideInInspector] public List<Transform> controlPoints = new List<Transform>();
+	
+	/// <summary>Get position of control points</summary>
+	/// <param name="pair">curve point</param>
+	/// <param name="i">sub controlpoint for the curve</param>
+	/// <returns>position of control point</returns>
 	Vector3 GetPos(int pair, int i)
 	{
 		GetStartEndPoints(pair, ref startPoint, ref endPoint);
@@ -55,25 +58,85 @@ public class PathController : MonoBehaviour
 	// Vector3 GetPos(int i ) => controlPoints[i].position;
 
 	/// <summary>
+	/// Callback to draw gizmos only if the object is selected.
+	/// </summary>
+	void OnDrawGizmosSelected()
+	{
+		DrawControlPoints();
+	}
+
+
+	/// <summary>
 	/// Callback to draw gizmos that are pickable and always drawn.
 	/// </summary>
 	void OnDrawGizmos()
 	{
-		// GetApproxLength();
-		
 		refreshControlPoints();
-		
-		
+		DrawBezierCurve();
+	}
+	
+	private bool nullCheckControlPoints()
+	{
+		// stop if no points are found or if any points == null
 		if(controlPoints.Count == 0)
-			return;
+			return true;
 		foreach(Transform found in controlPoints)
 		{
 			if(found == null)
-				return;
+				return true;
 		}	
+		return false;
+	}
+	
+	private void DrawBezierCurve()
+	{
+		if(nullCheckControlPoints())
+			return;
+		// Draw all Path Segments
 		for (int j = 0; j < controlPoints.Count-1; j++)
 		{
-			// Debug.Log(j);
+			// Draw Bezier curve
+			Handles.DrawBezier(
+				GetPos(j, 0), 
+				GetPos(j, 3), 
+				GetPos(j, 1), 
+				GetPos(j, 2), Color.white, EditorGUIUtility.whiteTexture, 1f);
+			
+			// Draw Up Vector Gizmos;
+			for (int i = 0; i < edgeRingCount+1; i++)
+			{
+				float t = (1f / edgeRingCount) * i;
+				OrientedPoint point = GetBezierOP(j, t);
+				
+				GetStartEndPoints(j, ref startPoint, ref endPoint);
+				Vector3 up = Vector3.Lerp(startPoint.up, endPoint.up, t).normalized;
+				float GizmoSize = 1;
+				if(Camera.current != null)
+					GizmoSize = Vector3.Distance(Camera.current.gameObject.transform.position, gameObject.transform.position);
+				GizmoSize = GizmoSize * 0.1f;
+				up = point.LocalToWorldPos(up);
+				up = new Vector3(up.x, up.y * GizmoSize, up.z);
+				Handles.DrawLine(point.pos, up);
+				
+				
+				//extracting up vector from quaternion
+				// float x = 2f * (point.rot.x*point.rot.y - point.rot.w*point.rot.z);
+				// float y = 1f - 2f * (point.rot.x*point.rot.x + point.rot.z*point.rot.z);
+				// float z = 2f * (point.rot.y*point.rot.z + point.rot.w*point.rot.x);
+				
+				// Vector3 up = new Vector3(x,y,z);
+				// Vector3 up = point.tangent.normalized;
+			}
+		}
+	}
+	
+	public void DrawControlPoints()
+	{
+		if(nullCheckControlPoints())
+			return;
+		for (int j = 0; j < controlPoints.Count-1; j++)
+		{
+			// Draw Control Points
 			for(int i = 0; i < 4; i++)
 			{
 				if(i == 0 || i == 3)
@@ -88,38 +151,16 @@ public class PathController : MonoBehaviour
 				Gizmos.DrawLine(GetPos(j, 1), GetPos(j, 0));
 				Gizmos.DrawLine(GetPos(j, 2), GetPos(j, 3));
 			}	
-			
-			Handles.DrawBezier(
-				GetPos(j, 0), 
-				GetPos(j, 3), 
-				GetPos(j, 1), 
-				GetPos(j, 2), Color.white, EditorGUIUtility.whiteTexture, 1f);
-			
-			for (int i = 0; i < edgeRingCount+1; i++)
-			{
-				float t = (1f / edgeRingCount) * i;
-				OrientedPoint point = GetBezierOP(j, t);
-				
-
-				GetStartEndPoints(j, ref startPoint, ref endPoint);
-				Vector3 up = Vector3.Lerp(startPoint.up, endPoint.up, t).normalized;
-				
-				Handles.DrawLine(point.pos, point.LocalToWorldPos(up));
-				
-				
-				//extracting up vector from quaternion
-				// float x = 2f * (point.rot.x*point.rot.y - point.rot.w*point.rot.z);
-				// float y = 1f - 2f * (point.rot.x*point.rot.x + point.rot.z*point.rot.z);
-				// float z = 2f * (point.rot.y*point.rot.z + point.rot.w*point.rot.x);
-				
-				// Vector3 up = new Vector3(x,y,z);
-				// Vector3 up = point.tangent.normalized;
-			}
-		} 
+		}
+		// Draw GetPathOP tTest
 		OrientedPoint testPoint = GetPathOP(tTest);
 		Handles.PositionHandle(testPoint.pos, testPoint.rot);
 	}
 	
+	/// <summary>Get a OrientedPoint of a specific bezier curve within the path</summary>
+	/// <param name="pair">One of the control points for the curve wanted</param>
+	/// <param name="t">path position range(0,1)</param>
+	/// <returns>OrientedPoint, contains transform data</returns>
 	OrientedPoint GetBezierOP(int pair, float t)
 	{
 		Vector3 p0 = GetPos(pair, 0); 
@@ -143,9 +184,12 @@ public class PathController : MonoBehaviour
 		return new OrientedPoint(pos, rot);
 	}
 	
-	// ?? somehow an invisible segment at the beginning of t that makes it unresponsive
+	/// <summary>Get a OrientedPoint from the entire path</summary>
+	/// <param name="t">path position, range(0,1)</param>
+	/// <returns>OrientedPoint, contains transform data</returns>
 	public OrientedPoint GetPathOP(float t)
 	{
+		// Remaps each curve t to path t
 		int selectedSegment = 0;
 		float[] segments = new float[controlPoints.Count];
 		for (int i = 0; i <= segments.Length-1; i++)
@@ -166,8 +210,8 @@ public class PathController : MonoBehaviour
 		else
 			tPos = ExtensionMethods.Remap(t, segments[selectedSegment], segments[selectedSegment+1], 0, 1);
 		tPos = 1-tPos;
-		
 		selectedSegment = Mathf.Clamp((selectedSegment-1), 0, segments.Length-1);
+		// Returns the point
 		OrientedPoint point = GetBezierOP(selectedSegment, tPos);
 		return point;
 	}
@@ -194,6 +238,9 @@ public class PathController : MonoBehaviour
 		return dist;
 	}
 	
+	/// <summary>Refresh start and end references for a specific curve</summary>
+	/// <param name="i">curve index</param>
+	/// <returns>re-initialize start and end point references</returns>
 	void GetStartEndPoints(int i, ref Transform start, ref Transform end)
 	{
 		if(i == 0) // first segment
@@ -210,6 +257,7 @@ public class PathController : MonoBehaviour
 		end = controlPoints[i+1];
 	}
 	
+	/// <summary>Update the control point count and references</summary>
 	void refreshControlPoints()
 	{
 		List<Transform> remove = new List<Transform>();

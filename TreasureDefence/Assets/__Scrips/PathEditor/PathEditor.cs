@@ -10,12 +10,10 @@ public class PathEditor : Editor
 	void OnSceneGUI()
 	{
 		PathExtender t = target as PathExtender;
-		
-		// if( t == null)
-		// 	return;
 
 		Event e = Event.current;
 		
+		// Get scene view mouse pos and camera
 		Camera cam = Camera.current;
 		Vector3 pos = Event.current.mousePosition;
 		if(cam != null)
@@ -24,31 +22,25 @@ public class PathEditor : Editor
 			pos.y = Screen.height - pos.y - 36.0f; // ??? Why that offset?!
 			pos = cam.ScreenToWorldPoint (pos);
 		}
-		// if(Event.current.ToString() != "repaint" && Event.current.ToString() != "Layout" )
-		// 	Debug.Log(Event.current);
+
+		// If ctrl + mouse0, create a new curve
 		if(e.type == EventType.MouseDown && e.ToString().Contains("Modifiers: Control"))
 		{
-			if(t.GetComponent<PathController>() == null)
-			{
-				newSegment = t.transform.parent.gameObject.GetComponent<PathController>();
-				GameObject newPoint = new GameObject();
-				newPoint.transform.SetParent(t.gameObject.transform.parent);
-				newPoint.transform.position = pos;
-				int n = newSegment.controlPoints.Count;
-				newPoint.name = "p"+n;
-				newPoint.transform.localScale = new Vector3(0,0,3);
-				newPoint.AddComponent<PathExtender>();
-				newSegment.controlPoints.Add(newPoint.transform);
-				
-				// newSegment.startPoint = t.gameObject.transform;
-				// newSegment.endPoint = new GameObject().transform;
-				// newSegment.endPoint.SetParent(t.gameObject.transform.parent);
-				// newSegment.endPoint.position = pos;
-				// int n = int.Parse(t.gameObject.name.Trim('p'))+1;
-				// newSegment.endPoint.name = "p"+n;
-				// Selection.SetActiveObjectWithContext(newSegment.endPoint);
-				// Selection.objects = new Object[] { newSegment.endPoint };
-			}
+			createCurve(t.GetComponentInParent<PathController>(), pos);
+		}
+	}
+	
+	private void createCurve(PathController target, Vector3 position)
+	{
+		if(target != null)
+		{
+			GameObject newPoint = new GameObject();
+			newPoint.transform.SetParent(target.gameObject.transform);
+			newPoint.transform.position = position;
+			int n = target.controlPoints.Count;
+			newPoint.name = "p"+n;
+			newPoint.AddComponent<PathExtender>();
+			target.controlPoints.Add(newPoint.transform);
 		}
 	}
 }

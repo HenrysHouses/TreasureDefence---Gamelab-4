@@ -3,10 +3,12 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class PathExtender : MonoBehaviour
 {
-	// public bool extendPath;
-	void Update()
+	/// <summary>
+	/// Callback to draw gizmos only if the object is selected.
+	/// </summary>
+	void OnDrawGizmosSelected()
 	{
-		// extendPath = Input.GetKey(KeyCode.LeftShift);
-		// Debug.Log(Input.GetKey(KeyCode.LeftShift));
+		PathController parent = GetComponentInParent<PathController>();
+		parent.DrawControlPoints();
 	}
 }
