@@ -18,7 +18,7 @@ static public class Path
 			controlPoint.transform.SetParent(gameObject.transform);
 			controlPoint.name = "p" + i;
 			controlPoint.transform.localScale = new Vector3(0,0,3);
-			controlPoint.AddComponent<CurveExtender>();
+			controlPoint.AddComponent<PathExtender>();
 			controller.controlPoints.Add(controlPoint.transform);
 		}
 	}

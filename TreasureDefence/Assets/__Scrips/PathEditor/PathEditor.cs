@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor( typeof( CurveExtender ) )]
-public class CurveEditor : Editor
+[CustomEditor( typeof( PathExtender ) )]
+public class PathEditor : Editor
 {
 	private PathController newSegment;
 	void OnSceneGUI()
 	{
-		CurveExtender t = target as CurveExtender;
+		PathExtender t = target as PathExtender;
 		
 		// if( t == null)
 		// 	return;
@@ -37,7 +37,7 @@ public class CurveEditor : Editor
 				int n = newSegment.controlPoints.Count;
 				newPoint.name = "p"+n;
 				newPoint.transform.localScale = new Vector3(0,0,3);
-				newPoint.AddComponent<CurveExtender>();
+				newPoint.AddComponent<PathExtender>();
 				newSegment.controlPoints.Add(newPoint.transform);
 				
 				// newSegment.startPoint = t.gameObject.transform;

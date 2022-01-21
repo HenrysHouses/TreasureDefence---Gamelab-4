@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class CurveExtender : MonoBehaviour
+public class PathExtender : MonoBehaviour
 {
 	// public bool extendPath;
 	void Update()

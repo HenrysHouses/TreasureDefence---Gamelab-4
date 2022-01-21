@@ -17,7 +17,7 @@ public static class ExtensionMethods
  
 		var to = toAbs + toMin;
 	   
-		if(to < 0)
+		if(to < 0) // inverted to make the path direction correct
 	   		to *= -1;
 		return to;
 	}
@@ -144,15 +144,13 @@ public class PathController : MonoBehaviour
 	}
 	
 	// ?? somehow an invisible segment at the beginning of t that makes it unresponsive
-	OrientedPoint GetPathOP(float t)
+	public OrientedPoint GetPathOP(float t)
 	{
 		int selectedSegment = 0;
 		float[] segments = new float[controlPoints.Count];
-		segments[0] = 0;
-		segments[segments.Length-1] = 1;
-		for (int i = 1; i < segments.Length-1; i++)
+		for (int i = 0; i <= segments.Length-1; i++)
 		{
-			segments[i] = 1 / ((float)segments.Length) * (i+1);
+			segments[i] = 1 / ((float)segments.Length-1) * i;
 		}
 		for (int i = 1; i < segments.Length; i++)
 		{
