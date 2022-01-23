@@ -21,6 +21,21 @@ public static class ExtensionMethods
 	   		to *= -1;
 		return to;
 	}
+	
+	public static float Remap (this float from, float fromMin, float fromMax, float toMin,  float toMax)
+	{
+		var fromAbs  =  from - fromMin;
+		var fromMaxAbs = fromMax - fromMin;      
+	   
+		var normal = fromAbs / fromMaxAbs;
+ 
+		var toMaxAbs = toMax - toMin;
+		var toAbs = toMaxAbs * normal;
+ 
+		var to = toAbs + toMin;
+	   
+		return to;
+	}
 }
 
 public class PathController : MonoBehaviour
@@ -209,7 +224,7 @@ public class PathController : MonoBehaviour
 	/// <returns>OrientedPoint, contains transform data</returns>
 	public OrientedPoint GetPathOP(float t)
 	{
-		// Remaps each curve t to path t
+		// Remaps path t each curve t
 		int selectedSegment = 0;
 		float[] segments = new float[controlPoints.Count];
 		for (int i = 0; i <= segments.Length-1; i++)
@@ -234,6 +249,58 @@ public class PathController : MonoBehaviour
 		// Returns the point
 		OrientedPoint point = GetBezierOP(selectedSegment, tPos);
 		return point;
+	}
+	
+		
+	public float GetEvenPathTOffset(int pointOffset)
+	{
+		float offset = 1/((float)evenlySpacedPoints.Length-1) * pointOffset;
+		return offset;
+	}
+		
+	public OrientedPoint GetEvenPathOP(float t)
+	{
+		// Remaps path t each point lerp t
+		int selectedSegment = 0;
+		float[] segments = new float[evenlySpacedPoints.Length];
+		for (int i = 0; i <= segments.Length-1; i++)
+		{
+			segments[i] = 1 / ((float)segments.Length-1) * i;
+		}
+		
+		for (int i = 1; i < segments.Length; i++)
+		{
+			if(t <= segments[i])
+			{
+				selectedSegment = i;
+				break;
+			}
+		}
+		float tPos;
+		if(selectedSegment == segments.Length-1)
+			tPos = ExtensionMethods.RemapT(t, segments[selectedSegment], segments[selectedSegment-1], 0, 1);
+		else
+			tPos = ExtensionMethods.RemapT(t, segments[selectedSegment], segments[selectedSegment+1], 0, 1);
+		tPos = 1-tPos;
+		selectedSegment = Mathf.Clamp((selectedSegment-1), 0, segments.Length-1);
+		OrientedPoint point = OrientedPoint.Lerp(evenlySpacedPoints[selectedSegment], evenlySpacedPoints[selectedSegment+1], tPos);
+		
+		return point;
+	}
+	
+	public OrientedPoint getClosestOP(Transform Object)
+	{
+		float closestPoint = Vector3.Distance(evenlySpacedPoints[0].pos, Object.position);
+		int index = 0;
+		for (int i = 0; i < evenlySpacedPoints.Length; i++)
+		{
+			if(Vector3.Distance(evenlySpacedPoints[i].pos, Object.position) < closestPoint)
+			{
+				closestPoint = Vector3.Distance(evenlySpacedPoints[i].pos, Object.position);
+				index = i;
+			}
+		}
+		return evenlySpacedPoints[index];
 	}
 	
 	public float GetApproxLength(int precision = 8)
@@ -358,20 +425,5 @@ public class PathController : MonoBehaviour
 					controlPoints.Add(transform.GetChild(i));
 			}
 		}
-	}
-	
-	public OrientedPoint getClosestOP(Transform Object)
-	{
-		float closestPoint = Vector3.Distance(evenlySpacedPoints[0].pos, Object.position);
-		int index = 0;
-		for (int i = 0; i < evenlySpacedPoints.Length; i++)
-		{
-			if(Vector3.Distance(evenlySpacedPoints[i].pos, Object.position) < closestPoint)
-			{
-				closestPoint = Vector3.Distance(evenlySpacedPoints[i].pos, Object.position);
-				index = i;
-			}
-		}
-		return evenlySpacedPoints[index];
 	}
 }

@@ -6,36 +6,32 @@ public class PathPositionController : MonoBehaviour
 {
 	public PathController path;
 	float pathDist = 0f;
-	float tPos;
 	[Range(0.001f, 1)]
 	[SerializeField] float speed;
 	private float speedCorrection = 1;
+	float offset;
 
 	// Update is called once per frame
 	
 	
 	float posDelta, lastTPos;
 	
+	float tPos;
+	
+	void Start()
+	{
+		offset = path.GetEvenPathTOffset(6);
+		pathDist = offset;
+	}
 	
 	void Update()
 	{
 		
 		// Looping for path testing
-		if(pathDist >= path.length)
+		if(pathDist >= 1)
 		{
-			pathDist = 0f;
+			pathDist = offset;
 		}		
-		
-		
-		
-		/* 
-		!  Deprecated t pos approximation
-		// Debug.Log(path.GetApproxLength());		
-		speedCorrection = 1^(10+(int)tPosition);
-		// Debug.Log(speedCorrection);
-		tPosition += Time.deltaTime * 0.1f * speed * speedCorrection;
-		// Debug.Log("correction: " + speedCorrection + " t: " + tPosition);
-		*/
 		
 		// Speed test at MAX
 		// if(speed == 1)
@@ -44,12 +40,11 @@ public class PathPositionController : MonoBehaviour
 		
 		
 		pathDist += Time.deltaTime * speed;
-		// tPos = path.DistToT(path.LUT, pathDist);
 		
-		posDelta = tPos - lastTPos;
-		lastTPos = tPos;
+		posDelta = pathDist - lastTPos;
+		lastTPos = pathDist;
 		
-		OrientedPoint point = path.GetPathOP(tPos);
+		OrientedPoint point = path.GetEvenPathOP(pathDist);
 		gameObject.transform.position = point.pos;
 		gameObject.transform.rotation = point.rot;
 	}

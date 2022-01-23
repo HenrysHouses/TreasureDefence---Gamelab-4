@@ -3,31 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct OrientedPoint
+public class OrientedPoint
 {
 	public Vector3 pos;
 	public Quaternion rot;
-	public Vector3 tangent;
+	
+	public OrientedPoint()
+	{
+		this.pos = default;
+		this.rot = default;
+	}
 	
 	public OrientedPoint(Vector3 pos, Quaternion rot)
 	{
 		this.pos = pos;
 		this.rot = rot;
-		this.tangent = new Vector3();
 	}
 	
 	public OrientedPoint(Vector3 pos, Vector3 forward)
 	{
 		this.pos = pos;
 		this.rot = Quaternion.LookRotation(forward);
-		this.tangent = new Vector3();
 	}
 	
-	public OrientedPoint(Vector3 pos, Vector3 up, Vector2 tangent)
+	public static OrientedPoint Lerp(OrientedPoint start, OrientedPoint end, float t)
 	{
-		this.pos = pos;
-		this.rot = Quaternion.LookRotation(tangent, up);
-		this.tangent = tangent;
+		OrientedPoint result = new OrientedPoint();
+		result.pos = Vector3.Lerp(start.pos, end.pos, t);
+		result.rot = Quaternion.Lerp(start.rot, end.rot, t);
+		return result;
 	}
 	
 	public Vector3 LocalToWorldPos(Vector3 localSpacePos)
@@ -39,4 +43,5 @@ public struct OrientedPoint
 	{
 		return rot * localSpacePos;
 	}
+	
 }
