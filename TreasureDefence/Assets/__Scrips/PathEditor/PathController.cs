@@ -224,6 +224,7 @@ public class PathController : MonoBehaviour
 	/// <returns>OrientedPoint, contains transform data</returns>
 	public OrientedPoint GetPathOP(float t)
 	{
+		Debug.LogWarning("GetPathOP is not speed accurate, for even accurate speed use: GetEvenPathOP");
 		// Remaps path t each curve t
 		int selectedSegment = 0;
 		float[] segments = new float[controlPoints.Count];
