@@ -219,12 +219,11 @@ public class PathController : MonoBehaviour
 		return new OrientedPoint(pos, rot);
 	}
 	
-	/// <summary>Get a OrientedPoint from the entire path</summary>
+	/// <summary>Get a OrientedPoint from the path. !! This method is not speed accurate !!</summary>
 	/// <param name="t">path position, range(0,1)</param>
-	/// <returns>OrientedPoint, contains transform data</returns>
+	/// <returns>OrientedPoint, contains path transform data</returns>
 	public OrientedPoint GetPathOP(float t)
 	{
-		Debug.LogWarning("GetPathOP is not speed accurate, for even accurate speed use: GetEvenPathOP");
 		// Remaps path t each curve t
 		int selectedSegment = 0;
 		float[] segments = new float[controlPoints.Count];
@@ -259,6 +258,9 @@ public class PathController : MonoBehaviour
 		return offset;
 	}
 		
+	/// <summary>Get a OrientedPoint from the path calculated from even points across the path</summary>
+	/// <param name="t">path position, range(0,1)</param>
+	/// <returns>OrientedPoint, contains path transform data</returns>
 	public OrientedPoint GetEvenPathOP(float t)
 	{
 		// Remaps path t each point lerp t
