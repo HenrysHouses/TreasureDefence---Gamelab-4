@@ -2,15 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemySO")]
-public class EnemyScriptableObject : ScriptableObject
-{
-    [SerializeField]
-    public EnemyStats enemyStats;
-}
-
-[SerializeField]
-public struct EnemyStats
+[CreateAssetMenu(fileName = "EnemySO", menuName = "TestSO")]
+public class SO_Test : ScriptableObject
 {
     public float health;
     public float armor;
