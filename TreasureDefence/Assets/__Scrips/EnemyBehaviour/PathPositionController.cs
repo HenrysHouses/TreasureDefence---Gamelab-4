@@ -8,7 +8,6 @@ public class PathPositionController : MonoBehaviour
 	float pathDist = 0f;
 	[Range(0.001f, 1)]
 	[SerializeField] float speed;
-	private float speedCorrection = 1;
 	float offset;
 
 	// Update is called once per frame
