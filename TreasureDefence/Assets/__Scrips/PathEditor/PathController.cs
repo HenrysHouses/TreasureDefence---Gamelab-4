@@ -288,7 +288,7 @@ public class PathController : MonoBehaviour
 		return point;
 	}
 	
-	public OrientedPoint getClosestOP(Transform Object)
+	public OrientedPoint getClosestOP(Transform Object, ref int pointIndex)
 	{
 		float closestPoint = Vector3.Distance(evenlySpacedPoints[0].pos, Object.position);
 		int index = 0;
@@ -300,6 +300,7 @@ public class PathController : MonoBehaviour
 				index = i;
 			}
 		}
+		pointIndex = index;
 		return evenlySpacedPoints[index];
 	}
 	
