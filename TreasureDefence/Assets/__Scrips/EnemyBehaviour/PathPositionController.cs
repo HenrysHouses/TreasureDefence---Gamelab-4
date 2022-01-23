@@ -5,32 +5,51 @@ using UnityEngine;
 public class PathPositionController : MonoBehaviour
 {
 	public PathController path;
-	float tPosition;
+	float pathDist = 0f;
+	float tPos;
 	[Range(0.001f, 1)]
 	[SerializeField] float speed;
 	private float speedCorrection = 1;
 
 	// Update is called once per frame
+	
+	
+	float posDelta, lastTPos;
+	
+	
 	void Update()
 	{
+		
 		// Looping for path testing
-		if(tPosition >= 1)
+		if(pathDist >= path.length)
 		{
-			tPosition = 0;
+			pathDist = 0f;
 		}		
 		
-		speedCorrection = 1 - tPosition;
-		speedCorrection = Mathf.Clamp(speedCorrection, 0.1f, 1);
-		Debug.Log(speedCorrection);
-		tPosition += Time.deltaTime * 0.1f * speed * speedCorrection;
 		
+		
+		/* 
+		!  Deprecated t pos approximation
+		// Debug.Log(path.GetApproxLength());		
+		speedCorrection = 1^(10+(int)tPosition);
+		// Debug.Log(speedCorrection);
+		tPosition += Time.deltaTime * 0.1f * speed * speedCorrection;
+		// Debug.Log("correction: " + speedCorrection + " t: " + tPosition);
+		*/
 		
 		// Speed test at MAX
-		if(speed == 1)
-			tPosition *= 1.01f;
+		// if(speed == 1)
+		// 	pathDist *= 1.01f;
 		
 		
-		OrientedPoint point = path.GetPathOP(tPosition);
+		
+		pathDist += Time.deltaTime * speed;
+		// tPos = path.DistToT(path.LUT, pathDist);
+		
+		posDelta = tPos - lastTPos;
+		lastTPos = tPos;
+		
+		OrientedPoint point = path.GetPathOP(tPos);
 		gameObject.transform.position = point.pos;
 		gameObject.transform.rotation = point.rot;
 	}

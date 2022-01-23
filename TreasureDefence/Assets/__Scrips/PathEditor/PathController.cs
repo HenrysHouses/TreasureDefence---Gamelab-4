@@ -5,7 +5,7 @@ using UnityEditor;
 
 public static class ExtensionMethods 
 {
-	public static float Remap (this float from, float fromMin, float fromMax, float toMin,  float toMax)
+	public static float RemapT (this float from, float fromMin, float fromMax, float toMin,  float toMax)
 	{
 		var fromAbs  =  from - fromMin;
 		var fromMaxAbs = fromMax - fromMin;      
@@ -21,21 +21,23 @@ public static class ExtensionMethods
 	   		to *= -1;
 		return to;
 	}
-	
 }
 
 public class PathController : MonoBehaviour
 {
 	[SerializeField] bool DrawUpVector;
 	[SerializeField] bool DrawtTest;
-	[Range(2, 32)]
+	[Range(1, 10)]
 	[SerializeField] int edgeRingCount = 8;
+	private int LOD;
 	
 	[Range(0,1)]
 	[SerializeField] float tTest = 0;
 	[HideInInspector] public Transform startPoint;
 	[HideInInspector] public Transform endPoint;
 	[HideInInspector] public List<Transform> controlPoints = new List<Transform>();
+	[SerializeField] public OrientedPoint[] evenlySpacedPoints;
+	public float length;
 	
 	/// <summary>Get position of control points</summary>
 	/// <param name="pair">curve point</param>
@@ -105,7 +107,11 @@ public class PathController : MonoBehaviour
 				GetPos(j, 1), 
 				GetPos(j, 2), Color.white, EditorGUIUtility.whiteTexture, 1f);
 			
-			
+			Gizmos.color = Color.magenta;
+			for (int i = 0; i < evenlySpacedPoints.Length; i++)
+			{
+				Gizmos.DrawCube(evenlySpacedPoints[i].pos, new Vector3(0.02f,0.02f,0.02f));
+			}
 		}
 	}
 	
@@ -114,9 +120,9 @@ public class PathController : MonoBehaviour
 		for (int j = 0; j < controlPoints.Count-1; j++)
 		{
 			// Draw Up Vector Gizmos;
-			for (int i = 0; i < edgeRingCount+1; i++)
+			for (int i = 0; i < LOD+1; i++)
 			{
-				float t = (1f / edgeRingCount) * i;
+				float t = (1f / LOD) * i;
 				OrientedPoint point = GetBezierOP(j, t);
 				
 				GetStartEndPoints(j, ref startPoint, ref endPoint);
@@ -220,9 +226,9 @@ public class PathController : MonoBehaviour
 		}
 		float tPos;
 		if(selectedSegment == segments.Length-1)
-			tPos = ExtensionMethods.Remap(t, segments[selectedSegment], segments[selectedSegment-1], 0, 1);
+			tPos = ExtensionMethods.RemapT(t, segments[selectedSegment], segments[selectedSegment-1], 0, 1);
 		else
-			tPos = ExtensionMethods.Remap(t, segments[selectedSegment], segments[selectedSegment+1], 0, 1);
+			tPos = ExtensionMethods.RemapT(t, segments[selectedSegment], segments[selectedSegment+1], 0, 1);
 		tPos = 1-tPos;
 		selectedSegment = Mathf.Clamp((selectedSegment-1), 0, segments.Length-1);
 		// Returns the point
@@ -230,7 +236,7 @@ public class PathController : MonoBehaviour
 		return point;
 	}
 	
-	float GetApproxLength(int precision = 8)
+	public float GetApproxLength(int precision = 8)
 	{
 		float dist = 0;
 		for (int j = 0; j < controlPoints.Count; j++)
@@ -263,10 +269,8 @@ public class PathController : MonoBehaviour
 			end = controlPoints[1];
 			return;
 		}
-		if(i == controlPoints.Count-1) //! bug fix, not sure where this comes from
-		{
+		if(i == controlPoints.Count-1) //! bug fix, not sure what the bug is but it seems to work by doing this
 			return;
-		}
 		start = controlPoints[i];
 		end = controlPoints[i+1];
 	}
@@ -303,6 +307,38 @@ public class PathController : MonoBehaviour
 		if(transform.childCount == 0)
 			DestroyImmediate(gameObject);
 	}
+	
+	OrientedPoint[] calculateEvenlySpacedPoints(float spacing)
+	{
+		List<OrientedPoint> points = new List<OrientedPoint>();
+		Vector3 previousPoint = controlPoints[0].position;
+		points.Add(new OrientedPoint(previousPoint, Quaternion.identity));
+		float dstSinceLastEvenPoint = 0;
+		
+		for (int j = 0; j < controlPoints.Count-1; j++)
+		{
+			// Vector3[] p = 
+			float t = 0;
+			while(t <= 1)
+			{
+				t += 0.1f;
+				Vector3 pointOnCurve = GetBezierOP(j, t).pos;
+				dstSinceLastEvenPoint += Vector3.Distance(previousPoint, pointOnCurve);
+				
+				while(dstSinceLastEvenPoint >= spacing)
+				{
+					float overshootDst = dstSinceLastEvenPoint - spacing;
+					Vector3 newEvenlySpacedPoint = pointOnCurve + (previousPoint - pointOnCurve).normalized * overshootDst;
+					OrientedPoint point = GetPathOP(t);
+					points.Add(new OrientedPoint(newEvenlySpacedPoint, point.rot));
+					dstSinceLastEvenPoint = overshootDst;
+					previousPoint = newEvenlySpacedPoint;
+				}
+				previousPoint = pointOnCurve;
+			}	
+		}
+		return points.ToArray();
+	}
 		
 	/// <summary>
 	/// Called when the script is loaded or a value is changed in the
@@ -310,6 +346,10 @@ public class PathController : MonoBehaviour
 	/// </summary>
 	void OnValidate()
 	{
+		LOD = edgeRingCount*3;
+		length = GetApproxLength();
+		evenlySpacedPoints = calculateEvenlySpacedPoints(length/LOD);
+		
 		if(controlPoints.Count != transform.childCount)
 		{
 			for (int i = 0; i < transform.childCount; i++)
@@ -318,5 +358,20 @@ public class PathController : MonoBehaviour
 					controlPoints.Add(transform.GetChild(i));
 			}
 		}
+	}
+	
+	public OrientedPoint getClosestOP(Transform Object)
+	{
+		float closestPoint = Vector3.Distance(evenlySpacedPoints[0].pos, Object.position);
+		int index = 0;
+		for (int i = 0; i < evenlySpacedPoints.Length; i++)
+		{
+			if(Vector3.Distance(evenlySpacedPoints[i].pos, Object.position) < closestPoint)
+			{
+				closestPoint = Vector3.Distance(evenlySpacedPoints[i].pos, Object.position);
+				index = i;
+			}
+		}
+		return evenlySpacedPoints[index];
 	}
 }
