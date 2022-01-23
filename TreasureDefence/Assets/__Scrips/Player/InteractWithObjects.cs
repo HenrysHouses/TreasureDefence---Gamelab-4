@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractWithObjects : MonoBehaviour
 {    //Mikkel stole Runes code. I take credit.
@@ -8,8 +9,16 @@ public class InteractWithObjects : MonoBehaviour
     private GameObject item;
     public GameObject point;
     public Transform objectHolderPosition, cam;        //A position to keep your valuable items.
-    
 
+    //Shop Related
+    public GameObject ShopEnterText;
+    public GameObject BuyStandardTowerButton;
+    public Transform PointWhereBoughtStuffArePlaced;
+
+    public void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -52,6 +61,25 @@ public class InteractWithObjects : MonoBehaviour
                
         }
            
+        //Start shopstuffhere.
+        if(Input.GetMouseButton(0))
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if(Physics.Raycast(ray, out hit) && hit.transform.gameObject.tag == ("Vendor"))
+            {
+                Debug.Log("Entered Shop");
+                ShopEnterText.SetActive(true);
+                BuyStandardTowerButton.SetActive(true);
+
+                Cursor.lockState = CursorLockMode.None;
+
+            }
+
+        }
+
+
     }
 
     void PickUp(GameObject gameobject)
