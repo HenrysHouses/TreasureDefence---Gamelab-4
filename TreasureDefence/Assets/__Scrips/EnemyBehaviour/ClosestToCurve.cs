@@ -11,8 +11,9 @@ public class ClosestToCurve : MonoBehaviour
 	/// </summary>
 	void OnDrawGizmos()
 	{
+		float int index = 0;
 		Gizmos.color = Color.yellow;
-		OrientedPoint point = path.getClosestOP(transform);		
+		OrientedPoint point = path.getClosestOP(transform, ref index);		
 		Gizmos.DrawSphere(point.pos, 0.1f);
 	}
 }
