@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class RiverMovesItems : MonoBehaviour
 {
+    
+    
     public Vector3 moveDirection;
     
     private List<Transform> items = new List<Transform>();

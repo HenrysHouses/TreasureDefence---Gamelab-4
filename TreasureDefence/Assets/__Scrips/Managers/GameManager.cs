@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
 
     public List<Enemy> enemies = new List<Enemy>();
 
+    public int[] enemyPerWave;
+    
     public PathController pathController;
     
     private int playerHealth;
     
-    private int currentWave;
+    private int currentWave = 0;
     private int numWavesMax;
 
     private bool mapSetUp = false;
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        numWavesMax = enemyPerWave.Length;
     }
 
     public Vector3 GetPosOfEnemy(int index)
@@ -42,8 +46,8 @@ public class GameManager : MonoBehaviour
         return enemies[index].GetProgress();
     }
     
-    public void Setup(int maxWaves, int maxHealth)     // When player chooses a new map. Instead of ints we can give 
-    {                                           // maps a scriptableobject and pass several variables to the GM. Cleaner imo
+    public void Setup(int maxWaves, int maxHealth)      // When player chooses a new map. Instead of ints we can give 
+    {                                                   // maps a scriptableobject (or something) and pass several variables to the GM. Cleaner imo
         if (!mapSetUp)
         {
             currentWave = 0;
@@ -69,6 +73,7 @@ public class GameManager : MonoBehaviour
         {
             isWave = true;
             
+            EnemySpawner.instance.StartWave(enemyPerWave[currentWave]);
             // Start spawning enemies. Something like EnemySpawner.Spawn(int wave);
         }
     }
@@ -78,9 +83,27 @@ public class GameManager : MonoBehaviour
         if (isWave)
         {
             isWave = false;
-            
-            // Depending on how we program it, maybe stop enemyspawner now? Probably won't be necessary
-            // Especially if we use an array based spawning system.
+
+            currentWave++;
+
+            if (currentWave >= numWavesMax)
+            {
+                EndMap(true); // Already know this is bugged cuz player might lose on the last round, after all enemies have been spawned.
+            }
+        }
+    }
+
+    private void EndMap(bool win)
+    {
+        if (win)
+        {
+            // Player wins
+            Debug.LogWarning("You won! :)");
+        }
+        else
+        {
+            // Player loses
+            Debug.LogWarning("You lost and you suck ass! :)");
         }
     }
 

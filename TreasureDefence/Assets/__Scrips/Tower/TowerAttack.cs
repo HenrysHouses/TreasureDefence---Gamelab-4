@@ -36,6 +36,13 @@ public class TowerAttack : MonoBehaviour
     void Update()
     {
         CheckInRange();
+
+        if (target != null)
+        {
+            Vector3 temp = target.GetPosition();
+            
+            transform.LookAt(new Vector3(temp.x, transform.position.y, temp.z));
+        }
     }
 
 
@@ -43,6 +50,7 @@ public class TowerAttack : MonoBehaviour
     {
         if (target != null)
         {
+            
             target.TakeDamage(1);
         }
     }
@@ -78,7 +86,11 @@ public class TowerAttack : MonoBehaviour
                     if (dist < towerRange)
                     {
                         if (GameManager.instance.GetProgressOfEnemy(i) > progress)
+                        {
+                            progress = GameManager.instance.GetProgressOfEnemy(i);
                             index = i;
+                        }
+                            
                     }
                     else
                     {
@@ -128,7 +140,11 @@ public class TowerAttack : MonoBehaviour
                     if (dist < towerRange)
                     {
                         if (GameManager.instance.GetProgressOfEnemy(i) < progress)
+                        {
+                            progress = GameManager.instance.GetProgressOfEnemy(i);
+                            
                             index = i;
+                        }
                     }
                     else
                     {
@@ -140,30 +156,6 @@ public class TowerAttack : MonoBehaviour
                 
                 break;
         }
-
-        //Test();
-        
-
-        
-        /*
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            if (Vector3.Distance(transform.position, enemies[i].position) < towerRange)
-            {
-                enemiesInRange.Add(enemies[i]);
-                enemies.RemoveAt(i);
-            }
-        }
-
-        for (int i = 0; i < enemiesInRange.Count; i++)
-        {
-            if (Vector3.Distance(transform.position, enemiesInRange[i].position) > towerRange)
-            {
-                enemies.Add(enemiesInRange[i]);
-                enemiesInRange.RemoveAt(i);
-            }
-        }
-        */
     }
 }
 
