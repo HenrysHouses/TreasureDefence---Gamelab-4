@@ -8,45 +8,63 @@ public class MoveInRiver : MonoBehaviour
     public PathController pc;
 
     public OrientedPoint op;
-    
+
     public bool isOnPoint;
 
     public bool isInRiver;
-    
-    private Vector3 point;
+
+    //private Vector3 point;
 
     public Vector3 moveDirection;
+
+    private int point;
+    private float offset;
+
+    public float speed;
+
+    private Rigidbody rb;
     
     private void FixedUpdate()
     {
         if (isInRiver)
         {
-            if (isOnPoint)
-            {
-                transform.position += moveDirection * Time.fixedDeltaTime;
-                /*
-                            progress += Time.deltaTime;
-        
-                            op = path.GetPathOP(enemyStats.speed * progress);
+            offset += Time.fixedDeltaTime * speed;
+            
+            op = pc.GetEvenPathOP(offset);
 
-                            transform.position = op.pos;
-                 */
-            }
-            else
+            transform.position = op.pos;
+
+            if (offset >= 1)
             {
-                
+                isInRiver = false;
             }
+            
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //op = pc.getClosestOP(transform, );
+        if (other.CompareTag("River"))
+        {
+            op = pc.getClosestOP(transform, ref point);
 
-        isInRiver = true;
+            offset = pc.GetEvenPathTOffset(point);
+
+            op = pc.GetEvenPathOP(offset);
+
+            //op = pc.getClosestOP(transform, );
+
+
+            isInRiver = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        isInRiver = false;
+        if (other.CompareTag("River"))
+        {
+            isInRiver = false;
+
+            offset = 0;    
+        }
     }
 }

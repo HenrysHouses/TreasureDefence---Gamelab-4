@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
 
     private bool isWave;
 
-
+    public float windSpeed;
+    
     void Start()
     {
         if (instance == null)
@@ -32,7 +33,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        
+        windSpeed = Random.Range(0.8f, 1.2f);
+        
         numWavesMax = enemyPerWave.Length;
     }
 
@@ -85,6 +88,9 @@ public class GameManager : MonoBehaviour
             isWave = false;
 
             currentWave++;
+
+            windSpeed = Random.Range(0.8f, 1.2f);
+            Debug.Log("Wind Speed: " + windSpeed);
 
             if (currentWave >= numWavesMax)
             {

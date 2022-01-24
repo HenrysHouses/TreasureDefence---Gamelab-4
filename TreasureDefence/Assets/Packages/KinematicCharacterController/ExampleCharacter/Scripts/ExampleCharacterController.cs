@@ -178,6 +178,7 @@ namespace KinematicCharacterController.Examples
                         }
 
                         // Crouching input
+                        /*
                         if (inputs.CrouchDown)
                         {
                             _shouldBeCrouching = true;
@@ -193,6 +194,7 @@ namespace KinematicCharacterController.Examples
                         {
                             _shouldBeCrouching = false;
                         }
+                        */
 
                         break;
                     }

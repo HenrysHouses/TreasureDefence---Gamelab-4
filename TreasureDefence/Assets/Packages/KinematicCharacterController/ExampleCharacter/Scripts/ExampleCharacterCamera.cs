@@ -13,9 +13,9 @@ namespace KinematicCharacterController.Examples
         public float FollowingSharpness = 10000f;
 
         [Header("Distance")]
-        public float DefaultDistance = 6f;
+        public float DefaultDistance = 0f;
         public float MinDistance = 0f;
-        public float MaxDistance = 10f;
+        public float MaxDistance = 0f;
         public float DistanceMovementSpeed = 5f;
         public float DistanceMovementSharpness = 10f;
 

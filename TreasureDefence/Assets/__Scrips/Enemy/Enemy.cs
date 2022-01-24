@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        progress += Time.deltaTime;
+        progress += GameManager.instance.windSpeed * Time.deltaTime;
         
         op = path.GetPathOP(enemyStats.speed * progress);
 
