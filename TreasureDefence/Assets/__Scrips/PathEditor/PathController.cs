@@ -40,19 +40,19 @@ public static class ExtensionMethods
 
 public class PathController : MonoBehaviour
 {
+	[Range(1, 50)]
+	[SerializeField] int VertexPathAccuracy = 8;
+	[SerializeField] bool DrawEvenPoints = true;
 	[SerializeField] bool DrawUpVector;
-	[SerializeField] bool DrawtTest;
-	[Range(1, 10)]
-	[SerializeField] int edgeRingCount = 8;
 	private int LOD;
-	
-	[Range(0,1)]
-	[SerializeField] float tTest = 0;
+	[SerializeField] bool DrawtTest;
+	[SerializeField, Range(0,1)] float tTest = 0;
 	[HideInInspector] public Transform startPoint;
 	[HideInInspector] public Transform endPoint;
 	[HideInInspector] public List<Transform> controlPoints = new List<Transform>();
-	[SerializeField] public OrientedPoint[] evenlySpacedPoints;
-	public float length;
+	private OrientedPoint[] evenlySpacedPoints;
+	private float length;
+	[SerializeField] bool Recalculate;
 	
 	/// <summary>Get position of control points</summary>
 	/// <param name="pair">curve point</param>
@@ -89,6 +89,9 @@ public class PathController : MonoBehaviour
 	/// </summary>
 	void OnDrawGizmos()
 	{
+		if(Recalculate)
+			OnValidate();
+		
 		refreshControlPoints();
 		DrawBezierCurve();
 		if(DrawUpVector)
@@ -122,10 +125,13 @@ public class PathController : MonoBehaviour
 				GetPos(j, 1), 
 				GetPos(j, 2), Color.white, EditorGUIUtility.whiteTexture, 1f);
 			
-			Gizmos.color = Color.magenta;
-			for (int i = 0; i < evenlySpacedPoints.Length; i++)
+			if(DrawEvenPoints)
 			{
-				Gizmos.DrawCube(evenlySpacedPoints[i].pos, new Vector3(0.02f,0.02f,0.02f));
+				Gizmos.color = Color.magenta;
+				for (int i = 0; i < evenlySpacedPoints.Length; i++)
+				{
+					Gizmos.DrawCube(evenlySpacedPoints[i].pos, new Vector3(0.02f,0.02f,0.02f));
+				}
 			}
 		}
 	}
@@ -286,7 +292,10 @@ public class PathController : MonoBehaviour
 			tPos = ExtensionMethods.RemapT(t, segments[selectedSegment], segments[selectedSegment+1], 0, 1);
 		tPos = 1-tPos;
 		selectedSegment = Mathf.Clamp((selectedSegment-1), 0, segments.Length-1);
-		OrientedPoint point = OrientedPoint.Lerp(evenlySpacedPoints[selectedSegment], evenlySpacedPoints[selectedSegment+1], tPos);
+	
+		OrientedPoint point = new OrientedPoint();
+		point.pos = Vector3.Lerp(evenlySpacedPoints[selectedSegment].pos, evenlySpacedPoints[selectedSegment+1].pos, tPos);
+		point.rot = GetPathOP(t).rot;
 		
 		return point;
 	}
@@ -417,7 +426,7 @@ public class PathController : MonoBehaviour
 	/// </summary>
 	void OnValidate()
 	{
-		LOD = edgeRingCount*3;
+		LOD = VertexPathAccuracy*3;
 		length = GetApproxLength();
 		evenlySpacedPoints = calculateEvenlySpacedPoints(length/LOD);
 		
@@ -429,5 +438,6 @@ public class PathController : MonoBehaviour
 					controlPoints.Add(transform.GetChild(i));
 			}
 		}
+		Recalculate = false;
 	}
 }

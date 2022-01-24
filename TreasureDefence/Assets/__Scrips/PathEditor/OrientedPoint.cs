@@ -26,14 +26,6 @@ public class OrientedPoint
 		this.rot = Quaternion.LookRotation(forward);
 	}
 	
-	public static OrientedPoint Lerp(OrientedPoint start, OrientedPoint end, float t)
-	{
-		OrientedPoint result = new OrientedPoint();
-		result.pos = Vector3.Lerp(start.pos, end.pos, t);
-		result.rot = Quaternion.Lerp(start.rot, end.rot, t);
-		return result;
-	}
-	
 	public Vector3 LocalToWorldPos(Vector3 localSpacePos)
 	{
 		return pos + rot * localSpacePos;

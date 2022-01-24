@@ -19,7 +19,7 @@ public class PathPositionController : MonoBehaviour
 	
 	void Start()
 	{
-		offset = path.GetEvenPathTOffset(6);
+		offset = path.GetEvenPathTOffset(0);
 		pathDist = offset;
 	}
 	
