@@ -49,7 +49,8 @@ public class PathController : MonoBehaviour
 	[SerializeField, Range(0,1)] float tTest = 0;
 	[HideInInspector] public Transform startPoint;
 	[HideInInspector] public Transform endPoint;
-	[HideInInspector] public List<Transform> controlPoints = new List<Transform>();
+	public List<Transform> controlPoints = new List<Transform>();
+	
 	private OrientedPoint[] evenlySpacedPoints;
 	private float length;
 	[SerializeField] bool Recalculate;
@@ -125,7 +126,7 @@ public class PathController : MonoBehaviour
 				GetPos(j, 1), 
 				GetPos(j, 2), Color.white, EditorGUIUtility.whiteTexture, 1f);
 			
-			if(DrawEvenPoints)
+			if(DrawEvenPoints && evenlySpacedPoints != null)
 			{
 				Gizmos.color = Color.magenta;
 				for (int i = 0; i < evenlySpacedPoints.Length; i++)
@@ -428,6 +429,7 @@ public class PathController : MonoBehaviour
 	{
 		LOD = VertexPathAccuracy*3;
 		length = GetApproxLength();
+		
 		evenlySpacedPoints = calculateEvenlySpacedPoints(length/LOD);
 		
 		if(controlPoints.Count != transform.childCount)
