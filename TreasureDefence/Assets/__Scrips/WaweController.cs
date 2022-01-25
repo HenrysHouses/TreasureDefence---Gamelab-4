@@ -10,6 +10,7 @@ public class WaweController : MonoBehaviour
     public int vaweForLevel; //each map has more wawes
     
     public GameObject winScreen;
+    public GameObject loseScreen;
 
     // Start is called before the first frame update
     void Start()
