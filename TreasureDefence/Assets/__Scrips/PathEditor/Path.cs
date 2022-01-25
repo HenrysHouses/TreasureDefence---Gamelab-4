@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+
+#if UNITY_EDITOR
 static public class Path
 {	
 	[MenuItem("GameObject/Level Design/Path", false, 10)]
@@ -24,3 +26,4 @@ static public class Path
 	}
 
 }
+#endif

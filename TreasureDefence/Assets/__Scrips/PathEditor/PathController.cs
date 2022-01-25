@@ -76,6 +76,8 @@ public class PathController : MonoBehaviour
 	}
 	// Vector3 GetPos(int i ) => controlPoints[i].position;
 
+#if UNITY_EDITOR
+	
 	/// <summary>
 	/// Callback to draw gizmos only if the object is selected.
 	/// </summary>
@@ -98,7 +100,7 @@ public class PathController : MonoBehaviour
 		if(DrawUpVector)
 			DrawUpVectorGizmo();
 	}
-	
+#endif
 	private bool nullCheckControlPoints()
 	{
 		// stop if no points are found or if any points == null
@@ -111,6 +113,8 @@ public class PathController : MonoBehaviour
 		}	
 		return false;
 	}
+	
+#if UNITY_EDITOR
 	
 	private void DrawBezierCurve()
 	{
@@ -198,6 +202,7 @@ public class PathController : MonoBehaviour
 			Handles.PositionHandle(testPoint.pos, testPoint.rot);
 		}
 	}
+#endif
 	
 	/// <summary>Get a OrientedPoint of a specific bezier curve within the path</summary>
 	/// <param name="pair">One of the control points for the curve wanted</param>
@@ -420,7 +425,9 @@ public class PathController : MonoBehaviour
 		}
 		return points.ToArray();
 	}
-		
+	
+#if UNITY_EDITOR	
+
 	/// <summary>
 	/// Called when the script is loaded or a value is changed in the
 	/// inspector (Called in the editor only).
@@ -442,4 +449,5 @@ public class PathController : MonoBehaviour
 		}
 		Recalculate = false;
 	}
+#endif
 }

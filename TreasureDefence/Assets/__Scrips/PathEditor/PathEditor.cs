@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR	
+
 [CustomEditor( typeof( PathExtender ) )]
 public class PathEditor : Editor
 {
@@ -44,3 +46,4 @@ public class PathEditor : Editor
 		}
 	}
 }
+#endif
