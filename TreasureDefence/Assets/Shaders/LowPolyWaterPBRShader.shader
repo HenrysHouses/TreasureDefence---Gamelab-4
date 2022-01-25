@@ -17,15 +17,14 @@
         Blend SrcAlpha OneMinusSrcAlpha
 		
 		CGPROGRAM
-		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard fullforwardshadows vertex:vert alpha:blend
+		// Physically based StandardSpecular lighting model, and enable shadows on all light types
+		#pragma surface surf StandardSpecular  fullforwardshadows vertex:vert alpha:blend
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
 
 		struct Input {
 			float4 color : COLOR;
-			half alpha : TEXCOORD0;
 		};		
 
 		sampler2D _MainTex;
@@ -41,7 +40,7 @@
 			// the color comes from a texture tinted by color
 			float4 movingNoiseMap = tex2Dlod(_NoiseTex, float4(v.vertex.xy + _MovementDirection.xy * _Time.y * 0.003, v.vertex.yw)); // tex2D is now allowed in vertex shader. use tex2dlod instead
 			float4 movingVertPos = float4(v.normal * _Amplitude, 0) * movingNoiseMap;
-			v.vertex += float4(movingVertPos.x, movingVertPos.y, movingVertPos.z -_Offset, movingVertPos.w);
+			v.vertex += float4(movingVertPos.x, movingVertPos.y -_Offset, movingVertPos.z, movingVertPos.w);
 			v.color = tex2Dlod(_MainTex, v.texcoord) * _Color;
         }
 
@@ -49,12 +48,12 @@
 		half _Metallic;
 		half _Alpha;
 
-		void surf (Input IN, inout SurfaceOutputStandard o) {
+		void surf (Input IN, inout SurfaceOutputStandardSpecular o) {
 			// Albedo comes from the vertex input
 			o.Albedo = IN.color;
 			// Metallic and smoothness come from slider variables
-			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
+			o.Specular = fixed3(0,0,0);
 			o.Alpha = _Alpha;
 		}
 		ENDCG
