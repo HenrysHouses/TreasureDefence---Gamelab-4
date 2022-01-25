@@ -23,7 +23,12 @@ public class MoveInRiver : MonoBehaviour
     public float speed;
 
     private Rigidbody rb;
-    
+
+    private void Start()
+    {
+        pc = GameManager.instance.pathController;
+    }
+
     private void FixedUpdate()
     {
         if (isInRiver)

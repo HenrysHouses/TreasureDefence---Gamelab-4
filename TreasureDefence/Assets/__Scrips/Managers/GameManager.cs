@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,11 +21,13 @@ public class GameManager : MonoBehaviour
 
     private bool mapSetUp = false;
 
-    private bool isWave;
+    public bool isWave;
 
     public float windSpeed;
+    public float minWindSpeed;
+    public float maxWindSpeed;
     
-    void Start()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -34,7 +38,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        windSpeed = Random.Range(0.8f, 1.2f);
+        windSpeed = Random.Range(minWindSpeed, maxWindSpeed);
         
         numWavesMax = enemyPerWave.Length;
     }
