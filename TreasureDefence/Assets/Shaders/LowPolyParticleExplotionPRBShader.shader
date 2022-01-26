@@ -13,13 +13,13 @@ Shader "Custom/ParticleExplotion"
     }
     SubShader
     {
-        Tags { "RenderType"="Transparent" }
+        Tags { "RenderType"="Opaque" }
         LOD 200
 
         ZTest Always
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows vertex:vert
+        #pragma surface surf Standard fullforwardshadows vertex:vert 
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
@@ -29,14 +29,15 @@ Shader "Custom/ParticleExplotion"
         struct Input
         {
             float2 uv_MainTex;
+            float3 viewDir;
             float texcoord : TEXCOORD3;
+            float3 worldRefl; INTERNAL_DATA
         };
 
         void vert (inout appdata_full v) {
 			// the color comes from a texture tinted by color
-            v.texcoord = mul( unity_ObjectToWorld, v.vertex);
+            // v.texcoord = mul( unity_ObjectToWorld, v.vertex);
         }
-
 
         half _Glossiness;
         half _Metallic;
@@ -44,8 +45,6 @@ Shader "Custom/ParticleExplotion"
 
         float4 _ColorFernel;
         float _FernelStrength;
-
-        float3 _VectorDebug;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -58,9 +57,9 @@ Shader "Custom/ParticleExplotion"
         {
             // calculate fernel
             float3 N = normalize(o.Normal);
-            float3 V = normalize(_WorldSpaceCameraPos - IN.texcoord);
+            float3 V = IN.viewDir;
             
-            _VectorDebug = _WorldSpaceCameraPos;
+            // float3 Vn = WorldReflectionVector (IN, o.Normal);
 
             float fernel = 1-dot(V, N) * _FernelStrength;
 
