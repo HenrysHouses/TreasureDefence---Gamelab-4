@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc44683010222e46a937c266e1ef711, type: 3}
+  m_Name: TestLevel
+  m_EditorClassIdentifier: 
+  waves:
+  - waveData:
+    - enemyPfb: {fileID: 3929955107486375170, guid: 1942516850df0f348a222cde431f820c, type: 3}
+      Cooldown: 1
+      repeat: 3
+    - enemyPfb: {fileID: 1659799740115392048, guid: 80f20c9f9381d754291a96c6526eec24, type: 3}
+      Cooldown: 1
+      repeat: 3
+  - waveData:
+    - enemyPfb: {fileID: 3929955107486375170, guid: 1942516850df0f348a222cde431f820c, type: 3}
+      Cooldown: 1
+      repeat: 0
+    - enemyPfb: {fileID: 1659799740115392048, guid: 80f20c9f9381d754291a96c6526eec24, type: 3}
+      Cooldown: 1
+      repeat: 0
+    - enemyPfb: {fileID: 3929955107486375170, guid: 1942516850df0f348a222cde431f820c, type: 3}
+      Cooldown: 1
+      repeat: 0

@@ -29,7 +29,7 @@ public class RotateTowardsTransform : MonoBehaviour
             Destroy(gameObject);
         }
         
-        Debug.Log(toRotation);
+        // Debug.Log(toRotation);
     }
 
     void FixedUpdate()
