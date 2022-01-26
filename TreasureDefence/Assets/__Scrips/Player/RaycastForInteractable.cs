@@ -1,6 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.SymbolStore;
 using UnityEngine;
 
 public class RaycastForInteractable : MonoBehaviour
@@ -17,10 +16,18 @@ public class RaycastForInteractable : MonoBehaviour
     
     private GameObject item;
     private bool hasItem;
+    private Interactable heldItem;
 
     public Transform objectHolderPosition;
     public Transform cam;
-    
+
+    private float holdOffset;
+
+    private void Start()
+    {
+        objectHolderPosition.transform.position = cam.transform.position + cam.transform.forward * 1.5f;
+    }
+
     void Update()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -51,7 +58,7 @@ public class RaycastForInteractable : MonoBehaviour
             var pickupRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit pickupHit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 3.5f))
             {
                 if (!hasItem)
                 {
@@ -64,22 +71,34 @@ public class RaycastForInteractable : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             hasItem = false;
-            item.GetComponent<Rigidbody>().useGravity = true;
+            if (item != null)
+            {
+                item.GetComponent<Rigidbody>().useGravity = true;
+                heldItem.SetHeld(false);
+            }
+            item = null;
         }
 
-        if (hasItem == true)
+        if (hasItem)
         {
-            item.transform.position = objectHolderPosition.transform.position;
-
             if(Input.mouseScrollDelta.x !=0)
             {
-                objectHolderPosition.transform.position -= cam.transform.forward * Time.deltaTime * Input.mouseScrollDelta.x * 50;
+                holdOffset -= Input.mouseScrollDelta.x * 50 * Time.deltaTime;
+                holdOffset = Mathf.Clamp(holdOffset, 1f, 30f);
+                
+                objectHolderPosition.transform.position = cam.transform.position + cam.transform.forward * holdOffset;
             }
             else if (Input.mouseScrollDelta.y != 0)
             {
-                objectHolderPosition.transform.position += cam.transform.forward * Time.deltaTime * Input.mouseScrollDelta.y * 50;
+                holdOffset += Input.mouseScrollDelta.y * 50 * Time.deltaTime;
+                holdOffset = Mathf.Clamp(holdOffset, 1f, 30f);
+                
+                objectHolderPosition.transform.position = cam.transform.position + cam.transform.forward * holdOffset;
             }
-               
+        
+            Debug.Log("Offset: " + holdOffset);
+
+            item.transform.position = objectHolderPosition.transform.position;
         }
         
         if (Input.GetKeyDown(KeyCode.Space))
@@ -89,8 +108,12 @@ public class RaycastForInteractable : MonoBehaviour
     
     void PickUp(GameObject gameobject)
     {
-        if (gameobject.GetComponent<Interactable>() != null)
+        heldItem = gameobject.GetComponent<Interactable>();
+
+        if (heldItem != null)
         {
+            heldItem.SetHeld(true);
+            
             item = gameobject;
             item.GetComponent<Rigidbody>().useGravity = false;
             hasItem = true;
@@ -137,6 +160,8 @@ public class RaycastForInteractable : MonoBehaviour
             if (vendorMenu.activeInHierarchy)
             {
                 GameObject.FindGameObjectWithTag("Vendor").GetComponent<ShopManager>().SpawnTowerAtPoint();
+                
+                RotateTowardsTransform.instance.DoBuyAnimation();
             }
         }
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 #if UNITY_EDITOR	
 
 [ExecuteInEditMode]
-#endif
+
 public class PathExtender : MonoBehaviour
 {
 	/// <summary>
@@ -15,3 +15,4 @@ public class PathExtender : MonoBehaviour
 		parent.DrawControlPoints();
 	}
 }
+#endif

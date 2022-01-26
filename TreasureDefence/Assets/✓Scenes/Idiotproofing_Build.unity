@@ -217,10 +217,6 @@ RectTransform:
   - {fileID: 1964606618}
   - {fileID: 848734388}
   - {fileID: 2039795432}
-  - {fileID: 961981247}
-  - {fileID: 1616007878}
-  - {fileID: 315262905}
-  - {fileID: 1820123107}
   - {fileID: 1054349408}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -242,7 +238,7 @@ GameObject:
   - component: {fileID: 315262907}
   - component: {fileID: 315262906}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,17 +251,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315262904}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 72697384}
-  m_RootOrder: 5
+  m_Father: {fileID: 2039795432}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -363, y: -668}
-  m_SizeDelta: {x: 556, y: 883}
+  m_AnchoredPosition: {x: -11.01001, y: -15.499945}
+  m_SizeDelta: {x: -22.019993, y: -31.000109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &315262906
 MonoBehaviour:
@@ -289,7 +285,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 45
+    m_FontSize: 43
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -300,19 +296,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Purchase tower from Vendor
+  m_Text: '
 
-    ---------------------------------------
+
+    Purchase tower from Vendor
+
+    --------------------------------------
 
     Put
     tower on game board
 
-    ---------------------------------------
+    --------------------------------------
 
-    Take a
-    drink to start a round
+    Take a drink
+    to start a round
 
-    ---------------------------------------
+    --------------------------------------
 
     Repeat!               '
 --- !u!222 &315262907
@@ -497,7 +496,7 @@ GameObject:
   - component: {fileID: 848734390}
   - component: {fileID: 848734389}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: LeftBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,14 +512,16 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 961981247}
+  - {fileID: 1616007878}
   m_Father: {fileID: 72697384}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -595, y: -2}
-  m_SizeDelta: {x: 636.8, y: 1103}
+  m_SizeDelta: {x: 636.8, y: 990.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848734389
 MonoBehaviour:
@@ -572,7 +573,7 @@ GameObject:
   - component: {fileID: 961981249}
   - component: {fileID: 961981248}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ControlsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -585,17 +586,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961981246}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 72697384}
-  m_RootOrder: 3
+  m_Father: {fileID: 848734388}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 344, y: -148}
-  m_SizeDelta: {x: 500, y: 136.70001}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.30004883, y: -15.5}
+  m_SizeDelta: {x: -65.180084, y: -31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961981248
 MonoBehaviour:
@@ -672,7 +673,7 @@ RectTransform:
   m_Children:
   - {fileID: 826293023}
   m_Father: {fileID: 72697384}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -956,7 +957,7 @@ GameObject:
   - component: {fileID: 1616007880}
   - component: {fileID: 1616007879}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -969,17 +970,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616007877}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 72697384}
-  m_RootOrder: 4
+  m_Father: {fileID: 848734388}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 372, y: -668}
-  m_SizeDelta: {x: 556, y: 883}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.30004883, y: -15.5}
+  m_SizeDelta: {x: -65.180084, y: -31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1616007879
 MonoBehaviour:
@@ -1003,7 +1004,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 45
+    m_FontSize: 43
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -1014,7 +1015,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Movement: W, A, S, D\n--------------------------------------\nInteraction:
+  m_Text: "\n\nMovement: W, A, S, D\n--------------------------------------\nInteraction:
     E, Left-Click\n--------------------------------------\nChange held \nitem distance:
     Scroll-Wheel\n--------------------------------------\n\nTo pick up items, look
     at them and hold the left mouse button.\nTo drop them simply release the left
@@ -1039,7 +1040,7 @@ GameObject:
   - component: {fileID: 1820123109}
   - component: {fileID: 1820123108}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: TutorialText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1052,17 +1053,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820123106}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 72697384}
-  m_RootOrder: 6
+  m_Father: {fileID: 2039795432}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -338, y: -148}
-  m_SizeDelta: {x: 500, y: 136.70001}
+  m_AnchoredPosition: {x: -11.01001, y: -15.499945}
+  m_SizeDelta: {x: -22.019993, y: -31.000109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1820123108
 MonoBehaviour:
@@ -1118,7 +1119,7 @@ GameObject:
   - component: {fileID: 1964606620}
   - component: {fileID: 1964606619}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1193,7 +1194,7 @@ GameObject:
   - component: {fileID: 2039795434}
   - component: {fileID: 2039795433}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: RightBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1209,14 +1210,16 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 315262905}
+  - {fileID: 1820123107}
   m_Father: {fileID: 72697384}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 602, y: -2}
-  m_SizeDelta: {x: 636.8, y: 1103}
+  m_SizeDelta: {x: 636.8, y: 990.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2039795433
 MonoBehaviour:

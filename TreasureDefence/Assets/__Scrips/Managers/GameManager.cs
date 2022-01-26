@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
         windSpeed = Random.Range(minWindSpeed, maxWindSpeed);
         
         numWavesMax = enemyPerWave.Length;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public Vector3 GetPosOfEnemy(int index)
@@ -93,9 +95,8 @@ public class GameManager : MonoBehaviour
 
             currentWave++;
 
-            windSpeed = Random.Range(0.8f, 1.2f);
-            Debug.Log("Wind Speed: " + windSpeed);
-
+            windSpeed = Random.Range(minWindSpeed, maxWindSpeed);
+            
             if (currentWave >= numWavesMax)
             {
                 EndMap(true); // Already know this is bugged cuz player might lose on the last round, after all enemies have been spawned.
@@ -115,6 +116,16 @@ public class GameManager : MonoBehaviour
             // Player loses
             Debug.LogWarning("You lost and you suck ass! :)");
         }
+    }
+
+    private void WinMap()
+    {
+        
+    }
+
+    private void LoseMap()
+    {
+        
     }
 
     public void TakeDamage(int damage)
