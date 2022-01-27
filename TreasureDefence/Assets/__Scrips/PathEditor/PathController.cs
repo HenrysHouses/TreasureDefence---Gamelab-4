@@ -40,6 +40,7 @@ public static class ExtensionMethods
 
 public class PathController : MonoBehaviour
 {
+	public bool disabled;
 	[Range(1, 50)]
 	[SerializeField] int VertexPathAccuracy = 8;
 	[SerializeField] bool DrawEvenPoints = true;
@@ -448,6 +449,7 @@ public class PathController : MonoBehaviour
 			}
 		}
 		Recalculate = false;
+		gameObject.SetActive(disabled);
 	}
 #endif
 }
