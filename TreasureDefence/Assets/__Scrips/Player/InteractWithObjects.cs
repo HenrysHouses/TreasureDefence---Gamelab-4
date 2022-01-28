@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class InteractWithObjects : MonoBehaviour
-{    //Mikkel stole Runes code. I take credit.
+{   //Mikkel stole Runes code. I take credit.
     public bool hasItem;
     private GameObject item;
     public GameObject point;
