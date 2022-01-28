@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2251695599881115556}
   - component: {fileID: 1438879587087990059}
-  - component: {fileID: 1438879587087990058}
   - component: {fileID: 1438879585420382590}
   - component: {fileID: 1438879585420390019}
   - component: {fileID: 1438879585420382588}
   - component: {fileID: 1438879585420382591}
   - component: {fileID: 1438879585420390017}
+  - component: {fileID: 2686150451853558352}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -52,19 +52,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.2, z: 0.1}
   m_Center: {x: 0, y: 0.1, z: 0}
---- !u!114 &1438879587087990058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145837736746996029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc46bea95ecdeb842b500421c31a4a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj: {fileID: 975407893581558086}
 --- !u!54 &1438879585420382590
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,13 +123,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pc: {fileID: 0}
-  op:
-    pos: {x: 0, y: 0, z: 0}
-    rot: {x: 0, y: 0, z: 0, w: 0}
   isOnPoint: 0
   isInRiver: 0
   moveDirection: {x: 0, y: 0, z: 0}
   speed: 0.09
+--- !u!114 &2686150451853558352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145837736746996029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8c511d3ab1d4d4abe7632c82154c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionButton: 323
+  canBeHeld: 1
+  lookTriggerEnabled: 0
+  held: 0
+  obj: {fileID: 975407893581558086}
+  towerInfo: {fileID: 0}
 --- !u!1 &3344055757913185163
 GameObject:
   m_ObjectHideFlags: 0

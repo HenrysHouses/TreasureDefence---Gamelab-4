@@ -1,7 +1,5 @@
 using UnityEngine;
 
-using UnityEngine;
-
 [CreateAssetMenu(menuName = "TreasureDefence/New Level")]
 public class LevelWaveSequence : ScriptableObject
 {

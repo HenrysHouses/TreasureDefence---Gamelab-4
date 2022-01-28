@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RaycastForInteractable : MonoBehaviour
 {
-	public string tag;
+	// public string tag;
 
 	[SerializeField]
 	public LayerMask layerMask;
@@ -56,7 +56,7 @@ public class RaycastForInteractable : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Mouse0) && !hasItem)
 		{
 			var pickupRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit pickupHit;
+			// RaycastHit pickupHit;
 
 			if (Physics.Raycast(ray, out hit, 3.5f))
 			{

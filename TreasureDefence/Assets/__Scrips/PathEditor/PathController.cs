@@ -1,4 +1,8 @@
-using System.Collections;
+/*
+ * Written by:
+ * Henrik
+*/
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -40,6 +44,7 @@ public static class ExtensionMethods
 
 public class PathController : MonoBehaviour
 {
+	public bool _DrawBezierCurve = true;
 	public bool controlPointsEnabled = true;
 	[Range(1, 50)]
 	[SerializeField] int VertexPathAccuracy = 8;
@@ -84,7 +89,8 @@ public class PathController : MonoBehaviour
 	/// </summary>
 	void OnDrawGizmosSelected()
 	{
-		DrawControlPoints();
+		if(controlPointsEnabled)
+			DrawControlPoints();
 	}
 
 
@@ -97,7 +103,8 @@ public class PathController : MonoBehaviour
 			OnValidate();
 		
 		refreshControlPoints();
-		DrawBezierCurve();
+		if(_DrawBezierCurve)
+			DrawBezierCurve();
 		if(DrawUpVector)
 			DrawUpVectorGizmo();
 	}
@@ -161,15 +168,6 @@ public class PathController : MonoBehaviour
 				up = point.LocalToWorldPos(up);
 				up = new Vector3(up.x, up.y * GizmoSize, up.z);
 				Handles.DrawLine(point.pos, up);
-				
-				
-				//extracting up vector from quaternion
-				// float x = 2f * (point.rot.x*point.rot.y - point.rot.w*point.rot.z);
-				// float y = 1f - 2f * (point.rot.x*point.rot.x + point.rot.z*point.rot.z);
-				// float z = 2f * (point.rot.y*point.rot.z + point.rot.w*point.rot.x);
-				
-				// Vector3 up = new Vector3(x,y,z);
-				// Vector3 up = point.tangent.normalized;
 			}
 		}
 	}
@@ -449,7 +447,21 @@ public class PathController : MonoBehaviour
 			}
 		}
 		Recalculate = false;
-		gameObject.SetActive(controlPointsEnabled);
+		
+		if(!controlPointsEnabled)
+		{
+			foreach (var point in controlPoints)
+			{
+				point.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.NotEditable;
+			}
+		}
+		else
+		{
+			foreach (var point in controlPoints)
+			{
+				point.gameObject.hideFlags = HideFlags.None;
+			}			
+		}
 	}
 #endif
 }

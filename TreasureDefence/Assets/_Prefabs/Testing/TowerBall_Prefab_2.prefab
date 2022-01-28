@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 6938852152956774571}
   - component: {fileID: 6938852152956774570}
   - component: {fileID: 6938852152956774565}
-  - component: {fileID: 3933970967403424607}
   - component: {fileID: -3879461749433243257}
   m_Layer: 0
   m_Name: TowerBall_Prefab_2
@@ -182,18 +181,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3933970967403424607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6938852152956774564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc46bea95ecdeb842b500421c31a4a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &-3879461749433243257
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -220,7 +207,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9184071589137973627}
   - component: {fileID: 8339589094889384948}
-  - component: {fileID: 8339589094889384949}
   - component: {fileID: 8339589094273304483}
   - component: {fileID: 8339589094273304480}
   - component: {fileID: 8339589094273316958}
@@ -259,18 +245,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.2, z: 0.1}
   m_Center: {x: 0, y: 0.1, z: 0}
---- !u!114 &8339589094889384949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7083563953880303586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc46bea95ecdeb842b500421c31a4a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8339589094273304483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.6
-  enabled: 0
+  _enabled: 0
 --- !u!114 &8339589094273316958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,9 +287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pc: {fileID: 0}
-  op:
-    pos: {x: 0, y: 0, z: 0}
-    rot: {x: 0, y: 0, z: 0, w: 0}
   isOnPoint: 0
   isInRiver: 0
   moveDirection: {x: 0, y: 0, z: 0}

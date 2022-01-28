@@ -7,7 +7,7 @@ public class MoveInRiver : MonoBehaviour
 {
     public PathController pc;
 
-    public OrientedPoint op;
+    OrientedPoint op;
 
     public bool isOnPoint;
 
@@ -49,7 +49,7 @@ public class MoveInRiver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("River"))
+        if (other.CompareTag("River") && op != null)
         {
             op = pc.getClosestOP(transform, ref point);
 

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 	
 	private int playerHealth;
 	
-	private int currentWave = 0;
+	// private int currentWave = 0;
 	private int numWavesMax;
 
 	private bool mapSetUp = false;
@@ -63,18 +63,20 @@ public class GameManager : MonoBehaviour
 		return enemies[index].GetProgress();
 	}
 	
-	public void Setup(int maxWaves, int maxHealth)      // When player chooses a new map. Instead of ints we can give 
-	{                                                   // maps a scriptableobject (or something) and pass several variables to the GM. Cleaner imo
-		if (!mapSetUp)
-		{
-			currentWave = 0;
-			numWavesMax = maxWaves;
+	// ! depreciated
+	
+	// public void Setup(int maxWaves, int maxHealth)      // When player chooses a new map. Instead of ints we can give 
+	// {                                                   // maps a scriptableobject (or something) and pass several variables to the GM. Cleaner imo
+	// 	if (!mapSetUp)
+	// 	{
+	// 		currentWave = 0;
+	// 		numWavesMax = maxWaves;
 
-			playerHealth = maxHealth;           // Should player health change based on map?
+	// 		playerHealth = maxHealth;           // Should player health change based on map?
 
-			mapSetUp = true;
-		}
-	}
+	// 		mapSetUp = true;
+	// 	}
+	// }
 
 	public void ResetMap()     // Called if player wins, loses, or gives up on a map
 	{

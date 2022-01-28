@@ -1,3 +1,8 @@
+/*
+ * Written by:
+ * Henrik
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +10,23 @@ using UnityEngine;
 public class Level_Interactable : Interactable
 {
 	
-	override public void Interact()
+	override public void InteractTrigger(object target = null)
 	{
-		SetHeld(true);
+		PlayerInteraction player = target as PlayerInteraction;
+		
+		SetHeld(true, player.GetHoldPoint);
 	}
 	
-	override public void InteractionEnd()
+	override public void InteractionEndTrigger(object target = null)
 	{
-		SetHeld(false);
+		PlayerInteraction player = target as PlayerInteraction;
+		
+		SetHeld(false, player.GetHoldPoint);
+	}
+	
+	override public void lookTrigger(object target = null)
+	{
+
 	}
 	
 	// Update is called once per frame

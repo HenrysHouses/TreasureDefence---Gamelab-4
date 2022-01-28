@@ -1,3 +1,8 @@
+/*
+ * Written by:
+ * Henrik
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +13,23 @@ public class Tower_Interactable : Interactable
 	
 	public TowerInfo towerInfo;
 	
-	override public void Interact()
+	override public void InteractTrigger(object target = null)
 	{
-		SetHeld(true);
+		PlayerInteraction player = target as PlayerInteraction;
+		
+		SetHeld(true, player.GetHoldPoint);
 	}
 	
-	override public void InteractionEnd()
+	override public void InteractionEndTrigger(object target = null)
 	{
-		SetHeld(false);
+		PlayerInteraction player = target as PlayerInteraction;
+		
+		SetHeld(false, player.GetHoldPoint);
+	}
+	
+	override public void lookTrigger(object target = null)
+	{
+			
 	}
 	
 	/// <summary>
@@ -23,7 +37,12 @@ public class Tower_Interactable : Interactable
 	/// </summary>
 	void Update()
 	{
-		
+		if(held)
+		{
+			Vector3 rot = transform.eulerAngles;
+			rot = new Vector3(0, rot.y, 0);
+			transform.eulerAngles = rot;
+		}
 	}
 	
 	private void FixedUpdate()
@@ -43,7 +62,6 @@ public class Tower_Interactable : Interactable
 				}
 
 				obj.transform.position = hit.point;
-				Debug.Log(hit.collider.name);
 			}
 			else
 			{

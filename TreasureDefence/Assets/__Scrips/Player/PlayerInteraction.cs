@@ -1,59 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
+/*
+ * Written by:
+ * Henrik
+*/
+
 using UnityEngine;
-using UnityEngine.Events;
+
+// TODO scroll to move hold point
+// TODO move hold point backwards when facing walls/obstructions
 
 public class PlayerInteraction : MonoBehaviour
 {
-	[SerializeField] KeyCode InteractionButton;
 	[SerializeField] float InteractionDist = 3.5f;
-	[SerializeField] Transform holdPoint;
+	[SerializeField] Transform _holdPoint;
+	public Transform GetHoldPoint => _holdPoint;
 	public Interactable currentInteractable;
+	private bool isBusy;
 	
-	private UnityEvent OnInteractionEnd = new UnityEvent();
-	
-	
-	void Start()
-	{
-		
-	}
-	
-
 	private void Update()
 	{
-		if (!currentInteractable) // Start interaction
+		if (!isBusy) // Start interaction
 		{
-			if (Input.GetKeyDown(InteractionButton))
+			var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			
+			if (Physics.Raycast(ray, out hit, InteractionDist))
 			{
-				var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-				RaycastHit hit;
-				
-				if (Physics.Raycast(ray, out hit, InteractionDist))
+				if(hit.collider.TryGetComponent<Interactable>(out currentInteractable))
 				{
-					if(hit.collider.TryGetComponent<Interactable>(out currentInteractable))
-					{
-						currentInteractable.Interact();
-					}
+					if(currentInteractable.lookTriggerEnabled)
+						currentInteractable.lookTrigger(this);
+					
+					if(Input.GetKeyDown(currentInteractable.interactionButton))
+						startInteraction();
 				}
 			}
 		}
-		else // End interaction OR wait until interaction is done
+		else if(currentInteractable) // End interaction OR wait until interaction is done
 		{
-			if(currentInteractable.canBeHeld)
-			{
-				currentInteractable.transform.position = holdPoint.position;
-			}
+			// * This code has been moved and changed.
+			// if(currentInteractable.canBeHeld && currentInteractable.held) // ? dont know if this code should be here or on the interactable class
+			// {
+			// 	currentInteractable.transform.position = holdPoint.position;
+			// }
 
-			if(Input.GetKeyUp(InteractionButton))
+			if(Input.GetKeyUp(currentInteractable.interactionButton))
 			{
 				endInteraction();
 			}
 		}
 	}
 	
-	public void endInteraction()
+	private void startInteraction()
 	{
-		currentInteractable.InteractionEnd();
+		currentInteractable.InteractTrigger(this);
+		isBusy = true;
+	}
+	
+	private void endInteraction()
+	{
+		currentInteractable.InteractionEndTrigger(this);
 		currentInteractable = null;
+		isBusy = false;
 	}
 }

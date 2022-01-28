@@ -1,5 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+/*
+ * Written by:
+ * Henrik
+*/
+
 using UnityEngine;
 using UnityEditor;
 
@@ -24,6 +27,5 @@ static public class Path
 			controller.controlPoints.Add(controlPoint.transform);
 		}
 	}
-
 }
 #endif

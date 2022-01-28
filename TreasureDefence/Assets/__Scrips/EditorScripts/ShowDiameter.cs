@@ -7,13 +7,13 @@ public class ShowDiameter : MonoBehaviour
 {
     public float radius;
 
-    public bool enabled;
+    public bool _enabled;
     
     void OnDrawGizmosSelected()
     {
         //MyGizmofs.DrawWireCircle(transform.position, Quaternion.LookRotation(transform.right), radius);
         
-        if (enabled)
+        if (_enabled)
             Gizmos.DrawSphere(transform.position, radius);
     }
 }
