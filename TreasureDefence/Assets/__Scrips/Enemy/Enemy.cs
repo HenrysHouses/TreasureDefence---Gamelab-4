@@ -41,9 +41,10 @@ public class Enemy : MonoBehaviour
 
 	void Update()
 	{
-		progress += GameManager.instance.windSpeed * Time.deltaTime;
 		
-		op = path.GetEvenPathOP(enemyStats.speed * progress);
+		progress = Mathf.Clamp(progress + Time.deltaTime * enemyStats.speed, 0, 1);
+		
+		op = path.GetEvenPathOP(progress);
 		// op = path.GetPathOP(enemyStats.speed * progress);
 
 		transform.position = op.pos;

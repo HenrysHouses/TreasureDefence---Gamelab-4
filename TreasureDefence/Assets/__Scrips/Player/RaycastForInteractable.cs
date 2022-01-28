@@ -67,14 +67,15 @@ public class RaycastForInteractable : MonoBehaviour
 			}
 
 		}
-
+		// ! depreciated
 		if (Input.GetMouseButtonUp(0))
 		{
+			Debug.Log("this method has been depreciated and functionality may not work " + this);
 			hasItem = false;
 			if (item != null)
 			{
 				item.GetComponent<Rigidbody>().useGravity = true;
-				heldItem.SetHeld(false);
+				// heldItem.SetHeld(false);
 			}
 			item = null;
 		}
@@ -105,14 +106,15 @@ public class RaycastForInteractable : MonoBehaviour
 			StartNextWave();
 	}
 
-	
+	// ! depreciated
 	void PickUp(GameObject gameobject)
 	{
+		Debug.Log("this method has been depreciated and functionality may not work " + this);
 		heldItem = gameobject.GetComponent<Interactable>();
 
 		if (heldItem != null)
 		{
-			heldItem.SetHeld(true);
+			// heldItem.SetHeld(true);
 			
 			item = gameobject;
 			item.GetComponent<Rigidbody>().useGravity = false;
@@ -183,7 +185,7 @@ public class RaycastForInteractable : MonoBehaviour
 		{
 			if (vendorMenu.activeInHierarchy)
 			{
-				GameObject.FindGameObjectWithTag("Vendor").GetComponent<ShopManager>().SpawnTowerAtPoint();
+				// GameObject.FindGameObjectWithTag("Vendor").GetComponent<ShopManager>().SpawnTowerAtPoint();
 				
 				RotateTowardsTransform.instance.DoBuyAnimation();
 			}

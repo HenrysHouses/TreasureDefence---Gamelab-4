@@ -2,10 +2,16 @@ using UnityEngine;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "TreasureDefence/LevelWaveSequence")]
+[CreateAssetMenu(menuName = "TreasureDefence/New Level")]
 public class LevelWaveSequence : ScriptableObject
 {
+	public GameObject LevelPrefab;
 	public WaveSequence[] waves;
+	
+	public PathController GetPathController()
+	{
+		return LevelPrefab.GetComponentInChildren<PathController>();
+	}
 }
 
 

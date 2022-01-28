@@ -6,13 +6,14 @@ public class WaveController : MonoBehaviour
 {
 	// Level variables
 	public LevelWaveSequence LevelData;
-	[SerializeField] private int currentWave;
-	[SerializeField] Transform EnemyParent;
+	private int currentWave;
+	Transform EnemyParent;
 	
 	// Individual wave variables
-	bool waveIsInProgress;
+	bool waveIsInProgress, levelComplete;
 	
 	public bool waveIsPlaying => waveIsInProgress;
+	public bool levelWon => levelComplete;
 	
 	private int waveProgress;
 
@@ -24,6 +25,7 @@ public class WaveController : MonoBehaviour
 	void Start()
 	{
 		EnemyParent = GameObject.FindGameObjectWithTag("EnemyHolder").transform;
+		GameManager.instance.pathController = LevelData.GetPathController();
 	}
 
 	// Update is called once per frame
@@ -47,12 +49,20 @@ public class WaveController : MonoBehaviour
 	}
 	public void nextWave()
 	{
-		waveIsInProgress = true;
+		if(!levelComplete)
+			waveIsInProgress = true;
+		else
+			Debug.Log("Level is complete");
 	}
 	
 	private int getWaveLength()
 	{
 		return LevelData.waves[currentWave].waveData.Length;
+	}
+	
+	private int getWaveCount()
+	{
+		return LevelData.waves.Length;
 	}
 	
 	private void EndOfWave()
@@ -62,6 +72,9 @@ public class WaveController : MonoBehaviour
 		cooldownTimer = 0;
 		currentCooldown = 0;
 		repeatSpawn = -1;
+		
+		if(currentWave == getWaveCount())
+			levelComplete = true;
 	}
 	
 	Enemy SpawnNextEnemy()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 { public int total;
-    Tower_Interactable ti;
+    TowerInfo ti;
 
     public List<TowerInfo> items = new List<TowerInfo>();  
 
@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
 
         if (ti != null)
         {
-            items.Add(ti.TowerInfo); 
+            items.Add(ti); 
         }
         
     }
