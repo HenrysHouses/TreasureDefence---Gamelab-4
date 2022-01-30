@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 3b614fc5bedcf8e42bdd14f65feb9a00, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5930db40e2212ff49abde6268185cbd2, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 3768da572546a7c45a18a5ec95adca5d, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -222,7 +222,7 @@ Transform:
   - {fileID: 312990900}
   - {fileID: 1403331160}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &41757855
 GameObject:
@@ -415,7 +415,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &126184555 stripped
 Transform:
@@ -1558,7 +1558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653949651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.895, y: -0.448, z: -1.148}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1267659503}
@@ -2060,9 +2060,9 @@ Canvas:
   m_GameObject: {fileID: 1017619021}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 1895055305}
+  m_PlaneDistance: 0.4
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2089,7 +2089,7 @@ RectTransform:
   - {fileID: 1091506076}
   - {fileID: 1475179968}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2548,7 +2548,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -150.88405}
+  m_AnchoredPosition: {x: 0, y: -150.88403}
   m_SizeDelta: {x: 3000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1166617939 stripped
@@ -3098,7 +3098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offsetValue: 0.613
-  riseSpeed: 0.05
+  riseSpeed: 0.1
 --- !u!65 &1267659505
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3896,7 +3896,7 @@ Transform:
   - {fileID: 1197933399}
   - {fileID: 1093836720}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1403331160 stripped
 Transform:
@@ -4456,7 +4456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597012641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.511065, y: -2.5350997, z: 1.6205082}
+  m_LocalPosition: {x: 1.511065, y: -2.349, z: 1.6205082}
   m_LocalScale: {x: 1.62, y: 1.62, z: 1.62}
   m_Children: []
   m_Father: {fileID: 10706004}
@@ -4472,6 +4472,10 @@ PrefabInstance:
     - target: {fileID: 145837736746996029, guid: ea338898bd5cf6c4f8b0f8cbbd135f2b, type: 3}
       propertyPath: m_Name
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 145837736746996029, guid: ea338898bd5cf6c4f8b0f8cbbd135f2b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2251695599881115556, guid: ea338898bd5cf6c4f8b0f8cbbd135f2b, type: 3}
       propertyPath: m_RootOrder
@@ -4643,6 +4647,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.3, z: 0.2}
   m_Center: {x: 0, y: 0.15, z: 0}
+--- !u!114 &1761908208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761908206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb1c3429cf66004283b804deb2a443a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionButton: 101
+  canBeHeld: 0
+  lookTriggerEnabled: 1
+  lookIsActive: 0
+  held: 0
+  ePrompt: {fileID: 1091506075}
 --- !u!4 &1774015685 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2251695599881115556, guid: ea338898bd5cf6c4f8b0f8cbbd135f2b, type: 3}
@@ -4829,6 +4851,7 @@ MonoBehaviour:
   _interactionButton: 323
   canBeHeld: 1
   lookTriggerEnabled: 0
+  lookIsActive: 0
   held: 0
   obj: {fileID: 2119550504}
   towerInfo: {fileID: 0}
@@ -4930,6 +4953,11 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3884407159374382717, guid: 151658f20775bee4da5f676eba0d9632, type: 3}
   m_PrefabInstance: {fileID: 5649298517434299301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1895055305 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20127477809793788, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
+  m_PrefabInstance: {fileID: 767932421}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1909136667
 GameObject:
@@ -5279,7 +5307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2737494497965995832, guid: 148422806dedeec40a1ccec931ca93ce, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5135493579109380226, guid: 148422806dedeec40a1ccec931ca93ce, type: 3}
       propertyPath: m_Name
@@ -5287,11 +5315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5135493579109380226, guid: 148422806dedeec40a1ccec931ca93ce, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5135493579109380226, guid: 148422806dedeec40a1ccec931ca93ce, type: 3}
       propertyPath: m_TagString
-      value: Cup
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 148422806dedeec40a1ccec931ca93ce, type: 3}
@@ -8460,7 +8488,7 @@ GameObject:
   - component: {fileID: 6564270032181934940}
   m_Layer: 0
   m_Name: TestLevel_Pickup
-  m_TagString: CurrentLevel
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8510,6 +8538,7 @@ MonoBehaviour:
   _interactionButton: 323
   canBeHeld: 1
   lookTriggerEnabled: 0
+  lookIsActive: 0
   held: 0
   LevelData: {fileID: 11400000, guid: c6507ee1b71c5474fa4de5c4c579c2da, type: 2}
 --- !u!54 &6564270032181934942

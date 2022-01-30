@@ -27,7 +27,12 @@ public class GameManager : MonoBehaviour
 	public WaveController GetWaveController()
 	{
 		if(waveController == null)
-			waveController = GameObject.FindGameObjectWithTag("CurrentLevel").GetComponent<WaveController>(); // this will need to be changed later
+		{
+			GameObject _level = GameObject.FindGameObjectWithTag("CurrentLevel");
+			if(_level)
+				waveController = _level.GetComponent<WaveController>(); // this will need to be changed later
+		}
+		Debug.Log(waveController);
 		return waveController;
 	}
 

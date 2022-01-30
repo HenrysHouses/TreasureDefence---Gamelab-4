@@ -41,7 +41,10 @@ public class WaveController : MonoBehaviour
 			
 			if(cooldownTimer > currentCooldown)
 			{
-				GameManager.instance.enemies.Add(SpawnNextEnemy());
+				Enemy spawn = SpawnNextEnemy();
+				
+				if(spawn)
+					GameManager.instance.enemies.Add(spawn);
 			}
 			else
 				cooldownTimer += Time.deltaTime;

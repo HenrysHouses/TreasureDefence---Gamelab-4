@@ -27,10 +27,8 @@ public class Tower_Interactable : Interactable
 		SetHeld(false, player.GetHoldPoint);
 	}
 	
-	override public void lookTrigger(object target = null)
-	{
-			
-	}
+	override public void LookInteraction(){}
+	
 	
 	/// <summary>
 	/// Update is called every frame, if the MonoBehaviour is enabled.

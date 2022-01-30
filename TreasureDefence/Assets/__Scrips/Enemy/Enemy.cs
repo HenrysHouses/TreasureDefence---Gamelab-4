@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 		op = path.GetEvenPathOP(progress);
 		// op = path.GetPathOP(enemyStats.speed * progress);
 
-		transform.position = op.pos;
+		transform.localPosition = op.pos;
 		transform.rotation = op.rot;
 	}
 

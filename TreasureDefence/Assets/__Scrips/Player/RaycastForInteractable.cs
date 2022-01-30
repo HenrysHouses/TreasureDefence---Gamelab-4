@@ -130,6 +130,8 @@ public class RaycastForInteractable : MonoBehaviour
 	}
 
 	// ? replacement for cup()
+	// ! depreciated, Check waveTrigger_Interactable.cs
+	
 	void StartNextWave()
 	{
 		if(!GameManager.instance.GetWaveController().waveIsPlaying)

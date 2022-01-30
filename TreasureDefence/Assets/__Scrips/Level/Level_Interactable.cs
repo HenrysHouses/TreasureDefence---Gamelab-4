@@ -24,14 +24,5 @@ public class Level_Interactable : Interactable
 		SetHeld(false, player.GetHoldPoint);
 	}
 	
-	override public void lookTrigger(object target = null)
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update()
-	{
-		// something should happen here
-	}
+	override public void LookInteraction(){}
 }

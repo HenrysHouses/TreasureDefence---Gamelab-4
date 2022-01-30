@@ -17,6 +17,9 @@ abstract public class Interactable : MonoBehaviour
 	public KeyCode interactionButton => _interactionButton;
 	public bool canBeHeld;
 	public bool lookTriggerEnabled;
+	[HideInInspector] public bool lookIsActive;
+	bool lookShouldStay;
+	public object lookData;
 	[HideInInspector] public bool held;
 	private Rigidbody rb;
 	private Transform originalParent;
@@ -25,6 +28,18 @@ abstract public class Interactable : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody>();
 		originalParent = transform.parent;
+	}
+	
+	void Update()
+	{
+		if(lookShouldStay)
+			lookIsActive = true;
+		else
+		{
+			lookIsActive = false;
+		}
+		LookInteraction();
+		lookShouldStay = false;
 	}
 
 	public bool SetHeld(bool state, Transform parent)
@@ -48,7 +63,13 @@ abstract public class Interactable : MonoBehaviour
 		return false;
 	}
 	
-	abstract public void lookTrigger(object target = null);
+	public void lookTrigger(object target = null)
+	{
+		lookData = target;
+		lookShouldStay = true;
+	}
+	
+	virtual public void LookInteraction(){}
 	abstract public void InteractTrigger(object target = null);
 	abstract public void InteractionEndTrigger(object target = null);
 }
