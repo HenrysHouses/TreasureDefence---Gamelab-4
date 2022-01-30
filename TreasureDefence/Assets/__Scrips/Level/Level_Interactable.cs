@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class Level_Interactable : Interactable
 {
-	
+	public LevelWaveSequence LevelData;
 	override public void InteractTrigger(object target = null)
 	{
 		PlayerInteraction player = target as PlayerInteraction;
@@ -26,7 +26,7 @@ public class Level_Interactable : Interactable
 	
 	override public void lookTrigger(object target = null)
 	{
-
+		
 	}
 	
 	// Update is called once per frame
