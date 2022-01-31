@@ -10,17 +10,20 @@ public class ShopManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("ItemEnteredShopTrigger");
         ti = other.gameObject.GetComponent<Tower_Interactable>().towerInfo;
 
         if (ti != null)
         {
-            items.Add(ti); 
+            items.Add(ti);
+            
         }
         
     }
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("ItemExitedShopTrigger");
         items.Remove(other.gameObject.GetComponent<Tower_Interactable>().towerInfo);
     
 
