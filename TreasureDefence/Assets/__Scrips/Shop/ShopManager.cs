@@ -16,7 +16,8 @@ public class ShopManager : MonoBehaviour
         if (ti != null)
         {
             items.Add(ti);
-            
+            //total = ti.cost;
+
         }
         
     }

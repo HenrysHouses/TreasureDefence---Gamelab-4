@@ -11,6 +11,7 @@ public class RaycastForInteractable : MonoBehaviour
 
 	public GameObject vendorGreeting;
 	public GameObject vendorMenu;
+	public ShopManager shopManager;
 
 	public GameObject ePrompt;
 	
@@ -30,6 +31,11 @@ public class RaycastForInteractable : MonoBehaviour
 
 	void Update()
 	{
+		if(Input.GetKeyDown(KeyCode.O))
+        {
+			GameManager.instance.money++;
+        }
+
 		var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 
@@ -188,9 +194,9 @@ public class RaycastForInteractable : MonoBehaviour
 			if (vendorMenu.activeInHierarchy)
 			{
 				// GameObject.FindGameObjectWithTag("Vendor").GetComponent<ShopManager>().SpawnTowerAtPoint();
-				
 				RotateTowardsTransform.instance.DoBuyAnimation();
 			}
+				shopManager.PayForTower();
 		}
 	}
 
