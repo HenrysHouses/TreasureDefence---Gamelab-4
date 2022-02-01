@@ -1,6 +1,6 @@
 /*
  * Written by:
- * Henrik
+ * Henrik - Used old code written by Rune
 */
 
 using UnityEngine;
@@ -76,7 +76,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	private void DeathTrigger()
 	{
 		GameManager.instance.RemoveEnemy(this);
-		CurrencyManager.instance.MoneyToAdd(moneyReward);
+		CurrencyManager.instance.AddMoney(moneyReward);
 		DeathRattle();
 		Destroy(gameObject);    // Let's improve this at some point
 	}

@@ -21,7 +21,7 @@ public class CurrencyManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        MoneyToAdd(20);
+        AddMoney(20);
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class CurrencyManager : MonoBehaviour
         
     }
 
-    public void MoneyToAdd(int CashIn)
+    public void AddMoney(int CashIn)
     {
         money += CashIn;
         moneyText.text = ("Money: " + money);
@@ -38,7 +38,7 @@ public class CurrencyManager : MonoBehaviour
         
     }
 
-    public bool MoneyToSubtract(int CashOut)
+    public bool SubtractMoney(int CashOut)
     {
         if(money - CashOut < 0)
         {

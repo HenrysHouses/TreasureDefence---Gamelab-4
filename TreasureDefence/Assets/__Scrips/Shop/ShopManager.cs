@@ -42,7 +42,7 @@ public class ShopManager : MonoBehaviour
 
        if(CurrencyManager.instance.money >= totalCost)
         {
-            CurrencyManager.instance.MoneyToSubtract(totalCost);
+            CurrencyManager.instance.SubtractMoney(totalCost);
             Debug.Log("You're rich.");
             for (int i = 0; i < Object.Count; i++)
             {
