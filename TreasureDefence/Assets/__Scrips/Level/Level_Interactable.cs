@@ -22,7 +22,5 @@ public class Level_Interactable : Interactable
 		PlayerInteraction player = target as PlayerInteraction;
 		
 		SetHeld(false, player.GetHoldPoint);
-	}
-	
-	override public void LookInteraction(){}
+	}	
 }
