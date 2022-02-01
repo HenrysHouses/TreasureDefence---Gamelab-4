@@ -1,5 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+/*
+ * Written by:
+ * Henrik
+*/
+
 using UnityEngine;
 
 public class WaveController : MonoBehaviour
@@ -8,6 +11,7 @@ public class WaveController : MonoBehaviour
 	public LevelWaveSequence LevelData;
 	private int currentWave;
 	Transform EnemyParent;
+	public Transform EnemyHolder => EnemyParent;
 	
 	// Individual wave variables
 	bool waveIsInProgress, levelComplete;
@@ -41,7 +45,7 @@ public class WaveController : MonoBehaviour
 			
 			if(cooldownTimer > currentCooldown)
 			{
-				Enemy spawn = SpawnNextEnemy();
+				EnemyBehaviour spawn = SpawnNextEnemy();
 				
 				if(spawn)
 					GameManager.instance.enemies.Add(spawn);
@@ -80,7 +84,7 @@ public class WaveController : MonoBehaviour
 			levelComplete = true;
 	}
 	
-	Enemy SpawnNextEnemy()
+	EnemyBehaviour SpawnNextEnemy()
 	{
 		GameObject spawn = null;
 		
@@ -108,7 +112,7 @@ public class WaveController : MonoBehaviour
 			// Debug.Log("decrease spawn repeat");
 		}
 		if(spawn != null)
-			return spawn.GetComponent<Enemy>();
+			return spawn.GetComponent<EnemyBehaviour>();
 		// Debug.Log(" no enemy was spawned");
 		return null;
 	}

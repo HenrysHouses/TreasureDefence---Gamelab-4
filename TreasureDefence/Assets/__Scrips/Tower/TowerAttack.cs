@@ -24,7 +24,7 @@ public class TowerAttack : MonoBehaviour
 
 	private List<float> enemyProgress = new List<float>();
 	
-	private Enemy target;
+	private EnemyBehaviour target;
 
 	private void Start()
 	{
@@ -49,7 +49,6 @@ public class TowerAttack : MonoBehaviour
 	{
 		if (target != null)
 		{
-			
 			target.TakeDamage(1);
 		}
 	}

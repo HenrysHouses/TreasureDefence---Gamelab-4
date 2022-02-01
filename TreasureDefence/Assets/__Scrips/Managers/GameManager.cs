@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 
-	public List<Enemy> enemies = new List<Enemy>();
+	public List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
 
 	public int[] enemyPerWave;
 	
@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
 			if(_level)
 				waveController = _level.GetComponent<WaveController>(); // this will need to be changed later
 		}
-		Debug.Log(waveController);
 		return waveController;
 	}
 
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour
 
 	public float GetProgressOfEnemy(int index)
 	{
-		return enemies[index].GetProgress();
+		return enemies[index].GetProgress;
 	}
 	
 	// ! depreciated
@@ -154,17 +153,15 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void AddEnemy(Enemy e)
+	public void AddEnemy(EnemyBehaviour e)
 	{
 		e.path = pathController;
 		
 		enemies.Add(e);
 	}
 
-	public void RemoveEnemy(Enemy e)
+	public void RemoveEnemy(EnemyBehaviour e)
 	{
 		enemies.Remove(e);
 	}
-	
-	
 }

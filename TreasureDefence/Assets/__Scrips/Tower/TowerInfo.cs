@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "TreasureDefence/ShopItem")]
 public class TowerInfo : ScriptableObject
 {                  
-    public int Type, cost;
-    public GameObject item;
-    
-
+	public int Type, cost;
+	public GameObject item;
 }

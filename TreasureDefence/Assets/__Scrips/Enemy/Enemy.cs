@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
 	
 	private void OnDestroy()
 	{
-		GameManager.instance.RemoveEnemy(this);
+		// GameManager.instance.RemoveEnemy(this);
 	}
 }
 
