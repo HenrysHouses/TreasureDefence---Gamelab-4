@@ -8,6 +8,7 @@ public class CurrencyManager : MonoBehaviour
     public static CurrencyManager instance;
     public int money;
     public Text moneyText;     // Displaying the amount of gold mate.
+    public Animator moneyBounceAnimation;
 
 
     private void Awake()
@@ -32,6 +33,8 @@ public class CurrencyManager : MonoBehaviour
     {
         money += CashIn;
         moneyText.text = ("Money: " + money);
+        //moneyBounceAnimation.SetTrigger("Bounce");
+        
     }
 
     public bool MoneyToSubtract(int CashOut)
