@@ -11,6 +11,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	public SO_Test enemyStats;
 	private OrientedPoint op;
 	[SerializeField] int health;
+	[SerializeField] int moneyReward;
 		
 	//public EnemyScriptableObject eso;
 
@@ -75,7 +76,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	private void DeathTrigger()
 	{
 		GameManager.instance.RemoveEnemy(this);
-		// GameManager.instance.
+		CurrencyManager.instance.MoneyToAdd(moneyReward);
 		DeathRattle();
 		Destroy(gameObject);    // Let's improve this at some point
 	}
