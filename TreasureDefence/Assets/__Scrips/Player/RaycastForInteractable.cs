@@ -33,7 +33,7 @@ public class RaycastForInteractable : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.O))
         {
-			GameManager.instance.money++;
+			CurrencyManager.instance.MoneyToAdd(1);
         }
 
 		var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
