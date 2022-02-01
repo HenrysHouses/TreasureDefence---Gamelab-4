@@ -82,6 +82,14 @@ public class PathController : MonoBehaviour
 	}
 	// Vector3 GetPos(int i ) => controlPoints[i].position;
 
+	void Start()
+	{
+		LOD = VertexPathAccuracy*3;
+		length = GetApproxLength();
+		
+		evenlySpacedPoints = calculateEvenlySpacedPoints(length/LOD);
+	}
+
 #if UNITY_EDITOR
 	
 	/// <summary>
