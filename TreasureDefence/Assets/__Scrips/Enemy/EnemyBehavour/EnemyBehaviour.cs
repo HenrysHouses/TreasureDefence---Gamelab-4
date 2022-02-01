@@ -36,7 +36,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		
 		progress = Mathf.Clamp(progress + Time.deltaTime * enemyStats.speed, 0, 1);
 		
-		op = path.GetEvenPathOP(progress);
+		op = path.GetPathOP(progress);// ! use GetEvenPathOP
 
 		transform.localPosition = op.pos;
 		transform.rotation = op.rot;
