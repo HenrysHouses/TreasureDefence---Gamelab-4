@@ -5,14 +5,21 @@ using UnityEngine.UI;
 
 public class CurrencyManager : MonoBehaviour
 {
+    public static CurrencyManager instance;
     public int money;
     public Text moneyText;     // Displaying the amount of gold mate.
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+      if(instance == null)
+        {
+            instance = this;
+        }
+      else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -24,6 +31,7 @@ public class CurrencyManager : MonoBehaviour
     public void MoneyToAdd(int CashIn)
     {
         money += CashIn;
+        moneyText.text = ("Money: " + money);
     }
 
     public bool MoneyToSubtract(int CashOut)
@@ -32,6 +40,9 @@ public class CurrencyManager : MonoBehaviour
         {
             return false;
         }
+        money -= CashOut;
+        moneyText.text = ("Money: " + money);  
+
         return true;
     }
 }

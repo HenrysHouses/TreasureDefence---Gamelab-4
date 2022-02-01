@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 
-	public int money;
-
 	public List<Enemy> enemies = new List<Enemy>();
 
 	public int[] enemyPerWave;

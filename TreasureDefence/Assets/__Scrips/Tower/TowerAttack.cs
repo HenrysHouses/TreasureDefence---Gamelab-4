@@ -29,6 +29,7 @@ public class TowerAttack : MonoBehaviour
 	private void Start()
 	{
 		InvokeRepeating(nameof(Attack), 0f, attackTime);
+		this.enabled = false;
 	}
 
 	void Update()
