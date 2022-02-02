@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1399488470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399488471}
+  m_Layer: 7
+  m_Name: ProjectileSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1399488471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399488470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.265, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2251695599881115556}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &145837736746996029
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,11 +42,10 @@ GameObject:
   - component: {fileID: 1438879587087990059}
   - component: {fileID: 1438879585420382590}
   - component: {fileID: 1438879585420390019}
-  - component: {fileID: 1438879585420382588}
   - component: {fileID: 1438879585420382591}
   - component: {fileID: 1438879585420390017}
-  - component: {fileID: 2686150451853558352}
   - component: {fileID: 1093836718}
+  - component: {fileID: 1625076952}
   m_Layer: 7
   m_Name: Tower
   m_TagString: River
@@ -37,6 +66,7 @@ Transform:
   m_Children:
   - {fileID: 947327303961125689}
   - {fileID: 7036399198813436835}
+  - {fileID: 1399488471}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 67.654, z: 0}
@@ -82,21 +112,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.145, z: 0.1}
   m_Center: {x: 0, y: 0.12, z: 0}
---- !u!114 &1438879585420382588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145837736746996029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e3f69d0348495249ad654e0b7b45c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetType: 0
-  towerRange: 0.6
-  attackTime: 1.35
 --- !u!114 &1438879585420382591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,24 +143,6 @@ MonoBehaviour:
   isInRiver: 0
   moveDirection: {x: 0, y: 0, z: 0}
   speed: 0.09
---- !u!114 &2686150451853558352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145837736746996029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8c511d3ab1d4d4abe7632c82154c42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionButton: 323
-  canBeHeld: 1
-  lookTriggerEnabled: 0
-  held: 0
-  obj: {fileID: 975407893581558086}
-  towerInfo: {fileID: 0}
 --- !u!114 &1093836718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,9 +158,32 @@ MonoBehaviour:
   _interactionButton: 323
   canBeHeld: 1
   lookTriggerEnabled: 0
+  lookIsActive: 0
   held: 0
   obj: {fileID: 975407893581558086}
   towerInfo: {fileID: 0}
+--- !u!114 &1625076952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145837736746996029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb102671ae73164a840b3280906c5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetType: 0
+  projectileSpawnPos: {fileID: 1399488471}
+  projectilePrefab: {fileID: 6513835444385219211, guid: e5e6262b08ce543478bbd7c2c3bb3f7c, type: 3}
+  ExplotionParticle: {fileID: 1595576975666691675, guid: 6f934e29c32d349429826a264258c578, type: 3}
+  canShoot: 1
+  attackDamage: 1
+  attackCooldown: 1.5
+  attackSpeed: 1
+  towerRange: 0.6
+  enemyTarget: {fileID: 0}
 --- !u!1 &3344055757913185163
 GameObject:
   m_ObjectHideFlags: 0
