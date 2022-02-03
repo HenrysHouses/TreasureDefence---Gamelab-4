@@ -12,7 +12,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	public EnemyInfo enemyInfo;
 	private OrientedPoint op;
 	[SerializeField] int health;
-	[SerializeField] bool isAttacking;
+	bool isAttacking;
 	/// <summary>should always be minimun length of attack anim ! This may be changed to automatic anim length</summary>
 	MeshRenderer mr;
 	
@@ -36,6 +36,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed, 0, 1);
 		
 		op = path.GetPathOP(progress);// ! use GetEvenPathOP
+		Debug.LogWarning("GetPathOP does not result in even enemy movement speed. use GetEvenPathOP instead");
 
 		transform.localPosition = op.pos;
 		transform.rotation = op.rot;
