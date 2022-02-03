@@ -22,6 +22,7 @@ public class WaveController : MonoBehaviour
 	[SerializeField] private int health;
 	public int currentHealth => health;
 	public LevelWaveSequence LevelData;
+	public LevelHandler levelHandler;
 	private int currentWave;
 	Transform EnemyParent;
 	public Transform EnemyHolder => EnemyParent;
@@ -42,6 +43,7 @@ public class WaveController : MonoBehaviour
 	void Start()
 	{
 		createInstance();
+		levelHandler = GetComponentInParent<LevelHandler>();
 		EnemyParent = GameObject.FindGameObjectWithTag("EnemyHolder").transform;
 		GameManager.instance.pathController = LevelData.GetPathController();
 		health = LevelData.lives;
@@ -50,7 +52,7 @@ public class WaveController : MonoBehaviour
 	// Update is called once per frame
 	void  Update()
 	{
-		if(health <= 0)
+		if(health <= 0 && !levelHandler.LevelStarted && !levelHandler.LevelEnded)
 			endLevel(true);
 			
 		if(waveIsInProgress)
@@ -83,7 +85,7 @@ public class WaveController : MonoBehaviour
 	
 	public void endLevel(bool lose = false)
 	{
-		GetComponentInParent<LevelHandler>().ExitLevel();
+		levelHandler.ExitLevel();
 		foreach (var enemy in GameManager.instance.enemies)
 		{
 			Destroy(enemy.gameObject);

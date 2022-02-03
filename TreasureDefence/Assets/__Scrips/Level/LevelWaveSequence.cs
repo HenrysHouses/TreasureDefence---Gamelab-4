@@ -6,7 +6,7 @@ public class LevelWaveSequence : ScriptableObject
 	public GameObject LevelPrefab;
 	public WaveSequence[] waves;
 	
-	public int lives;
+	public int lives = 1;
 
 	public PathController GetPathController()
 	{

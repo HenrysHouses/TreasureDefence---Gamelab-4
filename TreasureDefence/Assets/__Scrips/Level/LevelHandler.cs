@@ -6,8 +6,7 @@ using UnityEngine;
 public class LevelHandler : MonoBehaviour
 {
 	Transform currentLevel;
-	private bool LevelStarted;
-	public bool LevelEnded;
+	 public bool LevelEnded, LevelStarted;
 	[SerializeField] float _offsetValue = 0.613f, riseSpeed = 0.05f;
 	// Update is called once per frame
 	void Update()
