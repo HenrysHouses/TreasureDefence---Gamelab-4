@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 {
 	public PathController path;
 	
-	public SO_Test enemyStats;
+	public EnemyInfo enemyInfo;
 
 	private OrientedPoint op;
 
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
 	void Update()
 	{
 		
-		progress = Mathf.Clamp(progress + Time.deltaTime * enemyStats.speed, 0, 1);
+		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed, 0, 1);
 		
 		op = path.GetEvenPathOP(progress);
 		// op = path.GetPathOP(enemyStats.speed * progress);

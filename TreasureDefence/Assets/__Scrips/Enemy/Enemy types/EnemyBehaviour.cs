@@ -2,19 +2,18 @@
  * Written by:
  * Henrik - Used old code written by Rune
 */
+using System.Collections;
 
 using UnityEngine;
 
 abstract public class EnemyBehaviour : MonoBehaviour
 {
 	public PathController path;
-	public SO_Test enemyStats;
+	public EnemyInfo enemyInfo;
 	private OrientedPoint op;
 	[SerializeField] int health;
-	[SerializeField] int moneyReward;
-		
-	//public EnemyScriptableObject eso;
-
+	[SerializeField] bool isAttacking;
+	/// <summary>should always be minimun length of attack anim ! This may be changed to automatic anim length</summary>
 	MeshRenderer mr;
 	
 	float progress;
@@ -34,12 +33,27 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	void Update()
 	{
 		
-		progress = Mathf.Clamp(progress + Time.deltaTime * enemyStats.speed, 0, 1);
+		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed, 0, 1);
 		
 		op = path.GetPathOP(progress);// ! use GetEvenPathOP
 
 		transform.localPosition = op.pos;
 		transform.rotation = op.rot;
+		
+		if(progress >= 1 && WaveController.instance.currentHealth > 0) // when the enemy reaches the end
+		{
+			if(!isAttacking)
+				StartCoroutine(Attack());
+		}
+	}
+
+	public virtual IEnumerator Attack()
+	{
+		isAttacking = true;
+		WaveController.instance.dealDamage(enemyInfo.damage);
+		// play attack anim?
+		yield return new WaitForSeconds(enemyInfo.attackCooldown);
+		isAttacking = false;
 	}
 
 	public void TakeDamage(int damageAmount)
@@ -76,13 +90,13 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	private void DeathTrigger()
 	{
 		GameManager.instance.RemoveEnemy(this);
-		// CurrencyManager.instance.AddMoney(moneyReward);
+		// CurrencyManager.instance.AddMoney(enemyInfo.moneyReward);
 		DeathRattle();
 		Destroy(gameObject);    // Let's improve this at some point
 	}
 	
 	/// <summary>called when the enemy dies</summary>
-	public abstract void DeathRattle();
+	public virtual void DeathRattle(){}
 	public abstract void EnemyUpdate();
 	public virtual void DamageTrigger()
 	{
