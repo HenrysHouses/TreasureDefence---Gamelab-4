@@ -28,4 +28,6 @@ public class ClusterRattle_EnemyBehaviour : EnemyBehaviour
 		}
 	}
 	public override void EnemyUpdate(){}
+	public override void AnimTrigger(){}
+	
 }

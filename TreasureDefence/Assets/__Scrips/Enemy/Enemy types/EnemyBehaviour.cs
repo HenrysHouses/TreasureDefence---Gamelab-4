@@ -55,6 +55,8 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		yield return new WaitForSeconds(enemyInfo.attackCooldown);
 		isAttacking = false;
 	}
+	
+	public abstract void AnimTrigger();
 
 	public void TakeDamage(int damageAmount)
 	{
