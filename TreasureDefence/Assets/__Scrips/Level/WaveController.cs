@@ -22,13 +22,14 @@ public class WaveController : MonoBehaviour
 	[SerializeField] private int health;
 	public int currentHealth => health;
 	public LevelWaveSequence LevelData;
-	public LevelHandler levelHandler;
+	LevelHandler levelHandler;
 	private int currentWave;
 	Transform EnemyParent;
 	public Transform EnemyHolder => EnemyParent;
 	
 	// Individual wave variables
-	bool waveIsInProgress, levelComplete;
+	public List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
+	bool waveIsInProgress, levelComplete, levelIsEnding;
 	
 	public bool waveIsPlaying => waveIsInProgress;
 	public bool levelWon => levelComplete;
@@ -52,13 +53,13 @@ public class WaveController : MonoBehaviour
 	// Update is called once per frame
 	void  Update()
 	{
-		if(health <= 0) // loose condition
+		if(health <= 0 && !levelIsEnding) // loose condition
 			endLevel(true);
 			
 		if(waveIsInProgress)
 		{
 			
-			if(waveProgress == getWaveLength())
+			if(waveProgress == getWaveLength() && enemies.Count == 0)
 			{
 				waveIsInProgress = false;
 				EndOfWave();
@@ -69,7 +70,7 @@ public class WaveController : MonoBehaviour
 				EnemyBehaviour spawn = SpawnNextEnemy();
 				
 				if(spawn)
-					GameManager.instance.enemies.Add(spawn);
+					enemies.Add(spawn);
 			}
 			else
 				cooldownTimer += Time.deltaTime;
@@ -77,20 +78,24 @@ public class WaveController : MonoBehaviour
 	}
 	public void nextWave()
 	{
-		if(!levelComplete)
-			waveIsInProgress = true;
-		else
-			endLevel();
+		if(!levelIsEnding)
+		{
+			if(!levelComplete)
+				waveIsInProgress = true;
+			else
+				endLevel();
+		}
 	}
 	
 	public void endLevel(bool lose = false)
 	{
 		levelHandler.ExitLevel();
-		foreach (var enemy in GameManager.instance.enemies)
+		foreach (var enemy in enemies)
 		{
 			Destroy(enemy.gameObject);
 		}
-		GameManager.instance.enemies = new List<EnemyBehaviour>();
+		enemies = new List<EnemyBehaviour>();
+		levelIsEnding = true;
 		Debug.Log("Level is complete");
 		Debug.LogError("end of level is not implemented, see: " + this);
 	}
@@ -132,10 +137,9 @@ public class WaveController : MonoBehaviour
 		GameObject spawn = null;
 		
 		// Debug.Log("wave progress");
-		if(repeatSpawn == -1)
+		if(repeatSpawn == -1 && getLevelState())
 		{
 			repeatSpawn = getRepeatSpawn();
-			// Debug.Log("new repeat spawn");
 		}
 		else if(repeatSpawn > -1)
 		{
@@ -160,6 +164,13 @@ public class WaveController : MonoBehaviour
 		return null;
 	}
 	
+	public bool getLevelState()
+	{
+		if(LevelData.waves[currentWave].waveData.Length > waveProgress)
+			return true;
+		return false; 
+	}
+	
 	GameObject getEnemyPrefab()
 	{
 		return LevelData.waves[currentWave].waveData[waveProgress].enemyPfb;
@@ -172,7 +183,32 @@ public class WaveController : MonoBehaviour
 	
 	private int getRepeatSpawn()
 	{
+		// Debug.Log("wave: "+currentWave + " Progress: " + waveProgress);
+		// Debug.Log("wave Length: "+LevelData.waves.Length + " Progress: " + LevelData.waves[currentWave].waveData.Length);
 		int n = Mathf.Clamp(LevelData.waves[currentWave].waveData[waveProgress].repeat -1, 0, 100000);
-		return n;	
+		return n;
+	}
+	
+		public Vector3 GetPosOfEnemy(int index)
+	{
+		return enemies[index].GetPosition();
+	}
+
+	public float GetProgressOfEnemy(int index)
+	{
+		return enemies[index].GetProgress;
+	}
+	
+
+	public void AddEnemy(EnemyBehaviour e)
+	{
+		e.path = GameManager.instance.pathController;
+		
+		enemies.Add(e);
+	}
+
+	public void RemoveEnemy(EnemyBehaviour e)
+	{
+		enemies.Remove(e);
 	}
 }

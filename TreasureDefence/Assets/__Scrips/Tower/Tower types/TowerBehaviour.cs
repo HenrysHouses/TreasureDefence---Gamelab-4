@@ -26,7 +26,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 	
 	virtual public void Update()
 	{	
-		if(canShoot)
+		if(canShoot && WaveController.instance)
 		{
 			enemyTarget = CheckInRange(targetType);
 
@@ -58,30 +58,30 @@ abstract public class TowerBehaviour : MonoBehaviour
 
 				progress = 0f;
 				
-				for (int i = 0; i < GameManager.instance.enemies.Count; i++)
+				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
 				{
-					float dist = Vector3.Distance(transform.position, GameManager.instance.GetPosOfEnemy(i));
+					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
 			
 					if (dist < towerRange)
 					{
-						if (GameManager.instance.GetProgressOfEnemy(i) > progress)
+						if (WaveController.instance.GetProgressOfEnemy(i) > progress)
 						{
-							progress = GameManager.instance.GetProgressOfEnemy(i);
+							progress = WaveController.instance.GetProgressOfEnemy(i);
 							index = i;
 						}
 					}
 				}
 				// if a target was found
 				if (index != -1)
-					return GameManager.instance.enemies[index];
+					return WaveController.instance.enemies[index];
 				
 				break;
 			
 			case TargetType.Closest:
 				// Finding closest enemy
-				for (int i = 0; i < GameManager.instance.enemies.Count; i++)
+				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
 				{
-					float dist = Vector3.Distance(transform.position, GameManager.instance.GetPosOfEnemy(i));
+					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
 			
 					if (dist < towerRange)
 					{
@@ -94,7 +94,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 				}
 				// if a target was found
 				if (index != -1)
-					return GameManager.instance.enemies[index];
+					return WaveController.instance.enemies[index];
 				
 				break;
 			
@@ -105,15 +105,15 @@ abstract public class TowerBehaviour : MonoBehaviour
 			
 			case TargetType.Last:
 				// Finding last enemy
-				for (int i = 0; i < GameManager.instance.enemies.Count; i++)
+				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
 				{
-					float dist = Vector3.Distance(transform.position, GameManager.instance.GetPosOfEnemy(i));
+					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
 			
 					if (dist < towerRange)
 					{
-						if (GameManager.instance.GetProgressOfEnemy(i) < progress)
+						if (WaveController.instance.GetProgressOfEnemy(i) < progress)
 						{
-							progress = GameManager.instance.GetProgressOfEnemy(i);
+							progress = WaveController.instance.GetProgressOfEnemy(i);
 							
 							index = i;
 						}
@@ -121,7 +121,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 				}
 				// if a target was found
 				if (index != -1)
-					return GameManager.instance.enemies[index];
+					return WaveController.instance.enemies[index];
 				
 				break;
 		}

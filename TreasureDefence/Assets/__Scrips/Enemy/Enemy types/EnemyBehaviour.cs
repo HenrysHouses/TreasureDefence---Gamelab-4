@@ -28,6 +28,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	{
 		mr = GetComponent<MeshRenderer>();
 		path = GameManager.instance.pathController;
+		Debug.LogWarning("GetPathOP does not result in even enemy movement speed. use GetEvenPathOP instead");
 	}
 
 	void Update()
@@ -36,7 +37,6 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed, 0, 1);
 		
 		op = path.GetPathOP(progress);// ! use GetEvenPathOP
-		Debug.LogWarning("GetPathOP does not result in even enemy movement speed. use GetEvenPathOP instead");
 
 		transform.localPosition = op.pos;
 		transform.rotation = op.rot;
@@ -92,7 +92,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	
 	private void DeathTrigger()
 	{
-		GameManager.instance.RemoveEnemy(this);
+		WaveController.instance.RemoveEnemy(this);
 		// CurrencyManager.instance.AddMoney(enemyInfo.moneyReward);
 		DeathRattle();
 		Destroy(gameObject);    // Let's improve this at some point

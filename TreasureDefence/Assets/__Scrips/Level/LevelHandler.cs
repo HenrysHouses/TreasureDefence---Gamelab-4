@@ -1,12 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+/*
+ * Written by:
+ * Henrik
+*/
+
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 public class LevelHandler : MonoBehaviour
 {
 	Transform currentLevel;
-	 public bool LevelEnded, LevelStarted;
+	public bool LevelEnded, LevelStarted;
+	public bool LevelIsReady => !LevelEnded && !LevelStarted; 
 	[SerializeField] float _offsetValue = 0.613f, riseSpeed = 0.05f;
 	// Update is called once per frame
 	void Update()

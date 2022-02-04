@@ -44,7 +44,6 @@ public class TowerAttack : MonoBehaviour
 		}
 	}
 
-
 	void Attack()
 	{
 		if (target != null)
@@ -52,16 +51,6 @@ public class TowerAttack : MonoBehaviour
 			target.TakeDamage(1);
 		}
 	}
-
-	/*
-	void Test()
-	{
-		if (target != null)
-		{
-			//target.localScale = new Vector3(Random.Range(0.07f, 0.13f), Random.Range(0.07f, 0.13f), Random.Range(0.07f, 0.13f));
-		}
-	}
-	*/
 	
 	void CheckInRange()
 	{
@@ -77,15 +66,15 @@ public class TowerAttack : MonoBehaviour
 
 				progress = 0f;
 				
-				for (int i = 0; i < GameManager.instance.enemies.Count; i++)
+				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
 				{
-					float dist = Vector3.Distance(transform.position, GameManager.instance.GetPosOfEnemy(i));
+					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
 			
 					if (dist < towerRange)
 					{
-						if (GameManager.instance.GetProgressOfEnemy(i) > progress)
+						if (WaveController.instance.GetProgressOfEnemy(i) > progress)
 						{
-							progress = GameManager.instance.GetProgressOfEnemy(i);
+							progress = WaveController.instance.GetProgressOfEnemy(i);
 							index = i;
 						}
 					}
@@ -96,15 +85,15 @@ public class TowerAttack : MonoBehaviour
 				}
 				
 				if (index != -1)
-					target = GameManager.instance.enemies[index];
+					target = WaveController.instance.enemies[index];
 				
 				break;
 			
 			case TargetType.Closest:
 				// Finding closest enemy
-				for (int i = 0; i < GameManager.instance.enemies.Count; i++)
+				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
 				{
-					float dist = Vector3.Distance(transform.position, GameManager.instance.GetPosOfEnemy(i));
+					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
 			
 					if (dist < towerRange)
 					{
@@ -120,7 +109,7 @@ public class TowerAttack : MonoBehaviour
 					}
 				}
 				if (index != -1)
-					target = GameManager.instance.enemies[index];
+					target = WaveController.instance.enemies[index];
 				
 				break;
 			
@@ -130,15 +119,15 @@ public class TowerAttack : MonoBehaviour
 				break;
 			
 			case TargetType.Last:
-				for (int i = 0; i < GameManager.instance.enemies.Count; i++)
+				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
 				{
-					float dist = Vector3.Distance(transform.position, GameManager.instance.GetPosOfEnemy(i));
+					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
 			
 					if (dist < towerRange)
 					{
-						if (GameManager.instance.GetProgressOfEnemy(i) < progress)
+						if (WaveController.instance.GetProgressOfEnemy(i) < progress)
 						{
-							progress = GameManager.instance.GetProgressOfEnemy(i);
+							progress = WaveController.instance.GetProgressOfEnemy(i);
 							
 							index = i;
 						}
@@ -149,7 +138,7 @@ public class TowerAttack : MonoBehaviour
 					}
 				}
 				if (index != -1)
-					target = GameManager.instance.enemies[index];
+					target = WaveController.instance.enemies[index];
 				
 				break;
 		}
