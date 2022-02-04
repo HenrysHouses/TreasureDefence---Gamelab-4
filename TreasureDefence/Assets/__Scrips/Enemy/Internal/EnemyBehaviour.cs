@@ -11,7 +11,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	public PathController path;
 	public EnemyInfo enemyInfo;
 	private OrientedPoint op;
-	[SerializeField] int health;
+	int health;
 	bool isAttacking;
 	/// <summary>should always be minimun length of attack anim ! This may be changed to automatic anim length</summary>
 	MeshRenderer mr;

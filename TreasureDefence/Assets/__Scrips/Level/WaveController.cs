@@ -97,6 +97,12 @@ public class WaveController : MonoBehaviour
 	}
 	public void endLevel(bool lose = false)
 	{
+		if(lose)
+		{
+			Debug.Log("Player Lost");
+			// stuff here when player looses
+		}
+
 		SetGhostFlag(true);
 		foreach (var enemy in enemies)
 		{
