@@ -122,6 +122,7 @@ public class WaveController : MonoBehaviour
 	
 	private void EndOfWave()
 	{
+		Debug.Log(currentWave);
 		currentWave++;
 		waveProgress = 0;
 		cooldownTimer = 0;
