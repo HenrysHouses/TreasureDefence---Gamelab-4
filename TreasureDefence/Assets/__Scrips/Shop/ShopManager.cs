@@ -46,7 +46,7 @@ public class ShopManager : MonoBehaviour
             Debug.Log("You're rich.");
             for (int i = 0; i < Object.Count; i++)
             {
-                Object[i].GetComponent<TowerAttack>().enabled = true;
+                Object[i].GetComponent<TowerBehaviour>().canShoot = true;
             }
 
         }
