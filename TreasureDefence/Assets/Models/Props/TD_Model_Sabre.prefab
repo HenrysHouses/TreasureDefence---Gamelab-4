@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7512891263777926080
+--- !u!1 &6869018823750136309
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6870835469134773816}
-  - component: {fileID: 2514257702565701433}
-  - component: {fileID: 1500096700285275194}
+  - component: {fileID: 6034967990936831560}
+  - component: {fileID: 7173800242997046177}
+  - component: {fileID: 1637873374096222688}
   m_Layer: 0
-  m_Name: Book
+  m_Name: Sabre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6870835469134773816
+--- !u!4 &6034967990936831560
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7512891263777926080}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_GameObject: {fileID: 6869018823750136309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15239047, y: 0.30332118, z: 0.30332127}
+  m_LocalScale: {x: 0.06880389, y: 0.06880389, z: 0.15562873}
   m_Children: []
-  m_Father: {fileID: 456226244857239400}
+  m_Father: {fileID: 632839185147499727}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!33 &2514257702565701433
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7173800242997046177
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7512891263777926080}
-  m_Mesh: {fileID: -66333826979096818, guid: 38848ca07a97e13489e8e259839ca3b9, type: 3}
---- !u!23 &1500096700285275194
+  m_GameObject: {fileID: 6869018823750136309}
+  m_Mesh: {fileID: 4329858487215346932, guid: 38848ca07a97e13489e8e259839ca3b9, type: 3}
+--- !u!23 &1637873374096222688
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7512891263777926080}
+  m_GameObject: {fileID: 6869018823750136309}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,8 +59,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 98d469e90b0c0c042b8178ce0025e364, type: 2}
-  - {fileID: 2100000, guid: bda9ebe845ab4ad4690467461aa602ad, type: 2}
+  - {fileID: 2100000, guid: 2ebc67c9c028ad840aaaf3f6e335903e, type: 2}
+  - {fileID: 2100000, guid: 66c31fa7100ea394980a9167f090d9c6, type: 2}
+  - {fileID: 2100000, guid: df71e149134a6ee48a6fea70ef311e0b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8911994364585842914
+--- !u!1 &8566871088920913916
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,26 +91,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 456226244857239400}
+  - component: {fileID: 632839185147499727}
   m_Layer: 0
-  m_Name: Book
+  m_Name: TD_Model_Sabre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &456226244857239400
+--- !u!4 &632839185147499727
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8911994364585842914}
+  m_GameObject: {fileID: 8566871088920913916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6870835469134773816}
+  - {fileID: 6034967990936831560}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
