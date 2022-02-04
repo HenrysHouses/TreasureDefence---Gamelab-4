@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class Tower_Interactable : Interactable
 {
-	public GameObject placementMarker;
+	public GameObject obj;
 	
 	public TowerInfo towerInfo;
 	
@@ -53,17 +53,17 @@ public class Tower_Interactable : Interactable
 			
 			if (Physics.Raycast(transform.position + (Vector3.down * 0.1f), Vector3.down, out hit, 2f))
 			{				
-				if(placementMarker)
+				if(obj)
 				{
-					if (!placementMarker.activeSelf)
-						placementMarker.SetActive(true);	
+					if (!obj.activeSelf)
+						obj.SetActive(true);	
 				}
 
-				placementMarker.transform.position = hit.point;
+				obj.transform.position = hit.point;
 			}
 			else
 			{
-				placementMarker.SetActive(false);
+				obj.SetActive(false);
 			}
 		}
 	}
