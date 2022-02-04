@@ -8,8 +8,6 @@ Shader "Custom/ParticleExplotion"
         _Metallic ("Metallic", Range(0,1)) = 0.0
         _ColorFernel ("Fernel Color", Color) = (1,1,1,1)
         _FernelStrength ("Fernel Strength", Range(0, 2)) = 1
-
-        _VectorDebug("debug vector", vector) = (-1,-1,-1)
     }
     SubShader
     {
@@ -45,6 +43,7 @@ Shader "Custom/ParticleExplotion"
 
         float4 _ColorFernel;
         float _FernelStrength;
+
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.

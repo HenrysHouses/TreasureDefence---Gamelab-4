@@ -23,6 +23,7 @@ public class WaveController : MonoBehaviour
 	public int currentHealth => health;
 	public LevelWaveSequence LevelData;
 	LevelHandler levelHandler;
+	public FlagPole_Interactable flagPole;
 	private int currentWave;
 	Transform EnemyParent;
 	public Transform EnemyHolder => EnemyParent;
@@ -44,10 +45,13 @@ public class WaveController : MonoBehaviour
 	void Start()
 	{
 		createInstance();
+		flagPole = GameObject.FindGameObjectWithTag("FlagPole").GetComponent<FlagPole_Interactable>();
 		levelHandler = GetComponentInParent<LevelHandler>();
 		EnemyParent = GameObject.FindGameObjectWithTag("EnemyHolder").transform;
 		GameManager.instance.pathController = LevelData.GetPathController();
 		health = LevelData.lives;
+		flagPole.calculateFlagPositions(LevelData.waves.Length);
+		flagPole.setFlagPos(currentWave);
 	}
 
 	// Update is called once per frame
@@ -87,17 +91,20 @@ public class WaveController : MonoBehaviour
 		}
 	}
 	
+	public void SetGhostFlag(bool state)
+	{
+		GameObject.FindGameObjectWithTag("GhostFlag").transform.GetChild(0).gameObject.SetActive(state);
+	}
 	public void endLevel(bool lose = false)
 	{
-		levelHandler.ExitLevel();
+		SetGhostFlag(true);
 		foreach (var enemy in enemies)
 		{
 			Destroy(enemy.gameObject);
 		}
 		enemies = new List<EnemyBehaviour>();
 		levelIsEnding = true;
-		Debug.Log("Level is complete");
-		Debug.LogError("end of level is not implemented, see: " + this);
+		Debug.Log("Level is complete, Level stats are missing");
 	}
 	
 	public void	dealDamage(int damage)
@@ -129,6 +136,8 @@ public class WaveController : MonoBehaviour
 		currentCooldown = 0;
 		repeatSpawn = -1;
 		
+		flagPole.setFlagPos(currentWave);
+
 		if(currentWave == getWaveCount())
 			levelComplete = true;
 	}

@@ -9,30 +9,30 @@ using UnityEngine;
 public class LevelHandler : MonoBehaviour
 {
 	Transform currentLevel;
-	public bool LevelEnded, LevelStarted;
-	public bool LevelIsReady => !LevelEnded && !LevelStarted; 
+	public bool LevelEnding, LevelStarting;
+	public bool LevelIsReady => !LevelEnding && !LevelStarting; 
 	[SerializeField] float _offsetValue = 0.613f, riseSpeed = 0.05f;
 	// Update is called once per frame
 	void Update()
 	{
 		if(currentLevel)
 		{
-			if(LevelStarted)
+			if(LevelStarting)
 			{
 				Vector3 pos = currentLevel.localPosition;
 				pos.y += Time.deltaTime * riseSpeed;
 				currentLevel.localPosition = pos;
 				if(currentLevel.localPosition.y > 0)
-					LevelStarted = false;
+					LevelStarting = false;
 			}
-			if(LevelEnded)
+			if(LevelEnding)
 			{
 				Vector3 pos = currentLevel.localPosition;
 				pos.y -= Time.deltaTime * riseSpeed;
 				currentLevel.localPosition = pos;
 				if(currentLevel.localPosition.y < -_offsetValue)
 				{
-					LevelEnded = false;
+					LevelEnding = false;
 					Destroy(currentLevel.gameObject);
 					currentLevel = null;									
 				}
@@ -56,7 +56,7 @@ public class LevelHandler : MonoBehaviour
 	
 	public void StartLevel(LevelWaveSequence levelData, GameObject board = null)
 	{
-		LevelStarted = true;
+		LevelStarting = true;
 		Vector3 offset = Vector3.down * _offsetValue;
 		Vector3 newPos = levelData.LevelPrefab.transform.position + offset;
 		currentLevel = Instantiate(levelData.LevelPrefab, newPos, Quaternion.identity).transform;
@@ -70,7 +70,8 @@ public class LevelHandler : MonoBehaviour
 	{
 		if(currentLevel)
 		{
-			LevelEnded = true;
+			LevelEnding = true;
 		}
 	}
+
 }
