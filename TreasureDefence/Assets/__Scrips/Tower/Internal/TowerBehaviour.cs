@@ -41,8 +41,12 @@ abstract public class TowerBehaviour : MonoBehaviour
 		projectileUpdate();
 	}
 	
+	/// <summary>Start an attack targeting an enemy with a projectile damage</summary>
+	/// <param name="damage">The total damage of the projectile fired</param>
+	/// <param name="target">Enemy targeted by this projectile</param>
 	abstract public void Attack(int damage, EnemyBehaviour target);
 	
+	/// <summary>Called at the end of the Tower Update</summary>
 	abstract public void projectileUpdate();
 	
 	EnemyBehaviour CheckInRange(TargetType type)
@@ -128,7 +132,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 		return null; // No enemies in range
 	}
 	
-	public attackData getCurrentAttackData(Transform projectile, EnemyBehaviour target)
+	virtual public attackData getCurrentAttackData(Transform projectile, EnemyBehaviour target)
 	{
 		attackData data = new attackData();
 		data.gameObject = projectile.gameObject;
@@ -139,30 +143,5 @@ abstract public class TowerBehaviour : MonoBehaviour
 		data.projectileSpeed = attackSpeed;
 		data.projectileDamage = attackDamage;
 		return data;
-	}
-}
-
-public class attackData
-{
-	public GameObject gameObject;
-	public Transform transform;
-	public EnemyBehaviour enemy;
-	public Transform target;
-	public Vector3 startPos;
-	public float projectileSpeed;
-	public int projectileDamage;
-	public float t;
-	public bool hit;
-
-	public Vector3 UpdateProjectile()
-	{
-		t = t + Time.deltaTime * projectileSpeed;
-		t = Mathf.Clamp(t, 0, 1);
-		if(t >= 1)
-		{
-			hit = true;
-			return target.position;
-		}
-		return Vector3.Slerp(startPos, target.position, t);
 	}
 }

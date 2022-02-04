@@ -33,7 +33,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 
 	void Update()
 	{
-		
+		EnemyUpdate();
 		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed, 0, 1);
 		
 		op = path.GetPathOP(progress);// ! use GetEvenPathOP
@@ -48,17 +48,8 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator Attack()
-	{
-		isAttacking = true;
-		WaveController.instance.dealDamage(enemyInfo.damage);
-		// play attack anim?
-		yield return new WaitForSeconds(enemyInfo.attackCooldown);
-		isAttacking = false;
-	}
-	
-	public abstract void AnimTrigger();
-
+	/// <summary>Deals damage to this enemy</summary>
+	/// <param name="damageAmount">int amount of damage to deal</param>
 	public void TakeDamage(int damageAmount)
 	{
 		DamageTrigger();
@@ -72,11 +63,6 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		{
 			DeathTrigger();
 		}
-	}
-
-	private void ResetColor()
-	{
-		mr.material.color = Color.white;
 	}
 
 	public Vector3 GetPosition()
@@ -94,15 +80,30 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	{
 		WaveController.instance.RemoveEnemy(this);
 		// CurrencyManager.instance.AddMoney(enemyInfo.moneyReward);
+		Debug.LogWarning("adding money is currently disabled");
 		DeathRattle();
 		Destroy(gameObject);    // Let's improve this at some point
 	}
 	
-	/// <summary>called when the enemy dies</summary>
-	public virtual void DeathRattle(){}
-	public abstract void EnemyUpdate();
-	public virtual void DamageTrigger()
+	/// <summary>Called when the enemy reaches the end of the path</summary>
+	public virtual IEnumerator Attack()
 	{
-		// spawn particles here
+		isAttacking = true;
+		WaveController.instance.dealDamage(enemyInfo.damage);
+		// play attack anim?
+		yield return new WaitForSeconds(enemyInfo.attackCooldown);
+		isAttacking = false;
 	}
+	
+	/// <summary>Called when the enemy dies</summary>
+	public virtual void DeathRattle(){}
+	
+	/// <summary>Called at the beginning of the Update</summary>
+	public abstract void EnemyUpdate();
+	
+	/// <summary>Called when the enemy takes damage</summary>
+	public virtual void DamageTrigger(){}
+	
+	/// <summary>Called when an attack is triggered</summary>	
+	public abstract void AnimTrigger();
 }

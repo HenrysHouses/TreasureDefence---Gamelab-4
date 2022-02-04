@@ -63,13 +63,22 @@ abstract public class Interactable : MonoBehaviour
 		return false;
 	}
 	
+	/// <summary>Called at the start of the look interaction</summary>
+	/// <param name="target">Pass any object data through</param>
 	public void lookTrigger(object target = null)
 	{
 		lookData = target;
 		lookShouldStay = true;
 	}
 	
+	/// <summary>Called when looking at this gameObject</summary>
 	virtual public void LookInteraction(){}
+	
+	/// <summary>Called at the start of an interaction</summary>
+	/// <param name="target">Pass any object data through</param>
 	abstract public void InteractTrigger(object target = null);
+	
+	/// <summary>Called at the end of an interaction</summary>
+	/// <param name="target">Pass any object data through</param>
 	abstract public void InteractionEndTrigger(object target = null);
 }

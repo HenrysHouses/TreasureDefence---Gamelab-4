@@ -18,6 +18,9 @@ public class waveTrigger_Interactable : Interactable
 	
 	override public void LookInteraction()
 	{
-		ePrompt.SetActive(lookIsActive);
+		if(levelHandler.LevelIsReady)
+			ePrompt.SetActive(lookIsActive);
+		else
+			Debug.Log("Something should happen here?");
 	}
 }

@@ -296,12 +296,12 @@ GameObject:
   - component: {fileID: 416883426070404302}
   - component: {fileID: 416883426070404289}
   - component: {fileID: 416883426070404288}
+  - component: {fileID: 6189971085038483645}
   - component: {fileID: 416883426070404291}
-  - component: {fileID: 416883426070404290}
   - component: {fileID: 416883426070404303}
   - component: {fileID: 416883426070404300}
   m_Layer: 0
-  m_Name: FlagPole
+  m_Name: FlagPole_LevelProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,6 +373,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6189971085038483645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416883426070404293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77cad35363abff4295e0e52d8d56f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &416883426070404291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -386,24 +398,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &416883426070404290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416883426070404293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb92bedb2f293664f94be2d054c2a26b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionButton: 323
-  canBeHeld: 1
-  lookTriggerEnabled: 0
-  lookIsActive: 0
-  held: 0
-  LevelData: {fileID: 0}
 --- !u!54 &416883426070404303
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -431,5 +425,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 14.065345, z: 4}
-  m_Center: {x: 0, y: 6.5326705, z: 0}
+  m_Size: {x: 2.19, y: 0.84, z: 2.19}
+  m_Center: {x: 0, y: -0.08, z: 0}
