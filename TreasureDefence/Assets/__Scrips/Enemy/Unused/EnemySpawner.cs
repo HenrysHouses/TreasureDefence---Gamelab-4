@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
 	
 	void Start()
 	{
+		Debug.LogWarning("this script is deprecated");
 		if (instance == null)
 		{
 			instance = this;

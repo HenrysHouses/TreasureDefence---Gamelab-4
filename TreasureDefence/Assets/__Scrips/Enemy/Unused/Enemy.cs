@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
 
 	private void Start()
 	{
+		Debug.LogWarning("This script is deprecated");
 		mr = GetComponent<MeshRenderer>();
 		
 		// transform.localScale = Vector3.zero;

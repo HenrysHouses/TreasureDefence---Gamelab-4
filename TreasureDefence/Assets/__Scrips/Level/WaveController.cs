@@ -19,7 +19,7 @@ public class WaveController : MonoBehaviour
 	}
 	
 	// Level variables
-	[SerializeField] private int health;
+	private int health;
 	public int currentHealth => health;
 	public LevelWaveSequence LevelData;
 	LevelHandler levelHandler;

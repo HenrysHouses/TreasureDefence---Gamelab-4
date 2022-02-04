@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemySO")]
 public class EnemyScriptableObject : ScriptableObject
 {
-    [SerializeField]
-    public EnemyStats enemyStats;
+    // [SerializeField]
+    // public EnemyStats enemyStats;
 }
 
 [SerializeField]
