@@ -6,7 +6,7 @@ public class FlagPole_Interactable : Interactable
 {
 	public override void InteractTrigger(object target = null)
 	{
-		
+		Debug.Log("This script is not written yet");
 	}
 	
 	
