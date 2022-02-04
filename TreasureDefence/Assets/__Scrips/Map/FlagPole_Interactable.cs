@@ -73,7 +73,6 @@ public class FlagPole_Interactable : Interactable
 		for (int i = 0; i < flagPositions.Length; i++)
 		{
 			float n = 1f/(totalPositions-1)*(float)i;
-			Debug.Log(n);
 			Vector3 pos = Vector3.Lerp(flagMinPos, flagMaxPos, n);
 			flagPositions[i] =  pos;
 		}
