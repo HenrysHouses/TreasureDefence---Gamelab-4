@@ -74,4 +74,16 @@ public class LevelHandler : MonoBehaviour
 		}
 	}
 
+	public bool isLevelOnGoing()
+	{
+		WaveController wave = GetComponentInChildren<WaveController>();
+		if(wave)
+		{
+			if(wave.GetWave == wave.getWaveCount())
+				return true;
+			return false;
+		}
+		else
+			return true;
+	}
 }

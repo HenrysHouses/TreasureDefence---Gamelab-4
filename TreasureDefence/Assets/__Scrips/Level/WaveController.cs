@@ -25,12 +25,13 @@ public class WaveController : MonoBehaviour
 	LevelHandler levelHandler;
 	public FlagPole_Interactable flagPole;
 	private int currentWave;
+	public int GetWave => currentWave;
 	Transform EnemyParent;
 	public Transform EnemyHolder => EnemyParent;
 	
 	// Individual wave variables
 	public List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
-	bool waveIsInProgress, levelComplete, levelIsEnding;
+	[ SerializeField] bool waveIsInProgress, levelComplete, levelIsEnding;
 	
 	public bool waveIsPlaying => waveIsInProgress;
 	public bool levelWon => levelComplete;
@@ -97,10 +98,12 @@ public class WaveController : MonoBehaviour
 	}
 	public void endLevel(bool lose = false)
 	{
+		waveIsInProgress = false;
 		if(lose)
 		{
 			Debug.Log("Player Lost");
 			// stuff here when player looses
+			currentWave = getWaveCount();
 		}
 
 		SetGhostFlag(true);
@@ -128,7 +131,7 @@ public class WaveController : MonoBehaviour
 		return LevelData.waves[currentWave].waveData.Length;
 	}
 	
-	private int getWaveCount()
+	public int getWaveCount()
 	{
 		return LevelData.waves.Length;
 	}

@@ -18,12 +18,13 @@ abstract public class Interactable : MonoBehaviour
 	bool lookShouldStay;
 	public object lookData;
 	[HideInInspector] public bool held;
-	private Rigidbody rb;
+	Rigidbody rb;
 	private Transform originalParent;
 	
-	void Start()
+	public void Start()
 	{
-		rb = GetComponent<Rigidbody>();
+		if(!rb)
+			rb = GetComponent<Rigidbody>();
 		originalParent = transform.parent;
 	}
 	
