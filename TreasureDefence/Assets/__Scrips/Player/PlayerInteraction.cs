@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-	[SerializeField] float InteractionDist = 3.5f;
+	[SerializeField] float InteractionDist = 5f;
 	[SerializeField] Transform _holdPoint;
 	public Transform GetHoldPoint => _holdPoint;
 	public Interactable currentInteractable;

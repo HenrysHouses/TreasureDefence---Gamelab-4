@@ -8,12 +8,13 @@ public class ShopManager : MonoBehaviour
     
     public List<TowerInfo> items = new List<TowerInfo>();
     public List<GameObject> Object = new List<GameObject>();        //A refference to the gameobject.
+    public GameObject VendorGreeting;
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ItemEnteredShopTrigger");
         ti = other.gameObject.GetComponent<Tower_Interactable>().towerInfo;
-
+        VendorGreeting.SetActive(true);
         if (ti != null)
         {
             items.Add(ti);
@@ -28,12 +29,12 @@ public class ShopManager : MonoBehaviour
         Debug.Log("ItemExitedShopTrigger");
         items.Remove(other.gameObject.GetComponent<Tower_Interactable>().towerInfo);
         Object.Remove(other.gameObject);
-
+        VendorGreeting.SetActive(false);
     }
 
 
 
-    public void PayForTower()
+   /* public void PayForTower()
     {
         for(int i = 0; i < items.Count; i++)
         {
@@ -56,5 +57,5 @@ public class ShopManager : MonoBehaviour
         }
         totalCost = 0;
     }
-
+                */
 }

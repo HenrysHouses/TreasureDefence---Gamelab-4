@@ -196,7 +196,7 @@ public class RaycastForInteractable : MonoBehaviour
 				// GameObject.FindGameObjectWithTag("Vendor").GetComponent<ShopManager>().SpawnTowerAtPoint();
 				RotateTowardsTransform.instance.DoBuyAnimation();
 			}
-				shopManager.PayForTower();
+				//shopManager.PayForTower();
 		}
 	}
 
