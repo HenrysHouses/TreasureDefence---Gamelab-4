@@ -7,13 +7,7 @@ public class Vendor_Interactable : Interactable
 {   //ShopManager
     public int totalCost;
     TowerInfo ti;
-
-    public List<TowerInfo> items = new List<TowerInfo>();
-    public List<GameObject> Object = new List<GameObject>();        //A refference to the gameobject.
-    public Collider ShopCollider;
-    
-  
-
+    public ShopManager shopManager;
 
     //CurrencyManager
     public static CurrencyManager instance;
@@ -28,18 +22,18 @@ public class Vendor_Interactable : Interactable
 
     public void PayForTower()
     {
-        for (int i = 0; i < items.Count; i++)
+        for (int i = 0; i < shopManager.items.Count; i++)
         {
-            totalCost += items[i].cost;
+            totalCost += shopManager.items[i].cost;
         }
 
         if (CurrencyManager.instance.money >= totalCost)
         {
             CurrencyManager.instance.SubtractMoney(totalCost);
             Debug.Log("You're rich.");
-            for (int i = 0; i < Object.Count; i++)
+            for (int i = 0; i < shopManager.Object.Count; i++)
             {
-                Object[i].GetComponent<TowerAttack>().enabled = true;
+                shopManager.Object[i].GetComponent<TowerBehaviour>().canShoot = true;
             }
 
         }
