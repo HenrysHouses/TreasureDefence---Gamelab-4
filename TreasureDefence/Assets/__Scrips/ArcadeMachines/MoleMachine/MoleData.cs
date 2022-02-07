@@ -8,7 +8,7 @@ public class MoleData : MonoBehaviour
     bool isMovingDown, isMovingUp;
     public bool isMoving => isMovingDown || isMovingUp;
     public float speed;
-    public float heightOffset;
+    [SerializeField] float heightOffset;
     public float cooldown;
 
     /// <summary>
