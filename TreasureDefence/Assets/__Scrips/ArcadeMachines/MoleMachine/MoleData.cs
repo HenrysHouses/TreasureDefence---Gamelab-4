@@ -6,7 +6,7 @@ public class MoleData : MonoBehaviour
 {
     public bool isHit;
     bool isMovingDown, isMovingUp;
-    public bool isMoving => isMovingDown || isMovingDown;
+    public bool isMoving => isMovingDown || isMovingUp;
     public float speed;
     public float heightOffset;
     public float cooldown;
@@ -31,5 +31,4 @@ public class MoleData : MonoBehaviour
 
         transform.position = new Vector3(pos.x, pos.y + speed, pos.z);
     }
-
 }
