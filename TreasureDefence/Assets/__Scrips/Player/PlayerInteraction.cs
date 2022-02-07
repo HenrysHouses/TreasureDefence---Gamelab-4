@@ -37,12 +37,6 @@ public class PlayerInteraction : MonoBehaviour
 		}
 		else if(currentInteractable) // End interaction OR wait until interaction is done
 		{
-			// * This code has been moved and changed.
-			// if(currentInteractable.canBeHeld && currentInteractable.held) // ? dont know if this code should be here or on the interactable class
-			// {
-			// 	currentInteractable.transform.position = holdPoint.position;
-			// }
-
 			if(Input.GetKeyUp(currentInteractable.interactionButton))
 			{
 				endInteraction();

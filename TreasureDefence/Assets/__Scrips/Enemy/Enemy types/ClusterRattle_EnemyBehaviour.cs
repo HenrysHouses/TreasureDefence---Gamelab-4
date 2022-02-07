@@ -24,7 +24,7 @@ public class ClusterRattle_EnemyBehaviour : EnemyBehaviour
 			spawn.SetParent(controller.EnemyHolder, true);
 			EnemyBehaviour enemy = spawn.GetComponent<EnemyBehaviour>();
 			enemy.GetProgress = GetProgress;
-			GameManager.instance.AddEnemy(enemy);
+			WaveController.instance.AddEnemy(enemy);
 		}
 	}
 	public override void EnemyUpdate(){}
