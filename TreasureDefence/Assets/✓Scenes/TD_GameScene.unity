@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1327,8 +1327,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionDist: 3.5
+  holdOffset: 0
   _holdPoint: {fileID: 1997891642}
+  objectHolderPosition: {fileID: 0}
+  cam: {fileID: 0}
   currentInteractable: {fileID: 0}
+  hasItem: 0
 --- !u!114 &526503522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2600,6 +2604,7 @@ MonoBehaviour:
   totalCost: 0
   items: []
   Object: []
+  VendorGreeting: {fileID: 0}
 --- !u!65 &1046418812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3753,21 +3758,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -7161604014802561479, guid: e725dc409b40dc3418531d7f87aa3cbb, type: 3}
   m_PrefabInstance: {fileID: 1386205105}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1386205109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386205106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078b4af49e28eb24aa5adee2bfdc0804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalCost: 0
-  items: []
-  Object: []
 --- !u!65 &1386205110
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3797,6 +3787,25 @@ MonoBehaviour:
   speed: 1.7
   originalRotation: {x: -0.03449608, y: 0.98730725, z: 0.15393437, w: -0.018403282}
   toRotation: {x: -0.03880823, y: 0.97653365, z: -0.21178617, w: -0.0047520436}
+--- !u!114 &1386205113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386205106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1794ac67391e7945b369c7fdd8c6378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionButton: 101
+  canBeHeld: 0
+  lookTriggerEnabled: 0
+  lookIsActive: 0
+  held: 0
+  totalCost: 0
+  shopManager: {fileID: 1046418811}
 --- !u!1 &1386440341
 GameObject:
   m_ObjectHideFlags: 0
@@ -4808,7 +4817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1386205109}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: SpawnTowerAtPoint
         m_Mode: 1
