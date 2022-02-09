@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
 
 	public int[] enemyPerWave;
+
+	public GameObject[] lightsToToggle;
 	
 	public PathController pathController;
 	
