@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "TreasureDefence/New Enemy Stats")]
 public class EnemyInfo : ScriptableObject
 {
-	public float health = 1;
+	public int health = 1;
 	public float armor = 1;
 	public float speed = 0.03f;
 	public int damage = 1;

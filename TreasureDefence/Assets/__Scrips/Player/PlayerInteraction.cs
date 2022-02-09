@@ -10,6 +10,9 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+	
+	
+	
 	[SerializeField] float InteractionDist = 5f, holdOffset;
 	[SerializeField] Transform _holdPoint, objectHolderPosition, cam;
 	public Transform GetHoldPoint => _holdPoint;
