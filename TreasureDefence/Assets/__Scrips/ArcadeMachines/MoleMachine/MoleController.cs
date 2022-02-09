@@ -12,6 +12,7 @@ public enum moleState
 public class MoleController : MonoBehaviour
 {
     public bool isHit;
+    Rigidbody _rigidbody;
     [SerializeField] moleState state = moleState.Waiting;
     [SerializeField] bool isMovingDown, isMovingUp, isWaiting;
     public bool isMoving => isMovingDown || isMovingUp || isWaiting;
@@ -20,8 +21,15 @@ public class MoleController : MonoBehaviour
     [SerializeField] float speedMin, speedMax, currentSpeed;
     [SerializeField] float exposedRangeMin, exposedRangeMax;
 
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
+        
+
         if(Input.GetKey(KeyCode.Space))
             showMole();
         Vector3 pos = transform.localPosition; 
@@ -32,35 +40,41 @@ public class MoleController : MonoBehaviour
                 isMovingUp = true;
                 if(pos.y <= heightOffset)
                 {
-                    transform.localPosition = new Vector3(pos.x, pos.y + currentSpeed * Time.deltaTime, pos.z);
+                    _rigidbody.velocity = Vector3.up * currentSpeed;
+                    // transform.localPosition = new Vector3(pos.x, pos.y + currentSpeed * Time.deltaTime, pos.z);
                 }
                 if(transform.localPosition.y >= heightOffset)
                 {
                     isMovingUp = false;
                     state = moleState.Exposed;
+
                 }
                 break;
             
             case moleState.Exposed:
+                _rigidbody.velocity = Vector3.zero;
                 if(!isWaiting)
                     StartCoroutine(RandomWaitTime(moleState.MovingDown, exposedRangeMin, exposedRangeMax));
                 break;
             
             case moleState.MovingDown:
                 isMovingDown = true;
-                if(pos.y > 0)
+                if(pos.y >= 0)
                 {
-                    transform.localPosition = new Vector3(pos.x, pos.y - currentSpeed * Time.deltaTime, pos.z);
-                    if(transform.localPosition.y <= 0)
-                    {
-                        transform.localPosition = new Vector3(pos.x, 0, pos.z);
-                        isMovingDown = false;
-                        state = moleState.Waiting;
-                    }
+                    _rigidbody.velocity = Vector3.down * currentSpeed;
+                    // transform.localPosition = new Vector3(pos.x, pos.y - currentSpeed * Time.deltaTime, pos.z);
+                }
+                if(transform.localPosition.y <= 0)
+                {
+                    transform.localPosition = new Vector3(pos.x, 0, pos.z);
+                    isMovingDown = false;
+                    state = moleState.Waiting;
                 }
                 break;
 
             case moleState.Waiting:
+                isHit = false;
+                _rigidbody.velocity = Vector3.zero;
                 break;
         }
     }
@@ -74,22 +88,22 @@ public class MoleController : MonoBehaviour
         isWaiting = false;
     }
 
-    
 
-    /// <summary>
-    /// OnTriggerEnter is called when the Collider other enters the trigger.
-    /// </summary>
-    /// <param name="other">The other Collider involved in this collision.</param>
-    void OnTriggerEnter(Collider other)
+
+    void OnCollisionEnter(Collision collision)
     {
-        if(!isHit && other.CompareTag("Mallet"))
-            OnHit();    
+        if(!isHit && collision.collider.CompareTag("Mallet") && collision.relativeVelocity.magnitude > 0)
+            OnHit();
     }
 
     void OnHit()
     {
         GetComponentInParent<WackAMoleController>().hitCount++;
         isHit = true;
+        isMovingUp = false;
+        isMovingDown = true;
+        Debug.Log("hit");
+        state = moleState.MovingDown;
     }
 
     public void showMole()

@@ -6,21 +6,38 @@ public class WackAMoleController : MonoBehaviour
 {
     [SerializeField] MoleController[] moles;
     List<int> activeMoles = new List<int>();
+    [SerializeField] bool _playing;
+    public bool isPlaying => _playing;
     
     [Header("Arcade Stats")]
     [SerializeField] int simultaneouslyActiveMax;
     [SerializeField] float rangeTrigger, rangeMax;
     [SerializeField] float cooldownRangeMax, cooldownRangeMin;
-    [SerializeField] bool cooldown;
+    bool cooldown;
     public int hitCount;
+    [Header("Cost / Rewards")]
     [SerializeField] int WinningHits;
+    [SerializeField] Transform spawnPoint;
+    [SerializeField] GameObject towerRewardPrefab;
+    [SerializeField] int Cost;
+    public int ArcadeCost => Cost;  
     // Update is called once per frame
     void Update()
     {
-        removeInActive();
-        
-        if(!cooldown)
-            StartCoroutine(MolePopUp());
+        if(_playing)
+        {
+            removeInActive();
+            
+            if(!cooldown)
+                StartCoroutine(MolePopUp());
+
+            if(hitCount >= WinningHits)
+            {
+                Instantiate(towerRewardPrefab, spawnPoint.position, Quaternion.identity);
+                Debug.Log("you win");
+                _playing = false;
+            }
+        }
     }
 
     void removeInActive()
@@ -28,7 +45,7 @@ public class WackAMoleController : MonoBehaviour
         List<int> remove = new List<int>();
         for (int i = 0; i < activeMoles.Count; i++)
         {
-            if(!moles[activeMoles[i]].isMoving)
+            if(!moles[activeMoles[i]].isMoving || !moles[activeMoles[i]].isHit)
             {
                 remove.Add(activeMoles[i]);
             }
@@ -53,5 +70,11 @@ public class WackAMoleController : MonoBehaviour
         }
         yield return new WaitForSeconds(randomCooldown);
         cooldown = false;
+    }
+
+    public void StartGame()
+    {
+        _playing  = true;
+        hitCount = 0;
     }
 }
