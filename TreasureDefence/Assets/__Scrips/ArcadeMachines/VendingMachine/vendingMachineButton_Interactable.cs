@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/*
+ * Written by:
+ * Henrik
+*/
+
 using TMPro;
 
 public class vendingMachineButton_Interactable : Interactable
