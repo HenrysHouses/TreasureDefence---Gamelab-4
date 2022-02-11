@@ -19,7 +19,14 @@ public class Base_TowerBehaviour : TowerBehaviour
 		List<attackData> projectilesHit = new List<attackData>();
 		foreach (var currentProjectile in projectile)
 		{
-			Vector3 pos = currentProjectile.UpdateProjectile();
+			Vector3 pos = new Vector3();
+			if(currentProjectile.enemy)
+				pos = currentProjectile.UpdateProjectile();
+			else
+			{
+				Destroy(currentProjectile.gameObject);
+				projectile.Remove(currentProjectile);
+			}
 			
 			if(!currentProjectile.hit)
 				currentProjectile.transform.position = pos;

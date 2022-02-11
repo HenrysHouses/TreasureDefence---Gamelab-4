@@ -23,7 +23,10 @@ public class LevelHandler : MonoBehaviour
 				pos.y += Time.deltaTime * riseSpeed;
 				currentLevel.localPosition = pos;
 				if(currentLevel.localPosition.y > 0)
+				{
 					LevelStarting = false;
+					currentLevel.GetComponentInChildren<PathController>().SpawnCubeMeshesAtEvenPoints();
+				}
 			}
 			if(LevelEnding)
 			{

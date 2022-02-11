@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public static class ExtensionMethods 
+public static class ExtensionMethods
 {
 	public static float RemapT (this float from, float fromMin, float fromMax, float toMin,  float toMax)
 	{
@@ -57,7 +57,7 @@ public class PathController : MonoBehaviour
 	[HideInInspector] public Transform endPoint;
 	public List<Transform> controlPoints = new List<Transform>();
 	
-	private OrientedPoint[] evenlySpacedPoints;
+	[SerializeField] private OrientedPoint[] evenlySpacedPoints;
 	private float length;
 	[SerializeField] bool Recalculate;
 	
@@ -86,8 +86,10 @@ public class PathController : MonoBehaviour
 	{
 		LOD = VertexPathAccuracy*3;
 		length = GetApproxLength();
-		
+
+	#if UNITY_EDITOR	
 		evenlySpacedPoints = calculateEvenlySpacedPoints(length/LOD);
+	#endif
 	}
 
 #if UNITY_EDITOR
@@ -401,6 +403,20 @@ public class PathController : MonoBehaviour
 			DestroyImmediate(gameObject);
 	}
 	
+	// ? BUILD DEBUGGING METHOD
+	public void SpawnCubeMeshesAtEvenPoints()
+	{
+		evenlySpacedPoints = calculateEvenlySpacedPoints(length/LOD);
+		foreach (var point in evenlySpacedPoints)
+		{
+			GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+			cube.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
+			cube.transform.position = point.pos;
+			Destroy(cube.GetComponent<Collider>());
+		}
+	}
+
+
 	OrientedPoint[] calculateEvenlySpacedPoints(float spacing)
 	{
 		List<OrientedPoint> points = new List<OrientedPoint>();
