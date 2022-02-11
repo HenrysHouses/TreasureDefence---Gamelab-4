@@ -22,8 +22,8 @@ abstract public class TowerBehaviour : MonoBehaviour
 	public float towerRange;
 	public List<attackData> projectile = new List<attackData>();
 	private List<float> enemyProgress = new List<float>();
-	public EnemyBehaviour enemyTarget;
-	
+	public EnemyBehaviour[] enemyTarget;
+
 	virtual public void Update()
 	{	
 		if(canShoot && WaveController.instance)
@@ -43,18 +43,19 @@ abstract public class TowerBehaviour : MonoBehaviour
 	
 	/// <summary>Start an attack targeting an enemy with a projectile damage</summary>
 	/// <param name="damage">The total damage of the projectile fired</param>
-	/// <param name="target">Enemy targeted by this projectile</param>
-	abstract public void Attack(int damage, EnemyBehaviour target);
+	/// <param name="targets">Enemy targeted by this projectile</param>
+	abstract public void Attack(int damage, EnemyBehaviour[] targets);
 	
 	/// <summary>Called at the end of the Tower Update</summary>
 	abstract public void projectileUpdate();
 	
-	EnemyBehaviour CheckInRange(TargetType type)
+	EnemyBehaviour[] CheckInRange(TargetType type)
 	{
 		float progress = Mathf.Infinity;
 		float minimum = Mathf.Infinity;
-		int index = -1;
 		
+		List<EnemyBehaviour> enemiesInRange = new List<EnemyBehaviour>();
+
 		switch (type)
 		{
 			case TargetType.First:
@@ -68,16 +69,16 @@ abstract public class TowerBehaviour : MonoBehaviour
 			
 					if (dist < towerRange)
 					{
-						if (WaveController.instance.GetProgressOfEnemy(i) > progress)
+						/*if (WaveController.instance.GetProgressOfEnemy(i) > progress)
 						{
 							progress = WaveController.instance.GetProgressOfEnemy(i);
-							index = i;
-						}
+						}	 */
+							enemiesInRange.Add(WaveController.instance.enemies[i]);
 					}
 				}
 				// if a target was found
-				if (index != -1)
-					return WaveController.instance.enemies[index];
+				if (enemiesInRange.Count > 0)
+					return enemiesInRange.ToArray();
 				
 				break;
 			
@@ -92,13 +93,13 @@ abstract public class TowerBehaviour : MonoBehaviour
 						if (dist < minimum)
 						{
 							minimum = dist;
-							index = i;
+							enemiesInRange.Add(WaveController.instance.enemies[i]);
 						}
 					}
 				}
 				// if a target was found
-				if (index != -1)
-					return WaveController.instance.enemies[index];
+				if (enemiesInRange.Count > 0)
+					return enemiesInRange.ToArray();
 				
 				break;
 			
@@ -118,14 +119,14 @@ abstract public class TowerBehaviour : MonoBehaviour
 						if (WaveController.instance.GetProgressOfEnemy(i) < progress)
 						{
 							progress = WaveController.instance.GetProgressOfEnemy(i);
-							
-							index = i;
+
+							enemiesInRange.Add(WaveController.instance.enemies[i]);
 						}
 					}
 				}
 				// if a target was found
-				if (index != -1)
-					return WaveController.instance.enemies[index];
+				if (enemiesInRange.Count > 0)
+					return enemiesInRange.ToArray();
 				
 				break;
 		}
