@@ -78,5 +78,5 @@ abstract public class Interactable : MonoBehaviour
 	
 	/// <summary>Called at the end of an interaction</summary>
 	/// <param name="target">Pass any object data through</param>
-	abstract public void InteractionEndTrigger(object target = null);
+	virtual public void InteractionEndTrigger(object target = null){}
 }

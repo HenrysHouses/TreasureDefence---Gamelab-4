@@ -21,7 +21,7 @@ public static class ExtensionMethods
  
 		var to = toAbs + toMin;
 	   
-		if(to < 0) // inverted to make the path direction correct
+		if(to < 0) // Only positive numbers
 	   		to *= -1;
 		return to;
 	}
