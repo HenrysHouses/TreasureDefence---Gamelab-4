@@ -10,6 +10,7 @@ public class Tower_BombThrower : TowerBehaviour
     {
 		if (targets != null)
 		{
+			Debug.Log("something");
 			for( int i = 0; i < maxTargets; i++)
             {
 				if (i >= targets.Length)
@@ -19,30 +20,41 @@ public class Tower_BombThrower : TowerBehaviour
 				Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
 				attackData newProjectile = getCurrentAttackData(_projectile, targets[i]);
 				projectile.Add(newProjectile);
+					Debug.Log("break");
 			}
 		}
 	}
 
 	override public void projectileUpdate()
 	{
-		List<attackData> projectilesHit = new List<attackData>();
+		List<attackData> removeProjectiles = new List<attackData>();
 		foreach (var currentProjectile in projectile)
 		{
-			Vector3 pos = currentProjectile.UpdateProjectile();
-
-			if (!currentProjectile.hit)
+			Vector3 pos = currentProjectile.transform.position;
+			if(currentProjectile.enemy)
+				pos = currentProjectile.UpdateProjectile();
+			else
+			{
+				removeProjectiles.Add(currentProjectile);
+			}
+			
+			if(!currentProjectile.hit)
 				currentProjectile.transform.position = pos;
 			else
 			{
-				projectilesHit.Add(currentProjectile);
+				removeProjectiles.Add(currentProjectile);
 			}
 		}
-		foreach (var hit in projectilesHit)
+		foreach (var deletingProjectile in removeProjectiles)
 		{
-			Instantiate(ExplotionParticle, hit.transform.position, Quaternion.identity);
-			hit.enemy.TakeDamage(hit.projectileDamage);
-			projectile.Remove(hit);
-			Destroy(hit.gameObject);
+			// deletingProjectile.print();
+			Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.identity); 
+
+			if(deletingProjectile.hit)
+				deletingProjectile.enemy.TakeDamage(deletingProjectile.projectileDamage);
+
+			projectile.Remove(deletingProjectile);
+			Destroy(deletingProjectile.gameObject);
 		}
 	}
 

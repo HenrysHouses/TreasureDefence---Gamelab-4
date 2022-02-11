@@ -26,16 +26,20 @@ abstract public class TowerBehaviour : MonoBehaviour
 
 	virtual public void Update()
 	{	
+		
 		if(canShoot && WaveController.instance)
 		{
 			enemyTarget = CheckInRange(targetType);
 
 			Cooldown -= Time.deltaTime;
 			
-			if(Cooldown < 0)
+			if(enemyTarget != null)
 			{
-				Attack(attackDamage, enemyTarget);
-				Cooldown = attackCooldown;
+				if(Cooldown < 0 && enemyTarget.Length > 0)
+				{
+					Attack(attackDamage, enemyTarget);
+					Cooldown = attackCooldown;
+				}
 			}
 		}
 		projectileUpdate();
