@@ -48,7 +48,7 @@ public class LevelHandler : MonoBehaviour
 	{
 		Level_Interactable found = other.GetComponent<Level_Interactable>();
 		
-		if(found)
+		if(found && !currentLevel)
 		{
 			StartLevel(found.LevelData, found.gameObject);
 		}
