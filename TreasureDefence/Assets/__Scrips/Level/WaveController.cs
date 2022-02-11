@@ -86,7 +86,10 @@ public class WaveController : MonoBehaviour
 		if(!levelIsEnding)
 		{
 			if(!levelComplete)
+			{
 				waveIsInProgress = true;
+				GameManager.instance.setLights(false);
+			}
 			else
 				endLevel();
 		}
@@ -138,6 +141,7 @@ public class WaveController : MonoBehaviour
 	
 	private void EndOfWave()
 	{
+		GameManager.instance.setLights(true);
 		// Debug.Log(currentWave);
 		currentWave++;
 		waveProgress = 0;

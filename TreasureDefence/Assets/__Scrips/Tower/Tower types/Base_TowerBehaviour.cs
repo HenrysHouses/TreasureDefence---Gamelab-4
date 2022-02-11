@@ -27,7 +27,9 @@ public class Base_TowerBehaviour : TowerBehaviour
 				removeProjectiles.Add(currentProjectile);
 			}
 			
-			if(currentProjectile.hit)
+			if(!currentProjectile.hit)
+				currentProjectile.transform.position = pos;
+			else
 			{
 				removeProjectiles.Add(currentProjectile);
 			}

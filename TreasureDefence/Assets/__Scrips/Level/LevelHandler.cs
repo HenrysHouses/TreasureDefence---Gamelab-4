@@ -26,6 +26,7 @@ public class LevelHandler : MonoBehaviour
 				{
 					LevelStarting = false;
 					// currentLevel.GetComponentInChildren<PathController>().SpawnCubeMeshesAtEvenPoints();
+
 				}
 			}
 			if(LevelEnding)

@@ -11,13 +11,19 @@ public class GameManager : MonoBehaviour
 
 	public int[] enemyPerWave;
 
-	public GameObject[] lightsToToggle;
 	
 	public PathController pathController;
-	
 	private int playerHealth;
 	
-
+	
+	public LightController[] RealtimeLights;
+	public void setLights(bool state)
+	{
+		foreach (var light in RealtimeLights)	
+		{
+			light.fadeLightSate = state;
+		}
+	}
 
 	private WaveController waveController;
 	public WaveController GetWaveController()
