@@ -14,7 +14,7 @@ public class VendingMachineController : MonoBehaviour
         {
             if(item.ID == inputText.text)
             {
-                if(CurrencyManager.instance.money > item.cost)
+                if(CurrencyManager.instance.SubtractMoney(item.cost))
                 {
                     GameObject spawn = Instantiate(item.ItemPrefab, SpawnPoint.position, Quaternion.identity);      
                     CurrencyManager.instance.SubtractMoney(item.cost);
