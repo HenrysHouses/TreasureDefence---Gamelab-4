@@ -14,9 +14,16 @@ public class LevelSelector : MonoBehaviour
 
     private LevelWaveSequence[] levels;
 
-    public GameObject[] levelsTesting;
+    public GameObject[] levelGameObjects;
 
     private GameObject selectedLevel;
+
+    public GameObject displayLevel;
+
+    public Transform displayPos;
+    
+    //[SerializeField] private GameObject displayLevel;
+    //[SerializeField] private GameObject displayExtras;
     
     // Level Info
     public TextMeshPro nameText;
@@ -40,7 +47,11 @@ public class LevelSelector : MonoBehaviour
         // Maybe it won't matter whether they are or not?
         
         ClearLevel();
+
+        selectedLevel = new GameObject();
         
+        selectedLevel.transform.position = displayPos.position;
+        selectedLevel.transform.rotation = displayPos.rotation;
     }
 
     
@@ -52,8 +63,8 @@ public class LevelSelector : MonoBehaviour
         infoText.text = "" + levelInfo;
         difficultyText.text = "Difficulty: " + difficulty;
 
-        selectedLevel = levelsTesting[level];
-        selectedLevel.SetActive(true);
+        Destroy(displayLevel);
+        displayLevel = Instantiate(levelGameObjects[level-1], displayPos.position, displayPos.rotation);
     }
 
     public void ClearLevel()
@@ -61,9 +72,10 @@ public class LevelSelector : MonoBehaviour
         nameText.text = "Location: \n";
         infoText.text = "Lore: \n";
         difficultyText.text = "Difficulty: ";
-        
-        selectedLevel.SetActive(false);
+
+        displayLevel = null;
+
+        //selectedLevel.SetActive(false);
     }
-    
 }
 
