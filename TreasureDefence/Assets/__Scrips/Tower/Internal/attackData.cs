@@ -14,13 +14,22 @@ public class attackData
 
 	public Vector3 UpdateProjectile()
 	{
-		t = t + Time.deltaTime * projectileSpeed;
-		t = Mathf.Clamp(t, 0, 1);
-		if(t >= 1)
+		if(target)
 		{
-			hit = true;
-			return target.position;
+			t = t + Time.deltaTime * projectileSpeed;
+			t = Mathf.Clamp(t, 0, 1);
+			if(t >= 1)
+			{
+				hit = true;
+				return target.position;
+			}
+			return Vector3.Slerp(startPos, target.position, t);
 		}
-		return Vector3.Slerp(startPos, target.position, t);
+		return transform.position;
+	}
+
+	public void print()
+	{
+		Debug.Log("GameObject: " + gameObject + "\n Transform: " + transform  + "\n enemy: " + enemy + "\n target: " + target + "\n startPos: " + startPos + "\n projectileSpeed: " + projectileSpeed + "\n projectileDamage: " + projectileDamage + "\n time: " + t + "\n Hit: " + hit);
 	}
 }

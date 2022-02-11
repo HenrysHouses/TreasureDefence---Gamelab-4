@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class example : MonoBehaviour
 {
+
+    bool shouldLerp, lerpHasStarted;
     public float _Interval;
-    float timer;
     float startTime;
     void Start()
     {
@@ -15,9 +14,23 @@ public class example : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        Vector3 pos = LerpHelper(Vector3.zero, Vector3.forward, startTime, _Interval);
-        Debug.Log(pos);
+        if(shouldLerp)
+        {
+            if(!lerpHasStarted)
+            {
+                lerpHasStarted = true;
+                startTime = Time.time;
+            }
+
+            Vector3 pos = LerpHelper(Vector3.zero, Vector3.forward, startTime, _Interval);
+            Debug.Log(pos);
+
+            if(pos == Vector3.forward)
+            {
+                shouldLerp = false;
+                lerpHasStarted = false;
+            }
+        }
     }
 
     /// <summary> Smoothly lerps from the Start position to the End position </summary>

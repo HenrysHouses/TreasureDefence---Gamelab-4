@@ -16,33 +16,34 @@ public class Base_TowerBehaviour : TowerBehaviour
 	
 	override public void projectileUpdate()
 	{
-		List<attackData> projectilesHit = new List<attackData>();
+		List<attackData> removeProjectiles = new List<attackData>();
 		foreach (var currentProjectile in projectile)
 		{
-			Vector3 pos = new Vector3();
+			Vector3 pos = currentProjectile.transform.position;
 			if(currentProjectile.enemy)
 				pos = currentProjectile.UpdateProjectile();
 			else
 			{
-				Destroy(currentProjectile.gameObject);
-				projectile.Remove(currentProjectile);
+				removeProjectiles.Add(currentProjectile);
 			}
 			
 			if(!currentProjectile.hit)
 				currentProjectile.transform.position = pos;
 			else
 			{
-				projectilesHit.Add(currentProjectile);
+				removeProjectiles.Add(currentProjectile);
 			}
 		}
-		foreach (var hit in projectilesHit)
+		foreach (var deletingProjectile in removeProjectiles)
 		{
-			Instantiate(ExplotionParticle, hit.transform.position, Quaternion.identity);
-			hit.enemy.TakeDamage(hit.projectileDamage);
-			projectile.Remove(hit);
-			Destroy(hit.gameObject);
+			// deletingProjectile.print();
+			Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.identity); 
+
+			if(deletingProjectile.hit)
+				deletingProjectile.enemy.TakeDamage(deletingProjectile.projectileDamage);
+
+			projectile.Remove(deletingProjectile);
+			Destroy(deletingProjectile.gameObject);
 		}
 	}
-	
-
 }
