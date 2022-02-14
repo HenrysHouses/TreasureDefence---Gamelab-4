@@ -8,15 +8,6 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-	public static WaveController instance;
-	
-	private void createInstance()
-	{
-		if(instance == null)
-			instance = this;
-		else
-			Destroy(this);
-	}
 	
 	// Level variables
 	private int health;
@@ -45,7 +36,6 @@ public class WaveController : MonoBehaviour
 
 	void Start()
 	{
-		createInstance();
 		flagPole = GameObject.FindGameObjectWithTag("FlagPole").GetComponent<FlagPole_Interactable>();
 		levelHandler = GetComponentInParent<LevelHandler>();
 		EnemyParent = GameObject.FindGameObjectWithTag("EnemyHolder").transform;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlagPole_Interactable : Interactable
 {
+	WaveController waveController;
 	LevelHandler levelHandler;
 	bool TryExitLevel;
 	public Transform flag;
@@ -16,6 +17,7 @@ public class FlagPole_Interactable : Interactable
 	new void Start()
 	{
 		base.Start();
+		waveController = GameManager.instance.GetWaveController();
 		GhostFlagVisibility = GameObject.FindGameObjectWithTag("GhostFlag").transform.GetChild(0).gameObject;
 		levelHandler = GameObject.FindObjectOfType<LevelHandler>();	
 	}
@@ -36,7 +38,7 @@ public class FlagPole_Interactable : Interactable
 		if(TryExitLevel)
 		{
 			levelHandler.ExitLevel();
-			WaveController.instance.SetGhostFlag(false);
+			waveController.SetGhostFlag(false);
 			TryExitLevel = false;
 		}
 

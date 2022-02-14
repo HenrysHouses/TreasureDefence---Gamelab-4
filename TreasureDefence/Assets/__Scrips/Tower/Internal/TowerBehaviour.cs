@@ -1,3 +1,8 @@
+/*
+ * Written by:
+ * Henrik
+*/
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +15,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 		Strongest,
 		Last
 	}
-	
+	public WaveController waveController;
 	public TargetType targetType;
 	public Transform projectileSpawnPos;
 	public GameObject projectilePrefab;
@@ -24,11 +29,15 @@ abstract public class TowerBehaviour : MonoBehaviour
 	private List<float> enemyProgress = new List<float>();
 	public EnemyBehaviour[] enemyTarget;
 
+
+
 	virtual public void Update()
 	{	
-		
-		if(canShoot && WaveController.instance)
+		waveController = GameManager.instance.GetWaveController();
+		if(canShoot && waveController)
 		{
+			
+
 			enemyTarget = CheckInRange(targetType);
 
 			Cooldown -= Time.deltaTime;
@@ -67,17 +76,17 @@ abstract public class TowerBehaviour : MonoBehaviour
 
 				progress = 0f;
 				
-				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
+				for (int i = 0; i < waveController.enemies.Count; i++)
 				{
-					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
+					float dist = Vector3.Distance(transform.position, waveController.GetPosOfEnemy(i));
 			
 					if (dist < towerRange)
 					{
-						/*if (WaveController.instance.GetProgressOfEnemy(i) > progress)
+						/*if (waveController.GetProgressOfEnemy(i) > progress)
 						{
-							progress = WaveController.instance.GetProgressOfEnemy(i);
+							progress = waveController.GetProgressOfEnemy(i);
 						}	 */
-							enemiesInRange.Add(WaveController.instance.enemies[i]);
+							enemiesInRange.Add(waveController.enemies[i]);
 					}
 				}
 				// if a target was found
@@ -88,16 +97,16 @@ abstract public class TowerBehaviour : MonoBehaviour
 			
 			case TargetType.Closest:
 				// Finding closest enemy
-				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
+				for (int i = 0; i < waveController.enemies.Count; i++)
 				{
-					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
+					float dist = Vector3.Distance(transform.position, waveController.GetPosOfEnemy(i));
 			
 					if (dist < towerRange)
 					{
 						if (dist < minimum)
 						{
 							minimum = dist;
-							enemiesInRange.Add(WaveController.instance.enemies[i]);
+							enemiesInRange.Add(waveController.enemies[i]);
 						}
 					}
 				}
@@ -114,17 +123,17 @@ abstract public class TowerBehaviour : MonoBehaviour
 			
 			case TargetType.Last:
 				// Finding last enemy
-				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
+				for (int i = 0; i < waveController.enemies.Count; i++)
 				{
-					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
+					float dist = Vector3.Distance(transform.position, waveController.GetPosOfEnemy(i));
 			
 					if (dist < towerRange)
 					{
-						if (WaveController.instance.GetProgressOfEnemy(i) < progress)
+						if (waveController.GetProgressOfEnemy(i) < progress)
 						{
-							progress = WaveController.instance.GetProgressOfEnemy(i);
+							progress = waveController.GetProgressOfEnemy(i);
 
-							enemiesInRange.Add(WaveController.instance.enemies[i]);
+							enemiesInRange.Add(waveController.enemies[i]);
 						}
 					}
 				}

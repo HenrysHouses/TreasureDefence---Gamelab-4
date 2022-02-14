@@ -1,3 +1,7 @@
+/*
+ * Written by:
+ * Henrik
+*/
 using UnityEngine;
 
 public class attackData

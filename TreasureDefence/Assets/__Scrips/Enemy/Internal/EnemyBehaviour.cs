@@ -5,10 +5,11 @@
 using System.Collections;
 
 using UnityEngine;
-using TMPro;
+// using TMPro;
 
 abstract public class EnemyBehaviour : MonoBehaviour
 {
+	public WaveController waveController;
 	public PathController path;
 	public EnemyInfo enemyInfo;
 	private OrientedPoint op;
@@ -27,6 +28,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 
 	public void Start()
 	{
+		waveController = GameManager.instance.GetWaveController();
 		mr = GetComponent<MeshRenderer>();
 		path = GameManager.instance.pathController;
 		Debug.LogWarning("GetPathOP does not result in even enemy movement speed. use GetEvenPathOP instead");
@@ -43,7 +45,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		transform.localPosition = op.pos;
 		transform.rotation = op.rot;
 		
-		if(progress >= 1 && WaveController.instance.currentHealth > 0) // when the enemy reaches the end
+		if(progress >= 1 && waveController.currentHealth > 0) // when the enemy reaches the end
 		{
 			if(!isAttacking)
 				StartCoroutine(Attack());
@@ -80,7 +82,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	
 	private void DeathTrigger()
 	{
-		WaveController.instance.RemoveEnemy(this);
+		waveController.RemoveEnemy(this);
 		CurrencyManager.instance.AddMoney(enemyInfo.moneyReward);
 		Debug.LogWarning("adding money is currently disabled");
 		DeathRattle();
@@ -91,7 +93,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	public virtual IEnumerator Attack()
 	{
 		isAttacking = true;
-		WaveController.instance.dealDamage(enemyInfo.damage);
+		waveController.dealDamage(enemyInfo.damage);
 		// play attack anim?
 		yield return new WaitForSeconds(enemyInfo.attackCooldown);
 		isAttacking = false;

@@ -59,89 +59,89 @@ public class TowerAttack : MonoBehaviour
 		int index = -1;
 		
 		
-		switch (targetType)
-		{
-			case TargetType.First:
-				// Finding first enemy
+		// switch (targetType)
+		// {
+		// 	case TargetType.First:
+		// 		// Finding first enemy
 
-				progress = 0f;
+		// 		progress = 0f;
 				
-				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
-				{
-					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
+		// 		for (int i = 0; i < WaveController.instance.enemies.Count; i++)
+		// 		{
+		// 			float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
 			
-					if (dist < towerRange)
-					{
-						if (WaveController.instance.GetProgressOfEnemy(i) > progress)
-						{
-							progress = WaveController.instance.GetProgressOfEnemy(i);
-							index = i;
-						}
-					}
-					else
-					{
-						target = null;
-					}
-				}
+		// 			if (dist < towerRange)
+		// 			{
+		// 				if (WaveController.instance.GetProgressOfEnemy(i) > progress)
+		// 				{
+		// 					progress = WaveController.instance.GetProgressOfEnemy(i);
+		// 					index = i;
+		// 				}
+		// 			}
+		// 			else
+		// 			{
+		// 				target = null;
+		// 			}
+		// 		}
 				
-				if (index != -1)
-					target = WaveController.instance.enemies[index];
+		// 		if (index != -1)
+		// 			target = WaveController.instance.enemies[index];
 				
-				break;
+		// 		break;
 			
-			case TargetType.Closest:
-				// Finding closest enemy
-				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
-				{
-					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
+		// 	case TargetType.Closest:
+		// 		// Finding closest enemy
+		// 		for (int i = 0; i < WaveController.instance.enemies.Count; i++)
+		// 		{
+		// 			float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
 			
-					if (dist < towerRange)
-					{
-						if (dist < minimum)
-						{
-							minimum = dist;
-							index = i;
-						}
-					}
-					else
-					{
-						target = null;
-					}
-				}
-				if (index != -1)
-					target = WaveController.instance.enemies[index];
+		// 			if (dist < towerRange)
+		// 			{
+		// 				if (dist < minimum)
+		// 				{
+		// 					minimum = dist;
+		// 					index = i;
+		// 				}
+		// 			}
+		// 			else
+		// 			{
+		// 				target = null;
+		// 			}
+		// 		}
+		// 		if (index != -1)
+		// 			target = WaveController.instance.enemies[index];
 				
-				break;
+		// 		break;
 			
-			case TargetType.Strongest:
-				// Doesn't work yet.
-				Debug.LogWarning("TargetType 'Strongest' is not set up.");
-				break;
+		// 	case TargetType.Strongest:
+		// 		// Doesn't work yet.
+		// 		Debug.LogWarning("TargetType 'Strongest' is not set up.");
+		// 		break;
 			
-			case TargetType.Last:
-				for (int i = 0; i < WaveController.instance.enemies.Count; i++)
-				{
-					float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
+		// 	case TargetType.Last:
+		// 		for (int i = 0; i < WaveController.instance.enemies.Count; i++)
+		// 		{
+		// 			float dist = Vector3.Distance(transform.position, WaveController.instance.GetPosOfEnemy(i));
 			
-					if (dist < towerRange)
-					{
-						if (WaveController.instance.GetProgressOfEnemy(i) < progress)
-						{
-							progress = WaveController.instance.GetProgressOfEnemy(i);
+		// 			if (dist < towerRange)
+		// 			{
+		// 				if (WaveController.instance.GetProgressOfEnemy(i) < progress)
+		// 				{
+		// 					progress = WaveController.instance.GetProgressOfEnemy(i);
 							
-							index = i;
-						}
-					}
-					else
-					{
-						target = null;
-					}
-				}
-				if (index != -1)
-					target = WaveController.instance.enemies[index];
+		// 					index = i;
+		// 				}
+		// 			}
+		// 			else
+		// 			{
+		// 				target = null;
+		// 			}
+		// 		}
+		// 		if (index != -1)
+		// 			target = WaveController.instance.enemies[index];
 				
-				break;
-		}
+		// 		break;
+		// }
 	}
 }
 
