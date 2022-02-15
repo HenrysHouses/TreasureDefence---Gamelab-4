@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4520379836731632309}
+  - component: {fileID: 8966308377561360224}
   m_Layer: 0
   m_Name: TD_Level1_PlayLevel
   m_TagString: Untagged
@@ -31,6 +32,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8966308377561360224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148044837808947464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78bcdd9be233c8418adbfc2a90e2161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelData: {fileID: 11400000, guid: 7e8e59d0a1d6bfb4ca25ab22f9796799, type: 2}
+  flagPole: {fileID: 0}
+  enemies: []
+  waveIsInProgress: 0
+  levelComplete: 0
+  levelIsEnding: 0
 --- !u!1 &6898063924618373305
 GameObject:
   m_ObjectHideFlags: 0

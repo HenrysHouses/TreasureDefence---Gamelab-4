@@ -14,7 +14,7 @@ public class WaveController : MonoBehaviour
 	public int currentHealth => health;
 	public LevelWaveSequence LevelData;
 	LevelHandler levelHandler;
-	public FlagPole_Interactable flagPole;
+	[HideInInspector] public FlagPole_Interactable flagPole;
 	private int currentWave;
 	public int GetWave => currentWave;
 	Transform EnemyParent;
