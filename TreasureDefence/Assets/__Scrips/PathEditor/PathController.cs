@@ -446,6 +446,7 @@ public class PathController : MonoBehaviour
 				previousPoint = pointOnCurve;
 			}	
 		}
+		Debug.Log(points.Count);
 		return points.ToArray();
 	}
 	
@@ -457,10 +458,13 @@ public class PathController : MonoBehaviour
 	/// </summary>
 	void OnValidate()
 	{
-		LOD = VertexPathAccuracy*3;
-		length = GetApproxLength();
-		
-		evenlySpacedPoints = calculateEvenlySpacedPoints(length/LOD);
+		if(Recalculate)
+		{
+			LOD = VertexPathAccuracy*3;
+			length = GetApproxLength();
+			
+			evenlySpacedPoints = calculateEvenlySpacedPoints(length/LOD);
+		}
 		
 		if(controlPoints.Count != transform.childCount)
 		{
@@ -487,5 +491,6 @@ public class PathController : MonoBehaviour
 			}			
 		}
 	}
+	
 #endif
 }
