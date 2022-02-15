@@ -43,7 +43,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		op = path.GetEvenPathOP(progress); // ! use GetEvenPathOP
 
 		transform.localPosition = op.pos;
-		transform.rotation = op.rot;
+		transform.rotation = path.GetPathOP(progress).rot;
 		
 		if(progress >= 1 && waveController.currentHealth > 0) // when the enemy reaches the end
 		{
