@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc44683010222e46a937c266e1ef711, type: 3}
   m_Name: Level1_PirateCove
   m_EditorClassIdentifier: 
-  LevelPrefab: {fileID: 1148044837808947464, guid: 88625839bc4285e4db5f79620cbf5bc5, type: 3}
+  LevelPrefab: {fileID: 2465638827434190793, guid: 5428585f6dad20546b962b5a554a588c, type: 3}
   waves:
   - waveData:
     - enemyPfb: {fileID: 708873190157722989, guid: f55750022637d92418b2dd83fa6bee23, type: 3}
@@ -44,4 +44,27 @@ MonoBehaviour:
     - enemyPfb: {fileID: 3929955107486375170, guid: 1942516850df0f348a222cde431f820c, type: 3}
       Cooldown: 2
       repeat: 3
+  - waveData:
+    - enemyPfb: {fileID: 708873190157722989, guid: f55750022637d92418b2dd83fa6bee23, type: 3}
+      Cooldown: 1
+      repeat: 12
+    - enemyPfb: {fileID: 3929955107486375170, guid: 1942516850df0f348a222cde431f820c, type: 3}
+      Cooldown: 1.5
+      repeat: 6
+    - enemyPfb: {fileID: 708873190157722989, guid: f55750022637d92418b2dd83fa6bee23, type: 3}
+      Cooldown: 1
+      repeat: 6
+    - enemyPfb: {fileID: 1603500604670232680, guid: b3896dcfbed80d6489f2e35c8056e0a4, type: 3}
+      Cooldown: 1
+      repeat: 1
+  - waveData:
+    - enemyPfb: {fileID: 708873190157722989, guid: f55750022637d92418b2dd83fa6bee23, type: 3}
+      Cooldown: 0.7
+      repeat: 12
+    - enemyPfb: {fileID: 3929955107486375170, guid: 1942516850df0f348a222cde431f820c, type: 3}
+      Cooldown: 1
+      repeat: 6
+    - enemyPfb: {fileID: 1603500604670232680, guid: b3896dcfbed80d6489f2e35c8056e0a4, type: 3}
+      Cooldown: 2
+      repeat: 6
   lives: 10

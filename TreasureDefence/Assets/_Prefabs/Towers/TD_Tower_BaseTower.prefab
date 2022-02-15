@@ -160,16 +160,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb102671ae73164a840b3280906c5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveController: {fileID: 0}
   targetType: 0
   projectileSpawnPos: {fileID: 1399488471}
   projectilePrefab: {fileID: 6513835444385219211, guid: e5e6262b08ce543478bbd7c2c3bb3f7c, type: 3}
   ExplotionParticle: {fileID: 1595576975666691675, guid: 6f934e29c32d349429826a264258c578, type: 3}
   canShoot: 1
   attackDamage: 1
-  attackCooldown: 1.5
-  attackSpeed: 1
+  attackCooldown: 2
+  attackSpeed: 0.8
   towerRange: 0.6
-  enemyTarget: {fileID: 0}
+  enemyTarget:
+  - {fileID: 0}
 --- !u!1 &3344055757913185163
 GameObject:
   m_ObjectHideFlags: 0

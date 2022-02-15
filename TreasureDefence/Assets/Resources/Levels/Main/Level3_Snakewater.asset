@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc44683010222e46a937c266e1ef711, type: 3}
   m_Name: Level3_Snakewater
   m_EditorClassIdentifier: 
-  LevelPrefab: {fileID: 7639964446896186354, guid: 7a6838ac81ebcc34aa8ab443e58b092e, type: 3}
+  LevelPrefab: {fileID: 5676157395864264397, guid: e3b398bb8809d5b4080e276736d353f4, type: 3}
   waves:
   - waveData:
     - enemyPfb: {fileID: 708873190157722989, guid: f55750022637d92418b2dd83fa6bee23, type: 3}
@@ -44,4 +44,17 @@ MonoBehaviour:
     - enemyPfb: {fileID: 3929955107486375170, guid: 1942516850df0f348a222cde431f820c, type: 3}
       Cooldown: 2
       repeat: 3
+  - waveData:
+    - enemyPfb: {fileID: 708873190157722989, guid: f55750022637d92418b2dd83fa6bee23, type: 3}
+      Cooldown: 1
+      repeat: 12
+    - enemyPfb: {fileID: 3929955107486375170, guid: 1942516850df0f348a222cde431f820c, type: 3}
+      Cooldown: 1.5
+      repeat: 6
+    - enemyPfb: {fileID: 708873190157722989, guid: f55750022637d92418b2dd83fa6bee23, type: 3}
+      Cooldown: 1
+      repeat: 6
+    - enemyPfb: {fileID: 1603500604670232680, guid: b3896dcfbed80d6489f2e35c8056e0a4, type: 3}
+      Cooldown: 1
+      repeat: 1
   lives: 10
