@@ -11,26 +11,57 @@ public class example : MonoBehaviour
         startTime = Time.time;
     }
 
+    public float speed;
+    public float num;
+
     // Update is called once per frame
     void Update()
     {
-        if(shouldLerp)
-        {
-            if(!lerpHasStarted)
-            {
-                lerpHasStarted = true;
-                startTime = Time.time;
-            }
 
-            Vector3 pos = LerpHelper(Vector3.zero, Vector3.forward, startTime, _Interval);
-            Debug.Log(pos);
 
-            if(pos == Vector3.forward)
-            {
-                shouldLerp = false;
-                lerpHasStarted = false;
-            }
-        }
+        num += speed * Time.deltaTime;
+        Debug.Log(PingPongExtention(num, 2,5, 4));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // if(shouldLerp)
+        // {
+        //     if(!lerpHasStarted)
+        //     {
+        //         lerpHasStarted = true;
+        //         startTime = Time.time;
+        //     }
+
+        //     // Vector3 pos = LerpHelper(Vector3.zero, Vector3.forward, startTime, _Interval);
+        //     Debug.Log(pos);
+
+        //     if(pos == Vector3.forward)
+        //     {
+        //         shouldLerp = false;
+        //         lerpHasStarted = false;
+        //     }
+        // }
     }
 
     /// <summary> Smoothly lerps from the Start position to the End position </summary>
@@ -47,5 +78,16 @@ public class example : MonoBehaviour
     
         //returns new lerped position
         return Vector3.Lerp(Start, End, lerpLocation);
+    }
+
+
+    public float PingPongExtention(float t, float rangeFrom, float rangeTo, float offset)
+    {
+        float remapped = 0;
+        if(t % rangeTo > offset)
+            remapped = ExtensionMethods.Remap( t % rangeTo, rangeFrom, rangeTo, rangeTo, rangeFrom); // 1->0
+        else
+            remapped = t % rangeTo;
+        return remapped;
     }
 }

@@ -38,8 +38,8 @@ public class FlagPole_Interactable : Interactable
 		if(TryExitLevel)
 		{
 			levelHandler.ExitLevel();
-			waveController.SetGhostFlag(false);
 			TryExitLevel = false;
+			GhostFlagVisibility.SetActive(false);
 		}
 
 		PlayerInteraction player = target as PlayerInteraction;

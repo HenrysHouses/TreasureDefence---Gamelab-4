@@ -10,6 +10,7 @@ using UnityEngine;
 public class Level_Interactable : Interactable
 {
 	public LevelWaveSequence LevelData;
+	public GameObject levelHighlight, waterHighlight;
 	override public void InteractTrigger(object target = null)
 	{
 		PlayerInteraction player = target as PlayerInteraction;

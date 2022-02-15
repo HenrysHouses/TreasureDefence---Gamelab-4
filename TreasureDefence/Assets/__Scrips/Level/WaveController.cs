@@ -89,6 +89,7 @@ public class WaveController : MonoBehaviour
 	{
 		GameObject.FindGameObjectWithTag("GhostFlag").transform.GetChild(0).gameObject.SetActive(state);
 	}
+	
 	public void endLevel(bool lose = false)
 	{
 		waveIsInProgress = false;

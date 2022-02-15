@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 
-
+	public GameObject LevelDisplayHighlight, LevelHolderHighlight;
 	public int[] enemyPerWave;
 
 	
