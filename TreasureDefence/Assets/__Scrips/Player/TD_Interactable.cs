@@ -3,15 +3,19 @@
  * Henrik
 */
 
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 // TODO rotate held object
 
-abstract public class Interactable : MonoBehaviour
+abstract public class TD_Interactable : MonoBehaviour
 {
 	[SerializeField] KeyCode _interactionButton;
-	
 	public KeyCode interactionButton => _interactionButton;
+	// [SerializeField] VRInteractionMethod _VRInteractionMethod; // ! diabled for testing
+	// public VRInteractionMethod interactionMethod => _VRInteractionMethod; // ! diabled for testing
+
 	public bool canBeHeld;
 	public bool lookTriggerEnabled;
 	[HideInInspector] public bool lookIsActive;
@@ -20,6 +24,15 @@ abstract public class Interactable : MonoBehaviour
 	[HideInInspector] public bool held;
 	Rigidbody rb;
 	private Transform originalParent;
+
+	Collider _thisCollider;
+	public Collider getCollider()
+	{
+		if(_thisCollider)
+			return _thisCollider;
+		_thisCollider = GetComponent<Collider>();
+		return _thisCollider;
+	}
 	
 	public void Start()
 	{
@@ -80,3 +93,4 @@ abstract public class Interactable : MonoBehaviour
 	/// <param name="target">Pass any object data through</param>
 	virtual public void InteractionEndTrigger(object target = null){}
 }
+

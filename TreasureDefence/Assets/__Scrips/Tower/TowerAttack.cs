@@ -54,9 +54,9 @@ public class TowerAttack : MonoBehaviour
 	
 	void CheckInRange()
 	{
-		float progress = Mathf.Infinity;
-		float minimum = Mathf.Infinity;
-		int index = -1;
+		// float progress = Mathf.Infinity;
+		// float minimum = Mathf.Infinity;
+		// int index = -1;
 		
 		
 		// switch (targetType)

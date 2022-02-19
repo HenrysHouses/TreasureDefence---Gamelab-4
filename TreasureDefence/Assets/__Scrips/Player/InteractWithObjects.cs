@@ -84,7 +84,7 @@ public class InteractWithObjects : MonoBehaviour
 
     void PickUp(GameObject gameobject)
     {
-        if (gameobject.GetComponent<Interactable>() != null)
+        if (gameobject.GetComponent<TD_Interactable>() != null)
         {
             item = gameobject;
             item.GetComponent<Rigidbody>().useGravity = false;

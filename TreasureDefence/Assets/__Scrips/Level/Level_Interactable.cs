@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level_Interactable : Interactable
+public class Level_Interactable : TD_Interactable
 {
 	public LevelWaveSequence LevelData;
 	public GameObject levelHighlight, waterHighlight;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectLevel_Interactable : Interactable
+public class SelectLevel_Interactable : TD_Interactable
 {
     public int levelNumber;
 

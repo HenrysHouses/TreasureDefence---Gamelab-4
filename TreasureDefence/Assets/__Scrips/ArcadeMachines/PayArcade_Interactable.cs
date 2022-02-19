@@ -5,7 +5,7 @@
 
 using UnityEngine;
 
-public class PayArcade_Interactable : Interactable
+public class PayArcade_Interactable : TD_Interactable
 {
     [SerializeField] WackAMoleController arcade;
 

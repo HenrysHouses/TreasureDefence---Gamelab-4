@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Vendor_Interactable : Interactable
+public class Vendor_Interactable : TD_Interactable
 {   //ShopManager
     public int totalCost;
     TowerInfo ti;

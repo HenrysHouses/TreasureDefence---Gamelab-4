@@ -5,7 +5,7 @@
 
 using UnityEngine;
 
-public class Tower_Interactable : Interactable
+public class Tower_Interactable : TD_Interactable
 {
 	public GameObject obj;
 	

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlagPole_Interactable : Interactable
+public class FlagPole_Interactable : TD_Interactable
 {
 	WaveController waveController;
 	LevelHandler levelHandler;

@@ -5,7 +5,7 @@
 
 using TMPro;
 
-public class vendingMachineButton_Interactable : Interactable
+public class vendingMachineButton_Interactable : TD_Interactable
 {
     public TextMeshPro KeyInputs;
     public KeypadInput buttonInput;

@@ -16,7 +16,7 @@ public class PlayerInteraction : MonoBehaviour
 	[SerializeField] float InteractionDist = 5f, holdOffset;
 	[SerializeField] Transform _holdPoint, objectHolderPosition, cam;
 	public Transform GetHoldPoint => _holdPoint;
-	public Interactable currentInteractable;
+	public TD_Interactable currentInteractable;
 	private bool isBusy;
 	private GameObject item;
 	public bool hasItem;
@@ -32,7 +32,7 @@ public class PlayerInteraction : MonoBehaviour
 			if (Physics.Raycast(ray, out hit, InteractionDist))
 			{
 
-				if(hit.collider.TryGetComponent<Interactable>(out currentInteractable))
+				if(hit.collider.TryGetComponent<TD_Interactable>(out currentInteractable))
 				{
 					
 					if(currentInteractable.lookTriggerEnabled)

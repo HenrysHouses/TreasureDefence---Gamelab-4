@@ -17,7 +17,7 @@ public class RaycastForInteractable : MonoBehaviour
 	
 	private GameObject item;
 	private bool hasItem;
-	private Interactable heldItem;
+	private TD_Interactable heldItem;
 
 	public Transform objectHolderPosition;
 	public Transform cam;
@@ -116,7 +116,7 @@ public class RaycastForInteractable : MonoBehaviour
 	void PickUp(GameObject gameobject)
 	{
 		Debug.Log("this method has been depreciated and functionality may not work " + this);
-		heldItem = gameobject.GetComponent<Interactable>();
+		heldItem = gameobject.GetComponent<TD_Interactable>();
 
 		if (heldItem != null)
 		{

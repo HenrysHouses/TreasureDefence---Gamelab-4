@@ -3,7 +3,7 @@
  * Henrik
 */
 
-public class Prop_Interactable : Interactable
+public class Prop_Interactable : TD_Interactable
 {
 	override public void InteractTrigger(object target = null)
 	{

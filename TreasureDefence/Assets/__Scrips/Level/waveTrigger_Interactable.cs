@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class waveTrigger_Interactable : Interactable
+public class waveTrigger_Interactable : TD_Interactable
 {
 	public GameObject ePrompt;
 	[SerializeField] LevelHandler levelHandler;
