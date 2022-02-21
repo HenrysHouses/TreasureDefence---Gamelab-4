@@ -14,7 +14,7 @@ public class LevelHandler : MonoBehaviour
 	[SerializeField] float _offsetValue = 0.613f, riseSpeed = 0.05f;
 
 	public ParticleSystem cloudParticle;
-
+	bool cloudsSpawned = false;
 	// Update is called once per frame
 	void Update()
 	{
@@ -44,12 +44,16 @@ public class LevelHandler : MonoBehaviour
 					currentLevel = null;									
 				}
 				cloudParticle.Stop();
+				cloudsSpawned = false;
 			}
 			if(LevelIsReady)
 			{
-				// control/spawn cloud particles here
+                // control/spawn cloud particles here
+                if (cloudsSpawned == false) { 
 				cloudParticle.Play();
 				Debug.Log("CLOUDS");
+				cloudsSpawned = true;
+				}
 			}
 		}
 	}
