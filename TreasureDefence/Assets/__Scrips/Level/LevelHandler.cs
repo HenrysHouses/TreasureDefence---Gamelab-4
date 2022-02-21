@@ -12,6 +12,9 @@ public class LevelHandler : MonoBehaviour
 	public bool LevelEnding, LevelStarting;
 	public bool LevelIsReady => !LevelEnding && !LevelStarting; 
 	[SerializeField] float _offsetValue = 0.613f, riseSpeed = 0.05f;
+
+	public ParticleSystem cloudParticle;
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -40,10 +43,13 @@ public class LevelHandler : MonoBehaviour
 					Destroy(currentLevel.gameObject);
 					currentLevel = null;									
 				}
+				cloudParticle.Stop();
 			}
 			if(LevelIsReady)
 			{
 				// control/spawn cloud particles here
+				cloudParticle.Play();
+				Debug.Log("CLOUDS");
 			}
 		}
 	}
