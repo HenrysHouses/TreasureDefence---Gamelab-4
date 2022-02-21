@@ -13,8 +13,8 @@ abstract public class TD_Interactable : MonoBehaviour
 {
 	[SerializeField] KeyCode _interactionButton;
 	public KeyCode interactionButton => _interactionButton;
-	[SerializeField] VRInteractionMethod _VRInteractionMethod;
-	public VRInteractionMethod interactionMethod => _VRInteractionMethod;
+	// [SerializeField] VRInteractionMethod _VRInteractionMethod;
+	// public VRInteractionMethod interactionMethod => _VRInteractionMethod;
 
 	public bool canBeHeld;
 	public bool lookTriggerEnabled;

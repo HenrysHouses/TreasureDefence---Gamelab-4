@@ -41,6 +41,10 @@ public class LevelHandler : MonoBehaviour
 					currentLevel = null;									
 				}
 			}
+			if(LevelIsReady)
+			{
+				// control/spawn cloud particles here
+			}
 		}
 	}
 	
