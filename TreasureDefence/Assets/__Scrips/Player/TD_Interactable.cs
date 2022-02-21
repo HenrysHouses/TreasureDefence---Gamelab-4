@@ -41,7 +41,7 @@ abstract public class TD_Interactable : MonoBehaviour
 		originalParent = transform.parent;
 	}
 	
-	void Update()
+	public void Update()
 	{
 		if(lookShouldStay)
 			lookIsActive = true;

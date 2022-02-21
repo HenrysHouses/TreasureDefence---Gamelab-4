@@ -5,35 +5,25 @@ using UnityEngine;
 public class ShootingRange : ArcadeMachine
 {   //Mikkel tried to make this.
     public GameObject Target;
-    public GameObject Gun; //When the target pics up the gun, the game starts.
-    [Tooltip("The position of the gun, when picked up.")]
-    public GameObject GunHoldPosition;
 
     [Tooltip("A bool to activate the targets left and right movement.")]
     public bool TargetMovement;
     [Tooltip("The Speed of the Target")]
-    public int TargetMovementSpeed;
-    public float num;
+    public int TargetMovementSpeed, HitTarget;
+    public float num, StartTimer;
+    float timeLeft;
+  
 
-    private GameObject TargetPos1, TargetPos2;
+
     // Base Arcade Behaviour
 
     //Start the Game. What it costs.
     public override void StartSetup()
-    {  
+    {
         base.StartSetup();
-        
-        Debug.Log("This is what happens at start");
-    }
+        HitTarget = 0;
+        timeLeft = StartTimer;
 
-    public void OnTriggerEnter(Collider other)
-    {   
-        if(other.gameObject.tag == "Player")
-        {
-            StartGame();
-            Debug.Log("Works?");
-            TargetMovement = true;
-        }
     }
 
     public override void isPlayingUpdate()
@@ -43,43 +33,52 @@ public class ShootingRange : ArcadeMachine
         pos.z = PingPongExtention(num, 0, 1) + -5;
         Target.transform.position = pos;
 
-            Gun.transform.position = GunHoldPosition.transform.position;
-
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if(Physics.Raycast(ray, out hit))
+        timeLeft -= Time.deltaTime;
+        if (timeLeft <= 0)
         {
-
+            Debug.Log("Time ran out.");
+            LooseCondition();
         }
 
-        return ;
+        return;
     }
 
-    
+
     public override bool WinCondition()
     {
-        //if the target is hit 5 times within ? many seconds.
+
+        if (HitTarget >= 5)
+        {
+            return true;
+        }
         return false;
     }
-    
+
     public override bool LooseCondition()
     {
-        return false;
+        if (timeLeft <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public override void Reward()
     {
         Instantiate(towerRewardPrefab, spawnPoint.position, Quaternion.identity);
+        HitTarget = 0;
     }
     public override void Reset()
     {
 
     }
-    
+
     public float PingPongExtention(float t, float rangeFrom, float rangeTo)
     {
         float remapped = 0;
-        if (t % rangeTo > rangeTo/2)
+        if (t % rangeTo > rangeTo / 2)
         {
             remapped = ExtensionMethods.Remap(t % rangeTo, rangeFrom, rangeTo, rangeTo, rangeFrom);
         }
@@ -87,11 +86,11 @@ public class ShootingRange : ArcadeMachine
         {
             remapped = t % rangeTo;
         }
-            return remapped;
+        return remapped;
 
     }
 
 
-    //While Playing.
+    //While Playing.  Damit Rune.
 
 }

@@ -18,7 +18,7 @@ public abstract class ArcadeMachine : MonoBehaviour
 		if(isPlaying)
 			isPlayingUpdate();
 		
-		if(WinCondition())
+		if(WinCondition() && isPlaying)
 		{
 			Reward();
 			Reset();
