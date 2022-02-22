@@ -11,6 +11,7 @@ public class ShootinRange_Gun : TD_Interactable
     PlayerInteraction player;
     float timer;
     public float ReloadTime;
+    public MeshRenderer meshRenderer;
 
     /// <summary>Called at the start of an interaction</summary>
     /// <param name="target">Pass any object data through</param>
@@ -64,9 +65,17 @@ public class ShootinRange_Gun : TD_Interactable
                 {
                     shootingrange.HitTarget++;
                     Debug.Log("hit = " + shootingrange.HitTarget);
+                    meshRenderer.material.color = Color.red;             //Fix this later. -Mikkel.
+                    Invoke("ResetColor", 0.15f);
                 }
             }
         }
+    }
+
+    private void ResetColor()
+    {
+        meshRenderer.material.color = Color.white;         
+
     }
 
     private void OnDrawGizmos()
