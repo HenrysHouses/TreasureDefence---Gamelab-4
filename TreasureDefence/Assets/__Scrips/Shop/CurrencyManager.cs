@@ -13,6 +13,7 @@ public class CurrencyManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("Money Cheat on K button Active");
       if(instance == null)
         {
             instance = this;
@@ -27,7 +28,13 @@ public class CurrencyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("Money Added");
+            money += 10;
+            moneyText.text = ("Money: " + money);
+            moneyBounceAnimation.Play("BounceAnimation");
+        }
     }
 
     public void AddMoney(int CashIn)
