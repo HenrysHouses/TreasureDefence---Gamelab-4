@@ -32,6 +32,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		mr = GetComponent<MeshRenderer>();
 		path = GameManager.instance.pathController;
 		Debug.LogWarning("GetPathOP does not result in even enemy movement speed. use GetEvenPathOP instead");
+		health = enemyInfo.health;
 	}
 
 	void Update()
@@ -56,9 +57,13 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	/// <param name="damageAmount">int amount of damage to deal</param>
 	public void TakeDamage(int damageAmount)
 	{
+		Debug.Log("Health: " + health);
+		
 		DamageTrigger();
 		health -= damageAmount;
 
+		
+		
 		// mr.material.color = Color.red;
 		
 		// Invoke(nameof(ResetColor), 0.1f);

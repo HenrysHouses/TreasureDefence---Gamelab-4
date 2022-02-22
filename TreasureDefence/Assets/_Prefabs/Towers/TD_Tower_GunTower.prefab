@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1093836718}
   - component: {fileID: 1625076952}
   m_Layer: 7
-  m_Name: TD_Tower_BaseTower
+  m_Name: TD_Tower_GunTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,14 +161,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveController: {fileID: 0}
-  targetType: 0
+  targetType: 3
   projectileSpawnPos: {fileID: 1399488471}
   projectilePrefab: {fileID: 6513835444385219211, guid: e5e6262b08ce543478bbd7c2c3bb3f7c, type: 3}
   ExplotionParticle: {fileID: 1595576975666691675, guid: 6f934e29c32d349429826a264258c578, type: 3}
   canShoot: 1
-  attackDamage: 1
-  attackCooldown: 2
-  attackSpeed: 0.8
+  attackDamage: 3
+  attackCooldown: 0.8
+  attackSpeed: 3
   towerRange: 0.6
   enemyTarget:
   - {fileID: 0}
@@ -231,10 +231,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8693172909504858975, guid: 38848ca07a97e13489e8e259839ca3b9, type: 3}
-  - {fileID: -5998004595915773402, guid: 38848ca07a97e13489e8e259839ca3b9, type: 3}
-  - {fileID: -2813337366143557646, guid: 38848ca07a97e13489e8e259839ca3b9, type: 3}
-  - {fileID: 725804396391725484, guid: 38848ca07a97e13489e8e259839ca3b9, type: 3}
+  - {fileID: 2100000, guid: bda9ebe845ab4ad4690467461aa602ad, type: 2}
+  - {fileID: -3963267350226637299, guid: 1ed78becfbdaee44581ae3400c8817f0, type: 3}
+  - {fileID: 6340918054098643422, guid: 1ed78becfbdaee44581ae3400c8817f0, type: 3}
+  - {fileID: 8964088591131456171, guid: e725dc409b40dc3418531d7f87aa3cbb, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
