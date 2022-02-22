@@ -18,6 +18,10 @@ public class SelectLevel_Interactable : TD_Interactable
 
     }
 
-	override public void VRInteractionStartTrigger(){}
+	override public void VRInteractionStartTrigger()
+    {
+        LevelSelector.instance.SetLevel(levelNumber, levelName, levelInfo, levelDifficulty);
+
+    }
 
 }

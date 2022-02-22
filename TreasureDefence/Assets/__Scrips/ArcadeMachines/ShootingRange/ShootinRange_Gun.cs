@@ -46,7 +46,7 @@ public class ShootinRange_Gun : TD_Interactable
     }
 
     
-    void ShootGun()
+    public void ShootGun()
     {
 
         if(Input.GetMouseButtonDown(0) && timer <= 0)
