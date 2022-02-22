@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8615670367255030197}
   - component: {fileID: 3148512113157254549}
   - component: {fileID: 4039801289683914205}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Map.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7751825336995248026}
   - component: {fileID: 4851405183700170120}
   - component: {fileID: 4481130880725387699}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane.021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4651422232363366213}
   - component: {fileID: 5952243451047399659}
   - component: {fileID: 5595922280685377029}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottom (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 9133710288730214420}
   - component: {fileID: 7360634664638345123}
   - component: {fileID: -2723462560252126516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Level3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,6 +314,8 @@ MonoBehaviour:
   lookIsActive: 0
   held: 0
   LevelData: {fileID: 11400000, guid: 7d3b83ffecf98ae4cb5c53c0d7787fba, type: 2}
+  levelHighlight: {fileID: 0}
+  waterHighlight: {fileID: 0}
 --- !u!54 &-2723462560252126516
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -326,7 +328,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

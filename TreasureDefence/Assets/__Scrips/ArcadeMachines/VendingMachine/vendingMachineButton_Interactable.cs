@@ -3,15 +3,34 @@
  * Henrik
 */
 
+using UnityEngine;
 using TMPro;
 
 public class vendingMachineButton_Interactable : TD_Interactable
 {
+    [SerializeField]
+    VendingMachineController vendingMachine;
     public TextMeshPro KeyInputs;
     public KeypadInput buttonInput;
 
 
     public override void InteractionStartTrigger(object target = null)
+    {
+        inputButton();
+        
+    }
+
+    public override void InteractionEndTrigger(object target = null)
+    {
+
+    }
+
+	override public void VRInteractionStartTrigger()
+    {
+        inputButton();
+    }
+
+    void inputButton()
     {
         switch(buttonInput)
         {
@@ -57,7 +76,7 @@ public class vendingMachineButton_Interactable : TD_Interactable
                 break;
 
             case KeypadInput.Enter:
-                GetComponentInParent<VendingMachineController>().buyTower();
+                vendingMachine.buyTower();
                 break;
 
             case KeypadInput.Back:
@@ -70,16 +89,6 @@ public class vendingMachineButton_Interactable : TD_Interactable
                 KeyInputs.text = cNew.ArrayToString();
                 break;
         }
-    }
-
-    public override void InteractionEndTrigger(object target = null)
-    {
-
-    }
-
-	override public void VRInteractionStartTrigger()
-    {
-        
     }
 }
 

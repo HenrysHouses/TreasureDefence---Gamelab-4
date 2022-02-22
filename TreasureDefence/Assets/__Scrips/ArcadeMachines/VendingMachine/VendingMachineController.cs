@@ -10,6 +10,7 @@ public class VendingMachineController : MonoBehaviour
     [SerializeField] TextMeshPro inputText; 
     public void buyTower()
     {
+        
         foreach(var item in PurchasableItems)
         {
             if(item.ID == inputText.text)
