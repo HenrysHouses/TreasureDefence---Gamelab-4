@@ -10,9 +10,6 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-	
-	
-	
 	[SerializeField] float InteractionDist = 5f, holdOffset;
 	[SerializeField] Transform _holdPoint, objectHolderPosition, cam;
 	public Transform GetHoldPoint => _holdPoint;
@@ -84,7 +81,7 @@ public class PlayerInteraction : MonoBehaviour
 	private void startInteraction()
 	{
 		hasItem = true;
-		currentInteractable.InteractTrigger(this);
+		currentInteractable.InteractionStartTrigger(this);
 		isBusy = true;
 	}
 	

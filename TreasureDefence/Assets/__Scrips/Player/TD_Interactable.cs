@@ -5,7 +5,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
 
 // TODO rotate held object
 
@@ -13,8 +12,6 @@ abstract public class TD_Interactable : MonoBehaviour
 {
 	[SerializeField] KeyCode _interactionButton;
 	public KeyCode interactionButton => _interactionButton;
-	// [SerializeField] VRInteractionMethod _VRInteractionMethod;
-	// public VRInteractionMethod interactionMethod => _VRInteractionMethod;
 
 	public bool canBeHeld;
 	public bool lookTriggerEnabled;
@@ -87,10 +84,14 @@ abstract public class TD_Interactable : MonoBehaviour
 	
 	/// <summary>Called at the start of an interaction</summary>
 	/// <param name="target">Pass any object data through</param>
-	abstract public void InteractTrigger(object target = null);
+	abstract public void InteractionStartTrigger(object target = null);
 	
 	/// <summary>Called at the end of an interaction</summary>
 	/// <param name="target">Pass any object data through</param>
 	virtual public void InteractionEndTrigger(object target = null){}
+
+	virtual public void VRLookInteraction(){}
+	abstract public void VRInteractionStartTrigger();
+	virtual public void VRInteractionEndTrigger(){}
 }
 

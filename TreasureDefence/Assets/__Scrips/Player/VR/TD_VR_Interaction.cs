@@ -4,167 +4,182 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR;
 
-public class TD_VR_Interaction : XRBaseControllerInteractor
+public class TD_VR_Interaction : MonoBehaviour
 {
+    [SerializeField]
+    public InputDevice targetDevice;
+    [SerializeField] InputDeviceCharacteristics controllerCharacteristic;
+    GameObject spawnedController;
+    [SerializeField] Collider gripTrigger;
+    [SerializeField] Collider pointTrigger;
+    [SerializeField] Collider fingerGunTrigger;
+    [SerializeField] Collider fistTrigger;
 
-
-
-
-    // public InputDevice targetDevice;
-    // [SerializeField] InputDeviceCharacteristics controllerCharacteristic;
-    // GameObject spawnedController;
-    // [SerializeField] Collider gripTrigger;
-    // [SerializeField] Collider pointTrigger;
-    // [SerializeField] Collider fingerGunTrigger;
-    // [SerializeField] Collider fistTrigger;
-
-    // // Interaction stuff 
-    // [SerializeField] TD_Interactable foundInteraction;
-    // [SerializeField] VRInteractionMethod interactionType;
-    // bool isBusy;
+    // Interaction stuff 
+    [SerializeField] TD_Interactable foundInteraction;
+    [SerializeField] VRControllerState _controllerState;
+    [SerializeField] VRInteractionMethod interactionType = VRInteractionMethod.None;
+    [SerializeField] VRControllerInputData inputs;
+    bool isBusy, triggerInteraction;
 
     // Start is called before the first frame update
-    // void Start()
-    // {
-    //     List<InputDevice> devices = new List<InputDevice>();
-	// 	InputDeviceCharacteristics rightControllerCharacteristics = controllerCharacteristic;
-	// 	InputDevices.GetDevicesWithCharacteristics(rightControllerCharacteristics, devices);
+    void Start()
+    {
+        List<InputDevice> devices = new List<InputDevice>();
+		InputDeviceCharacteristics rightControllerCharacteristics = controllerCharacteristic;
+		InputDevices.GetDevicesWithCharacteristics(rightControllerCharacteristics, devices);
 
-	// 	foreach(var item in devices)
-	// 	{
-	// 		Debug.Log(item.name + item.characteristics);
-	// 	}
+		foreach(var item in devices)
+		{
+			Debug.Log(item.name + item.characteristics);
+		}
 
-    //     if(devices.Count > 0)
-    //         targetDevice = devices[0];
-    // }
+        if(devices.Count > 0)
+            targetDevice = devices[0];
+    }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //     VRControllerInputData inputs = handleControllerInputs();
+    // Update is called once per frame
+    void Update()
+    {
+        inputs = handleControllerInputs();
 
-    //     if(isBusy)
-    //     {
-    //         Debug.Log(inputs.isNoInputs());
-    //         // inputs.print();
-    //     }
+        // inputs.print();
 
-    //     if(!isBusy)
-    //     {
-    //         interactionType = checkControllerState(inputs);
+        if(isBusy)
+        {
+            Debug.Log(inputs.isNoInputs());
+            // inputs.print();
+        }
 
-    //         switch(interactionType) // we can have different triggers enabled for the different types so that they have different trigger positions
-    //         {
-    //             case VRInteractionMethod.Grip:
-    //                 if(inputs.triggerValue && inputs.gripValue && !inputs.primaryButtonValue)
-    //                     startInteraction(VRInteractionMethod.Grip);
-    //                 break;
+        if(!isBusy)
+        {
+            VRControllerState previousState = _controllerState;
+            VRControllerState transitionToState = checkControllerState(inputs);
+            _controllerState = transitionToControllerState(previousState, transitionToState, out interactionType);
+            Debug.Log(interactionType);
 
-    //             case VRInteractionMethod.Point:
-    //                 if(inputs.triggerValue)
-    //                     startInteraction(VRInteractionMethod.Point);
-    //                 break;
+            startInteraction(interactionType);
+        }
+        else if(inputs.isNoInputs())
+        {
+            endInteraction();
+        }
+        triggerInteraction = false;
+    }
 
-    //             case VRInteractionMethod.FingerGun:
-    //                 if(!inputs.triggerValue && inputs.primaryButtonValue && inputs.gripValue)
-    //                     startInteraction(VRInteractionMethod.FingerGun);
-    //                 break;
+    void OnTriggerEnter(Collider other)
+    {
+        foundInteraction = other.GetComponent<TD_Interactable>();
+    }
 
-    //             case VRInteractionMethod.ThumbsUp:
-    //                 if(inputs.primaryButtonValue && inputs.triggerValue && inputs.gripValue)
-    //                     startInteraction(VRInteractionMethod.ThumbsUp);
-    //                 break;
+    void OnTriggerExit(Collider other)
+    {
+        if(foundInteraction)
+            if(other == foundInteraction.getCollider() && !isBusy)
+                foundInteraction = null;
+    }
 
-    //             case VRInteractionMethod.Fist:
-    //                 Debug.Log("this method is not implemented");
-    //                 // if(inputs.isFist)
-    //                 //     startInteraction(VRInteractionMethod.Fist);
-    //                 break;
-    //         }
-    //     }
-    //     else if(inputs.isNoInputs())
-    //     {
-    //         endInteraction();
-    //     }
-    // }
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collision");
+    }
 
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     foundInteraction = other.GetComponent<TD_Interactable>();
-    // }
+    void startInteraction(VRInteractionMethod method)
+    {
+        if(foundInteraction)
+        {
+        Debug.Log("starting");
+            Debug.Log(method.ToString());
+            // if(foundInteraction.interactionMethod == method)
+            // {
+            //     foundInteraction.InteractTrigger(method.ToString());
+            //     isBusy = true;
 
-    // void OnTriggerExit(Collider other)
-    // {
-    //     if(foundInteraction)
-    //         if(other == foundInteraction.getCollider() && !isBusy)
-    //             foundInteraction = null;
-    // }
+            //     // if(method == VRInteractionMethod.Fist)
+            //     //     endInteraction();
+            // }
+        }
+    }
 
-    // void OnCollisionEnter(Collision collision)
-    // {
-    //     Debug.Log("collision");
-    // }
+    void endInteraction()
+    {
+        foundInteraction.InteractionEndTrigger();
+        isBusy = false;
+    }
 
-    // void startInteraction(VRInteractionMethod method)
-    // {
-    //     if(foundInteraction)
-    //     {
-    //         Debug.Log(method.ToString());
-    //         if(foundInteraction.interactionMethod == method)
-    //         {
-    //             foundInteraction.InteractTrigger(method.ToString());
-    //             isBusy = true;
+    VRControllerState checkControllerState(VRControllerInputData inputs)
+    {
+        if(inputs.triggerValue && inputs.gripValue && inputs.primaryButtonValue)
+            return VRControllerState.Fist;
+        if(inputs.gripValue && inputs.primaryButtonValue)
+            return VRControllerState.Point;
+        if(inputs.gripValue)
+            return VRControllerState.FingerGun;
+        return VRControllerState.Grip;
+    }
 
-    //             // if(method == VRInteractionMethod.Fist)
-    //             //     endInteraction();
-    //         }
-    //     }
-    // }
+    VRControllerInputData handleControllerInputs()
+    {
+        targetDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripValue);
+        targetDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerValue);
+        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
 
-    // void endInteraction()
-    // {
-    //     foundInteraction.InteractionEndTrigger();
-    //     isBusy = false;
-    // }
+        VRControllerInputData data = new VRControllerInputData();
+        data.gripValue = gripValue;
+        data.triggerValue = triggerValue;
+        data.primaryButtonValue = primaryButtonValue;
 
-    // VRInteractionMethod checkControllerState(VRControllerInputData inputs)
-    // {
-    //     if(inputs.triggerValue && inputs.gripValue && inputs.primaryButtonValue)
-    //         return VRInteractionMethod.Fist;
-    //     if(inputs.gripValue && inputs.primaryButtonValue)
-    //         return VRInteractionMethod.Point;
-    //     if(inputs.gripValue)
-    //         return VRInteractionMethod.FingerGun;
-    //     return VRInteractionMethod.Grip;
-    // }
+        return data;
+    }
 
-    // VRControllerInputData handleControllerInputs()
-    // {
-    //     targetDevice.TryGetFeatureValue(CommonUsages.gripButton, out bool gripValue);
-    //     targetDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerValue);
-    //     targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
-
-    //     VRControllerInputData data = new VRControllerInputData();
-    //     data.gripValue = gripValue;
-    //     data.triggerValue = triggerValue;
-    //     data.primaryButtonValue = primaryButtonValue;
-
-    //     return data;
-    // }
-
-    // void transitionToControllerState(VRInteractionMethod transitionFrom, VRInteractionMethod transitionTo)
-    // {
-    //     // return null;
-    // }
+    VRControllerState transitionToControllerState(VRControllerState transitionFrom, VRControllerState transitionTo, out VRInteractionMethod interactionType)
+    {
+        if(transitionFrom == VRControllerState.Grip && transitionTo == VRControllerState.ThumbsUp)
+        {
+            interactionType = VRInteractionMethod.Grab;
+            return VRControllerState.ThumbsUp;
+        }
+        if (transitionFrom == VRControllerState.ThumbsUp && transitionTo == VRControllerState.Fist)
+        {
+            interactionType = VRInteractionMethod.ThumbTrigger;
+            return VRControllerState.Fist;
+        }
+        if (transitionFrom == VRControllerState.FingerGun && transitionTo == VRControllerState.Point)
+        {
+            interactionType = VRInteractionMethod.FingerShoot;
+            return VRControllerState.Point;
+        }
+        if (transitionFrom == VRControllerState.Point && transitionTo == VRControllerState.Fist)
+        {
+            interactionType = VRInteractionMethod.PointPush;
+            return VRControllerState.Fist;
+        }
+        if (transitionFrom == VRControllerState.Grip && transitionTo == VRControllerState.Fist)
+        {
+            interactionType = VRInteractionMethod.ClenchFist;
+            return VRControllerState.Fist;
+        }
+        interactionType = VRInteractionMethod.None;
+        return transitionTo;
+    }
 }
 
-// public enum VRInteractionMethod
-// {
-// 	Grip,
-// 	FingerGun,
-// 	Point,
-// 	ThumbsUp,
-// 	Fist,
-//     Any
-// }
+public enum VRControllerState
+{
+	Grip,
+	FingerGun,
+	Point,
+	ThumbsUp,
+	Fist,
+    Any
+}
+
+public enum VRInteractionMethod
+{
+    Grab,
+    FingerShoot,
+    ThumbTrigger,
+    ClenchFist,
+    PointPush,
+    None
+}

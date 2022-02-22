@@ -14,25 +14,46 @@ public class ShootinRange_Gun : TD_Interactable
 
     /// <summary>Called at the start of an interaction</summary>
     /// <param name="target">Pass any object data through</param>
-    override public void InteractTrigger(object target = null)
+    override public void InteractionStartTrigger(object target = null)
     {
         player = target as PlayerInteraction;
 
         SetHeld(true, player.GetHoldPoint);
     }
 
+	override public void VRInteractionStartTrigger()
+    {
+
+    }
+
     private new void Update()
     {
         base.Update();
 
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        
         //if the target is hit 5 times within ? many seconds.
         timer -= Time.deltaTime;
+
+        ShootGun();
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            SetHeld(false, player.GetHoldPoint);
+            player = null;
+        }
+
+    }
+
+    
+    void ShootGun()
+    {
 
         if(Input.GetMouseButtonDown(0) && timer <= 0)
         {
             timer = ReloadTime;
+
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
             Debug.DrawRay(Gun.transform.position, Gun.transform.forward);
 
@@ -46,20 +67,6 @@ public class ShootinRange_Gun : TD_Interactable
                 }
             }
         }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            SetHeld(false, player.GetHoldPoint);
-            player = null;
-        }
-
-    }
-
-    /// <summary>Called at the end of an interaction</summary>
-    /// <param name="target">Pass any object data through</param>
-    override public void InteractionEndTrigger(object target = null)
-    {
-
     }
 
     private void OnDrawGizmos()

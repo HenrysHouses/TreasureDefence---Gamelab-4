@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 640103911}
   - component: {fileID: 2269508324442823611}
   - component: {fileID: 2584727101734006031}
-  - component: {fileID: 640103912}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -91,25 +90,6 @@ MonoBehaviour:
   m_MoveObjectIn: 14
   m_MoveObjectOut: 15
   m_PoseProvider: {fileID: 0}
---- !u!114 &640103912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721011054774009106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bf024de9813e6459bbd21abb437977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerCharacteristic: 576
-  gripTrigger: {fileID: 0}
-  pointTrigger: {fileID: 0}
-  fingerGunTrigger: {fileID: 0}
-  fistTrigger: {fileID: 0}
-  foundInteraction: {fileID: 0}
-  interactionType: 0
 --- !u!1 &7721011054949031898
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +135,6 @@ GameObject:
   - component: {fileID: 222637289}
   - component: {fileID: 5441437725202863937}
   - component: {fileID: 2501852743466532601}
-  - component: {fileID: 222637288}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -234,25 +213,6 @@ MonoBehaviour:
   m_MoveObjectIn: 14
   m_MoveObjectOut: 15
   m_PoseProvider: {fileID: 0}
---- !u!114 &222637288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721011055534368522}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bf024de9813e6459bbd21abb437977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerCharacteristic: 320
-  gripTrigger: {fileID: 0}
-  pointTrigger: {fileID: 0}
-  fingerGunTrigger: {fileID: 0}
-  fistTrigger: {fileID: 0}
-  foundInteraction: {fileID: 0}
-  interactionType: 0
 --- !u!1 &7721011055986639427
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +318,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0

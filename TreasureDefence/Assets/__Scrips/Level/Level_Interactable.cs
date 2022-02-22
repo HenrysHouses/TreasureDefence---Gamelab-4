@@ -6,12 +6,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(XRGrabInteractable))]
 public class Level_Interactable : TD_Interactable
 {
 	public LevelWaveSequence LevelData;
 	public GameObject levelHighlight, waterHighlight;
-	override public void InteractTrigger(object target = null)
+	override public void InteractionStartTrigger(object target = null)
 	{
 		PlayerInteraction player = target as PlayerInteraction;
 		
@@ -24,4 +26,6 @@ public class Level_Interactable : TD_Interactable
 		
 		SetHeld(false, player.GetHoldPoint);
 	}	
+
+	override public void VRInteractionStartTrigger(){}
 }

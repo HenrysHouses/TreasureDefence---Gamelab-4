@@ -11,7 +11,7 @@ public class vendingMachineButton_Interactable : TD_Interactable
     public KeypadInput buttonInput;
 
 
-    public override void InteractTrigger(object target = null)
+    public override void InteractionStartTrigger(object target = null)
     {
         switch(buttonInput)
         {
@@ -75,6 +75,11 @@ public class vendingMachineButton_Interactable : TD_Interactable
     public override void InteractionEndTrigger(object target = null)
     {
 
+    }
+
+	override public void VRInteractionStartTrigger()
+    {
+        
     }
 }
 

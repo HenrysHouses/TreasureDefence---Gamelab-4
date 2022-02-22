@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(XRGrabInteractable))]
 public class FlagPole_Interactable : TD_Interactable
 {
 	WaveController waveController;
@@ -22,7 +24,7 @@ public class FlagPole_Interactable : TD_Interactable
 		levelHandler = GameObject.FindObjectOfType<LevelHandler>();	
 	}
 
-	public override void InteractTrigger(object target = null)
+	public override void InteractionStartTrigger(object target = null)
 	{
 		PlayerInteraction player = target as PlayerInteraction;
 		
@@ -32,6 +34,27 @@ public class FlagPole_Interactable : TD_Interactable
 			setGhostFlagActive(true);
 	}
 	
+	override public void VRInteractionStartTrigger()
+	{
+		if(!GhostFlagVisibility.activeSelf)
+			setGhostFlagActive(true);
+	}
+
+	override public void VRInteractionEndTrigger()
+	{
+		if(TryExitLevel)
+		{
+			levelHandler.ExitLevel();
+			TryExitLevel = false;
+			GhostFlagVisibility.SetActive(false);
+		}
+
+		Vector3 rot = transform.eulerAngles;
+		Vector3 resetRot = new Vector3(0, rot.y, 0);
+		transform.eulerAngles = resetRot;
+		
+		setGhostFlagActive(false);
+	}
 	
 	public override void InteractionEndTrigger(object target = null)
 	{

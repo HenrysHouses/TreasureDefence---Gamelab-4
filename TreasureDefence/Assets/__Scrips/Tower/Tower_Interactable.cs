@@ -4,14 +4,17 @@
 */
 
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(XRGrabInteractable))]
 public class Tower_Interactable : TD_Interactable
 {
 	public GameObject obj;
 	
 	public TowerInfo towerInfo;
 	
-	override public void InteractTrigger(object target = null)
+	override public void InteractionStartTrigger(object target = null)
 	{
 		PlayerInteraction player = target as PlayerInteraction;
 		
@@ -25,9 +28,8 @@ public class Tower_Interactable : TD_Interactable
 		SetHeld(false, player.GetHoldPoint);
 	}
 	
-	override public void LookInteraction(){}
-	
-	
+	override public void VRInteractionStartTrigger(){}
+
 	/// <summary>
 	/// Update is called every frame, if the MonoBehaviour is enabled.
 	/// </summary>

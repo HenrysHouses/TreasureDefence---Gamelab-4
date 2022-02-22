@@ -13,7 +13,7 @@ public class Vendor_Interactable : TD_Interactable
     public static CurrencyManager instance;
   
 
-    override public void InteractTrigger(object target = null)
+    override public void InteractionStartTrigger(object target = null)
     {
         Debug.Log("ThisWorks!");
         PayForTower();
@@ -44,11 +44,8 @@ public class Vendor_Interactable : TD_Interactable
         totalCost = 0;
     }
 
-    override public void InteractionEndTrigger(object target = null)
-    {
-        
-
-    }
+    override public void InteractionEndTrigger(object target = null){}
+	override public void VRInteractionStartTrigger(){}
 
 
 }
