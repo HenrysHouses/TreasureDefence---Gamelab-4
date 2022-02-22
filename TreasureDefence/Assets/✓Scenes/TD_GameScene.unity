@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4555,7 +4555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1448499598
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6985,20 +6985,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4427941246157791396, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: PurchasableItems.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4427941246157791396, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: PurchasableItems.Array.data[1].ID
       value: 02
       objectReference: {fileID: 0}
     - target: {fileID: 4427941246157791396, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: PurchasableItems.Array.data[2].ID
+      value: 03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427941246157791396, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: PurchasableItems.Array.data[1].cost
-      value: 40
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427941246157791396, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: PurchasableItems.Array.data[2].cost
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4427941246157791396, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: PurchasableItems.Array.data[1].ItemPrefab
       value: 
-      objectReference: {fileID: 230867605568577654, guid: 474286dd0ddc7cd4a999a63a09f7f053, type: 3}
+      objectReference: {fileID: 145837736746996029, guid: ea338898bd5cf6c4f8b0f8cbbd135f2b, type: 3}
     - target: {fileID: 4427941246157791398, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: m_Name
       value: VendingMachine_Prototype1
