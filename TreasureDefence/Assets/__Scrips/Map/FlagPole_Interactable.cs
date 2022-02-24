@@ -6,11 +6,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class FlagPole_Interactable : TD_Interactable
 {
-	WaveController waveController;
-	LevelHandler levelHandler;
+	[SerializeField] LevelHandler levelHandler;
 	bool TryExitLevel;
 	public Transform flag;
-	GameObject GhostFlagVisibility;
+	[SerializeField] GameObject GhostFlagVisibility;
 
 	Vector3 flagMinPos = Vector3.zero;
 	Vector3 flagMaxPos = new Vector3(0, 0.2408f, 0);
@@ -19,9 +18,23 @@ public class FlagPole_Interactable : TD_Interactable
 	new void Start()
 	{
 		base.Start();
-		waveController = GameManager.instance.GetWaveController();
-		GhostFlagVisibility = GameObject.FindGameObjectWithTag("GhostFlag").transform.GetChild(0).gameObject;
-		levelHandler = GameObject.FindObjectOfType<LevelHandler>();	
+		findDependencies();
+	}
+
+	void findDependencies()
+	{
+		try
+		{
+			GhostFlagVisibility = GameObject.FindGameObjectWithTag("GhostFlag").transform.GetChild(0).gameObject;
+			levelHandler = GameObject.FindObjectOfType<LevelHandler>();	
+		}
+		catch
+		{
+			if(!levelHandler)
+				Debug.LogError("LevelHandler is missing in the scene");
+			if(!GhostFlagVisibility)
+				Debug.LogError("Ghost flag is missing in the scene");
+		}
 	}
 
 	public override void InteractionStartTrigger(object target = null)
@@ -36,12 +49,16 @@ public class FlagPole_Interactable : TD_Interactable
 	
 	override public void VRInteractionStartTrigger()
 	{
+		if(!GhostFlagVisibility)
+			findDependencies();
 		if(!GhostFlagVisibility.activeSelf)
 			setGhostFlagActive(true);
 	}
 
 	override public void VRInteractionEndTrigger()
 	{
+		if(!levelHandler || !GhostFlagVisibility)
+			findDependencies();
 		if(TryExitLevel)
 		{
 			levelHandler.ExitLevel();
@@ -58,6 +75,8 @@ public class FlagPole_Interactable : TD_Interactable
 	
 	public override void InteractionEndTrigger(object target = null)
 	{
+		if(!levelHandler || !GhostFlagVisibility)
+			findDependencies();
 		if(TryExitLevel)
 		{
 			levelHandler.ExitLevel();

@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class waveTrigger_Interactable : TD_Interactable
 {
-	public GameObject ePrompt;
 	[SerializeField] LevelHandler levelHandler;
 	
+	new void Start()
+	{
+		base.Start();
+		levelHandler = GameObject.FindObjectOfType<LevelHandler>();	
+	}
+
 	public override void InteractionStartTrigger(object target = null)
 	{
 		if(GameManager.instance.GetWaveController() != null && levelHandler.LevelIsReady)
@@ -25,8 +30,8 @@ public class waveTrigger_Interactable : TD_Interactable
 	
 	override public void LookInteraction()
 	{
-		if(levelHandler.LevelIsReady)
-			ePrompt.SetActive(lookIsActive);
+		// if(levelHandler.LevelIsReady)
+			// ePrompt.SetActive(lookIsActive);
 		// else
 		// 	Debug.Log("Something should happen here?");
 	}
@@ -34,8 +39,8 @@ public class waveTrigger_Interactable : TD_Interactable
 	override public void VRLookInteraction()
 	{
 		Debug.Log("VR look");
-		if(levelHandler.LevelIsReady)
-			ePrompt.SetActive(lookIsActive);
+		// if(levelHandler.LevelIsReady)
+			// ePrompt.SetActive(lookIsActive);
 	}
 	
 }

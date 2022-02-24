@@ -10,7 +10,6 @@ public class Tower_BombThrower : TowerBehaviour
     {
 		if (targets != null)
 		{
-			Debug.Log("something");
 			for( int i = 0; i < maxTargets; i++)
             {
 				if (i >= targets.Length)
@@ -20,7 +19,6 @@ public class Tower_BombThrower : TowerBehaviour
 				Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
 				attackData newProjectile = getCurrentAttackData(_projectile, targets[i]);
 				projectile.Add(newProjectile);
-					Debug.Log("break");
 			}
 		}
 	}
