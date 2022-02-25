@@ -1369,8 +1369,6 @@ GameObject:
   - component: {fileID: 7721011055986639426}
   - component: {fileID: 266075824}
   - component: {fileID: 266075825}
-  - component: {fileID: 266075826}
-  - component: {fileID: 266075829}
   m_Layer: 3
   m_Name: VR Rig
   m_TagString: Untagged
@@ -1444,46 +1442,6 @@ MonoBehaviour:
   turnSpeed: 1
   movementNode: 4
   rotationNode: 5
---- !u!114 &266075826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721011055986639427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bf024de9813e6459bbd21abb437977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ControllerCharacteristic: 576
-  _controllerState: 0
-  _inputs:
-    triggerValue: 0
-    gripValue: 0
-    primaryButtonValue: 0
-  targetRay: {fileID: 7721011054774009106}
-  targetController: {fileID: 264738004}
---- !u!114 &266075829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721011055986639427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bf024de9813e6459bbd21abb437977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ControllerCharacteristic: 320
-  _controllerState: 0
-  _inputs:
-    triggerValue: 0
-    gripValue: 0
-    primaryButtonValue: 0
-  targetRay: {fileID: 7721011055534368522}
-  targetController: {fileID: 2067929335}
 --- !u!1 &7721011056117593413
 GameObject:
   m_ObjectHideFlags: 0
