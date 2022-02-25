@@ -28,13 +28,22 @@ public class Tower_Interactable : TD_Interactable
 		SetHeld(false, player.GetHoldPoint);
 	}
 	
-	override public void VRInteractionStartTrigger(){}
+	override public void VRInteractionStartTrigger()
+	{
+		held = true;
+	}
+
+	override public void VRInteractionEndTrigger()
+	{
+		held = false;
+	}
 
 	/// <summary>
 	/// Update is called every frame, if the MonoBehaviour is enabled.
 	/// </summary>
-	void Update()
+	new void Update()
 	{
+		base.Update();
 		if(held)
 		{
 			Vector3 rot = transform.eulerAngles;

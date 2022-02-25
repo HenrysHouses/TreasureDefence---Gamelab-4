@@ -8,6 +8,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class LevelHandler : MonoBehaviour
 {
+	[SerializeField] GameObject FlagPrefab, GhostPrefab, CupPrefab;
+	[SerializeField] Transform FlagSpawn, GhostSpawn, CupSpawn;
+
 	Transform currentLevel;
 	public bool LevelEnding, LevelStarting;
 	public bool LevelIsReady => !LevelEnding && !LevelStarting; 
@@ -15,6 +18,17 @@ public class LevelHandler : MonoBehaviour
 
 	public ParticleSystem cloudParticle;
 	bool cloudsSpawned = false;
+
+	void Awake()
+	{
+		if(!GameObject.FindGameObjectWithTag("GhostFlag"))
+			Instantiate(GhostPrefab, GhostSpawn.position, GhostSpawn.rotation, GhostSpawn);	
+		if(!GameObject.FindObjectOfType<waveTrigger_Interactable>())
+			Instantiate(CupPrefab, CupSpawn.position, CupSpawn.rotation, CupSpawn);	
+		if(!GameObject.FindObjectOfType<FlagPole_Interactable>()) 
+			Instantiate(FlagPrefab, FlagSpawn.position, FlagSpawn.rotation, FlagSpawn);	
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
