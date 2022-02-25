@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Henrik & Mikkel.
 public class attackData_DOT : attackData
 {
 	public float Duration, DamageInterval, DamageTimer;

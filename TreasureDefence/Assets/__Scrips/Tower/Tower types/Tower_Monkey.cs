@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Henrik & Mikkel.
 public class Tower_Monkey : TowerBehaviour
 {									
 	public float ProjectileLifeTime, Dot_Interval;
