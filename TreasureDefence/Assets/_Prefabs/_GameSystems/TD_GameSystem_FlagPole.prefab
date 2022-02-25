@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 416883424920191617}
   - component: {fileID: 416883424920191628}
   - component: {fileID: 416883424920191631}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 416883426001363975}
   - component: {fileID: 416883426001363974}
   - component: {fileID: 416883426001363993}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 416883426070404291}
   - component: {fileID: 416883426070404303}
   - component: {fileID: 6817418203028711609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TD_GameSystem_FlagPole
   m_TagString: FlagPole
   m_Icon: {fileID: 0}
@@ -228,7 +228,9 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  levelHandler: {fileID: 0}
   flag: {fileID: 355670520017012041}
+  GhostFlagVisibility: {fileID: 0}
 --- !u!65 &416883426070404291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -406,7 +408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 355670520017012041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlagMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8231770251706097984}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +477,7 @@ GameObject:
   - component: {fileID: 1433976987696792734}
   - component: {fileID: 1380008598915657465}
   - component: {fileID: 8253017159973668314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +571,7 @@ GameObject:
   - component: {fileID: 8987180644185339218}
   - component: {fileID: 4694983297767774270}
   - component: {fileID: 1323281740519317191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,6 +711,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
       propertyPath: m_Name
       value: TD_Model_IcoSphere_LowestPoly
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}

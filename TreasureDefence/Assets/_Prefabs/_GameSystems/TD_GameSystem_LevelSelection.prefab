@@ -635,8 +635,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -731,7 +731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbacafa437106c47ae7d6535efcac56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameOfBool: IsHovering
+  NameOfBool: Hover
+  animator: {fileID: 0}
 --- !u!1 &2101355283195334973
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +979,7 @@ GameObject:
   - component: {fileID: 4857548341807806839}
   - component: {fileID: 2101355283570490562}
   - component: {fileID: 2101355283570490620}
-  - component: {fileID: 287612698}
+  - component: {fileID: 5592279942774946384}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Untagged
@@ -1101,8 +1102,8 @@ MonoBehaviour:
   m_FirstHoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 287612698}
-        m_TargetAssemblyTypeName: HoverAnimTrigger, Assembly-CSharp
+      - m_Target: {fileID: 5592279942774946384}
+        m_TargetAssemblyTypeName: animatorBoolHelper, Assembly-CSharp
         m_MethodName: setAnimatorBool
         m_Mode: 6
         m_Arguments:
@@ -1116,8 +1117,8 @@ MonoBehaviour:
   m_LastHoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 287612698}
-        m_TargetAssemblyTypeName: HoverAnimTrigger, Assembly-CSharp
+      - m_Target: {fileID: 5592279942774946384}
+        m_TargetAssemblyTypeName: animatorBoolHelper, Assembly-CSharp
         m_MethodName: setAnimatorBool
         m_Mode: 6
         m_Arguments:
@@ -1156,8 +1157,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1240,7 +1241,7 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
---- !u!114 &287612698
+--- !u!114 &5592279942774946384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1252,7 +1253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbacafa437106c47ae7d6535efcac56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameOfBool: IsHovering
+  NameOfBool: Hover
+  animator: {fileID: 0}
 --- !u!1 &2101355283647964535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,8 +2926,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3020,7 +3022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbacafa437106c47ae7d6535efcac56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameOfBool: IsHovering
+  NameOfBool: Hover
+  animator: {fileID: 0}
 --- !u!1 &2101355284463982875
 GameObject:
   m_ObjectHideFlags: 0

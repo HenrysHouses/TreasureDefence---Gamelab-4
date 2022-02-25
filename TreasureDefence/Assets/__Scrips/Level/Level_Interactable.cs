@@ -25,7 +25,10 @@ public class Level_Interactable : TD_Interactable
 		SetHeld(true, player.GetHoldPoint);
 
 		if(GameManager.instance)
+		{
 			GameManager.instance.LevelPickupHighlight.enabled = false;
+			GameManager.instance.WaterHighlight.enabled = true;
+		}
 	}
 	
 	override public void InteractionEndTrigger(object target = null)

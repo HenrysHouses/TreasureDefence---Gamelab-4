@@ -1,18 +1,20 @@
 using UnityEngine;
 
-public class HoverAnimTrigger : MonoBehaviour
+public class animatorBoolHelper : MonoBehaviour
 {
     [SerializeField] string NameOfBool; 
-    Animator animator;
+    [SerializeField] Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        if(!animator)
+            animator = GetComponent<Animator>();
     }
 
     public void setAnimatorBool(bool state)
     {
         animator.SetBool(NameOfBool, state);
+        Debug.Log(animator.name + " " + state);
     }
 }
