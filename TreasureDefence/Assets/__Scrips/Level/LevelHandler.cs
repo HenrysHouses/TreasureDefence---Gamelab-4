@@ -88,6 +88,8 @@ public class LevelHandler : MonoBehaviour
 	
 	public void StartLevel(LevelWaveSequence levelData, GameObject board = null)
 	{
+		if(GameManager.instance)
+			GameManager.instance.WaterHighlight.enabled = false;
 		LevelStarting = true;
 		Vector3 offset = Vector3.down * _offsetValue;
 		Vector3 newPos = levelData.LevelPrefab.transform.position + offset;

@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 	public GameObject LevelDisplayHighlight, LevelHolderHighlight;
 	public int[] enemyPerWave;
 
-	
+	public MeshRenderer LevelPickupHighlight, WaterHighlight;
+
 	public PathController pathController;
 	private int playerHealth;
 	
@@ -46,5 +47,8 @@ public class GameManager : MonoBehaviour
 		}
 		
 		Cursor.lockState = CursorLockMode.Locked;
+
+		LevelPickupHighlight = GameObject.FindGameObjectWithTag("Highlight/LevelPickup").GetComponent<MeshRenderer>();
+		WaterHighlight = GameObject.FindGameObjectWithTag("Highlight/Water").GetComponent<MeshRenderer>();
 	}
 }

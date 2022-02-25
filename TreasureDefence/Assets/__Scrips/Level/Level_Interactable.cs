@@ -12,12 +12,20 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Level_Interactable : TD_Interactable
 {
 	public LevelWaveSequence LevelData;
-	public GameObject levelHighlight, waterHighlight;
+
+	new void Start()
+	{
+		base.Start();
+		
+	}
 	override public void InteractionStartTrigger(object target = null)
 	{
 		PlayerInteraction player = target as PlayerInteraction;
 		
 		SetHeld(true, player.GetHoldPoint);
+
+		if(GameManager.instance)
+			GameManager.instance.LevelPickupHighlight.enabled = false;
 	}
 	
 	override public void InteractionEndTrigger(object target = null)
@@ -27,5 +35,12 @@ public class Level_Interactable : TD_Interactable
 		SetHeld(false, player.GetHoldPoint);
 	}	
 
-	override public void VRInteractionStartTrigger(){}
+	override public void VRInteractionStartTrigger()
+	{
+		if(GameManager.instance)
+		{
+			GameManager.instance.LevelPickupHighlight.enabled = false;
+			GameManager.instance.WaterHighlight.enabled = true;
+		}
+	}
 }

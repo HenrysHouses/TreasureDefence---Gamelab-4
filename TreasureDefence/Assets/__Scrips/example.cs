@@ -9,10 +9,28 @@ public class example : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
+        Debug.Log(recursivePrint(10));
     }
 
     public float speed;
     public float num;
+
+	public string recursivePrint(int ammount, int currentCount = 0)
+	{
+		string stars = "";
+		int count = 0;
+
+		for(int i = 0; i < ammount - count; i++)
+		{
+			stars += "*";
+		}
+		stars += "\n";
+		count++;
+		if(count != ammount)
+			return stars + recursivePrint(ammount, count);
+		return "";
+	}
+
 
     // Update is called once per frame
     void Update()
