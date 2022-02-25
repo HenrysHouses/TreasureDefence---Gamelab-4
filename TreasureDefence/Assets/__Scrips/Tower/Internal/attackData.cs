@@ -16,7 +16,7 @@ public class attackData
 	public float t;
 	public bool hit;
 
-	public Vector3 UpdateProjectile()
+	virtual public Vector3 UpdateProjectile()
 	{
 		if(target)
 		{
