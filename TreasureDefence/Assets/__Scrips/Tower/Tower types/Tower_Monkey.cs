@@ -6,7 +6,7 @@ public class Tower_Monkey : TowerBehaviour
 {									
 	public float ProjectileLifeTime, Dot_Interval;
 
-	 List<attackData_DOT> projectileDOT;
+	List<attackData_DOT> projectileDOT = new List<attackData_DOT>();
 	override public void Attack(int damage, EnemyBehaviour[] targets)
 	{
 		if (targets != null)

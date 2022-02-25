@@ -7,6 +7,11 @@ using UnityEngine;
 
 public class Base_TowerBehaviour : TowerBehaviour
 {
+
+	List<Base_TowerBehaviour> towers;
+	
+
+
 	override public void Attack(int damage, EnemyBehaviour[] targets)
 	{
 		if (targets != null)
