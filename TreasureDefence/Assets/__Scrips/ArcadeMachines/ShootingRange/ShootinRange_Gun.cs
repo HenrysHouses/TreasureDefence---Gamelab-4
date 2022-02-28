@@ -6,6 +6,7 @@ public class ShootinRange_Gun : TD_Interactable
 {   //Mikkel & Henrik, (Mostly HenriK).
 
     public GameObject Gun;
+    public Transform BarrelRaycast;
     [SerializeField]
     ShootingRange shootingrange;
     PlayerInteraction player;
@@ -49,16 +50,16 @@ public class ShootinRange_Gun : TD_Interactable
     public void ShootGun()
     {
 
-        if(Input.GetMouseButtonDown(0) && timer <= 0)
+        if(timer <= 0)
         {
             timer = ReloadTime;
-
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 Direction = Gun.transform.forward;
+            Vector3 Position = Gun.transform.position;
             RaycastHit hit;
 
-            Debug.DrawRay(Gun.transform.position, Gun.transform.forward);
+            Debug.DrawRay(Gun.transform.position, -Gun.transform.forward);
 
-            if (Physics.Raycast(Gun.transform.position, -Gun.transform.forward, out hit))
+            if (Physics.Raycast(BarrelRaycast.position, BarrelRaycast.forward, out hit))
             {
                 
                 if (hit.transform.CompareTag("Target"))
@@ -81,6 +82,6 @@ public class ShootinRange_Gun : TD_Interactable
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(Gun.transform.position, -Gun.transform.forward);
+        Gizmos.DrawRay(BarrelRaycast.position, BarrelRaycast.forward);
     }
 }
