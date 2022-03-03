@@ -21,7 +21,6 @@ public class waveTrigger_Interactable : TD_Interactable
 	
 	override public void VRInteractionStartTrigger()
 	{
-		Debug.Log("VR trigger");
 		if(GameManager.instance.GetWaveController() != null && levelHandler.LevelIsReady)
 			if(!GameManager.instance.GetWaveController().waveIsPlaying)
 				GameManager.instance.GetWaveController().nextWave();

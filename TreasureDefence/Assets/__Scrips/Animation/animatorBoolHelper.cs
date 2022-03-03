@@ -15,6 +15,5 @@ public class animatorBoolHelper : MonoBehaviour
     public void setAnimatorBool(bool state)
     {
         animator.SetBool(NameOfBool, state);
-        Debug.Log(animator.name + " " + state);
     }
 }

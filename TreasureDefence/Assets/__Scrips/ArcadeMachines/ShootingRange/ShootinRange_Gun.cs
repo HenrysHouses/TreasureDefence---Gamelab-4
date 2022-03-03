@@ -36,13 +36,16 @@ public class ShootinRange_Gun : TD_Interactable
         //if the target is hit 5 times within ? many seconds.
         timer -= Time.deltaTime;
 
-        if(Input.GetMouseButtonDown(0))
-            ShootGun();
-
-        if (Input.GetMouseButtonDown(1))
+        if(player)
         {
-            SetHeld(false, player.GetHoldPoint);
-            player = null;
+            if(Input.GetMouseButtonDown(0))
+                ShootGun();
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                SetHeld(false, player.GetHoldPoint);
+                player = null;
+            }
         }
 
     }
