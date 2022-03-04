@@ -69,7 +69,7 @@ public class ShootinRange_Gun : TD_Interactable
                 if (hit.transform.CompareTag("Target"))
                 {
                     shootingrange.HitTarget++;
-                    Debug.Log("hit = " + shootingrange.HitTarget);
+                    // Debug.Log("hit = " + shootingrange.HitTarget);
                     meshRenderer.material.color = Color.red;             //Fix this later. -Mikkel.
                     Invoke("ResetColor", 0.15f);
                 }

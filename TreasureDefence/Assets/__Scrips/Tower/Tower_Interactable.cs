@@ -11,8 +11,19 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Tower_Interactable : TD_Interactable
 {
 	public GameObject obj;
-	
+	TowerBehaviour towerBehaviour;
 	public TowerInfo towerInfo;
+	Color Color1, Color2;
+	bool invalidPlacement;
+	[SerializeField] MeshRenderer RangeHighlight;
+
+	new void Start()
+	{
+		base.Start();
+		Color1 = RangeHighlight.material.GetColor("_Color");
+		Color2 = RangeHighlight.material.GetColor("_Color2");
+		towerBehaviour = GetComponent<TowerBehaviour>();
+	}
 	
 	override public void InteractionStartTrigger(object target = null)
 	{
@@ -20,6 +31,7 @@ public class Tower_Interactable : TD_Interactable
 		
 		SetHeld(true, player.GetHoldPoint);
 		obj.SetActive(true);
+		towerBehaviour.canShoot = false;
 	}
 	
 	override public void InteractionEndTrigger(object target = null)
@@ -28,17 +40,22 @@ public class Tower_Interactable : TD_Interactable
 		
 		SetHeld(false, player.GetHoldPoint);
 		obj.SetActive(false);
+		if(!invalidPlacement)
+			towerBehaviour.canShoot = true;
 	}
 	
 	override public void VRInteractionStartTrigger()
 	{
 		held = true;
+		towerBehaviour.canShoot = false;
 		obj.SetActive(true);
 	}
 
 	override public void VRInteractionEndTrigger()
 	{
 		held = false;
+		if(!invalidPlacement)
+			towerBehaviour.canShoot = true;
 		obj.SetActive(false);
 	}
 
@@ -66,6 +83,20 @@ public class Tower_Interactable : TD_Interactable
 			
 			if (Physics.Raycast(transform.position + (Vector3.down * 0.1f), Vector3.down, out hit, 2f))
 			{				
+				if(!hit.collider.CompareTag("ValidPlacement"))
+				{
+					RangeHighlight.material.SetColor("_Color", Color.red);
+					RangeHighlight.material.SetColor("_Color2", Color.red);
+					invalidPlacement = true;
+				}
+				else
+				{
+					RangeHighlight.material.SetColor("_Color", Color1);
+					RangeHighlight.material.SetColor("_Color2", Color2);
+					invalidPlacement = false;
+				}
+
+
 				if(obj)
 				{
 					if (!obj.activeSelf)
@@ -73,6 +104,7 @@ public class Tower_Interactable : TD_Interactable
 				}
 
 				obj.transform.position = hit.point;
+				obj.transform.rotation = Quaternion.identity;
 			}
 			else
 			{

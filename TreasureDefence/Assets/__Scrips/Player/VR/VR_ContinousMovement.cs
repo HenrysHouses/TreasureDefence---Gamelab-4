@@ -14,7 +14,7 @@ public class VR_ContinousMovement : MonoBehaviour
     bool canRotate = true;
     bool secondaryButton_RightHand, primaryButton_RightHand, isRotating;
     bool ChangeHeight, heightIsChanging;
-    bool movementTracker, rotationTracker;
+    bool movementTracker, rotationTracker, rotationOverride;
     CharacterController character;
     private XROrigin rig;
 
@@ -34,6 +34,7 @@ public class VR_ContinousMovement : MonoBehaviour
         
         // other inputs
         device.TryGetFeatureValue(CommonUsages.secondaryButton, out ChangeHeight);
+        device.TryGetFeatureValue(CommonUsages.primaryButton, out rotationOverride);
         device.TryGetFeatureValue(CommonUsages.userPresence, out movementTracker);
 
         device = InputDevices.GetDeviceAtXRNode(rotationNode);
@@ -105,7 +106,7 @@ public class VR_ContinousMovement : MonoBehaviour
 
         character.Move(direction * Time.fixedDeltaTime * speed);
 
-        if(canRotate) // continuos rotation
+        if(canRotate || rotationOverride) // continuos rotation
         {
             Vector3 rotation = new Vector3(0, rotateInput.x, 0);
             transform.Rotate(rotation, Space.World);

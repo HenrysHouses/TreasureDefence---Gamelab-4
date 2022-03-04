@@ -20,7 +20,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 	public Transform projectileSpawnPos;
 	public GameObject projectilePrefab;
 	public GameObject ExplotionParticle;
-	public bool canShoot = true;
+	public bool canShoot = false;
 	public int attackDamage;
 	public float attackCooldown, attackSpeed;
 	float Cooldown;

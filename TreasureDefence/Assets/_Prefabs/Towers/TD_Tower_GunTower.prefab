@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 2251695599881115556}
   - component: {fileID: 1438879587087990059}
   - component: {fileID: 1438879585420382590}
-  - component: {fileID: 1438879585420382591}
   - component: {fileID: 1438879585420390017}
   - component: {fileID: 1093836718}
   - component: {fileID: 1625076952}
@@ -97,22 +96,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1438879585420382591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145837736746996029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 386c18f9580e1fe43a78eac270d964a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 0.6
-  _enabled: 0
 --- !u!114 &1438879585420390017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +134,7 @@ MonoBehaviour:
   held: 0
   obj: {fileID: 975407893581558086}
   towerInfo: {fileID: 11400000, guid: ac9d8a0ba316c92468c8db686729a3ad, type: 2}
+  RangeHighlight: {fileID: 8136035495993252939}
 --- !u!114 &1625076952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +263,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -286,7 +272,7 @@ MonoBehaviour:
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 5
   m_TightenPosition: 0.5
-  m_TrackRotation: 1
+  m_TrackRotation: 0
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 5
   m_TightenRotation: 0.5
@@ -482,5 +468,10 @@ GameObject:
 --- !u!4 &947327303961125689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8756603211039209554, guid: 52908120461f6ac42a5259702c40053e, type: 3}
+  m_PrefabInstance: {fileID: 8403753258210351979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8136035495993252939 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 308813497512052512, guid: 52908120461f6ac42a5259702c40053e, type: 3}
   m_PrefabInstance: {fileID: 8403753258210351979}
   m_PrefabAsset: {fileID: 0}

@@ -63,8 +63,8 @@ MonoBehaviour:
   m_AxisToPressThreshold: 0.1
   m_RotateAnchorLeft: 0
   m_RotateAnchorRight: 0
-  m_MoveObjectIn: 0
-  m_MoveObjectOut: 0
+  m_MoveObjectIn: 14
+  m_MoveObjectOut: 15
   m_PoseProvider: {fileID: 0}
 --- !u!114 &264738008
 MonoBehaviour:
@@ -132,18 +132,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VR_InteractionAnchorCorrection, Assembly-CSharp
-        m_MethodName: toggleTransformAnchor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -175,18 +163,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: VR_ContinousMovement, Assembly-CSharp
         m_MethodName: setCanRotate
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VR_InteractionAnchorCorrection, Assembly-CSharp
-        m_MethodName: toggleTransformAnchor
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -693,18 +669,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VR_InteractionAnchorCorrection, Assembly-CSharp
-        m_MethodName: toggleTransformAnchor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -736,18 +700,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: VR_ContinousMovement, Assembly-CSharp
         m_MethodName: setCanRotate
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VR_InteractionAnchorCorrection, Assembly-CSharp
-        m_MethodName: toggleTransformAnchor
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1149,8 +1101,8 @@ MonoBehaviour:
   m_AxisToPressThreshold: 0.1
   m_RotateAnchorLeft: 0
   m_RotateAnchorRight: 0
-  m_MoveObjectIn: 0
-  m_MoveObjectOut: 0
+  m_MoveObjectIn: 14
+  m_MoveObjectOut: 15
   m_PoseProvider: {fileID: 0}
 --- !u!114 &1965682318
 MonoBehaviour:
@@ -1543,6 +1495,8 @@ GameObject:
   - component: {fileID: 7721011055986639426}
   - component: {fileID: 266075824}
   - component: {fileID: 266075825}
+  - component: {fileID: 1955342372}
+  - component: {fileID: 1955342373}
   m_Layer: 3
   m_Name: VR Rig
   m_TagString: Untagged
@@ -1622,6 +1576,33 @@ MonoBehaviour:
   heightCooldown: 0.3
   movementNode: 4
   rotationNode: 5
+--- !u!114 &1955342372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721011055986639427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 0}
+--- !u!114 &1955342373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721011055986639427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a5df2202a8b96488c744be3bd0c33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Timeout: 10
+  m_XROrigin: {fileID: 0}
 --- !u!1 &7721011056117593413
 GameObject:
   m_ObjectHideFlags: 0
