@@ -1,20 +1,19 @@
-// Upgrade NOTE: replaced 'UNITY_INSTANCE_ID' with 'UNITY_VERTEX_INPUT_INSTANCE_ID'
-
-Shader "Unlit/Highlighter 1"
+Shader "Unlit/TowerHighlighter"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        // _MainTex ("Texture", 2D) = "white" {}
         _Color ("Color", Color) = (1,1,1,1)
+        _GradientSize ("Gradient", Range(0, 10)) = 1
     }
     SubShader
     {
-		Tags { "RenderType"="TransparentCutout" "Queue" = "Transparent"}
-		LOD 200
+        Tags { "RenderType"="TransparentCutout" "Queue" = "Transparent"}
 		Cull Off
 		ZWrite Off
         ZTest LEqual
         Blend SrcAlpha OneMinusSrcAlpha
+        
 
         Pass
         {
@@ -28,39 +27,38 @@ Shader "Unlit/Highlighter 1"
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
-
-                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             struct v2f
             {
                 float2 uv : TEXCOORD0;
+                UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
-                
-                UNITY_VERTEX_OUTPUT_STEREO
             };
 
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
-
+            // sampler2D _MainTex;
+            // float4 _MainTex_ST;
+            float _GradientSize;
             float4 _Color;
 
             v2f vert (appdata v)
             {
                 v2f o;
-                UNITY_SETUP_INSTANCE_ID(v); 
-                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                // o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.uv = v.uv;
+                UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
+                float2 uvsCentered = i.uv * 2 - 1;;
+                float radialDistance = length(uvsCentered) * _GradientSize;
+                return _Color;
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv) * _Color;
-                // apply fog
-                return col;
+                // fixed4 col = tex2D(_MainTex, i.uv);
+                // return col;
             }
             ENDCG
         }

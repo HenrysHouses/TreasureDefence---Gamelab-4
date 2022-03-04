@@ -12,7 +12,6 @@
 	}
 	SubShader {
 		Tags {"Queue"="Transparent" "RenderType"="TransparentCutout" }
-		LOD 200
         ZTest LEqual // LEqual - Default (under), GEqual - only behind something, Always - Always above
         Blend SrcAlpha OneMinusSrcAlpha
 		

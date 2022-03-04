@@ -11,7 +11,7 @@ public class VR_ContinousMovement : MonoBehaviour
     public float speed, turnSpeed, snapRotationAmount = 45, snapRotationCooldown = 0.3f, heightChangeAmount = 0.3f, heightCooldown = 0.3f;
     public XRNode movementNode, rotationNode;
     Vector2 moveInput, rotateInput;
-    bool rotateOverride, canRotate = true;
+    bool canRotate = true;
     bool secondaryButton_RightHand, primaryButton_RightHand, isRotating;
     bool ChangeHeight, heightIsChanging;
     bool movementTracker, rotationTracker;
@@ -31,7 +31,6 @@ public class VR_ContinousMovement : MonoBehaviour
         // All movement inputs
         InputDevice device = InputDevices.GetDeviceAtXRNode(movementNode);
         device.TryGetFeatureValue(CommonUsages.primary2DAxis, out moveInput);
-        device.TryGetFeatureValue(CommonUsages.primaryButton, out rotateOverride);
         
         // other inputs
         device.TryGetFeatureValue(CommonUsages.secondaryButton, out ChangeHeight);
@@ -106,7 +105,7 @@ public class VR_ContinousMovement : MonoBehaviour
 
         character.Move(direction * Time.fixedDeltaTime * speed);
 
-        if(canRotate || rotateOverride) // continuos rotation
+        if(canRotate) // continuos rotation
         {
             Vector3 rotation = new Vector3(0, rotateInput.x, 0);
             transform.Rotate(rotation, Space.World);

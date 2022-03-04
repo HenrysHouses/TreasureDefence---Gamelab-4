@@ -446,7 +446,6 @@ public class PathController : MonoBehaviour
 				previousPoint = pointOnCurve;
 			}	
 		}
-		Debug.Log(points.Count);
 		return points.ToArray();
 	}
 	

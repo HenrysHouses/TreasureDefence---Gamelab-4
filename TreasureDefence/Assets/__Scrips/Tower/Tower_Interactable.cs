@@ -19,6 +19,7 @@ public class Tower_Interactable : TD_Interactable
 		PlayerInteraction player = target as PlayerInteraction;
 		
 		SetHeld(true, player.GetHoldPoint);
+		obj.SetActive(true);
 	}
 	
 	override public void InteractionEndTrigger(object target = null)
@@ -26,16 +27,19 @@ public class Tower_Interactable : TD_Interactable
 		PlayerInteraction player = target as PlayerInteraction;
 		
 		SetHeld(false, player.GetHoldPoint);
+		obj.SetActive(false);
 	}
 	
 	override public void VRInteractionStartTrigger()
 	{
 		held = true;
+		obj.SetActive(true);
 	}
 
 	override public void VRInteractionEndTrigger()
 	{
 		held = false;
+		obj.SetActive(false);
 	}
 
 	/// <summary>
