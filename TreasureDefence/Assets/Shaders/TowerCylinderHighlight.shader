@@ -89,7 +89,7 @@ Shader "Unlit/TowerCylinderHighlight"
 
                 float t = cos(_Time.y * _PulseSpeed);
                 t = Remap(t, -1, 1, 0,1);
-                mask.w *= topBottomRemover * _Alpha * (t+0.1);
+                mask.w *= topBottomRemover * _Alpha * (t+0.3);
 
                 float4 col = lerp(_Color, _Color2, t);
                 mask.xyz = mask.xyz * col.xyz; 

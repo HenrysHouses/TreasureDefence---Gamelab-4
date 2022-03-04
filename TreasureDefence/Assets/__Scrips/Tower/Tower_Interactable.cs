@@ -75,6 +75,10 @@ public class Tower_Interactable : TD_Interactable
 	
 	private void FixedUpdate()
 	{
+		Vector3 scale = new Vector3(towerBehaviour.towerRange * 2, 0.5f, towerBehaviour.towerRange * 2);
+		// scale = new Vector3(scale.x, );
+		ExtensionMethods.SetGlobalScale(RangeHighlight.transform, scale);
+
 		if (held)
 		{
 			RaycastHit hit;
