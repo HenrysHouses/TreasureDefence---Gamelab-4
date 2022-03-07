@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 
+	[SerializeField] private List<GameObject> towers = new List<GameObject>();
+	
 	public GameObject LevelDisplayHighlight, LevelHolderHighlight;
 	public int[] enemyPerWave;
 
@@ -20,6 +23,21 @@ public class GameManager : MonoBehaviour
 		{
 			light.fadeLightSate = state;
 		}
+	}
+
+	public void AddTowerToList(GameObject tower)
+	{
+		towers.Add(tower);
+	}
+
+	public void RemoveTowersOnLevelEnd()
+	{
+		for (int i = 0; i < towers.Count; i++)
+		{
+			Destroy(towers[i]);
+		}
+		
+		towers = new List<GameObject>();
 	}
 
 	private WaveController waveController;

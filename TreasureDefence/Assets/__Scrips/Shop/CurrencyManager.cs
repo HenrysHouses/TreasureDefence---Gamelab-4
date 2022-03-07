@@ -9,7 +9,7 @@ public class CurrencyManager : MonoBehaviour
     public int money;
     public Text moneyText;     // Displaying the amount of gold mate.
     public Animator moneyBounceAnimation;
-
+    public int startMoney;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class CurrencyManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        AddMoney(20);
+        SetMoney(startMoney);
     }
 
     // Update is called once per frame
@@ -55,5 +55,13 @@ public class CurrencyManager : MonoBehaviour
         moneyText.text = ("Money: " + money);  
 
         return true;
+    }
+
+    public void SetMoney(int value = 20)
+    {
+        money = value;
+        
+        moneyText.text = ("Money: " + money);
+        moneyBounceAnimation.Play("BounceAnimation");
     }
 }

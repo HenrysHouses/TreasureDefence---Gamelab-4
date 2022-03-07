@@ -97,7 +97,13 @@ public class WaveController : MonoBehaviour
 		{
 			Debug.Log("Player Lost");
 			// stuff here when player looses
+			CanvasController.instance.OpenCanvas(0, 1, 5f);
+			
 			currentWave = getWaveCount();
+		}
+		else
+		{
+			CanvasController.instance.OpenCanvas(0, 0, 5f);
 		}
 
 		SetGhostFlag(true);

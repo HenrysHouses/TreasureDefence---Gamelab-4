@@ -54,6 +54,8 @@ public class LevelHandler : MonoBehaviour
 				if(currentLevel.localPosition.y < -_offsetValue)
 				{
 					LevelEnding = false;
+					GameManager.instance.RemoveTowersOnLevelEnd();
+					CurrencyManager.instance.SetMoney();
 					Destroy(currentLevel.gameObject);
 					currentLevel = null;									
 				}

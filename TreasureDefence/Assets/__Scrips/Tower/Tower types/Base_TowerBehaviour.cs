@@ -2,6 +2,8 @@
  * Written by:
  * Henrik
 */
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +11,11 @@ public class Base_TowerBehaviour : TowerBehaviour
 {
 
 	List<Base_TowerBehaviour> towers;
-	
 
+	private void Start()
+	{
+		GameManager.instance.AddTowerToList(gameObject);
+	}
 
 	override public void Attack(int damage, EnemyBehaviour[] targets)
 	{
@@ -45,7 +50,8 @@ public class Base_TowerBehaviour : TowerBehaviour
 		foreach (var deletingProjectile in removeProjectiles)
 		{
 			// deletingProjectile.print();
-			Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.identity); 
+			if (ExplotionParticle != null)
+				Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.identity); 
 
 			if(deletingProjectile.hit)
 				deletingProjectile.enemy.TakeDamage(deletingProjectile.projectileDamage);

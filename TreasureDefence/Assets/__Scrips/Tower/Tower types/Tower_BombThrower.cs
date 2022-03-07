@@ -6,6 +6,11 @@ public class Tower_BombThrower : TowerBehaviour
 {
 	public int maxTargets;
 
+	private void Start()
+	{
+		GameManager.instance.AddTowerToList(gameObject);
+	}
+	
     override public void Attack(int damage, EnemyBehaviour[] targets)
     {
 		if (targets != null)
