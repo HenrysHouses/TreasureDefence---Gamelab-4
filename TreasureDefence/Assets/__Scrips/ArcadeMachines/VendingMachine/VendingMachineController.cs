@@ -6,7 +6,7 @@ using TMPro;
 public class VendingMachineController : MonoBehaviour
 {
     [SerializeField] VendingMachineItem[] PurchasableItems;
-    [SerializeField] Transform SpawnPoint;
+    public Transform SpawnPoint;
     [SerializeField] TextMeshPro inputText; 
     public void buyTower()
     {
