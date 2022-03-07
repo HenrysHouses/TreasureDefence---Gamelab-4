@@ -29,6 +29,8 @@ abstract public class TowerBehaviour : MonoBehaviour
 	private List<float> enemyProgress = new List<float>();
 	public EnemyBehaviour[] enemyTarget;
 
+	public ParticleSystem dustCloud;
+
 
 
 	virtual public void Update()
@@ -158,4 +160,8 @@ abstract public class TowerBehaviour : MonoBehaviour
 		data.projectileDamage = attackDamage;
 		return data;
 	}
+    private void OnCollisionEnter(Collision collision)
+    {
+		dustCloud.Play();
+    }
 }
