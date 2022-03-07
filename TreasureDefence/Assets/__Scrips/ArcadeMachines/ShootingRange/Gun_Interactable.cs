@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootinRange_Gun : TD_Interactable
+public class Gun_Interactable : TD_Interactable
 {   //Mikkel & Henrik, (Mostly HenriK).
 
     public GameObject Gun;
@@ -80,7 +80,6 @@ public class ShootinRange_Gun : TD_Interactable
     private void ResetColor()
     {
         meshRenderer.material.color = Color.white;         
-
     }
 
     private void OnDrawGizmos()

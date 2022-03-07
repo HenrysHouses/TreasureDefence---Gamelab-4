@@ -3,31 +3,14 @@ using System.Collections.Generic;
 
 public class example : MonoBehaviour
 {
-    [SerializeField] List<Example2> list = new List<Example2>();
-
-    public void Start()
+    public GameObject prefab;
+    void Update()
     {
-        foreach (var item in list)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            item.printHello();
-            item.printSomething();
+            Instantiate(prefab, transform.position, transform.rotation);
         }
     }
-
-    public void printHello()
-    {
-        Debug.Log("Hello");
-    }
-
-    public virtual void printSomething()
-    {
-        Debug.Log("Something");
-    }
-
-    
-
-
-
 
 
 

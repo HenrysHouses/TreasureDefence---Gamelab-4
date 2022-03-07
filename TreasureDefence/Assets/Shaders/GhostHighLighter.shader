@@ -58,6 +58,7 @@ Shader "Unlit/GhostHighLighter"
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.normal = UnityObjectToWorldNormal( v.normal );
                 o.wPos = mul( unity_ObjectToWorld, v.vertex);
+                o.uv = v.uv;
                 return o;
             }
 
