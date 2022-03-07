@@ -445,6 +445,36 @@ MonoBehaviour:
   m_SnapThresholdDistance: 10
   m_Reticle: {fileID: 0}
   m_StopLineAtFirstRaycastHit: 1
+--- !u!1 &933993000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 933993001}
+  m_Layer: 3
+  m_Name: VR_handTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &933993001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933993000}
+  m_LocalRotation: {x: 0.41597465, y: -0, z: -0, w: 0.9093762}
+  m_LocalPosition: {x: 0.0701, y: -0.01909995, z: 0.0707}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7721011055534368521}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 49.161, y: 0, z: 0}
 --- !u!1 &1194023723
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +566,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 264738005}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 49.161, y: 0, z: 0}
+--- !u!1 &1912867855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1912867856}
+  m_Layer: 3
+  m_Name: VR_handTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1912867856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912867855}
+  m_LocalRotation: {x: 0.41597465, y: -0, z: -0, w: 0.9093762}
+  m_LocalPosition: {x: -0.0875, y: -0.01909995, z: 0.0707}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7721011054774009105}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 49.161, y: 0, z: 0}
 --- !u!1 &2067929335
 GameObject:
@@ -1044,6 +1104,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1194023724}
+  - {fileID: 1912867856}
   m_Father: {fileID: 7721011054949031897}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1122,7 +1183,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1912867856}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:
@@ -1297,6 +1358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1574930478}
+  - {fileID: 933993001}
   m_Father: {fileID: 7721011054949031897}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1375,7 +1437,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 933993001}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:

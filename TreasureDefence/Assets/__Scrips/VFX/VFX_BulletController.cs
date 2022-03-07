@@ -44,6 +44,14 @@ public class VFX_BulletController : MonoBehaviour
         Quaternion normalDirection = Quaternion.LookRotation(other.GetContact(0).normal);
         Instantiate(impact_VFX, transform.position, normalDirection);
         Destroy(gameObject);
+
+        if (other.transform.CompareTag("Target"))
+        {
+            other.collider.GetComponentInParent<ShootingRange>().HitTarget++;
+            // Debug.Log("hit = " + shootingrange.HitTarget);
+            // other.collider.GetComponent<MeshRenderer>().material.color = Color.red;             //Fix this later. -Mikkel.
+            Invoke("ResetColor", 0.15f);
+        }
     }
 
 

@@ -5,8 +5,8 @@ using UnityEngine;
 public class Gun_Interactable : TD_Interactable
 {   //Mikkel & Henrik, (Mostly HenriK).
 
-    public GameObject Gun;
-    public Transform BarrelRaycast;
+    [SerializeField] GameObject bulletPrefab;
+    public Transform barrelTransform;
     [SerializeField]
     ShootingRange shootingrange;
     PlayerInteraction player;
@@ -57,23 +57,23 @@ public class Gun_Interactable : TD_Interactable
         if(timer <= 0)
         {
             timer = ReloadTime;
-            Vector3 Direction = Gun.transform.forward;
-            Vector3 Position = Gun.transform.position;
             RaycastHit hit;
 
-            Debug.DrawRay(Gun.transform.position, -Gun.transform.forward);
+            Debug.DrawRay(transform.position, -transform.forward);
 
-            if (Physics.Raycast(BarrelRaycast.position, BarrelRaycast.forward, out hit))
-            {
+            Instantiate(bulletPrefab, barrelTransform.position, barrelTransform.rotation);
+
+            // if (Physics.Raycast(barrelTransform.position, barrelTransform.forward, out hit))
+            // {
                 
-                if (hit.transform.CompareTag("Target"))
-                {
-                    shootingrange.HitTarget++;
-                    // Debug.Log("hit = " + shootingrange.HitTarget);
-                    meshRenderer.material.color = Color.red;             //Fix this later. -Mikkel.
-                    Invoke("ResetColor", 0.15f);
-                }
-            }
+            //     if (hit.transform.CompareTag("Target"))
+            //     {
+            //         shootingrange.HitTarget++;
+            //         // Debug.Log("hit = " + shootingrange.HitTarget);
+            //         meshRenderer.material.color = Color.red;             //Fix this later. -Mikkel.
+            //         Invoke("ResetColor", 0.15f);
+            //     }
+            // }
         }
     }
 
@@ -85,6 +85,6 @@ public class Gun_Interactable : TD_Interactable
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(BarrelRaycast.position, BarrelRaycast.forward);
+        Gizmos.DrawRay(barrelTransform.position, barrelTransform.forward);
     }
 }

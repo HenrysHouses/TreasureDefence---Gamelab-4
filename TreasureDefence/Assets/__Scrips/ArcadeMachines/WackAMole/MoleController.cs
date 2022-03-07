@@ -11,6 +11,7 @@ public enum moleState
 
 public class MoleController : MonoBehaviour
 {
+    [SerializeField] GameObject OnHitParticle;
     public bool isHit;
     Rigidbody _rigidbody;
     [SerializeField] moleState state = moleState.Waiting;
@@ -93,10 +94,10 @@ public class MoleController : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if(!isHit && collision.collider.CompareTag("Mallet") && collision.relativeVelocity.magnitude > 0)
-            OnHit();
+            OnHit(collision);
     }
 
-    void OnHit()
+    void OnHit(Collision collision)
     {
         GetComponentInParent<WackAMoleController>().hitCount++;
         isHit = true;
@@ -104,6 +105,8 @@ public class MoleController : MonoBehaviour
         isMovingDown = true;
         Debug.Log("hit");
         state = moleState.MovingDown;
+        GameObject spawn = Instantiate(OnHitParticle, collision.GetContact(0).point, Quaternion.identity);
+        Debug.Log(spawn.transform.position);
     }
 
     public void showMole()
