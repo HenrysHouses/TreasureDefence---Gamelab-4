@@ -12,7 +12,6 @@ public class Tower_Interactable : TD_Interactable
 {
 	public GameObject obj;
 	TowerBehaviour towerBehaviour;
-	public TowerInfo towerInfo;
 	Color Color1, Color2;
 	bool invalidPlacement;
 	[SerializeField] MeshRenderer RangeHighlight;

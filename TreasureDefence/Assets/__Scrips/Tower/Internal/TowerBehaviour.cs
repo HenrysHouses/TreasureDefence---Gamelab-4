@@ -88,7 +88,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 						{
 							progress = waveController.GetProgressOfEnemy(i);
 						}	 */
-							enemiesInRange.Add(waveController.enemies[i]);
+						enemiesInRange.Add(waveController.enemies[i]);
 					}
 				}
 				// if a target was found

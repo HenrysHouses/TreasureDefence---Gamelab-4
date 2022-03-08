@@ -14,36 +14,35 @@ public class attackData
 	public float projectileSpeed;
 	public int projectileDamage;
 	public float t;
-	public bool hit;
-	public bool curve;
+	public bool hit, curve;
 
 	virtual public Vector3 UpdateProjectile()
-	{
-		if(target)
-		{
-			if (curve)
-			{
-				t = t + Time.deltaTime * projectileSpeed;
-				t = Mathf.Clamp(t, 0, 1);
-				if(t >= 1)
-				{
-					hit = true;
-					return target.position;
-				}
-				return Vector3.Slerp(startPos, target.position, t);
-			}
-			
-			t = t + Time.deltaTime * projectileSpeed;
-			t = Mathf.Clamp(t, 0, 1);
-			if(t >= 1)
-			{
-				hit = true;
-				return target.position;
-			}
-			return Vector3.Lerp(startPos, target.position, t);
-		}
-		return transform.position;
-	}
+    {
+        if(target)
+        {
+            if (curve)
+            {
+                t = t + Time.deltaTime * projectileSpeed;
+                t = Mathf.Clamp(t, 0, 1);
+                if(t >= 1)
+                {
+                    hit = true;
+                    return target.position;
+                }
+                return Vector3.Slerp(startPos, target.position, t);
+            }
+            
+            t = t + Time.deltaTime * projectileSpeed;
+            t = Mathf.Clamp(t, 0, 1);
+            if(t >= 1)
+            {
+                hit = true;
+                return target.position;
+            }
+            return Vector3.Lerp(startPos, target.position, t);
+        }
+        return transform.position;
+    }
 
 	public void print()
 	{
