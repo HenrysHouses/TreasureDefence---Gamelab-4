@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1204,6 +1204,7 @@ MonoBehaviour:
   money: 0
   moneyText: {fileID: 928704679}
   moneyBounceAnimation: {fileID: 582208999}
+  startMoney: 0
 --- !u!4 &509883000
 Transform:
   m_ObjectHideFlags: 0
@@ -2173,6 +2174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fccf78f688979f845a9c11bb32eb3e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towers: []
   LevelDisplayHighlight: {fileID: 0}
   LevelHolderHighlight: {fileID: 0}
   enemyPerWave: 0300000005000000080000000c000000140000001e0000002a000000
@@ -5490,6 +5492,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1193408304}
     m_Modifications:
+    - target: {fileID: 910065405870954204, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 910065405870954204, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01375
+      objectReference: {fileID: 0}
+    - target: {fileID: 944046290881357715, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: TowerPrefab
+      value: 
+      objectReference: {fileID: 230867605568577654, guid: 474286dd0ddc7cd4a999a63a09f7f053, type: 3}
     - target: {fileID: 4427941245524527159, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -5511,16 +5525,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4427941246157791399, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4165171
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427941246157791399, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4165171
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427941246157791399, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4165171
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427941246157791399, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0009707
       objectReference: {fileID: 0}
     - target: {fileID: 4427941246157791399, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 4427941246157791399, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.008
+      value: 2.0107
       objectReference: {fileID: 0}
     - target: {fileID: 4427941246157791399, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5550,6 +5576,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4572361958534316943, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: TowerPrefab
+      value: 
+      objectReference: {fileID: 145837736746996029, guid: 5d3b7b1a6b73732498f2235a4f2b7c6e, type: 3}
+    - target: {fileID: 8071566957575176248, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
+      propertyPath: TowerPrefab
+      value: 
+      objectReference: {fileID: 145837736746996029, guid: ea338898bd5cf6c4f8b0f8cbbd135f2b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e98eac2c5dc35a349925efdf2a5bbb6d, type: 3}
 --- !u!1001 &5443909814719784837
