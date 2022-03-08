@@ -37,7 +37,7 @@ public class CurrencyManager : MonoBehaviour
             money += 10;
             moneyText.text = ("Money: " + money);
             VrMoneyText.text = money.ToString();
-            if(moneyBounceAnimation)
+            if(moneyBounceAnimation.gameObject.activeInHierarchy)
                 moneyBounceAnimation.Play("BounceAnimation");
             animationHelper.animate = true;
         }
@@ -48,7 +48,7 @@ public class CurrencyManager : MonoBehaviour
         money += CashIn;
         VrMoneyText.text = money.ToString();
         moneyText.text = ("Money: " + money);
-        if(moneyBounceAnimation)
+        if(moneyBounceAnimation.gameObject.activeInHierarchy)
             moneyBounceAnimation.Play("BounceAnimation");
         animationHelper.animate = true;
     }
@@ -72,7 +72,7 @@ public class CurrencyManager : MonoBehaviour
         
         VrMoneyText.text = money.ToString();
         moneyText.text = ("Money: " + money);
-        if(moneyBounceAnimation)
+        if(moneyBounceAnimation.gameObject.activeInHierarchy)
             moneyBounceAnimation.Play("BounceAnimation");
         animationHelper.animate = true;
     }

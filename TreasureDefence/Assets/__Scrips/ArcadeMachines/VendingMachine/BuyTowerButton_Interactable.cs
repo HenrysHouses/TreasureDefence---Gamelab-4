@@ -37,7 +37,6 @@ public class BuyTowerButton_Interactable : TD_Interactable
     public override void VRInteractionStartTrigger()
     {
         buyTower();
-        Debug.Log("vending mqachine");
     }
 
     private void buyTower()

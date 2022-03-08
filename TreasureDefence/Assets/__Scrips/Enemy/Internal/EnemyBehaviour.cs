@@ -88,7 +88,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	{
 		waveController.RemoveEnemy(this);
 		CurrencyManager.instance.AddMoney(enemyInfo.moneyReward);
-		Debug.LogWarning("adding money is currently disabled");
+		// Debug.LogWarning("adding money is currently disabled");
 		DeathRattle();
 		Destroy(gameObject);    // Let's improve this at some point
 	}
