@@ -56,7 +56,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	/// <param name="damageAmount">int amount of damage to deal</param>
 	public void TakeDamage(int damageAmount)
 	{
-		Debug.Log("Health: " + health);
+		// Debug.Log("Health: " + health);
 		
 		DamageTrigger();
 		health -= damageAmount;

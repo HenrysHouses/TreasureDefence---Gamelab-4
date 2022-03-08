@@ -9,8 +9,8 @@ public class MoneyAnimationHelper : MonoBehaviour
 
     public bool animate;
     bool isAnimating;
-    [SerializeField] float timeOffset;
-    [SerializeField] float animationTime;
+    [SerializeField] float timeOffset = 0.225f;
+    [SerializeField] float animationTime = 0.9f;
 
     void Start()
     {
