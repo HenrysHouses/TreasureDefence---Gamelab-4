@@ -1182,7 +1182,6 @@ GameObject:
   - component: {fileID: 7164110495960746333}
   - component: {fileID: 7164110495960746337}
   - component: {fileID: 7164110495960746338}
-  - component: {fileID: 7164110495960746339}
   m_Layer: 3
   m_Name: FPS_Player
   m_TagString: Untagged
@@ -1240,21 +1239,6 @@ MonoBehaviour:
   cam: {fileID: 0}
   currentInteractable: {fileID: 0}
   hasItem: 0
---- !u!114 &7164110495960746339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7164110495960746334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8308e29a1f4d34d99579fadd80dac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  money: 0
-  moneyText: {fileID: 7164110495036748858}
-  moneyBounceAnimation: {fileID: 7164110495931034117}
 --- !u!1001 &7164110495349040875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1489,16 +1473,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
---- !u!20 &7145956263599978518 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 20127477809793788, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
-  m_PrefabInstance: {fileID: 7164110495992607466}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7161707820435834098 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4353896453404184, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
-  m_PrefabInstance: {fileID: 7164110495992607466}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7131739232986569842 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114014416615829144, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
@@ -1510,3 +1484,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24092a40b02616e479baeb940325e339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &7145956263599978518 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20127477809793788, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
+  m_PrefabInstance: {fileID: 7164110495992607466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7161707820435834098 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4353896453404184, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
+  m_PrefabInstance: {fileID: 7164110495992607466}
+  m_PrefabAsset: {fileID: 0}

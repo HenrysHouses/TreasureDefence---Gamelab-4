@@ -31,7 +31,6 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		waveController = GameManager.instance.GetWaveController();
 		mr = GetComponent<MeshRenderer>();
 		path = GameManager.instance.pathController;
-		Debug.LogWarning("GetPathOP does not result in even enemy movement speed. use GetEvenPathOP instead");
 		health = enemyInfo.health;
 	}
 
@@ -41,7 +40,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		EnemyUpdate();
 		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed, 0, 1);
 		
-		op = path.GetEvenPathOP(progress); // ! use GetEvenPathOP
+		op = path.GetEvenPathOP(progress);
 
 		transform.localPosition = op.pos;
 		transform.rotation = path.GetPathOP(progress).rot;

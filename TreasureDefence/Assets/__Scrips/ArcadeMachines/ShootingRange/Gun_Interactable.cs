@@ -57,12 +57,12 @@ public class Gun_Interactable : TD_Interactable
         if(timer <= 0)
         {
             timer = ReloadTime;
-            RaycastHit hit;
 
             Debug.DrawRay(transform.position, -transform.forward);
 
             Instantiate(bulletPrefab, barrelTransform.position, barrelTransform.rotation);
 
+            // RaycastHit hit;
             // if (Physics.Raycast(barrelTransform.position, barrelTransform.forward, out hit))
             // {
                 

@@ -5,7 +5,6 @@ public class BuyTowerButton_Interactable : TD_Interactable
     [SerializeField] TowerInfo info;
     [SerializeField] Transform spawnTransform, displayPos;
 
-
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -25,6 +24,8 @@ public class BuyTowerButton_Interactable : TD_Interactable
             GameObject spawn = Instantiate(mesh, displayPos.position, Quaternion.identity);
             spawn.transform.SetParent(transform, true); 
             spawn.name = "Mesh_DisplayTower";
+            Vector3 scaleOffset = new Vector3(0.02f, 0.02f, 0.02f);
+            spawn.transform.localScale = spawn.transform.localScale - scaleOffset; 
         }
     }
 
@@ -48,7 +49,7 @@ public class BuyTowerButton_Interactable : TD_Interactable
                 Vector3 randomPos = spawnTransform.position;
                 randomPos.x += Random.Range(0.5f, -0.5f);
                 randomPos.z += Random.Range(0.07f, -0.07f);
-                Instantiate(info.item, randomPos, Quaternion.identity);
+                GameManager.instance.SpawnTower(info.item, randomPos);
             }
         }
     }

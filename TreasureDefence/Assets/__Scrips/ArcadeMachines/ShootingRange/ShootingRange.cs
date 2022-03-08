@@ -67,12 +67,11 @@ public class ShootingRange : ArcadeMachine
     }
     public override void Reward()
     {
-        Instantiate(towerRewardPrefab, spawnPoint.position, Quaternion.identity);
-        HitTarget = 0;
+        GameManager.instance.SpawnTower(towerRewardPrefab, spawnPoint.position);
     }
     public override void Reset()
     {
-
+        HitTarget = 0;
     }
 
     public float PingPongExtention(float t, float rangeFrom, float rangeTo)

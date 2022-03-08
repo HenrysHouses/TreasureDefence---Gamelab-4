@@ -39,11 +39,16 @@ public class LevelHandler : MonoBehaviour
 				Vector3 pos = currentLevel.localPosition;
 				pos.y += Time.deltaTime * riseSpeed;
 				currentLevel.localPosition = pos;
+
 				if(currentLevel.localPosition.y > 0)
 				{
-					LevelStarting = false;
 					// currentLevel.GetComponentInChildren<PathController>().SpawnCubeMeshesAtEvenPoints();
-
+					LevelStarting = false;
+					if (cloudsSpawned == false) 
+					{ 
+						cloudParticle.Play();
+						cloudsSpawned = true;
+					}
 				}
 			}
 			if(LevelEnding)
@@ -54,23 +59,21 @@ public class LevelHandler : MonoBehaviour
 				if(currentLevel.localPosition.y < -_offsetValue)
 				{
 					LevelEnding = false;
-					GameManager.instance.RemoveTowersOnLevelEnd();
+					GameManager.instance.RemoveActiveTowers();
+					GameManager.instance.setLights(true);
 					CurrencyManager.instance.SetMoney();
 					Destroy(currentLevel.gameObject);
 					currentLevel = null;									
+					cloudParticle.Stop();
+					cloudsSpawned = false;
 				}
-				cloudParticle.Stop();
-				cloudsSpawned = false;
+				Debug.Log("level ending");
 			}
-			if(LevelIsReady)
-			{
-                // control/spawn cloud particles here
-                if (cloudsSpawned == false) { 
-				cloudParticle.Play();
-				Debug.Log("CLOUDS");
-				cloudsSpawned = true;
-				}
-			}
+			// if(LevelIsReady)
+			// {
+
+                
+			// }
 		}
 	}
 	
@@ -91,7 +94,10 @@ public class LevelHandler : MonoBehaviour
 	public void StartLevel(LevelWaveSequence levelData, GameObject board = null)
 	{
 		if(GameManager.instance)
+		{
 			GameManager.instance.WaterHighlight.enabled = false;
+			CurrencyManager.instance.SetMoney(levelData.StartMoney);
+		}
 		LevelStarting = true;
 		Vector3 offset = Vector3.down * _offsetValue;
 		Vector3 newPos = levelData.LevelPrefab.transform.position + offset;
@@ -107,6 +113,8 @@ public class LevelHandler : MonoBehaviour
 		if(currentLevel)
 		{
 			LevelEnding = true;
+			if(CurrencyManager.instance)
+				CurrencyManager.instance.SetMoney(0);
 		}
 	}
 

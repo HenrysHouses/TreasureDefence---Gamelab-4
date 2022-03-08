@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager instance;
     public int money;
     public Text moneyText;     // Displaying the amount of gold mate.
+    public TextMeshPro VrMoneyText;
     public Animator moneyBounceAnimation;
+    public MoneyAnimationHelper animationHelper;
     public int startMoney;
 
     private void Awake()
@@ -33,16 +36,21 @@ public class CurrencyManager : MonoBehaviour
             Debug.Log("Money Added");
             money += 10;
             moneyText.text = ("Money: " + money);
-            moneyBounceAnimation.Play("BounceAnimation");
+            VrMoneyText.text = money.ToString();
+            if(moneyBounceAnimation)
+                moneyBounceAnimation.Play("BounceAnimation");
+            animationHelper.animate = true;
         }
     }
 
     public void AddMoney(int CashIn)
     {
         money += CashIn;
+        VrMoneyText.text = money.ToString();
         moneyText.text = ("Money: " + money);
-        moneyBounceAnimation.Play("BounceAnimation");
-        
+        if(moneyBounceAnimation)
+            moneyBounceAnimation.Play("BounceAnimation");
+        animationHelper.animate = true;
     }
 
     public bool SubtractMoney(int CashOut)
@@ -53,6 +61,7 @@ public class CurrencyManager : MonoBehaviour
         }
         money -= CashOut;
         moneyText.text = ("Money: " + money);  
+        VrMoneyText.text = money.ToString();
 
         return true;
     }
@@ -61,7 +70,10 @@ public class CurrencyManager : MonoBehaviour
     {
         money = value;
         
+        VrMoneyText.text = money.ToString();
         moneyText.text = ("Money: " + money);
-        moneyBounceAnimation.Play("BounceAnimation");
+        if(moneyBounceAnimation)
+            moneyBounceAnimation.Play("BounceAnimation");
+        animationHelper.animate = true;
     }
 }

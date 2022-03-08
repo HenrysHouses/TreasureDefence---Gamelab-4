@@ -7,6 +7,7 @@ public class LevelWaveSequence : ScriptableObject
 	public WaveSequence[] waves;
 	
 	public int lives = 1;
+	public int StartMoney = 20;
 
 	public PathController GetPathController()
 	{

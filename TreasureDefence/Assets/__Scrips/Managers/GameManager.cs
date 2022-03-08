@@ -4,18 +4,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
+	[HideInInspector] public MeshRenderer LevelPickupHighlight, WaterHighlight;
+	[SerializeField] Transform TowerParent;
 
-	[SerializeField] private List<GameObject> towers = new List<GameObject>();
-	
-	public GameObject LevelDisplayHighlight, LevelHolderHighlight;
-	public int[] enemyPerWave;
-
-	public MeshRenderer LevelPickupHighlight, WaterHighlight;
-
+	[Header("Level Specifics")]
 	public PathController pathController;
+	[SerializeField] private List<GameObject> towers = new List<GameObject>();
 	private int playerHealth;
 	
-	
+	[Header("Lighting Controls")]
 	public LightController[] RealtimeLights;
 	public void setLights(bool state)
 	{
@@ -30,14 +27,21 @@ public class GameManager : MonoBehaviour
 		towers.Add(tower);
 	}
 
-	public void RemoveTowersOnLevelEnd()
+	public void RemoveActiveTowers()
 	{
-		for (int i = 0; i < towers.Count; i++)
+		foreach (var tower in towers)
 		{
-			Destroy(towers[i]);
+			Destroy(tower);
 		}
 		
 		towers = new List<GameObject>();
+	}
+
+	public void SpawnTower(GameObject tower, Vector3 position)
+	{
+		GameObject spawnedTower = Instantiate(tower, position, Quaternion.identity);
+		towers.Add(spawnedTower);
+		spawnedTower.transform.SetParent(TowerParent, true);
 	}
 
 	private WaveController waveController;

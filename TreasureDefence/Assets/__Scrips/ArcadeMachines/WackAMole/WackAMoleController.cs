@@ -43,7 +43,7 @@ public class WackAMoleController : ArcadeMachine
 	}
 	public override void Reward()
 	{
-		Instantiate(towerRewardPrefab, spawnPoint.position, Quaternion.identity);
+		GameManager.instance.SpawnTower(towerRewardPrefab, spawnPoint.position);
 	}
 	public override void Reset()
 	{
