@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BuyTowerButton_Interactable : TD_Interactable
 {
-    [SerializeField] GameObject TowerPrefab;
-    TowerInfo info;
+    [SerializeField] TowerInfo info;
     [SerializeField] Transform spawnTransform, displayPos;
 
 
@@ -16,16 +15,13 @@ public class BuyTowerButton_Interactable : TD_Interactable
     new void Start()
     {
         base.Start();
-        if(TowerPrefab)
+        if(info)
         {
-            info = TowerPrefab.GetComponent<Tower_Interactable>().towerInfo;
-
-            
             GameObject mesh = null;
-            for (int i = 0; i < TowerPrefab.transform.childCount; i++)
+            for (int i = 0; i < info.item.transform.childCount; i++)
             {
-                if(TowerPrefab.transform.GetChild(i).name.Equals("Mesh"))
-                    mesh = TowerPrefab.transform.GetChild(i).gameObject;
+                if(info.item.transform.GetChild(i).name.Equals("Mesh"))
+                    mesh = info.item.transform.GetChild(i).gameObject;
             }
 
             GameObject spawn = Instantiate(mesh, displayPos.position, Quaternion.identity);
@@ -46,14 +42,14 @@ public class BuyTowerButton_Interactable : TD_Interactable
 
     private void buyTower()
     {
-        if(TowerPrefab)
+        if(info.item)
         {
             if(CurrencyManager.instance.SubtractMoney(info.cost))
             {
                 Vector3 randomPos = spawnTransform.position;
                 randomPos.x += Random.Range(0.5f, -0.5f);
                 randomPos.z += Random.Range(0.07f, -0.07f);
-                Instantiate(TowerPrefab, randomPos, Quaternion.identity);
+                Instantiate(info.item, randomPos, Quaternion.identity);
             }
         }
     }

@@ -13,7 +13,7 @@ public class ShopManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ItemEnteredShopTrigger");
-        ti = other.gameObject.GetComponent<Tower_Interactable>().towerInfo;
+        // ti = other.gameObject.GetComponent<Tower_Interactable>().towerInfo;
         VendorGreeting.SetActive(true);
         if (ti != null)
         {
@@ -27,7 +27,7 @@ public class ShopManager : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("ItemExitedShopTrigger");
-        items.Remove(other.gameObject.GetComponent<Tower_Interactable>().towerInfo);
+        // items.Remove(other.gameObject.GetComponent<Tower_Interactable>().towerInfo);
         Object.Remove(other.gameObject);
         VendorGreeting.SetActive(false);
     }
