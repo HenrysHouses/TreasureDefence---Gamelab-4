@@ -1,14 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
+using FMODUnity;
+
 
 public class example : MonoBehaviour
 {
-    public GameObject prefab;
+    public StudioEventEmitter SoundEmitter;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(prefab, transform.position, transform.rotation);
+            SoundEmitter.Play();
+        }
+
+        if(Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            SoundEmitter.Stop();
         }
     }
 

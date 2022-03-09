@@ -15,6 +15,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 		Strongest,
 		Last
 	}
+
 	public WaveController waveController;
 	public TargetType targetType;
 	public Transform projectileSpawnPos;
@@ -31,15 +32,16 @@ abstract public class TowerBehaviour : MonoBehaviour
 
 	public ParticleSystem dustCloud;
 
-
+	void Start()
+	{
+		Debug.LogError("I think this needs to be double checked if these targeting methods is actually finding a correctly sorted list - Henrik");
+	}
 
 	virtual public void Update()
 	{	
 		waveController = GameManager.instance.GetWaveController();
 		if(canShoot && waveController)
 		{
-			
-
 			enemyTarget = CheckInRange(targetType);
 
 			Cooldown -= Time.deltaTime;
@@ -77,7 +79,6 @@ abstract public class TowerBehaviour : MonoBehaviour
 				// Finding first enemy
 
 				progress = 0f;
-				
 				for (int i = 0; i < waveController.enemies.Count; i++)
 				{
 					float dist = Vector3.Distance(transform.position, waveController.GetPosOfEnemy(i));
@@ -98,7 +99,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 				break;
 			
 			case TargetType.Closest:
-				// Finding closest enemy
+				// Finding closest enemy 
 				for (int i = 0; i < waveController.enemies.Count; i++)
 				{
 					float dist = Vector3.Distance(transform.position, waveController.GetPosOfEnemy(i));
@@ -148,13 +149,12 @@ abstract public class TowerBehaviour : MonoBehaviour
 		return null; // No enemies in range
 	}
 	
-	virtual public attackData getCurrentAttackData(Transform projectile, EnemyBehaviour target)
+	virtual public attackData getCurrentAttackData(Transform projectile, EnemyBehaviour[] targetPriority)
 	{
 		attackData data = new attackData();
 		data.gameObject = projectile.gameObject;
-		data.enemy = target;
+		data.enemyPriority = targetPriority;
 		data.transform = projectile;
-		data.target = target.transform;
 		data.startPos = projectile.position;
 		data.projectileSpeed = attackSpeed;
 		data.projectileDamage = attackDamage;

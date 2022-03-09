@@ -22,7 +22,7 @@ public class Tower_BombThrower : TowerBehaviour
 					break;
                 }
 				Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
-				attackData newProjectile = getCurrentAttackData(_projectile, targets[i]);
+				attackData newProjectile = getCurrentAttackData(_projectile, targets);
 				projectile.Add(newProjectile);
 			}
 		}
@@ -34,7 +34,7 @@ public class Tower_BombThrower : TowerBehaviour
 		foreach (var currentProjectile in projectile)
 		{
 			Vector3 pos = currentProjectile.transform.position;
-			if(currentProjectile.enemy)
+			if(currentProjectile.enemyPriority[currentProjectile.enemyPriority.Length-1])
 				pos = currentProjectile.UpdateProjectile();
 			else
 			{
@@ -54,7 +54,9 @@ public class Tower_BombThrower : TowerBehaviour
 			Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.identity); 
 
 			if(deletingProjectile.hit)
-				deletingProjectile.enemy.TakeDamage(deletingProjectile.projectileDamage);
+			{
+				deletingProjectile.CurrentTarget.TakeDamage(deletingProjectile.projectileDamage);
+			}
 
 			projectile.Remove(deletingProjectile);
 			Destroy(deletingProjectile.gameObject);

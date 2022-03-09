@@ -14,6 +14,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	public EnemyInfo enemyInfo;
 	private OrientedPoint op;
 	int health;
+	public int GetHealth => health;
 	bool isAttacking;
 	/// <summary>should always be minimun length of attack anim ! This may be changed to automatic anim length</summary>
 	MeshRenderer mr;

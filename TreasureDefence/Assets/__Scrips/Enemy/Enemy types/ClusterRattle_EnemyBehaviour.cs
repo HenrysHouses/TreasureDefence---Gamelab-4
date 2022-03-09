@@ -6,7 +6,6 @@ public class ClusterRattle_EnemyBehaviour : EnemyBehaviour
 {
 	public GameObject ChildPrefab;
 	public int NumInCluster;
-	
 	public float spawnOffset;
 	
 	public override void DeathRattle()

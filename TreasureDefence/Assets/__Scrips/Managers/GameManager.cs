@@ -22,6 +22,23 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	// debugging update
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.Alpha0))
+		{
+			Time.timeScale = 0.3f;
+			Debug.Log("time is slowed");
+		}
+
+		if(Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			Time.timeScale = 1;
+			Debug.Log("time is normal");
+		}
+	}
+
+
 	public void AddTowerToList(GameObject tower)
 	{
 		towers.Add(tower);

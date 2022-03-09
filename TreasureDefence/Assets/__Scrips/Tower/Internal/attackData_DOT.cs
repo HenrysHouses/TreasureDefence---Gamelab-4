@@ -10,7 +10,7 @@ public class attackData_DOT : attackData
 	public bool DurationHasEnded, DealDamage;
 	override public Vector3 UpdateProjectile()
 	{
-		if (target)
+		if (CurrentTarget)
 		{	
 			if (!hit)
             {
@@ -20,9 +20,9 @@ public class attackData_DOT : attackData
 				if (t >= 1)
 				{
 					hit = true;
-					return target.position;
+					return CurrentTarget.transform.position;
 				}
-				return Vector3.Slerp(startPos, target.position, t);
+				return Vector3.Slerp(startPos, CurrentTarget.transform.position, t);
 			}
 			else
             {   //DOT
@@ -54,7 +54,7 @@ public class attackData_DOT : attackData
 
 	void Deal_DOTDamage()
     {
-		enemy.TakeDamage(1);
+		CurrentTarget.TakeDamage(1);
     }
 
 }

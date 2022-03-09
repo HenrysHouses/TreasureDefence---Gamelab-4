@@ -11,9 +11,9 @@ public class Tower_Monkey : TowerBehaviour
 	{
 		if (targets != null)
         {
-			//Instatiating projectile & Giving them the base stat from attackData.
+			//Instantiating projectile & Giving them the base stat from attackData.
 			Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
-			attackData newProjectile = getCurrentAttackData(_projectile, targets[0]);
+			attackData newProjectile = getCurrentAttackData(_projectile, targets);
 
 			//Converting the stats from attackData to attackData_DOT.
 			attackData_DOT attackData_DOTProjectile = new attackData_DOT();
@@ -21,8 +21,7 @@ public class Tower_Monkey : TowerBehaviour
 			attackData_DOTProjectile.projectileSpeed = newProjectile.projectileSpeed;
 			attackData_DOTProjectile.gameObject = newProjectile.gameObject;
 			attackData_DOTProjectile.transform = newProjectile.transform;
-			attackData_DOTProjectile.enemy = newProjectile.enemy;
-			attackData_DOTProjectile.transform = newProjectile.target;
+			attackData_DOTProjectile.enemyPriority = newProjectile.enemyPriority;
 			attackData_DOTProjectile.startPos = newProjectile.startPos;
 			attackData_DOTProjectile.hit = newProjectile.hit;
 
@@ -40,7 +39,7 @@ public class Tower_Monkey : TowerBehaviour
 		foreach (var currentProjectile in projectileDOT)
 		{
 			Vector3 pos = currentProjectile.transform.position;
-			if (currentProjectile.enemy)
+			if (currentProjectile.enemyPriority[currentProjectile.enemyPriority.Length-1])
 				pos = currentProjectile.UpdateProjectile();
 			else
 			{
@@ -59,9 +58,7 @@ public class Tower_Monkey : TowerBehaviour
 			//When the projectile hit the target, it will stay for a duration while following the targets position and deal damage over said time.
 			if(currentProjectile.hit)
             {
-				currentProjectile.transform.position = currentProjectile.target.position;
-
-
+				currentProjectile.transform.position = currentProjectile.CurrentTarget.transform.position;
             }
 
 		}
