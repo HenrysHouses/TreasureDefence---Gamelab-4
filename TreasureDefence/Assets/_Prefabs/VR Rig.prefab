@@ -1959,8 +1959,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7721011056117593412}
   - component: {fileID: 7721011056117593433}
-  - component: {fileID: 7721011056117593434}
   - component: {fileID: 7721011056117593435}
+  - component: {fileID: -8620765719431195188}
   m_Layer: 3
   m_Name: VR Camera
   m_TagString: Untagged
@@ -2025,14 +2025,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7721011056117593434
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721011056117593413}
-  m_Enabled: 1
 --- !u!114 &7721011056117593435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2051,6 +2043,20 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!114 &-8620765719431195188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721011056117593413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1001 &783299554
 PrefabInstance:
   m_ObjectHideFlags: 0
