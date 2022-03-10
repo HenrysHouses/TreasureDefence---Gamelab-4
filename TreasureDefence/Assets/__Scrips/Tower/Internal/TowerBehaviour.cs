@@ -5,7 +5,9 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
+[RequireComponent(typeof(StudioEventEmitter))]
 abstract public class TowerBehaviour : MonoBehaviour
 {
 	public enum TargetType
@@ -16,6 +18,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 		Last
 	}
 
+	public StudioEventEmitter _AudioSource;
 	public WaveController waveController;
 	public TargetType targetType;
 	public Transform projectileSpawnPos;
@@ -32,8 +35,9 @@ abstract public class TowerBehaviour : MonoBehaviour
 
 	public ParticleSystem dustCloud;
 
-	void Start()
+	public void Start()
 	{
+		_AudioSource = GetComponent<StudioEventEmitter>();
 		Debug.LogError("I think this needs to be double checked if these targeting methods is actually finding a correctly sorted list - Henrik");
 	}
 
@@ -164,4 +168,6 @@ abstract public class TowerBehaviour : MonoBehaviour
     {
 		dustCloud.Play();
     }
+
+
 }

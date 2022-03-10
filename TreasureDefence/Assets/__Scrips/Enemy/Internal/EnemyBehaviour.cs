@@ -3,12 +3,15 @@
  * Henrik - Used old code written by Rune
 */
 using System.Collections;
-
 using UnityEngine;
+using FMODUnity;
 // using TMPro;
 
+[RequireComponent(typeof(StudioEventEmitter))]
 abstract public class EnemyBehaviour : MonoBehaviour
 {
+	StudioEventEmitter _AudioSource;
+	[SerializeField] GameObject DeathSound;
 	public WaveController waveController;
 	public PathController path;
 	public EnemyInfo enemyInfo;
@@ -32,6 +35,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		waveController = GameManager.instance.GetWaveController();
 		mr = GetComponent<MeshRenderer>();
 		path = GameManager.instance.pathController;
+		_AudioSource = GetComponent<StudioEventEmitter>();
 		health = enemyInfo.health;
 	}
 
@@ -72,6 +76,8 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		{
 			DeathTrigger();
 		}
+		else
+			_AudioSource.Play();
 	}
 
 	public Vector3 GetPosition()
@@ -87,9 +93,11 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	
 	private void DeathTrigger()
 	{
+		Instantiate(DeathSound, transform.position, Quaternion.identity);
 		waveController.RemoveEnemy(this);
 		CurrencyManager.instance.AddMoney(enemyInfo.moneyReward);
 		// Debug.LogWarning("adding money is currently disabled");
+
 		DeathRattle();
 		Destroy(gameObject);    // Let's improve this at some point
 	}

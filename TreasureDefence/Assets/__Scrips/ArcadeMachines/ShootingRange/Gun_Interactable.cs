@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Gun_Interactable : TD_Interactable
 {   //Mikkel & Henrik, (Mostly HenriK).
 
+    StudioEventEmitter _Audiosource;
     [SerializeField] GameObject bulletPrefab;
     public Transform barrelTransform;
     [SerializeField]
@@ -13,6 +13,11 @@ public class Gun_Interactable : TD_Interactable
     float timer;
     public float ReloadTime;
     public MeshRenderer meshRenderer;
+
+    void Start()
+    {
+        _Audiosource = GetComponent<StudioEventEmitter>();
+    }
 
     /// <summary>Called at the start of an interaction</summary>
     /// <param name="target">Pass any object data through</param>
@@ -60,6 +65,7 @@ public class Gun_Interactable : TD_Interactable
 
             Debug.DrawRay(transform.position, -transform.forward);
 
+            _Audiosource.Play();
             Instantiate(bulletPrefab, barrelTransform.position, barrelTransform.rotation);
 
             // RaycastHit hit;

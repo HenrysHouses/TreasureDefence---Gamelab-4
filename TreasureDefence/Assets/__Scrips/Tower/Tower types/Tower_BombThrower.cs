@@ -6,8 +6,9 @@ public class Tower_BombThrower : TowerBehaviour
 {
 	public int maxTargets;
 
-	private void Start()
+	new private void Start()
 	{
+		base.Start();
 		GameManager.instance.AddTowerToList(gameObject);
 	}
 	
@@ -21,6 +22,7 @@ public class Tower_BombThrower : TowerBehaviour
                 {
 					break;
                 }
+				_AudioSource.Play();
 				Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
 				attackData newProjectile = getCurrentAttackData(_projectile, targets);
 				projectile.Add(newProjectile);

@@ -12,8 +12,9 @@ public class Base_TowerBehaviour : TowerBehaviour
 
 	List<Base_TowerBehaviour> towers;
 
-	private void Start()
+	new private void Start()
 	{
+		base.Start();
 		GameManager.instance.AddTowerToList(gameObject);
 	}
 
@@ -21,6 +22,7 @@ public class Base_TowerBehaviour : TowerBehaviour
 	{
 		if (targets != null)
 		{
+			_AudioSource.Play();
 			Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
 			attackData newProjectile = getCurrentAttackData(_projectile, targets);
 			projectile.Add(newProjectile);

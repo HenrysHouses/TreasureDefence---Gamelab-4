@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9103153095741284159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Cannon_Fire
+  m_EditorClassIdentifier: 
+  Path: event:/Cannon_Fire
+  Guid:
+    Data1: 2127796797
+    Data2: 1086445932
+    Data3: 679343512
+    Data4: -1643975123
+  Banks:
+  - {fileID: 4334115068479898859}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8907788847154582002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,7 +72,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 19031
---- !u!114 &-7390349793650559296
+--- !u!114 &-7382342320025469603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,20 +82,94 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Amb_BoardWorld
+  m_Name: event:/EnemyHit
   m_EditorClassIdentifier: 
-  Path: event:/Amb_BoardWorld
+  Path: event:/EnemyHit
+  Guid:
+    Data1: 359039601
+    Data2: 1139351440
+    Data3: 238565795
+    Data4: 1354289039
+  Banks:
+  - {fileID: 4334115068479898859}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8753060245503119697}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5121675727184232902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/AMBX.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/Desktop/AMBX.bank
+  Name: AMBX
+  StudioPath: bank:/AMBX
+  lastModified: 637825490412011727
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-2454766394544266727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Arcade_Gunshots
+  m_EditorClassIdentifier: 
+  Path: event:/Arcade_Gunshots
+  Guid:
+    Data1: 1235565600
+    Data2: 1327515064
+    Data3: -1569284716
+    Data4: 1089272007
+  Banks:
+  - {fileID: 4334115068479898859}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1807602925822786708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Amb/Amb_BoardWorld
+  m_EditorClassIdentifier: 
+  Path: event:/Amb/Amb_BoardWorld
   Guid:
     Data1: -1246135000
     Data2: 1301552683
     Data3: 903090076
     Data4: -529038833
   Banks:
-  - {fileID: 3643935565608197950}
+  - {fileID: -5121675727184232902}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 2540705874153659845}
   MinDistance: 1
   MaxDistance: 20
   Length: 19031
@@ -106,16 +207,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 5695248111454316967}
-  - {fileID: 3643935565608197950}
   - {fileID: -8907788847154582002}
+  - {fileID: -5121675727184232902}
+  - {fileID: 4334115068479898859}
   EditorEvents:
-  - {fileID: -7390349793650559296}
+  - {fileID: -1807602925822786708}
+  - {fileID: -2454766394544266727}
+  - {fileID: -9103153095741284159}
+  - {fileID: -7382342320025469603}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8907788847154582002}
   StringsBanks:
   - {fileID: 5695248111454316967}
-  cacheTime: 637824546762778441
+  cacheTime: 637825490412101749
   cacheVersion: 10
 --- !u!114 &460471123243864742
 MonoBehaviour:
@@ -137,7 +242,34 @@ MonoBehaviour:
   - Name: 
     Value: 1036
   Exists: 1
---- !u!114 &3643935565608197950
+--- !u!114 &2540705874153659845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Amb_BoardWorld/Parameter 1
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 41981931
+    data2: 1221129882
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - EmptyBoard
+  - NotEmptyBoard
+  - Value C
+  Exists: 1
+--- !u!114 &4334115068479898859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,12 +279,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Amb_BoardWorld.bank
+  m_Name: bank:/SFX.bank
   m_EditorClassIdentifier: 
-  Path: ../FMOD/Desktop/Amb_BoardWorld.bank
-  Name: Amb_BoardWorld
-  StudioPath: bank:/Amb_BoardWorld
-  lastModified: 637824546762778441
+  Path: ../FMOD/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 637825490412101749
   FileSizes: []
   Exists: 1
 --- !u!114 &5695248111454316967
@@ -170,10 +302,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637824531829539022
+  lastModified: 637825490412051739
   FileSizes:
   - Name: 
-    Value: 820
+    Value: 1102
   Exists: 1
 --- !u!114 &7872211500036080691
 MonoBehaviour:
@@ -194,4 +326,32 @@ MonoBehaviour:
   FileSizes:
   - Name: 
     Value: 820
+  Exists: 1
+--- !u!114 &8753060245503119697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/EnemyHit/HitType
+  m_EditorClassIdentifier: 
+  Name: HitType
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 3915132245
+    data2: 1436140297
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - RegularHit
+  - RegularHitDeath
+  - ArmorHit
+  - ArmrorHitDeath
   Exists: 1
