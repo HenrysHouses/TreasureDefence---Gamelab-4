@@ -750,6 +750,8 @@ GameObject:
   - component: {fileID: 1705850721}
   - component: {fileID: 1705850724}
   - component: {fileID: 1705850723}
+  - component: {fileID: 813052715127284814}
+  - component: {fileID: 6656565671853646229}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -798,7 +800,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1dedde0d2c654d6409e6a9a0361f6b12, type: 2}
+  - {fileID: 2100000, guid: df18a8443e09a1641a56cf06c03ad2b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -820,6 +822,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &813052715127284814
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705850720}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce54bafaa84a49e4fa1072be6a2ad4d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6656565671853646229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705850720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190799ede936e9540a7b015c023c86c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animate: 0
+  timeOffset: 0.225
+  animationTime: 0.9
 --- !u!1 &1714716236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,6 +1879,7 @@ GameObject:
   - component: {fileID: 266075825}
   - component: {fileID: 1955342372}
   - component: {fileID: 1955342373}
+  - component: {fileID: 302770766}
   m_Layer: 3
   m_Name: VR Rig
   m_TagString: Untagged
@@ -1949,6 +1986,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Timeout: 10
   m_XROrigin: {fileID: 0}
+--- !u!114 &302770766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721011055986639427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 7721011055986639427}
+  ListenerNumber: -1
 --- !u!1 &7721011056117593413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +2012,7 @@ GameObject:
   - component: {fileID: 7721011056117593433}
   - component: {fileID: 7721011056117593435}
   - component: {fileID: -8620765719431195188}
+  - component: {fileID: 266075827}
   m_Layer: 3
   m_Name: VR Camera
   m_TagString: Untagged
@@ -2044,6 +2096,20 @@ MonoBehaviour:
   m_UpdateType: 0
   m_UseRelativeTransform: 0
 --- !u!114 &-8620765719431195188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721011056117593413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
+--- !u!114 &266075827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

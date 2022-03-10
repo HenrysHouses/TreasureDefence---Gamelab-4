@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1093836718}
   - component: {fileID: 1625076952}
   - component: {fileID: 7360277059253377074}
+  - component: {fileID: 4238542553987875404}
   m_Layer: 8
   m_Name: TD_Tower_GunTower
   m_TagString: Tower
@@ -151,8 +152,8 @@ MonoBehaviour:
   waveController: {fileID: 0}
   targetType: 3
   projectileSpawnPos: {fileID: 1399488471}
-  projectilePrefab: {fileID: 6513835444385219211, guid: e5e6262b08ce543478bbd7c2c3bb3f7c, type: 3}
-  ExplotionParticle: {fileID: 1595576975666691675, guid: 6f934e29c32d349429826a264258c578, type: 3}
+  projectilePrefab: {fileID: 187908825720168252, guid: 5cd5f84d791b85c438684050a22047ca, type: 3}
+  ExplotionParticle: {fileID: 3378643408599204413, guid: a62e598ffe8171d4ebde084ceb49345e, type: 3}
   canShoot: 1
   attackDamage: 3
   attackCooldown: 0.8
@@ -300,6 +301,36 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &4238542553987875404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145837736746996029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2127796797
+      Data2: 1086445932
+      Data3: 679343512
+      Data4: -1643975123
+    Path: event:/Cannon_Fire
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3182384706920072268
 GameObject:
   m_ObjectHideFlags: 0

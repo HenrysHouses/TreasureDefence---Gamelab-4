@@ -1182,6 +1182,7 @@ GameObject:
   - component: {fileID: 7164110495960746333}
   - component: {fileID: 7164110495960746337}
   - component: {fileID: 7164110495960746338}
+  - component: {fileID: 367964117}
   m_Layer: 3
   m_Name: FPS_Player
   m_TagString: Untagged
@@ -1239,6 +1240,20 @@ MonoBehaviour:
   cam: {fileID: 0}
   currentInteractable: {fileID: 0}
   hasItem: 0
+--- !u!114 &367964117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164110495960746334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 7164110495960746334}
+  ListenerNumber: -1
 --- !u!1001 &7164110495349040875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1478,7 +1493,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114014416615829144, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
   m_PrefabInstance: {fileID: 7164110495992607466}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7163795568000579938}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24092a40b02616e479baeb940325e339, type: 3}
@@ -1494,3 +1509,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4353896453404184, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
   m_PrefabInstance: {fileID: 7164110495992607466}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7163795568000579938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1937979026721672, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
+  m_PrefabInstance: {fileID: 7164110495992607466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7164110495568529157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7163795568000579938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
