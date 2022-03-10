@@ -12,6 +12,7 @@ public class Tower_Monkey : TowerBehaviour
 		if (targets != null)
         {
 			//Instantiating projectile & Giving them the base stat from attackData.
+			_AudioSource.Play();
 			Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
 			attackData newProjectile = getCurrentAttackData(_projectile, targets);
 

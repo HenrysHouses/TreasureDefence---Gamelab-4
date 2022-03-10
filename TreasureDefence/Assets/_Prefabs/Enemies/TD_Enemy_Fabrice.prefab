@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3929955107486375177}
   - component: {fileID: -8208319022994668396}
+  - component: {fileID: 1555303400530459806}
   m_Layer: 0
   m_Name: TD_Enemy_Fabrice
   m_TagString: Untagged
@@ -46,9 +47,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1053713ba90110849a44dd50cdc87a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathSound: {fileID: 1303701982802261529, guid: 5c3c0ee4669364a4988eca040821f67f, type: 3}
+  waveController: {fileID: 0}
   path: {fileID: 0}
   enemyInfo: {fileID: 11400000, guid: af4b1d2d32099234d9aa1007c89fbbb5, type: 2}
-  health: 2
+--- !u!114 &1555303400530459806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3929955107486375170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 359039601
+      Data2: 1139351440
+      Data3: 238565795
+      Data4: 1354289039
+    Path: event:/EnemyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: HitType
+    Value: 0
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 3.5
 --- !u!1 &3929955107619240066
 GameObject:
   m_ObjectHideFlags: 0

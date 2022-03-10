@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2966233533914668606}
   - component: {fileID: 2515850264999078607}
   - component: {fileID: 2101355495016354411}
+  - component: {fileID: 3395081700428452157}
   m_Layer: 8
   m_Name: TD_Tower_BombTower
   m_TagString: Untagged
@@ -103,7 +104,6 @@ MonoBehaviour:
   lookIsActive: 0
   held: 0
   obj: {fileID: 5829308427115129792}
-  towerInfo: {fileID: 11400000, guid: 80fe14f7a8b5cf24b83464f4a6409567, type: 2}
   RangeHighlight: {fileID: 3280173330242242253}
 --- !u!114 &2515850264999078607
 MonoBehaviour:
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a09eafb732f7cd4a923dbb3b3d2b8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _AudioSource: {fileID: 0}
   waveController: {fileID: 0}
   targetType: 0
   projectileSpawnPos: {fileID: 50962796472487279}
@@ -269,6 +270,36 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &3395081700428452157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230867605568577654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2127796797
+      Data2: 1086445932
+      Data3: 679343512
+      Data4: -1643975123
+    Path: event:/Cannon_Fire
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2490344745217212861
 GameObject:
   m_ObjectHideFlags: 0
