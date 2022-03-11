@@ -35,7 +35,8 @@ public class CurrencyManager : MonoBehaviour
         {
             Debug.Log("Money Added");
             money += 10;
-            moneyText.text = ("Money: " + money);
+            if(moneyText)
+                moneyText.text = ("Money: " + money);
             VrMoneyText.text = money.ToString();
             if(moneyBounceAnimation.gameObject.activeInHierarchy)
                 moneyBounceAnimation.Play("BounceAnimation");
