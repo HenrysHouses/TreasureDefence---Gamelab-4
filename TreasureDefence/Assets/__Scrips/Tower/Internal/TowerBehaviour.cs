@@ -168,6 +168,4 @@ abstract public class TowerBehaviour : MonoBehaviour
     {
 		dustCloud.Play();
     }
-
-
 }

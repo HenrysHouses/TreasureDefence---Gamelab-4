@@ -14,8 +14,9 @@ public class Gun_Interactable : TD_Interactable
     public float ReloadTime;
     public MeshRenderer meshRenderer;
 
-    void Start()
+    new void Start()
     {
+        base.Start();
         _Audiosource = GetComponent<StudioEventEmitter>();
     }
 

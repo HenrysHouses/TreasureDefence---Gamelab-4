@@ -9,7 +9,6 @@ public class FlagPole_Interactable : TD_Interactable
 	[SerializeField] LevelHandler levelHandler;
 	bool TryExitLevel;
 	public Transform flag;
-	[SerializeField] GameObject GhostFlagVisibility;
 
 	Vector3 flagMinPos = Vector3.zero;
 	Vector3 flagMaxPos = new Vector3(0, 0.2408f, 0);
@@ -25,15 +24,12 @@ public class FlagPole_Interactable : TD_Interactable
 	{
 		try
 		{
-			GhostFlagVisibility = GameObject.FindGameObjectWithTag("GhostFlag").transform.GetChild(0).gameObject;
 			levelHandler = GameObject.FindObjectOfType<LevelHandler>();	
 		}
 		catch
 		{
 			if(!levelHandler)
 				Debug.LogError("LevelHandler is missing in the scene");
-			if(!GhostFlagVisibility)
-				Debug.LogError("Ghost flag is missing in the scene");
 		}
 	}
 
@@ -43,45 +39,35 @@ public class FlagPole_Interactable : TD_Interactable
 		
 		SetHeld(true, player.GetHoldPoint);
 
-		if(!GhostFlagVisibility.activeSelf)
-			setGhostFlagActive(true);
 	}
 	
 	override public void VRInteractionStartTrigger()
 	{
-		if(!GhostFlagVisibility)
-			findDependencies();
-		if(!GhostFlagVisibility.activeSelf)
-			setGhostFlagActive(true);
 	}
 
 	override public void VRInteractionEndTrigger()
 	{
-		if(!levelHandler || !GhostFlagVisibility)
+		if(!levelHandler)
 			findDependencies();
 		if(TryExitLevel)
 		{
 			levelHandler.ExitLevel();
 			TryExitLevel = false;
-			GhostFlagVisibility.SetActive(false);
 		}
 
 		Vector3 rot = transform.eulerAngles;
 		Vector3 resetRot = new Vector3(0, rot.y, 0);
 		transform.eulerAngles = resetRot;
-		
-		setGhostFlagActive(false);
 	}
 	
 	public override void InteractionEndTrigger(object target = null)
 	{
-		if(!levelHandler || !GhostFlagVisibility)
+		if(!levelHandler)
 			findDependencies();
 		if(TryExitLevel)
 		{
 			levelHandler.ExitLevel();
 			TryExitLevel = false;
-			GhostFlagVisibility.SetActive(false);
 		}
 
 		PlayerInteraction player = target as PlayerInteraction;
@@ -90,8 +76,6 @@ public class FlagPole_Interactable : TD_Interactable
 		Vector3 rot = transform.eulerAngles;
 		Vector3 resetRot = new Vector3(0, rot.y, 0);
 		transform.eulerAngles = resetRot;
-
-		setGhostFlagActive(false);
 	}
 	
 	/// <summary>
@@ -138,16 +122,5 @@ public class FlagPole_Interactable : TD_Interactable
 	public void setFlagPos(int progress)
 	{
 		flag.localPosition = flagPositions[progress];
-	}
-
-	void setGhostFlagActive(bool state)
-	{
-		if(levelHandler)
-		{
-			if(!levelHandler.isLevelOnGoing() && levelHandler.LevelIsReady)
-			{
-				GhostFlagVisibility.SetActive(state);
-			}
-		}
 	}
 }

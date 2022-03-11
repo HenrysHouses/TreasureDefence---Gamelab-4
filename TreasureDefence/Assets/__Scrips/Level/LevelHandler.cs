@@ -8,7 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class LevelHandler : MonoBehaviour
 {
-	[SerializeField] GameObject FlagPrefab, GhostPrefab, CupPrefab;
+	[SerializeField] GameObject explotionParticle;
+	[SerializeField] GameObject FlagPrefab, CupPrefab;
 	[SerializeField] Transform FlagSpawn, GhostSpawn, CupSpawn;
 
 	Transform currentLevel;
@@ -21,8 +22,6 @@ public class LevelHandler : MonoBehaviour
 
 	void Awake()
 	{
-		if(!GameObject.FindGameObjectWithTag("GhostFlag"))
-			Instantiate(GhostPrefab, GhostSpawn.position, GhostSpawn.rotation, GhostSpawn);	
 		if(!GameObject.FindObjectOfType<waveTrigger_Interactable>())
 			Instantiate(CupPrefab, CupSpawn.position, CupSpawn.rotation, CupSpawn);	
 		if(!GameObject.FindObjectOfType<FlagPole_Interactable>()) 
@@ -54,11 +53,15 @@ public class LevelHandler : MonoBehaviour
 			if(LevelEnding)
 			{
 				Vector3 pos = currentLevel.localPosition;
-				pos.y -= Time.deltaTime * riseSpeed;
+				pos.y += Time.deltaTime * riseSpeed * 9;
 				currentLevel.localPosition = pos;
-				if(currentLevel.localPosition.y < -_offsetValue)
+				if(currentLevel.localPosition.y > 3)
 				{
 					LevelEnding = false;
+					GameObject particle = Instantiate(explotionParticle, currentLevel.transform.position, Quaternion.identity);
+					
+					particle.transform.GetChild(0).localScale *= 15;
+					particle.transform.GetChild(1).localScale *= 15;
 					GameManager.instance.RemoveActiveTowers();
 					GameManager.instance.setLights(true);
 					CurrencyManager.instance.SetMoney();
@@ -112,6 +115,8 @@ public class LevelHandler : MonoBehaviour
 	{
 		if(currentLevel)
 		{
+			Debug.Log(currentLevel.GetComponent<WaveController>());
+			currentLevel.GetComponent<WaveController>().EjectParticles.SetActive(true);
 			LevelEnding = true;
 			if(CurrencyManager.instance)
 				CurrencyManager.instance.SetMoney(0);

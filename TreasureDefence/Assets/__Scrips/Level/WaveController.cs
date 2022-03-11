@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-	
+	[SerializeField] public GameObject EjectParticles;
 	// Level variables
 	private int health;
 	public int currentHealth => health;
@@ -85,11 +85,6 @@ public class WaveController : MonoBehaviour
 		}
 	}
 	
-	public void SetGhostFlag(bool state)
-	{
-		GameObject.FindGameObjectWithTag("GhostFlag").transform.GetChild(0).gameObject.SetActive(state);
-	}
-	
 	public void endLevel(bool lose = false)
 	{
 		waveIsInProgress = false;
@@ -106,7 +101,6 @@ public class WaveController : MonoBehaviour
 			CanvasController.instance.OpenCanvas(0, 0, 10f);
 		}
 
-		SetGhostFlag(true);
 		foreach (var enemy in enemies)
 		{
 			Destroy(enemy.gameObject);

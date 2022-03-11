@@ -38,6 +38,7 @@ public class CurrencyManager : MonoBehaviour
             if(moneyText)
                 moneyText.text = ("Money: " + money);
             VrMoneyText.text = money.ToString();
+        if(moneyBounceAnimation)
             if(moneyBounceAnimation.gameObject.activeInHierarchy)
                 moneyBounceAnimation.Play("BounceAnimation");
             animationHelper.animate = true;
@@ -48,9 +49,11 @@ public class CurrencyManager : MonoBehaviour
     {
         money += CashIn;
         VrMoneyText.text = money.ToString();
-        moneyText.text = ("Money: " + money);
-        if(moneyBounceAnimation.gameObject.activeInHierarchy)
-            moneyBounceAnimation.Play("BounceAnimation");
+        if(moneyText)
+            moneyText.text = ("Money: " + money);
+        if(moneyBounceAnimation)
+            if(moneyBounceAnimation.gameObject.activeInHierarchy)
+                moneyBounceAnimation.Play("BounceAnimation");
         animationHelper.animate = true;
     }
 
@@ -61,7 +64,8 @@ public class CurrencyManager : MonoBehaviour
             return false;
         }
         money -= CashOut;
-        moneyText.text = ("Money: " + money);  
+        if(moneyText)
+            moneyText.text = ("Money: " + money);  
         VrMoneyText.text = money.ToString();
 
         return true;
@@ -72,9 +76,11 @@ public class CurrencyManager : MonoBehaviour
         money = value;
         
         VrMoneyText.text = money.ToString();
-        moneyText.text = ("Money: " + money);
-        if(moneyBounceAnimation.gameObject.activeInHierarchy)
-            moneyBounceAnimation.Play("BounceAnimation");
+        if(moneyText)
+            moneyText.text = ("Money: " + money);
+        if(moneyBounceAnimation)
+            if(moneyBounceAnimation.gameObject.activeInHierarchy)
+                moneyBounceAnimation.Play("BounceAnimation");
         animationHelper.animate = true;
     }
 }
