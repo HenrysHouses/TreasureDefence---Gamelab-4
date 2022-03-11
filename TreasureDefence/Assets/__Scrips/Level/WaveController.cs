@@ -41,8 +41,11 @@ public class WaveController : MonoBehaviour
 		EnemyParent = GameObject.FindGameObjectWithTag("EnemyHolder").transform;
 		GameManager.instance.pathController = LevelData.GetPathController();
 		health = LevelData.lives;
-		flagPole.calculateFlagPositions(LevelData.waves.Length);
-		flagPole.setFlagPos(currentWave);
+		if(flagPole)
+		{
+			flagPole.calculateFlagPositions(LevelData.waves.Length);
+			flagPole.setFlagPos(currentWave);
+		}
 	}
 
 	// Update is called once per frame
@@ -140,7 +143,8 @@ public class WaveController : MonoBehaviour
 		currentCooldown = 0;
 		repeatSpawn = -1;
 		
-		flagPole.setFlagPos(currentWave);
+		if(flagPole)
+			flagPole.setFlagPos(currentWave);
 
 		if(currentWave == getWaveCount())
 			levelComplete = true;

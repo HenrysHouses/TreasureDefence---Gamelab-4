@@ -41,7 +41,7 @@ public class BuyTowerButton_Interactable : TD_Interactable
 
     private void buyTower()
     {
-        if(info.item)
+        if(info)
         {
             if(CurrencyManager.instance.SubtractMoney(info.cost))
             {

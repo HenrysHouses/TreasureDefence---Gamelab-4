@@ -14,11 +14,11 @@ public class FlagPole_Interactable : TD_Interactable
 	Vector3 flagMaxPos = new Vector3(0, 0.2408f, 0);
 	Vector3[] flagPositions;
 	
-	new void Start()
-	{
-		base.Start();
-		findDependencies();
-	}
+	// new void Start()
+	// {
+	// 	base.Start();
+	// 	findDependencies();
+	// }
 
 	void findDependencies()
 	{
@@ -47,64 +47,64 @@ public class FlagPole_Interactable : TD_Interactable
 
 	override public void VRInteractionEndTrigger()
 	{
-		if(!levelHandler)
-			findDependencies();
-		if(TryExitLevel)
-		{
-			levelHandler.ExitLevel();
-			TryExitLevel = false;
-		}
+		// if(!levelHandler)
+		// 	findDependencies();
+		// if(TryExitLevel)
+		// {
+		// 	levelHandler.ExitLevel();
+		// 	TryExitLevel = false;
+		// }
 
-		Vector3 rot = transform.eulerAngles;
-		Vector3 resetRot = new Vector3(0, rot.y, 0);
-		transform.eulerAngles = resetRot;
+		// Vector3 rot = transform.eulerAngles;
+		// Vector3 resetRot = new Vector3(0, rot.y, 0);
+		// transform.eulerAngles = resetRot;
 	}
 	
 	public override void InteractionEndTrigger(object target = null)
 	{
-		if(!levelHandler)
-			findDependencies();
-		if(TryExitLevel)
-		{
-			levelHandler.ExitLevel();
-			TryExitLevel = false;
-		}
+		// if(!levelHandler)
+		// 	findDependencies();
+		// if(TryExitLevel)
+		// {
+		// 	levelHandler.ExitLevel();
+		// 	TryExitLevel = false;
+		// }
 
 		PlayerInteraction player = target as PlayerInteraction;
 		
 		SetHeld(false, player.GetHoldPoint);
-		Vector3 rot = transform.eulerAngles;
-		Vector3 resetRot = new Vector3(0, rot.y, 0);
-		transform.eulerAngles = resetRot;
+		// Vector3 rot = transform.eulerAngles;
+		// Vector3 resetRot = new Vector3(0, rot.y, 0);
+		// transform.eulerAngles = resetRot;
 	}
 	
 	/// <summary>
 	/// OnTriggerEnter is called when the Collider other enters the trigger.
 	/// </summary>
 	/// <param name="other">The other Collider involved in this collision.</param>
-	void OnTriggerEnter(Collider other)
-	{
-		if(other.CompareTag("GhostFlag/Snap"))
-		{
-			TryExitLevel = true;
-			transform.position = other.transform.position;
-			Vector3 rot = transform.eulerAngles;
-			Vector3 resetRot = new Vector3(0, rot.y, 0);
-			transform.eulerAngles = resetRot;
-		}
-	}
+	// void OnTriggerEnter(Collider other)
+	// {
+	// 	if(other.CompareTag("GhostFlag/Snap"))
+	// 	{
+	// 		TryExitLevel = true;
+	// 		transform.position = other.transform.position;
+	// 		Vector3 rot = transform.eulerAngles;
+	// 		Vector3 resetRot = new Vector3(0, rot.y, 0);
+	// 		transform.eulerAngles = resetRot;
+	// 	}
+	// }
 	
 	/// <summary>
 	/// OnTriggerExit is called when the Collider other has stopped touching the trigger.
 	/// </summary>
 	/// <param name="other">The other Collider involved in this collision.</param>
-	void OnTriggerExit(Collider other)
-	{
-		if(other.CompareTag("GhostFlag/Snap"))
-		{
-			TryExitLevel = false;
-		}
-	}
+	// void OnTriggerExit(Collider other)
+	// {
+	// 	if(other.CompareTag("GhostFlag/Snap"))
+	// 	{
+	// 		TryExitLevel = false;
+	// 	}
+	// }
 
 	public void calculateFlagPositions(int totalPositions)
 	{
