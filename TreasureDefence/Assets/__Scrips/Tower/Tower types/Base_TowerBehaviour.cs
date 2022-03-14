@@ -52,7 +52,7 @@ public class Base_TowerBehaviour : TowerBehaviour
 		foreach (var deletingProjectile in removeProjectiles)
 		{
 			// deletingProjectile.print();
-			if (ExplotionParticle != null)
+			if (ExplotionParticle != null && deletingProjectile != null)
 			{
 				Vector3 dir = transform.position - deletingProjectile.CurrentTarget.transform.position;
 				Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.LookRotation(dir)); 

@@ -3,44 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingRange : ArcadeMachine
-{   //Mikkel tried to make this.
+{   // Mikkel tried to make this.
     public GameObject Target;
-
-    [Tooltip("A bool to activate the targets left and right movement.")]
-    public bool TargetMovement;
+    Renderer targetRenderer;
+    [SerializeField] Rigidbody targetRB;
+    public int HitTarget;
     [Tooltip("The Speed of the Target")]
-    public int TargetMovementSpeed, HitTarget;
-    public float num, StartTimer;
+    public float TargetMovementSpeed;
+    public float t, StartTimer;
     float timeLeft;
+    [SerializeField] Transform leftPos, rightPos;
+    bool leftHasChanged, rightHasChanged;
+    Vector3 velocity;
   
-
+    void Start()
+    {
+        targetRenderer = Target.GetComponent<Renderer>();
+    }
 
     // Base Arcade Behaviour
 
-    //Start the Game. What it costs.
+    // Start the Game. What it costs.
     public override void StartSetup()
     {
         base.StartSetup();
         HitTarget = 0;
         timeLeft = StartTimer;
-
+        randomizeLeftPos();
+        randomizeRightPos();
+        float random = Random.Range(0,1);
+        if(random == 0)
+            velocity = new Vector3(0, 0, TargetMovementSpeed);
+        else
+            velocity = new Vector3(0, 0, -TargetMovementSpeed);
     }
 
     public override void isPlayingUpdate()
     {
-        num += TargetMovementSpeed * Time.deltaTime;
-        Vector3 pos = Target.transform.position;
-        pos.z = PingPongExtention(num, 0, 1) + -5;
-        Target.transform.position = pos;
+        t += TargetMovementSpeed * Time.deltaTime;
+        Vector3 pos = Target.transform.localPosition;
 
+        if(pos.z < leftPos.localPosition.z)
+            randomizeRightPos();
+        if(pos.z > rightPos.localPosition.z)
+            randomizeLeftPos();
+        targetRB.velocity = velocity;
         timeLeft -= Time.deltaTime;
-        if (timeLeft <= 0)
-        {
-            Debug.Log("Time ran out.");
-            LooseCondition();
-        }
-
-        return;
     }
 
 
@@ -56,6 +64,7 @@ public class ShootingRange : ArcadeMachine
 
     public override bool LooseCondition()
     {
+        // Debug.Log("Time ran out.");
         if (timeLeft <= 0)
         {
             return true;
@@ -72,24 +81,45 @@ public class ShootingRange : ArcadeMachine
     public override void Reset()
     {
         HitTarget = 0;
+        targetRB.velocity = new Vector3(0, 0, 0);
     }
 
-    public float PingPongExtention(float t, float rangeFrom, float rangeTo)
+    public void Hit()
     {
-        float remapped = 0;
-        if (t % rangeTo > rangeTo / 2)
-        {
-            remapped = ExtensionMethods.Remap(t % rangeTo, rangeFrom, rangeTo, rangeTo, rangeFrom);
-        }
-        else
-        {
-            remapped = t % rangeTo;
-        }
-        return remapped;
-
+        HitTarget++;
+        targetRenderer.material.color = Color.red;
+        Invoke("resetColor", 0.3f);
     }
 
-
+    void resetColor()
+    {
+        targetRenderer.material.color = Color.white;
+    }
     //While Playing.  Damit Rune.
 
+    void randomizeLeftPos()
+    {
+        if(!leftHasChanged)
+        {
+            Vector3 pos = leftPos.localPosition;
+            pos.z = Random.Range(-1.0f, 0.0f);
+            leftPos.localPosition = pos;
+            leftHasChanged = true;
+            rightHasChanged = false;
+            velocity = new Vector3(0, 0, -TargetMovementSpeed);
+        }
+    }
+
+    void randomizeRightPos()
+    {
+        if(!rightHasChanged)
+        {
+            Vector3 pos = rightPos.localPosition;
+            pos.z = Random.Range(0.0f, 1.0f);
+            rightPos.localPosition = pos;
+            rightHasChanged = true;
+            leftHasChanged = false;
+            velocity = new Vector3(0, 0, TargetMovementSpeed);
+        }
+    }
 }

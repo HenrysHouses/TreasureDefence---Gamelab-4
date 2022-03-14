@@ -7,4 +7,12 @@ public class TowerInfo : ScriptableObject
 {                  
 	public int Type, cost;
 	public GameObject item;
+	public string TowerName, Damage, Projectile, ExtraInfo;
+	public TowerBehaviour.TargetType TargetingType;
+
+	void OnValidate()
+	{
+		this.TargetingType = this.item.GetComponent<TowerBehaviour>().targetType;
+	}
+
 }

@@ -47,10 +47,8 @@ public class VFX_BulletController : MonoBehaviour
 
         if (other.transform.CompareTag("Target"))
         {
-            other.collider.GetComponentInParent<ShootingRange>().HitTarget++;
-            // Debug.Log("hit = " + shootingrange.HitTarget);
-            // other.collider.GetComponent<MeshRenderer>().material.color = Color.red;             //Fix this later. -Mikkel.
-            Invoke("ResetColor", 0.15f);
+
+            other.collider.GetComponentInParent<ShootingRange>().Hit();
         }
     }
 

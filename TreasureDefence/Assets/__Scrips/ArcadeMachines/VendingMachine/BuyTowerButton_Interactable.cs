@@ -4,6 +4,8 @@ public class BuyTowerButton_Interactable : TD_Interactable
 {
     [SerializeField] TowerInfo info;
     [SerializeField] Transform spawnTransform, displayPos;
+    GameObject DisplayInfo;
+    [SerializeField] GameObject infoPrefab;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -51,5 +53,20 @@ public class BuyTowerButton_Interactable : TD_Interactable
                 GameManager.instance.SpawnTower(info.item, randomPos);
             }
         }
+    }
+
+    public void SpawnInfo()
+    {
+        if(info)
+        {
+            DisplayInfo = Instantiate(infoPrefab, displayPos.position, Quaternion.identity);
+            DisplayInfo.GetComponent<DisplayInfo>().setText(info);
+        }
+    }
+
+    public void DeleteInfo()
+    {
+        if(DisplayInfo)
+            Destroy(DisplayInfo);
     }
 }

@@ -34,9 +34,21 @@ public static class ExtensionMethods
 		return to;
 	}
 
-		public static void SetGlobalScale (this Transform transform, Vector3 globalScale)
+	public static void SetGlobalScale (this Transform transform, Vector3 globalScale)
  	{
 		transform.localScale = Vector3.one;
 		transform.localScale = new Vector3 (globalScale.x/transform.lossyScale.x, globalScale.y/transform.lossyScale.y, globalScale.z/transform.lossyScale.z);
  	}
+
+	public static float PingPong(float t, float rangeFrom, float rangeTo)
+    {
+		float pong = Mathf.PingPong(t, 1);
+		float value = Mathf.Lerp(rangeFrom, rangeTo, pong);
+		return value;
+    }
+
+	public static void SawtoothWave(float In, out float Out)
+	{
+		Out = 2 * (In - Mathf.Floor(0.5f + In));
+	}
 }
