@@ -53,7 +53,7 @@ public class CanvasController : MonoBehaviour
 
             open = true;
             
-            Invoke("CloseCanvas", timeToClose);
+            // Invoke("CloseCanvas", timeToClose);
             
         }
 

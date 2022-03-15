@@ -106,7 +106,6 @@ public class MoleController : MonoBehaviour
         isHit = true;
         isMovingUp = false;
         isMovingDown = true;
-        Debug.Log("hit");
         state = moleState.MovingDown;
         GameObject spawn = Instantiate(OnHitParticle, collision.GetContact(0).point, Quaternion.identity);
         MoleHitSFX.Play();
