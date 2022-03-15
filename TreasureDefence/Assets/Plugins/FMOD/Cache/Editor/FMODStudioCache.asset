@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637828604434186295
+  lastModified: 637829530629171229
   FileSizes: []
   Exists: 1
 --- !u!114 &-8233165871269702923
@@ -115,7 +115,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/AMBX.bank
   Name: AMBX
   StudioPath: bank:/AMBX
-  lastModified: 637825531231322098
+  lastModified: 637829530629131179
   FileSizes: []
   Exists: 1
 --- !u!114 &-2454766394544266727
@@ -140,6 +140,33 @@ MonoBehaviour:
   - {fileID: 4334115068479898859}
   IsStream: 0
   Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1993124674503725323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ShootingRange/BottleHit
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ShootingRange/BottleHit
+  Guid:
+    Data1: 657356420
+    Data2: 1215458131
+    Data3: -1149328497
+    Data4: -250449894
+  Banks:
+  - {fileID: 4334115068479898859}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -215,12 +242,16 @@ MonoBehaviour:
   - {fileID: -2454766394544266727}
   - {fileID: -9103153095741284159}
   - {fileID: -7382342320025469603}
-  EditorParameters: []
+  - {fileID: -1993124674503725323}
+  - {fileID: 1674914355257654247}
+  EditorParameters:
+  - {fileID: 757024086038195891}
+  - {fileID: 2210080779367366193}
   MasterBanks:
   - {fileID: -8907788847154582002}
   StringsBanks:
   - {fileID: 5695248111454316967}
-  cacheTime: 637828604434466363
+  cacheTime: 637829530630391694
   cacheVersion: 10
 --- !u!114 &460471123243864742
 MonoBehaviour:
@@ -241,6 +272,87 @@ MonoBehaviour:
   FileSizes:
   - Name: 
     Value: 1036
+  Exists: 1
+--- !u!114 &757024086038195891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicState
+  m_EditorClassIdentifier: 
+  Name: MusicState
+  StudioPath: parameter:/MusicState
+  Min: 0
+  Max: 5
+  Default: 0
+  ID:
+    data1: 3332165009
+    data2: 3093725185
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Silence
+  - Explorer
+  - Battle
+  - LeaveBattle
+  - Death
+  - Win
+  Exists: 1
+--- !u!114 &1674914355257654247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Whack-a-monke/MonkeyHit
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Whack-a-monke/MonkeyHit
+  Guid:
+    Data1: 1948824307
+    Data2: 1292767919
+    Data3: 762433171
+    Data4: 1612408541
+  Banks:
+  - {fileID: 4334115068479898859}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &2210080779367366193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music Intensity
+  m_EditorClassIdentifier: 
+  Name: Music Intensity
+  StudioPath: parameter:/Music Intensity
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1917372813
+    data2: 1476453011
+  Type: 0
+  IsGlobal: 1
+  Labels: []
   Exists: 1
 --- !u!114 &2540705874153659845
 MonoBehaviour:
@@ -284,7 +396,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637828604434466363
+  lastModified: 637829530630391694
   FileSizes: []
   Exists: 1
 --- !u!114 &5695248111454316967
@@ -302,10 +414,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637828604434236315
+  lastModified: 637829530629191241
   FileSizes:
   - Name: 
-    Value: 1102
+    Value: 1320
   Exists: 1
 --- !u!114 &7872211500036080691
 MonoBehaviour:
