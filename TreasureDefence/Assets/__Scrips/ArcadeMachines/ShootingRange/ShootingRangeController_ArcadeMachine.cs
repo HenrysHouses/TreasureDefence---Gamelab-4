@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
-public class ShootingRange : ArcadeMachine
+public class ShootingRangeController_ArcadeMachine : ArcadeMachine
 {   // Mikkel tried to make this.
+    // Henrik Revamped this
     public GameObject Target;
-    Renderer targetRenderer;
     [SerializeField] Rigidbody targetRB;
     public int HitTarget;
     [Tooltip("The Speed of the Target")]
@@ -15,18 +16,24 @@ public class ShootingRange : ArcadeMachine
     [SerializeField] Transform leftPos, rightPos;
     bool leftHasChanged, rightHasChanged;
     Vector3 velocity;
-  
-    void Start()
-    {
-        targetRenderer = Target.GetComponent<Renderer>();
-    }
+    [SerializeField] GameObject startGameBottle;
+    [SerializeField] Animator animator;
+    [SerializeField] Transform rugTransform;
+    [SerializeField] VR_PlayerController VRPlayer;
+    bool holdingGun, shouldTeleport;
+    [SerializeField] StudioEventEmitter BottleHit;
+    [SerializeField] GameObject BottleShardsParticle, BottleHalfPrefab;
+    [SerializeField] Vector3 brokenBottleVelocity;
 
     // Base Arcade Behaviour
-
     // Start the Game. What it costs.
     public override void StartSetup()
     {
         base.StartSetup();
+        // Teleport To rug, disable movement
+        BottleHit.Play();
+        shouldTeleport = true;
+        // arcade setup
         HitTarget = 0;
         timeLeft = StartTimer;
         randomizeLeftPos();
@@ -36,6 +43,8 @@ public class ShootingRange : ArcadeMachine
             velocity = new Vector3(0, 0, TargetMovementSpeed);
         else
             velocity = new Vector3(0, 0, -TargetMovementSpeed);
+        startGameBottle.SetActive(false);
+        Target.SetActive(true);
     }
 
     public override void isPlayingUpdate()
@@ -49,6 +58,18 @@ public class ShootingRange : ArcadeMachine
             randomizeLeftPos();
         targetRB.velocity = velocity;
         timeLeft -= Time.deltaTime;
+    }
+
+    void LateUpdate()
+    {
+        if(shouldTeleport)
+        {
+            VRPlayer.transform.position = rugTransform.position;
+            VRPlayer.transform.rotation = rugTransform.rotation;
+            shouldTeleport = false;
+            VRPlayer.canMove = false;
+            VRPlayer.canTeleport = false;
+        }
     }
 
 
@@ -74,29 +95,39 @@ public class ShootingRange : ArcadeMachine
             return false;
         }
     }
+
     public override void Reward()
     {
         GameManager.instance.SpawnTower(towerRewardPrefab, spawnPoint.position);
+        Instantiate(BottleShardsParticle, Target.transform.position, Quaternion.identity);
+        GameObject bottle = Instantiate(BottleHalfPrefab, Target.transform.position, Quaternion.identity);
+        Rigidbody rb = bottle.GetComponent<Rigidbody>();
+        rb.velocity = brokenBottleVelocity;
+        // Debug.Break();
     }
+
     public override void Reset()
     {
         HitTarget = 0;
         targetRB.velocity = new Vector3(0, 0, 0);
+        startGameBottle.SetActive(true);
+        Target.SetActive(false);
+        if(animator.GetBool("IsOpen") && !holdingGun)
+        {
+            animator.SetBool("IsOpen", false);
+        }
+        VRPlayer.canMove = true;
+        VRPlayer.canTeleport = true;
     }
 
     public void Hit()
     {
         HitTarget++;
-        targetRenderer.material.color = Color.red;
-        Invoke("resetColor", 0.3f);
+        BottleHit.Play();
+        Instantiate(BottleShardsParticle, Target.transform.position, Quaternion.identity);
     }
 
-    void resetColor()
-    {
-        targetRenderer.material.color = Color.white;
-    }
     //While Playing.  Damit Rune.
-
     void randomizeLeftPos()
     {
         if(!leftHasChanged)
@@ -121,5 +152,16 @@ public class ShootingRange : ArcadeMachine
             leftHasChanged = false;
             velocity = new Vector3(0, 0, TargetMovementSpeed);
         }
+    }
+    
+    public void setIsOpen(bool state)
+    {
+        if(!isPlaying)
+            animator.SetBool("IsOpen", state);
+    }
+
+    public void isHoldingGun(bool state)
+    {
+        holdingGun = state;
     }
 }

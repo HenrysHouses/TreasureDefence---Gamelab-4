@@ -70,7 +70,6 @@ public class LevelHandler : MonoBehaviour
 					cloudParticle.Stop();
 					cloudsSpawned = false;
 				}
-				Debug.Log("level ending");
 			}
 			// if(LevelIsReady)
 			// {

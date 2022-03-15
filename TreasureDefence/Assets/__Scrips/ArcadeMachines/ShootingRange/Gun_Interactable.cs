@@ -8,7 +8,7 @@ public class Gun_Interactable : TD_Interactable
     [SerializeField] GameObject bulletPrefab;
     public Transform barrelTransform;
     [SerializeField]
-    ShootingRange shootingrange;
+    ShootingRangeController_ArcadeMachine shootingrange;
     PlayerInteraction player;
     float timer;
     public float ReloadTime;

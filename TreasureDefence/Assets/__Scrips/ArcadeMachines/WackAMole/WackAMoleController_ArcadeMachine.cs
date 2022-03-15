@@ -6,8 +6,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
-public class WackAMoleController : ArcadeMachine
+public class WackAMoleController_ArcadeMachine : ArcadeMachine
 {
 	[SerializeField] MoleController[] moles;
 	List<int> activeMoles = new List<int>();

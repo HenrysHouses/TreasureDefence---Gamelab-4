@@ -16,6 +16,7 @@ public class VR_PlayerController : MonoBehaviour
     public float snapRotationCooldown = 0.3f, heightChangeAmount = 0.3f, heightCooldown = 0.3f;
     public XRNode leftNode, rightNode;
     Vector2 rightAxis, leftAxis;
+    bool leftAxisClick;
     bool secondaryButton_RightHand, primaryButton_RightHand;
     bool isRotating;
     bool secondaryButton_LeftHand, primaryButton_LeftHand;
@@ -23,6 +24,9 @@ public class VR_PlayerController : MonoBehaviour
     private XROrigin rig;
 
     public bool leftRayIsActive, rightRayIsActive, leftHandIsActive, rightHandIsActive;
+    public bool canMove = true, canTeleport = true, canRotate = true;
+
+    XRController leftRayController, rightRayController, leftHandController, rightHandController;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,11 @@ public class VR_PlayerController : MonoBehaviour
         character = GetComponent<CharacterController>();
         rig = GetComponent<XROrigin>();
         teleportHighlight = TeleportInteractor_Highlight.GetComponentInChildren<Renderer>();
+
+        leftRayController = pickupRayLeft.GetComponent<XRController>();
+        rightRayController = pickupRayRight.GetComponent<XRController>();
+        leftHandController = handLeft.GetComponent<XRController>();
+        rightHandController = handRight.GetComponent<XRController>();
     }
 
     // Update is called once per frame
@@ -40,15 +49,42 @@ public class VR_PlayerController : MonoBehaviour
         LeftDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out secondaryButton_LeftHand);
         LeftDevice.TryGetFeatureValue(CommonUsages.primaryButton, out primaryButton_LeftHand);
         LeftDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out leftAxis);
+        LeftDevice.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out leftAxisClick);
         InputDevice RightDevice = InputDevices.GetDeviceAtXRNode(rightNode);
         RightDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out rightAxis);
         RightDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out secondaryButton_RightHand);
         RightDevice.TryGetFeatureValue(CommonUsages.primaryButton, out primaryButton_RightHand);
 
-        // something unused
-        if(secondaryButton_LeftHand)
+        // activate move held item in right hand
+        if(secondaryButton_LeftHand && rightHandController.moveObjectOut != InputHelpers.Button.PrimaryAxis2DUp)
         {
-            
+            XRController[] controllers = new XRController[]{rightRayController, rightHandController};
+            enableJoystickMove(controllers, true);
+            canRotate = false;
+        }
+        else if (!secondaryButton_LeftHand && rightHandController.moveObjectOut != InputHelpers.Button.None)
+        {
+            XRController[] controllers = new XRController[]{rightRayController, rightHandController};
+            enableJoystickMove(controllers, false);
+            canRotate = true;
+        }
+        // activate move held item in left hand
+        if(secondaryButton_RightHand && leftHandController.moveObjectOut != InputHelpers.Button.PrimaryAxis2DUp)
+        {
+            XRController[] controllers = new XRController[]{leftRayController, leftHandController};
+            enableJoystickMove(controllers, true);
+            canMove = false;
+        }
+        else if (!secondaryButton_RightHand && leftHandController.moveObjectOut != InputHelpers.Button.None)
+        {
+            XRController[] controllers = new XRController[]{leftRayController, leftHandController};
+            enableJoystickMove(controllers, false);
+            canMove = true;
+        }
+
+        if(leftAxisClick)
+        {
+            resetPosition();
         }
 
         // teleporting
@@ -64,7 +100,7 @@ public class VR_PlayerController : MonoBehaviour
                 if(!rightHandIsActive)
                     handRight.SetActive(false);
             }
-            else if(primaryButton_LeftHand && !hasTeleported)
+            else if(primaryButton_LeftHand && !hasTeleported && canTeleport)
             {
                 if(teleportHighlight.material.color != Color.white)
                 {
@@ -109,24 +145,53 @@ public class VR_PlayerController : MonoBehaviour
         }
        
         // rotate
-        if(rightAxis.x > 0.1f && !isRotating)
+        if(canRotate)
         {
-            Vector3 rotation = new Vector3(0, 45, 0);
-            StartCoroutine(snapRotate(rotation));
+            if(rightAxis.x > 0.1f && !isRotating)
+            {
+                Vector3 rotation = new Vector3(0, 45, 0);
+                StartCoroutine(snapRotate(rotation));
+            }
+            if(rightAxis.x < -0.1f && !isRotating)
+            {
+                Vector3 rotation = new Vector3(0, -45, 0);
+                StartCoroutine(snapRotate(rotation));
+            }
         }
-        if(rightAxis.x < -0.1f && !isRotating)
+    }
+
+    void enableJoystickMove(XRController[] controllers, bool state)
+    {
+        if(state)
         {
-            Vector3 rotation = new Vector3(0, -45, 0);
-            StartCoroutine(snapRotate(rotation));
+            foreach (var controller in controllers)
+            {
+                controller.moveObjectOut = InputHelpers.Button.PrimaryAxis2DDown;
+                controller.moveObjectIn = InputHelpers.Button.PrimaryAxis2DUp;
+                controller.rotateObjectLeft = InputHelpers.Button.PrimaryAxis2DLeft;
+                controller.rotateObjectRight = InputHelpers.Button.PrimaryAxis2DRight;
+            }
+        }
+        else
+        {
+            foreach (var controller in controllers)
+            {
+                controller.moveObjectOut = InputHelpers.Button.None;
+                controller.moveObjectIn = InputHelpers.Button.None;
+                controller.rotateObjectLeft = InputHelpers.Button.None;
+                controller.rotateObjectRight = InputHelpers.Button.None;
+            }
         }
     }
 
     void FixedUpdate()
     {
-        Quaternion headYaw = Quaternion.Euler(0, rig.Camera.transform.eulerAngles.y, 0);
-        Vector3 direction = headYaw * new Vector3(leftAxis.x, 0, leftAxis.y);
-        Debug.Log(direction);
-        character.Move(direction * Time.fixedDeltaTime * speed);
+        if(canMove)
+        {
+            Quaternion headYaw = Quaternion.Euler(0, rig.Camera.transform.eulerAngles.y, 0);
+            Vector3 direction = headYaw * new Vector3(leftAxis.x, 0, leftAxis.y);
+            character.Move(direction * Time.fixedDeltaTime * speed);
+        }
     }
 
     void LateUpdate()
@@ -192,5 +257,12 @@ public class VR_PlayerController : MonoBehaviour
             float direction = heightChangeAmount *-1;
             StartCoroutine(updateHeight(direction));
         }
+    }
+    
+    public void resetPosition()
+    {
+        Vector3 dir = transform.position - rig.Camera.transform.position;
+        dir = new Vector3(dir.x, 0, dir.z);
+        rig.CameraFloorOffsetObject.transform.position += dir;
     }
 }

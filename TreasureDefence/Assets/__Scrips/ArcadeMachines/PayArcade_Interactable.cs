@@ -5,19 +5,20 @@
 
 using UnityEngine;
 
-public class PayArcade_Interactable : TD_Interactable
+public class PayArcade_Interactable : MonoBehaviour
 {
     [SerializeField] ArcadeMachine arcade;
    
+        void OnCollisionEnter(Collision collision)
+        {
+            if(collision.collider.GetComponent<VFX_BulletController>())
+            {
+                Pay();
+            }
+        }
 
-    public override void InteractionStartTrigger(object target = null)
-    {
-        arcade.StartGame();
-    }
-
-    override public void VRInteractionStartTrigger()
-    {
-        arcade.StartGame();
-       
-    }
+        public void Pay()
+        {
+            arcade.StartGame();
+        }
 }

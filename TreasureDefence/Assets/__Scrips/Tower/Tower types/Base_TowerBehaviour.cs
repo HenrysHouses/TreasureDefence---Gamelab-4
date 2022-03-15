@@ -54,8 +54,11 @@ public class Base_TowerBehaviour : TowerBehaviour
 			// deletingProjectile.print();
 			if (ExplotionParticle != null && deletingProjectile != null)
 			{
-				Vector3 dir = transform.position - deletingProjectile.CurrentTarget.transform.position;
-				Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.LookRotation(dir)); 
+				if(deletingProjectile.CurrentTarget)
+				{
+					Vector3 dir = transform.position - deletingProjectile.CurrentTarget.transform.position;
+					Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.LookRotation(dir)); 
+				}
 			}
 
 			if(deletingProjectile.hit)

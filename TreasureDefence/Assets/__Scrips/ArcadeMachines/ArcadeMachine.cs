@@ -4,31 +4,43 @@
 */
 
 using UnityEngine;
+using FMODUnity;
 
+// [RequireComponent(typeof(StudioEventEmitter))]
 public abstract class ArcadeMachine : MonoBehaviour
 {
 	[Header("Base Arcade Variables")]
 	public Transform spawnPoint;
 	public GameObject towerRewardPrefab;
 	[SerializeField] int Cost;
-	public bool isPlaying;
+	public bool isPlaying, hasReset;
+    // StudioEventEmitter _Audiosource;
 	
+	public void Start()
+	{
+		// _Audiosource = GetComponent<StudioEventEmitter>();
+	}
+
 	void Update()
 	{
 		if(isPlaying)
 			isPlayingUpdate();
 		
-		if(WinCondition() && isPlaying)
+		if(WinCondition() && isPlaying && !hasReset)
 		{
+			
+			// _Audiosource.Play();
 			Reward();
 			Reset();
 			isPlaying = false;			
+			hasReset = true;
 		}
 		
-		if(LooseCondition())
+		if(LooseCondition() && !hasReset)
 		{
 			Reset();
-			isPlaying = false;			
+			isPlaying = false;	
+			hasReset = true;		
 		}
 	}
 
@@ -37,6 +49,7 @@ public abstract class ArcadeMachine : MonoBehaviour
 		if(CurrencyManager.instance.SubtractMoney(Cost) && !isPlaying)
 		{
 			isPlaying  = true;
+			hasReset = false;
 			StartSetup();			
 		}
 	}

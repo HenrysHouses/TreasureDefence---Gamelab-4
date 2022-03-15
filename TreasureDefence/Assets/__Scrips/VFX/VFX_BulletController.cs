@@ -48,7 +48,7 @@ public class VFX_BulletController : MonoBehaviour
         if (other.transform.CompareTag("Target"))
         {
 
-            other.collider.GetComponentInParent<ShootingRange>().Hit();
+            other.collider.GetComponentInParent<ShootingRangeController_ArcadeMachine>().Hit();
         }
     }
 

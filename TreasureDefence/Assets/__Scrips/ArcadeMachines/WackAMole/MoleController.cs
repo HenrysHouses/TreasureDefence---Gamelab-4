@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using FMODUnity;
 
 public enum moleState
 {
@@ -21,10 +22,12 @@ public class MoleController : MonoBehaviour
     [SerializeField] float heightOffset;
     [SerializeField] float speedMin, speedMax, currentSpeed;
     [SerializeField] float exposedRangeMin, exposedRangeMax;
+	StudioEventEmitter MoleHitSFX;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        MoleHitSFX = GetComponent<StudioEventEmitter>();
     }
 
     void Update()
@@ -99,14 +102,14 @@ public class MoleController : MonoBehaviour
 
     void OnHit(Collision collision)
     {
-        GetComponentInParent<WackAMoleController>().hitCount++;
+        GetComponentInParent<WackAMoleController_ArcadeMachine>().hitCount++;
         isHit = true;
         isMovingUp = false;
         isMovingDown = true;
         Debug.Log("hit");
         state = moleState.MovingDown;
         GameObject spawn = Instantiate(OnHitParticle, collision.GetContact(0).point, Quaternion.identity);
-        Debug.Log(spawn.transform.position);
+        MoleHitSFX.Play();
     }
 
     public void showMole()
