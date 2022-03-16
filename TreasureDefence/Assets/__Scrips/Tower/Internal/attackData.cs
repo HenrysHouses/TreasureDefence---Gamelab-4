@@ -24,7 +24,7 @@ public class attackData
             if(priority)
             {
                 if(CurrentTarget != priority)
-                    Debug.Log("New target: " + priority.name);
+                    // Debug.Log("New target: " + priority.name);
 
                 CurrentTarget = priority;
                 if (curve)

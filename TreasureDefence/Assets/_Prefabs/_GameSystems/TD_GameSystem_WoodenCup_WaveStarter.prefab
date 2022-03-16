@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2945847212298633264}
   - component: {fileID: 5580962824564819416}
   - component: {fileID: 519198092467259109}
+  - component: {fileID: 7280017919568901212}
   m_Layer: 0
   m_Name: WoodenCup
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7280017919568901212
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737494497965995832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2317573406539713444, guid: 38848ca07a97e13489e8e259839ca3b9, type: 3}
 --- !u!1 &5135493579109380226
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,10 +105,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373429872997937512}
-  - component: {fileID: 1761908207}
   - component: {fileID: 1761908208}
   - component: {fileID: 1015140067}
   - component: {fileID: 1015140063}
+  - component: {fileID: 7565994997594796774}
   m_Layer: 0
   m_Name: TD_GameSystem_WoodenCup_WaveStarter
   m_TagString: Untagged
@@ -116,19 +131,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1761908207
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5135493579109380226}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.3, z: 0.2}
-  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!114 &1761908208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,3 +292,16 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!65 &7565994997594796774
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135493579109380226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31, y: 0.34, z: 0.25}
+  m_Center: {x: 0, y: 0.14, z: 0}

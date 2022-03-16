@@ -10,7 +10,7 @@ public class LevelHandler : MonoBehaviour
 {
 	[SerializeField] GameObject explotionParticle;
 	[SerializeField] GameObject FlagPrefab, CupPrefab;
-	[SerializeField] Transform FlagSpawn, GhostSpawn, CupSpawn;
+	[SerializeField] Transform FlagSpawn, CupSpawn;
 
 	Transform currentLevel;
 	public bool LevelEnding, LevelStarting;
@@ -19,6 +19,7 @@ public class LevelHandler : MonoBehaviour
 
 	public ParticleSystem cloudParticle;
 	bool cloudsSpawned = false;
+	[SerializeField] Transform enemyHolder;
 
 	void Awake()
 	{
@@ -63,19 +64,14 @@ public class LevelHandler : MonoBehaviour
 					particle.transform.GetChild(0).localScale *= 15;
 					particle.transform.GetChild(1).localScale *= 15;
 					GameManager.instance.RemoveActiveTowers();
+
 					GameManager.instance.setLights(true);
-					CurrencyManager.instance.SetMoney();
 					Destroy(currentLevel.gameObject);
 					currentLevel = null;									
 					cloudParticle.Stop();
 					cloudsSpawned = false;
 				}
 			}
-			// if(LevelIsReady)
-			// {
-
-                
-			// }
 		}
 	}
 	
@@ -114,11 +110,15 @@ public class LevelHandler : MonoBehaviour
 	{
 		if(currentLevel)
 		{
-			Debug.Log(currentLevel.GetComponent<WaveController>());
+			// Debug.Log(currentLevel.GetComponent<WaveController>());
 			currentLevel.GetComponent<WaveController>().EjectParticles.SetActive(true);
 			LevelEnding = true;
-			if(CurrencyManager.instance)
-				CurrencyManager.instance.SetMoney(0);
+			CurrencyManager.instance.SetMoney(0);
+			// for (int i = 0; i < enemyHolder.childCount; i++)
+			// {
+			// 	Destroy(enemyHolder.GetChild(i).gameObject);
+			// }
+			currentLevel.GetComponent<WaveController>().endLevel(true);
 		}
 	}
 

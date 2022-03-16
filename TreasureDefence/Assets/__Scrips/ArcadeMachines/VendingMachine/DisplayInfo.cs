@@ -14,7 +14,7 @@ public class DisplayInfo : MonoBehaviour
 
     public void setText(TowerInfo info)
     {
-        TowerNameTXT.text += info.TowerName;
+        TowerNameTXT.text = info.TowerName;
         DamageTXT.text += info.Damage;
         TargetingTXT.text += info.TargetingType.ToString();
         ProjectileTXT.text += info.Projectile;

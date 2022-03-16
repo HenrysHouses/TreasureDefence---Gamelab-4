@@ -44,7 +44,22 @@ public class Tower_BombThrower : TowerBehaviour
 			}
 			
 			if(!currentProjectile.hit)
+			{
 				currentProjectile.transform.position = pos;
+				currentProjectile.transform.GetChild(0).LookAt(currentProjectile.CurrentTarget.transform, Vector3.up);
+				Vector3 forward = currentProjectile.transform.TransformDirection(Vector3.right);
+				Vector3 dir = currentProjectile.transform.position - currentProjectile.CurrentTarget.transform.position;
+
+				if(Vector3.Dot(forward, dir) > 0.02) // target is on the left
+				{
+					currentProjectile.transform.Rotate(Vector3.up * Time.deltaTime * 200, Space.World);
+				}
+				else if(Vector3.Dot(forward, dir) < -0.02) // target is on the right
+				{
+					currentProjectile.transform.Rotate(-Vector3.up * Time.deltaTime * 200, Space.World);
+				}
+				currentProjectile.transform.Rotate(Vector3.right * Time.deltaTime * 400, Space.Self);
+			}
 			else
 			{
 				removeProjectiles.Add(currentProjectile);

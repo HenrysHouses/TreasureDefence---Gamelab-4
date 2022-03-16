@@ -64,7 +64,7 @@ public class Base_TowerBehaviour : TowerBehaviour
 			if(deletingProjectile.hit)
 			{
 				deletingProjectile.CurrentTarget.TakeDamage(deletingProjectile.projectileDamage);
-				Debug.Log(gameObject.name + " dealt damage");
+				// Debug.Log(gameObject.name + " dealt damage");
 
 			}
 
