@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 8070843748229263328}
   - component: {fileID: 8634156752542462422}
   - component: {fileID: 8535259470362395233}
+  - component: {fileID: 725267288}
   m_Layer: 0
   m_Name: payArcade
   m_TagString: Untagged
@@ -261,12 +262,97 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4077f7f12ca4c449ee40f51441fcfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionButton: 323
-  canBeHeld: 0
-  lookTriggerEnabled: 0
-  lookIsActive: 0
-  held: 0
   arcade: {fileID: 9075670316895454363}
+--- !u!114 &725267288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199897788762248393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 1
+  m_SelectMode: 0
+  m_CustomReticle: {fileID: 0}
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8535259470362395233}
+        m_TargetAssemblyTypeName: PayArcade_Interactable, Assembly-CSharp
+        m_MethodName: Pay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5670326792155919889
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +734,7 @@ GameObject:
   - component: {fileID: 9075670314946934392}
   - component: {fileID: 9075670314946934399}
   - component: {fileID: 762421068}
+  - component: {fileID: 955626357}
   m_Layer: 0
   m_Name: Moles
   m_TagString: Untagged
@@ -744,6 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481eb0d412d5d944aa78051ab0ebb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitParticle: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
   isHit: 0
   state: 2
   isMovingDown: 0
@@ -771,6 +859,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &955626357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670314946934398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1948824307
+      Data2: 1292767919
+      Data3: 762433171
+      Data4: 1612408541
+    Path: event:/SFX/Whack-a-monke/MonkeyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9075670314960807896
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +903,7 @@ GameObject:
   - component: {fileID: 9075670314960807898}
   - component: {fileID: 9075670314960807897}
   - component: {fileID: 562852021}
+  - component: {fileID: 281760779}
   m_Layer: 0
   m_Name: Moles
   m_TagString: Untagged
@@ -881,6 +1000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481eb0d412d5d944aa78051ab0ebb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitParticle: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
   isHit: 0
   state: 2
   isMovingDown: 0
@@ -908,6 +1028,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &281760779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670314960807896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1948824307
+      Data2: 1292767919
+      Data3: 762433171
+      Data4: 1612408541
+    Path: event:/SFX/Whack-a-monke/MonkeyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9075670315006761416
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +1072,7 @@ GameObject:
   - component: {fileID: 9075670315006761418}
   - component: {fileID: 9075670315006761417}
   - component: {fileID: 228060805}
+  - component: {fileID: 1444282098}
   m_Layer: 0
   m_Name: Moles
   m_TagString: Untagged
@@ -1018,6 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481eb0d412d5d944aa78051ab0ebb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitParticle: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
   isHit: 0
   state: 2
   isMovingDown: 0
@@ -1045,6 +1197,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &1444282098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670315006761416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1948824307
+      Data2: 1292767919
+      Data3: 762433171
+      Data4: 1612408541
+    Path: event:/SFX/Whack-a-monke/MonkeyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9075670315122752735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1241,7 @@ GameObject:
   - component: {fileID: 9075670315122752729}
   - component: {fileID: 9075670315122752728}
   - component: {fileID: 1672307628}
+  - component: {fileID: 949637564}
   m_Layer: 0
   m_Name: Moles
   m_TagString: Untagged
@@ -1155,6 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481eb0d412d5d944aa78051ab0ebb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitParticle: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
   isHit: 0
   state: 2
   isMovingDown: 0
@@ -1182,6 +1366,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &949637564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670315122752735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1948824307
+      Data2: 1292767919
+      Data3: 762433171
+      Data4: 1612408541
+    Path: event:/MonkeyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9075670315277127646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1410,7 @@ GameObject:
   - component: {fileID: 9075670315277127640}
   - component: {fileID: 9075670315277127647}
   - component: {fileID: 1662653641}
+  - component: {fileID: 2097188572}
   m_Layer: 0
   m_Name: Moles
   m_TagString: Untagged
@@ -1292,6 +1507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481eb0d412d5d944aa78051ab0ebb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitParticle: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
   isHit: 0
   state: 2
   isMovingDown: 0
@@ -1319,6 +1535,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &2097188572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670315277127646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1948824307
+      Data2: 1292767919
+      Data3: 762433171
+      Data4: 1612408541
+    Path: event:/SFX/Whack-a-monke/MonkeyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9075670315305541857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,6 +1959,7 @@ GameObject:
   - component: {fileID: 9075670315796755730}
   - component: {fileID: 9075670315796755729}
   - component: {fileID: 1142394282}
+  - component: {fileID: 190330846}
   m_Layer: 0
   m_Name: Moles
   m_TagString: Untagged
@@ -1809,6 +2056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481eb0d412d5d944aa78051ab0ebb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitParticle: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
   isHit: 0
   state: 2
   isMovingDown: 0
@@ -1836,6 +2084,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &190330846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670315796755728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1948824307
+      Data2: 1292767919
+      Data3: 762433171
+      Data4: 1612408541
+    Path: event:/SFX/Whack-a-monke/MonkeyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9075670316008535240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,6 +2206,7 @@ GameObject:
   - component: {fileID: 9075670316351830121}
   - component: {fileID: 9075670316351830120}
   - component: {fileID: 852262364}
+  - component: {fileID: 1558557534}
   m_Layer: 0
   m_Name: Moles
   m_TagString: Untagged
@@ -2024,6 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481eb0d412d5d944aa78051ab0ebb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitParticle: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
   isHit: 0
   state: 2
   isMovingDown: 0
@@ -2051,6 +2331,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &1558557534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670316351830127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1948824307
+      Data2: 1292767919
+      Data3: 762433171
+      Data4: 1612408541
+    Path: event:/SFX/Whack-a-monke/MonkeyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9075670316405618925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,6 +2470,7 @@ GameObject:
   - component: {fileID: 9075670316451464227}
   - component: {fileID: 9075670316451464226}
   - component: {fileID: 747430539}
+  - component: {fileID: 1613698072}
   m_Layer: 0
   m_Name: Moles
   m_TagString: Untagged
@@ -2256,6 +2567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481eb0d412d5d944aa78051ab0ebb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitParticle: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
   isHit: 0
   state: 2
   isMovingDown: 0
@@ -2283,6 +2595,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &1613698072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670316451464225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1948824307
+      Data2: 1292767919
+      Data3: 762433171
+      Data4: 1612408541
+    Path: event:/SFX/Whack-a-monke/MonkeyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9075670316887989561
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,7 +2746,7 @@ Transform:
   m_GameObject: {fileID: 9075670316895454361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6209999, y: 6.4580965, z: 2.2992501}
-  m_LocalScale: {x: 0.17787, y: 0.17787, z: 0.17787}
+  m_LocalScale: {x: 0.08588987, y: 0.2066624, z: 0.08588987}
   m_Children:
   - {fileID: 9075670316027572035}
   - {fileID: 9075670316008535241}
@@ -2425,6 +2767,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c6e86212e089f4dbafefcc25640328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 7032278217846774001}
+  towerRewardPrefab: {fileID: 145837736746996029, guid: ea338898bd5cf6c4f8b0f8cbbd135f2b, type: 3}
+  Cost: 10
+  isPlaying: 0
+  hasReset: 0
   moles:
   - {fileID: 9075670315122752728}
   - {fileID: 9075670314946934399}
@@ -2435,17 +2782,15 @@ MonoBehaviour:
   - {fileID: 9075670314960807897}
   - {fileID: 9075670316451464226}
   - {fileID: 9075670315796755729}
-  isPlaying: 0
   simultaneouslyActiveMax: 2
   rangeTrigger: 5
   rangeMax: 10
   cooldownRangeMax: 0.2
   cooldownRangeMin: 1
   hitCount: 0
-  WinningHits: 10
-  spawnPoint: {fileID: 0}
-  towerRewardPrefab: {fileID: 0}
-  Cost: 0
+  WinningHits: 9
+  TotalPlayTime: 20
+  remainingTime: 0
 --- !u!1 &9075670316962573267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2900,7 @@ GameObject:
   - component: {fileID: 9075670316993417461}
   - component: {fileID: 9075670316993417460}
   - component: {fileID: 674357774}
+  - component: {fileID: 499835787}
   m_Layer: 0
   m_Name: Moles
   m_TagString: Untagged
@@ -2651,6 +2997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481eb0d412d5d944aa78051ab0ebb3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitParticle: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
   isHit: 0
   state: 2
   isMovingDown: 0
@@ -2678,3 +3025,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &499835787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670316993417451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1948824307
+      Data2: 1292767919
+      Data3: 762433171
+      Data4: 1612408541
+    Path: event:/SFX/Whack-a-monke/MonkeyHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

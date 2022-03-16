@@ -9,7 +9,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 // TODO rotate held object
 
-[RequireComponent(typeof(XRGrabInteractable))]
 abstract public class TD_Interactable : MonoBehaviour
 {
 	[SerializeField] KeyCode _interactionButton;

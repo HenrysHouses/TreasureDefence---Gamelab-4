@@ -22,10 +22,13 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 	[Header("Winning Condition")]
 	public int hitCount;
 	[SerializeField] int WinningHits;
-	
+	[SerializeField] float TotalPlayTime  = 20;
+	[SerializeField] float remainingTime;
 	// Base Arcade Behaviour
 	public override void isPlayingUpdate()
 	{
+		remainingTime -= Time.deltaTime;
+
 		removeInActive();
 			
 		if(!cooldown)
@@ -40,8 +43,11 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 	}
 	public override bool LooseCondition()
 	{
+		if(remainingTime < 0)
+			return true;
 		return false;
 	}
+
 	public override void Reward()
 	{
 		GameManager.instance.SpawnTower(towerRewardPrefab, spawnPoint.position);
@@ -64,6 +70,11 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 		}
 		foreach (var item in remove)
 			activeMoles.Remove(item);
+	}
+
+	public override void StartSetup()
+	{
+		remainingTime = TotalPlayTime;
 	}
 
 	IEnumerator MolePopUp()
