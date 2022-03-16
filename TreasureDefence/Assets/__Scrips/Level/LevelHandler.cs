@@ -4,6 +4,7 @@
 */
 
 using UnityEngine;
+using FMODUnity;
 
 [RequireComponent(typeof(BoxCollider))]
 public class LevelHandler : MonoBehaviour
@@ -11,6 +12,8 @@ public class LevelHandler : MonoBehaviour
 	[SerializeField] GameObject explotionParticle;
 	[SerializeField] GameObject FlagPrefab, CupPrefab;
 	[SerializeField] Transform FlagSpawn, CupSpawn;
+
+	[SerializeField] StudioEventEmitter _MapErectingSFX;
 
 	Transform currentLevel;
 	public bool LevelEnding, LevelStarting;
@@ -36,6 +39,13 @@ public class LevelHandler : MonoBehaviour
 		{
 			if(LevelStarting)
 			{
+				//PlaySound
+
+				if(!FmodExtensions.IsPlaying(_MapErectingSFX.EventInstance))
+                {
+					_MapErectingSFX.Play();
+                }
+
 				Vector3 pos = currentLevel.localPosition;
 				pos.y += Time.deltaTime * riseSpeed;
 				currentLevel.localPosition = pos;
