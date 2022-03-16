@@ -12,6 +12,7 @@ public enum moleState
 
 public class MoleController : MonoBehaviour
 {
+    [SerializeField] WackAMoleController_ArcadeMachine _ArcadeMachine;
     [SerializeField] GameObject OnHitParticle;
     public bool isHit;
     Rigidbody _rigidbody;
@@ -26,6 +27,7 @@ public class MoleController : MonoBehaviour
 
     void Start()
     {
+        _ArcadeMachine = GetComponentInParent<WackAMoleController_ArcadeMachine>();
         _rigidbody = GetComponent<Rigidbody>();
         MoleHitSFX = GetComponent<StudioEventEmitter>();
     }
@@ -96,20 +98,23 @@ public class MoleController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(!isHit && collision.collider.CompareTag("Mallet") && collision.relativeVelocity.magnitude > 6.5)
+        if(!isHit && collision.collider.CompareTag("Mallet") && collision.collider.GetComponent<Rigidbody>().velocity.magnitude > 1.5)
             OnHit(collision);
     }
 
     void OnHit(Collision collision)
     {
-        Debug.Log(collision.relativeVelocity.magnitude);
-        GetComponentInParent<WackAMoleController_ArcadeMachine>().hitCount++;
-        isHit = true;
-        isMovingUp = false;
-        isMovingDown = true;
-        state = moleState.MovingDown;
-        GameObject spawn = Instantiate(OnHitParticle, collision.GetContact(0).point, Quaternion.identity);
-        MoleHitSFX.Play();
+        if(_ArcadeMachine.isHoldingMallet)
+        {
+            Debug.Log(collision.collider.GetComponent<Rigidbody>().velocity.magnitude);
+            GetComponentInParent<WackAMoleController_ArcadeMachine>().hitCount++;
+            isHit = true;
+            isMovingUp = false;
+            isMovingDown = true;
+            state = moleState.MovingDown;
+            GameObject spawn = Instantiate(OnHitParticle, collision.GetContact(0).point, Quaternion.identity);
+            MoleHitSFX.Play();
+        }
     }
 
     public void showMole()

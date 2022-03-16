@@ -7,9 +7,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using TMPro;
 
 public class WackAMoleController_ArcadeMachine : ArcadeMachine
 {
+	[SerializeField] TextMeshPro _RemainingText;
+	[SerializeField] ParticleSystem[] confetti;
 	[SerializeField] MoleController[] moles;
 	List<int> activeMoles = new List<int>();
 	
@@ -24,11 +27,12 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 	[SerializeField] int WinningHits;
 	[SerializeField] float TotalPlayTime  = 20;
 	[SerializeField] float remainingTime;
+	public bool isHoldingMallet;
 	// Base Arcade Behaviour
 	public override void isPlayingUpdate()
 	{
 		remainingTime -= Time.deltaTime;
-
+		_RemainingText.text = ""+ (int)remainingTime;
 		removeInActive();
 			
 		if(!cooldown)
@@ -38,18 +42,28 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 	public override bool WinCondition()
 	{
 		if(hitCount >= WinningHits)
+		{
+			foreach (var particle in confetti)
+			{
+				particle.Play();
+			}
 			return true;
+		}
 		return false;
 	}
 	public override bool LooseCondition()
 	{
 		if(remainingTime < 0)
+		{
+
 			return true;
+		}
 		return false;
 	}
 
 	public override void Reward()
 	{
+
 		GameManager.instance.SpawnTower(towerRewardPrefab, spawnPoint.position);
 	}
 	public override void Reset()
@@ -93,5 +107,10 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 		}
 		yield return new WaitForSeconds(randomCooldown);
 		cooldown = false;
+	}
+
+	public void setIsHoldingMallet(bool state)
+	{
+		isHoldingMallet = state;
 	}
 }
