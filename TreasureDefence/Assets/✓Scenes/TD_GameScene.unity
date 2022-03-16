@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414735, b: 0.1210785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1503,6 +1503,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9075670316895454363, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: _PayingforMinigamesSFX
+      value: 
+      objectReference: {fileID: 1637254255}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afd410974d00eb24d8119044af540f3a, type: 3}
 --- !u!114 &709548354 stripped
@@ -4062,6 +4066,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1610125038725735841, guid: 9fa7a83c96bfd36429fd8000747dd6a0, type: 3}
   m_PrefabInstance: {fileID: 1616088915}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1637254253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9075670316895454361, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+  m_PrefabInstance: {fileID: 709548353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1637254255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637254253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1829394267
+      Data2: 1316252087
+      Data3: -701971270
+      Data4: 1999849001
+    Path: event:/Paying for MinigamesSFX
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1637558611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5511,7 +5550,7 @@ Transform:
   m_GameObject: {fileID: 2090588748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.511065, y: -2.349, z: 1.6205082}
-  m_LocalScale: {x: 1.903824, y: 1.903824, z: 1.903824}
+  m_LocalScale: {x: 2.1330688, y: 1.903824, z: 1.903824}
   m_Children: []
   m_Father: {fileID: 1533970788}
   m_RootOrder: 0
