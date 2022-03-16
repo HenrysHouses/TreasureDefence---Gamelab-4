@@ -22,11 +22,9 @@ public class WaveController : MonoBehaviour
 	
 	// Individual wave variables
 	public List<EnemyBehaviour> enemies = new List<EnemyBehaviour>();
-	[ SerializeField] bool waveIsInProgress, levelComplete, levelIsEnding;
-	
+	[SerializeField] bool waveIsInProgress, levelComplete, levelIsEnding;
 	public bool waveIsPlaying => waveIsInProgress;
 	public bool levelWon => levelComplete;
-	
 	private int waveProgress;
 
 	// Timer variables
@@ -95,13 +93,13 @@ public class WaveController : MonoBehaviour
 		{
 			Debug.Log("Player Lost");
 			// stuff here when player looses
-			CanvasController.instance.OpenCanvas(0, 1, false, 10f);
+			CanvasController.instance.OpenCanvas(0, 1, 10f);
 			
 			currentWave = getWaveCount();
 		}
 		else
 		{
-			CanvasController.instance.OpenCanvas(0, 0, false, 10f);
+			CanvasController.instance.OpenCanvas(0, 0, 10f);
 		}
 
 		foreach (var enemy in enemies)
@@ -110,6 +108,8 @@ public class WaveController : MonoBehaviour
 		}
 		enemies = new List<EnemyBehaviour>();
 		levelIsEnding = true;
+
+
 		Debug.Log("Level is complete, Level stats are missing");
 	}
 	

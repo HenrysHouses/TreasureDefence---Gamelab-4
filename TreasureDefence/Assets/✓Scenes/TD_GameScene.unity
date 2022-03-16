@@ -342,41 +342,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.72, y: 3.56, z: 4.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &190330845 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9075670315796755728, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &190330846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190330845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1948824307
-      Data2: 1292767919
-      Data3: 762433171
-      Data4: 1612408541
-    Path: event:/SFX/Whack-a-monke/MonkeyHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &191830908
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,41 +459,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1198286227, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
   m_PrefabInstance: {fileID: 1970140867}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &281760778 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9075670314960807896, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &281760779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281760778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1948824307
-      Data2: 1292767919
-      Data3: 762433171
-      Data4: 1612408541
-    Path: event:/SFX/Whack-a-monke/MonkeyHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &285543131 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4615900798702671526, guid: fa612da7e14faaa4983d7862f92feadd, type: 3}
@@ -1032,41 +962,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2308401542003196715, guid: 28efc2a8e7cec714ba2dcec6c2298f5d, type: 3}
   m_PrefabInstance: {fileID: 471876894}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &499835786 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9075670316993417451, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &499835787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499835786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1948824307
-      Data2: 1292767919
-      Data3: 762433171
-      Data4: 1612408541
-    Path: event:/SFX/Whack-a-monke/MonkeyHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &509882998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,82 +1419,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1193408304}
     m_Modifications:
-    - target: {fileID: -5640983100343831060, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_ThrowOnDetach
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_TrackPosition
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_TrackRotation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 725267288, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: m_InteractionManager
       value: 
-      objectReference: {fileID: 709548354}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      objectReference: {fileID: 1522130428}
+    - target: {fileID: 725267288, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+    - target: {fileID: 725267288, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 725267288, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 709548354}
+    - target: {fileID: 725267288, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 725267288, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: VRInteractionStartTrigger
       objectReference: {fileID: 0}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+    - target: {fileID: 725267288, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PayArcade_Interactable, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 5912766597423962915, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    - target: {fileID: 725267288, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 9075670314946934399, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: OnHitParticle
-      value: 
-      objectReference: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
-    - target: {fileID: 9075670314960807897, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: OnHitParticle
-      value: 
-      objectReference: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
-    - target: {fileID: 9075670315006761417, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: OnHitParticle
-      value: 
-      objectReference: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
-    - target: {fileID: 9075670315122752728, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: OnHitParticle
-      value: 
-      objectReference: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
-    - target: {fileID: 9075670315277127647, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: OnHitParticle
-      value: 
-      objectReference: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
-    - target: {fileID: 9075670315796755729, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: OnHitParticle
-      value: 
-      objectReference: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
-    - target: {fileID: 9075670316351830120, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: OnHitParticle
-      value: 
-      objectReference: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
-    - target: {fileID: 9075670316451464226, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: OnHitParticle
-      value: 
-      objectReference: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
+    - target: {fileID: 8535259470362395233, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: _interactionButton
+      value: 323
+      objectReference: {fileID: 0}
     - target: {fileID: 9075670316895454361, guid: afd410974d00eb24d8119044af540f3a, type: 3}
       propertyPath: m_Name
       value: TD_Arcade_WackAMole
@@ -1607,18 +1462,6 @@ PrefabInstance:
     - target: {fileID: 9075670316895454362, guid: afd410974d00eb24d8119044af540f3a, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9075670316895454362, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.08588987
-      objectReference: {fileID: 0}
-    - target: {fileID: 9075670316895454362, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2066624
-      objectReference: {fileID: 0}
-    - target: {fileID: 9075670316895454362, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.08588987
       objectReference: {fileID: 0}
     - target: {fileID: 9075670316895454362, guid: afd410974d00eb24d8119044af540f3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1660,22 +1503,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9075670316895454363, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: Cost
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9075670316895454363, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 910484783}
-    - target: {fileID: 9075670316895454363, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: towerRewardPrefab
-      value: 
-      objectReference: {fileID: 145837736746996029, guid: ea338898bd5cf6c4f8b0f8cbbd135f2b, type: 3}
-    - target: {fileID: 9075670316993417460, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-      propertyPath: OnHitParticle
-      value: 
-      objectReference: {fileID: 7377623447855533251, guid: feb9ac473f1c2d24bb8842d47389a043, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afd410974d00eb24d8119044af540f3a, type: 3}
 --- !u!114 &709548354 stripped
@@ -1683,107 +1510,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8535259470362395233, guid: afd410974d00eb24d8119044af540f3a, type: 3}
   m_PrefabInstance: {fileID: 709548353}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725267285}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be4077f7f12ca4c449ee40f51441fcfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &725267285 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5199897788762248393, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &725267288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725267285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1522130428}
-  m_Colliders: []
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 1
-  m_SelectMode: 0
-  m_CustomReticle: {fileID: 0}
-  m_FirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 709548354}
-        m_TargetAssemblyTypeName: PayArcade_Interactable, Assembly-CSharp
-        m_MethodName: Pay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Deactivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnFirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &728953636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,9 +1803,21 @@ PrefabInstance:
       value: TD_GameSystem_LevelHolder
       objectReference: {fileID: 0}
     - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
+      propertyPath: enemyHolder
+      value: 
+      objectReference: {fileID: 2118620058}
+    - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
       propertyPath: cloudParticle
       value: 
       objectReference: {fileID: 615530565}
+    - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
+      propertyPath: _EjectBoardSFX
+      value: 
+      objectReference: {fileID: 1226691152}
+    - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
+      propertyPath: _MapErectingSFX
+      value: 
+      objectReference: {fileID: 1226691151}
     - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
       propertyPath: explotionParticle
       value: 
@@ -2250,7 +1994,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
   m_PrefabInstance: {fileID: 806482823}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1226691150}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca0bdc82681e7c74587f37577fd548fc, type: 3}
@@ -2531,81 +2275,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5466944451117646720, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
   m_PrefabInstance: {fileID: 1970140867}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &910484783 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7032278217846774001, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &949637563 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9075670315122752735, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &949637564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949637563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1948824307
-      Data2: 1292767919
-      Data3: 762433171
-      Data4: 1612408541
-    Path: event:/MonkeyHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!1 &955626356 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9075670314946934398, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &955626357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955626356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1948824307
-      Data2: 1292767919
-      Data3: 762433171
-      Data4: 1612408541
-    Path: event:/SFX/Whack-a-monke/MonkeyHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &962762637 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4615900798702671526, guid: fa612da7e14faaa4983d7862f92feadd, type: 3}
@@ -3386,6 +3055,71 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.75, y: 1.52, z: 2.79}
   m_Center: {x: 0, y: 0, z: 0.12}
+--- !u!1 &1226691150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6618372305076973099, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
+  m_PrefabInstance: {fileID: 806482823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1226691151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226691150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -449105265
+      Data2: 1224242193
+      Data3: -1582197602
+      Data4: -521695191
+    Path: event:/MapErectingSFX
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1226691152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226691150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &1237224763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3898,7 +3632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164110495960746334, guid: 3ac409d2e779a7c429b60ac0a4f59bc5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ac409d2e779a7c429b60ac0a4f59bc5, type: 3}
@@ -3966,41 +3700,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1444282097 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9075670315006761416, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1444282098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444282097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1948824307
-      Data2: 1292767919
-      Data3: 762433171
-      Data4: 1612408541
-    Path: event:/SFX/Whack-a-monke/MonkeyHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!4 &1464536619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2939775410358588641, guid: 9f7c8994cdcea9f4dbc591fd0ac48ead, type: 3}
@@ -4219,41 +3918,6 @@ Transform:
   m_Father: {fileID: 632839185580851193}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1558557533 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9075670316351830127, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1558557534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558557533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1948824307
-      Data2: 1292767919
-      Data3: 762433171
-      Data4: 1612408541
-    Path: event:/SFX/Whack-a-monke/MonkeyHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1603068866
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,41 +3952,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1613698071 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9075670316451464225, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1613698072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613698071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1948824307
-      Data2: 1292767919
-      Data3: 762433171
-      Data4: 1612408541
-    Path: event:/SFX/Whack-a-monke/MonkeyHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1001 &1616088915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4742,7 +4371,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2939775409531134024, guid: 9f7c8994cdcea9f4dbc591fd0ac48ead, type: 3}
   m_PrefabInstance: {fileID: 2939775408961297098}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1925839941}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ea14a997f37b0543a9fda1d3632505e, type: 3}
@@ -5021,6 +4650,113 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 1
   OverrideMaxDistance: 4.59
+--- !u!1 &1925839941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2939775409531134134, guid: 9f7c8994cdcea9f4dbc591fd0ac48ead, type: 3}
+  m_PrefabInstance: {fileID: 2939775408961297098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1925839942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925839941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 1522130428}
+  m_Colliders: []
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 1
+  m_SelectMode: 0
+  m_CustomReticle: {fileID: 0}
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1712929410}
+        m_TargetAssemblyTypeName: LevelEjector_Interactable, Assembly-CSharp
+        m_MethodName: VRInteractionStartTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2042923934}
+        m_TargetAssemblyTypeName: CanvasController, Assembly-CSharp
+        m_MethodName: CloseCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1925955624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5843,41 +5579,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090588748}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2097188571 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9075670315277127646, guid: afd410974d00eb24d8119044af540f3a, type: 3}
-  m_PrefabInstance: {fileID: 709548353}
+--- !u!4 &2118620058 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6618372305524483601, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
+  m_PrefabInstance: {fileID: 806482823}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2097188572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097188571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1948824307
-      Data2: 1292767919
-      Data3: 762433171
-      Data4: 1612408541
-    Path: event:/SFX/Whack-a-monke/MonkeyHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!4 &632839185580851193
 Transform:
   m_ObjectHideFlags: 0
@@ -6044,7 +5750,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2939775409531134027, guid: 9f7c8994cdcea9f4dbc591fd0ac48ead, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9f7c8994cdcea9f4dbc591fd0ac48ead, type: 3}
 --- !u!1001 &4427941245890083370
 PrefabInstance:
@@ -6118,10 +5825,86 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1522130428}
+    - target: {fileID: 1056217749, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.16485
+      objectReference: {fileID: 0}
     - target: {fileID: 1688891583, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1522130428}
+    - target: {fileID: 82861402394103652, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.60444
+      objectReference: {fileID: 0}
+    - target: {fileID: 82861402394103652, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.60444
+      objectReference: {fileID: 0}
+    - target: {fileID: 82861402394103652, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.60444
+      objectReference: {fileID: 0}
+    - target: {fileID: 82861402394103652, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0094556
+      objectReference: {fileID: 0}
+    - target: {fileID: 82861402394103652, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13617
+      objectReference: {fileID: 0}
+    - target: {fileID: 82861402394103652, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.010526
+      objectReference: {fileID: 0}
+    - target: {fileID: 682566442032308697, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.60444
+      objectReference: {fileID: 0}
+    - target: {fileID: 682566442032308697, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.60444
+      objectReference: {fileID: 0}
+    - target: {fileID: 682566442032308697, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.60444
+      objectReference: {fileID: 0}
+    - target: {fileID: 682566442032308697, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0031771
+      objectReference: {fileID: 0}
+    - target: {fileID: 682566442032308697, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13637
+      objectReference: {fileID: 0}
+    - target: {fileID: 682566442032308697, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0098011
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762570596829952211, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.60444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762570596829952211, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.60444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762570596829952211, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.60444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762570596829952211, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.022874
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762570596829952211, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13617
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762570596829952211, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.010647
+      objectReference: {fileID: 0}
     - target: {fileID: 5443909815177324730, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
       propertyPath: VRPlayer
       value: 
@@ -6299,17 +6082,41 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1522130428}
+    - target: {fileID: 708842324, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 708842326, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1522130428}
+    - target: {fileID: 1164073443, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341245053, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684457151, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1684457153, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1522130428}
+    - target: {fileID: 1692483163, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3915297593865451424, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
       propertyPath: m_Name
       value: VR Rig_Teleportation
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915297593865451424, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3915297593865451426, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
       propertyPath: m_RootOrder
@@ -6354,6 +6161,22 @@ PrefabInstance:
     - target: {fileID: 3915297593865451426, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934135274891531081, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375352260178021765, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651295337492726377, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074511038993752165, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
