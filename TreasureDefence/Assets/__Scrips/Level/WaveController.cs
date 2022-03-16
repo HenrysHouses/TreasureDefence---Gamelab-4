@@ -95,13 +95,13 @@ public class WaveController : MonoBehaviour
 		{
 			Debug.Log("Player Lost");
 			// stuff here when player looses
-			CanvasController.instance.OpenCanvas(0, 1, 10f);
+			CanvasController.instance.OpenCanvas(0, 1, false, 10f);
 			
 			currentWave = getWaveCount();
 		}
 		else
 		{
-			CanvasController.instance.OpenCanvas(0, 0, 10f);
+			CanvasController.instance.OpenCanvas(0, 0, false, 10f);
 		}
 
 		foreach (var enemy in enemies)
