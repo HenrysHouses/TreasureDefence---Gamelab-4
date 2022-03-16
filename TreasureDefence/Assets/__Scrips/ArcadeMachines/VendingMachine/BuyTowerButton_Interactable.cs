@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class BuyTowerButton_Interactable : TD_Interactable
 {
@@ -6,6 +7,7 @@ public class BuyTowerButton_Interactable : TD_Interactable
     [SerializeField] Transform spawnTransform, displayPos;
     GameObject DisplayInfo;
     [SerializeField] GameObject infoPrefab;
+    [SerializeField] StudioEventEmitter _VendingMachineSFX;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -46,11 +48,23 @@ public class BuyTowerButton_Interactable : TD_Interactable
         if(info)
         {
             if(CurrencyManager.instance.SubtractMoney(info.cost))
-            {
+            {   //Valid Sound
+                if (!FmodExtensions.IsPlaying(_VendingMachineSFX.EventInstance))
+                {
+                    _VendingMachineSFX.SetParameter("Valid_Invalid", 0);
+                    _VendingMachineSFX.Play();
+                }
+
                 Vector3 randomPos = spawnTransform.position;
                 randomPos.x += Random.Range(0.5f, -0.5f);
                 randomPos.z += Random.Range(0.07f, -0.07f);
                 GameManager.instance.SpawnTower(info.item, randomPos);
+            }
+            else
+            {
+                //Invalid sound
+                _VendingMachineSFX.SetParameter("Valid_Invalid", 1);
+                _VendingMachineSFX.Play();
             }
         }
     }
