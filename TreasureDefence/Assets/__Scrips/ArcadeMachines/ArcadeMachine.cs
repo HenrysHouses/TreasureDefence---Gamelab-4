@@ -14,7 +14,8 @@ public abstract class ArcadeMachine : MonoBehaviour
 	public GameObject towerRewardPrefab;
 	[SerializeField] int Cost;
 	public bool isPlaying, hasReset;
-    // StudioEventEmitter _Audiosource;
+	// StudioEventEmitter _Audiosource;
+	[SerializeField] StudioEventEmitter _PayingforMinigamesSFX;
 	
 	public void Start()
 	{
@@ -48,9 +49,20 @@ public abstract class ArcadeMachine : MonoBehaviour
 	{
 		if(CurrencyManager.instance.SubtractMoney(Cost) && !isPlaying)
 		{
+			//PlaySound
+			if (!FmodExtensions.IsPlaying(_PayingforMinigamesSFX.EventInstance))
+			{
+				_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 0);
+				_PayingforMinigamesSFX.Play();
+			}
 			isPlaying  = true;
 			hasReset = false;
 			StartSetup();			
+		}
+		else
+        {
+			_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 1);
+			_PayingforMinigamesSFX.Play();
 		}
 	}
 	
