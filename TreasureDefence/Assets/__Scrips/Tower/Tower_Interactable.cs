@@ -10,6 +10,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class Tower_Interactable : TD_Interactable
 {
+	[SerializeField] Transform detectionRaycastPos;
 	public GameObject obj;
 	TowerBehaviour towerBehaviour;
 	Color Color1, Color2;
@@ -82,9 +83,9 @@ public class Tower_Interactable : TD_Interactable
 		{
 			RaycastHit hit;
 
-			Debug.DrawRay(transform.position + (Vector3.down * 0.1f), Vector3.down, Color.red);
+			Debug.DrawRay(detectionRaycastPos.position, Vector3.down, Color.red);
 			
-			if (Physics.Raycast(transform.position + (Vector3.down * 0.1f), Vector3.down, out hit, 2f))
+			if (Physics.Raycast(detectionRaycastPos.position, Vector3.down, out hit, 2f))
 			{				
 				if(!hit.collider.CompareTag("ValidPlacement"))
 				{
