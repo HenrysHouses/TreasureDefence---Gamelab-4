@@ -14,7 +14,7 @@ public class LevelHandler : MonoBehaviour
 	[SerializeField] Transform FlagSpawn, CupSpawn;
 
 	[SerializeField] StudioEventEmitter _MapErectingSFX;
-	//[SerializeField] StudioEventEmitter _EjectBoardSFX;
+	[SerializeField] StudioEventEmitter _EjectBoardSFX;
 
 	Transform currentLevel;
 	public bool LevelEnding, LevelStarting;
@@ -121,10 +121,10 @@ public class LevelHandler : MonoBehaviour
 		if(currentLevel)
 		{
 			//Play Sound
-			/*if (!FmodExtensions.IsPlaying(_EjectBoardSFX.EventInstance))
+			if (!FmodExtensions.IsPlaying(_EjectBoardSFX.EventInstance))
 			{
 				_EjectBoardSFX.Play();
-			}	 */ // Unity didn't show FMOD sound. Thus we wait with this to after midterm.
+			}	  // Unity didn't show FMOD sound. Thus we wait with this to after midterm.
 
 			// Debug.Log(currentLevel.GetComponent<WaveController>());
 			currentLevel.GetComponent<WaveController>().EjectParticles.SetActive(true);
