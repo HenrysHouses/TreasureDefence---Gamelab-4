@@ -12,7 +12,8 @@ public class TowerInfo : ScriptableObject
 
 	void OnValidate()
 	{
-		this.TargetingType = this.item.GetComponent<TowerBehaviour>().targetType;
+		if(this.item)
+			this.TargetingType = this.item.GetComponent<TowerBehaviour>().targetType;
 	}
 
 }

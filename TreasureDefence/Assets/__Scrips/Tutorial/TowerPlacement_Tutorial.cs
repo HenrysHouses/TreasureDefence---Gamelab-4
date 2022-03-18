@@ -8,7 +8,7 @@ using TMPro;
 
 public class TowerPlacement_Tutorial : MonoBehaviour
 {
-    GameObject nextTutorial;
+    [SerializeField] GameObject nextTutorial;
     [SerializeField] Transform raycastPos, heightOffset;
     [SerializeField] TextMeshPro tutorial;
     bool held, wasPlacedCorrectly;

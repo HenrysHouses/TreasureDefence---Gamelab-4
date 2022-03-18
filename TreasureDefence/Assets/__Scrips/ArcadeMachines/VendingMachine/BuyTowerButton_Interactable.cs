@@ -19,10 +19,13 @@ public class BuyTowerButton_Interactable : TD_Interactable
         if(info)
         {
             GameObject mesh = null;
-            for (int i = 0; i < info.item.transform.childCount; i++)
+            if(info.item)
             {
-                if(info.item.transform.GetChild(i).name.Equals("Mesh"))
-                    mesh = info.item.transform.GetChild(i).gameObject;
+                for (int i = 0; i < info.item.transform.childCount; i++)
+                {
+                    if(info.item.transform.GetChild(i).name.Equals("Mesh"))
+                        mesh = info.item.transform.GetChild(i).gameObject;
+                }
             }
 
             GameObject spawn = Instantiate(mesh, displayPos.position, Quaternion.identity);
@@ -58,7 +61,8 @@ public class BuyTowerButton_Interactable : TD_Interactable
                 Vector3 randomPos = spawnTransform.position;
                 randomPos.x += Random.Range(0.5f, -0.5f);
                 randomPos.z += Random.Range(0.07f, -0.07f);
-                GameManager.instance.SpawnTower(info.item, randomPos);
+                if(info.item)
+                    GameManager.instance.SpawnTower(info.item, randomPos);
             }
             else
             {

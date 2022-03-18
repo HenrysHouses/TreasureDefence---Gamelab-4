@@ -18,10 +18,6 @@ public class CanvasController : MonoBehaviour
     //public Animator[] canvasAnimators;  // Have only one canvas?
     public Animator canvasAnimator;
     
-    private bool[] canvasesOpen;
-
-
-    
 
     private void Start()
     {
@@ -34,6 +30,21 @@ public class CanvasController : MonoBehaviour
             Destroy(this);
         }
     }
+
+    public void OpenNewCanvas(int graphic = -1, float timeToClose = -1)
+    {
+        StartCoroutine(OpenCanvasHelper(0, graphic, timeToClose));
+    }
+
+    public IEnumerator OpenCanvasHelper(int canvas = -1, int graphic = -1, float timeToClose = -1)
+    {
+        if(open)
+            CloseCanvas();
+        if(timeToClose > 0)
+            yield return new WaitForSeconds(timeToClose);
+        OpenCanvas(canvas, graphic, timeToClose);
+    }
+
 
     public void OpenCanvas(int canvas = -1, int graphic = -1, float timeToClose = -1)
     {
@@ -56,6 +67,8 @@ public class CanvasController : MonoBehaviour
             // Invoke("CloseCanvas", timeToClose);
             
         }
+        else
+            Debug.Log("the cavas was already open");
 
     }
 
@@ -66,6 +79,11 @@ public class CanvasController : MonoBehaviour
                 
         graphicsAnimator.Play("Close");
         
+        foreach (var ghapic in graphics)
+        {
+            ghapic.SetActive(false);
+        }
+
         /*
         for (int i = 0; i < canvasesOpen.Length; i++)
         {

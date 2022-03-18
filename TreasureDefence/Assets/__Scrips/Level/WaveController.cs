@@ -49,6 +49,9 @@ public class WaveController : MonoBehaviour
 	// Update is called once per frame
 	void  Update()
 	{
+		if(levelComplete && !levelIsEnding)
+			endLevel();
+
 		if(health <= 0 && !levelIsEnding) // loose condition
 			endLevel(true);
 			

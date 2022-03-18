@@ -8,9 +8,10 @@ Shader "Unlit/TowerHighlighter"
     }
     SubShader
     {
-        Tags {"Queue" = "Opaque"}
+        Tags {"Queue" = "Transparent"}
 		Cull Off
-        
+        ZTest Always
+        ZWrite Off
 
         Pass
         {
