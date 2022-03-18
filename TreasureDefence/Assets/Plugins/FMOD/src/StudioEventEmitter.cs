@@ -270,10 +270,13 @@ namespace FMODUnity
         {
             if (Settings.Instance.StopEventsOutsideMaxDistance && IsActive)
             {
+                Debug.Log("1");
                 ParamRef cachedParam = cachedParams.Find(x => x.Name == name);
 
                 if (cachedParam == null)
                 {
+                    Debug.Log("2");
+
                     FMOD.Studio.PARAMETER_DESCRIPTION paramDesc;
                     eventDescription.getParameterDescriptionByName(name, out paramDesc);
 
@@ -290,6 +293,7 @@ namespace FMODUnity
             {
                 instance.setParameterByName(name, value, ignoreseekspeed);
             }
+
         }
 
         public void SetParameter(FMOD.Studio.PARAMETER_ID id, float value, bool ignoreseekspeed = false)

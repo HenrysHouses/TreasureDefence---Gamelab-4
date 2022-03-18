@@ -64,7 +64,7 @@ public class LevelSelector : MonoBehaviour
         difficultyText.text = "Difficulty: " + difficulty;
 
         Destroy(displayLevel);
-        displayLevel = Instantiate(levelGameObjects[level], displayPos.position, displayPos.rotation);
+        displayLevel = Instantiate(levelGameObjects[level-1], displayPos.position, displayPos.rotation);
     }
 
     public void ClearLevel()

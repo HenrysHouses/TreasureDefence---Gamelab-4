@@ -111,6 +111,8 @@ GameObject:
   m_Component:
   - component: {fileID: 284050122945200933}
   - component: {fileID: 3947093718612163385}
+  - component: {fileID: 4559928974517526619}
+  - component: {fileID: -3823061110791653126}
   m_Layer: 0
   m_Name: TD_Level2_PlayLevel
   m_TagString: CurrentLevel
@@ -147,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78bcdd9be233c8418adbfc2a90e2161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _WaveStart: {fileID: 4559928974517526619}
+  _WaveComplete: {fileID: -3823061110791653126}
   EjectParticles: {fileID: 1666278921745842292}
   LevelData: {fileID: 11400000, guid: 1eeed6fc332ab6b45a21644968a9b62c, type: 2}
   flagPole: {fileID: 0}
@@ -154,6 +158,66 @@ MonoBehaviour:
   waveIsInProgress: 0
   levelComplete: 0
   levelIsEnding: 0
+--- !u!114 &4559928974517526619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568087510527984544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1499773742
+      Data2: 1119801535
+      Data3: 862216866
+      Data4: -1546567539
+    Path: event:/MUSIC/MUS_StartWave
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &-3823061110791653126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568087510527984544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1246266917
+      Data2: 1078603519
+      Data3: -208391765
+      Data4: 293106735
+    Path: event:/MUSIC/MUS_WaveComplete
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4373253925753659268
 GameObject:
   m_ObjectHideFlags: 0

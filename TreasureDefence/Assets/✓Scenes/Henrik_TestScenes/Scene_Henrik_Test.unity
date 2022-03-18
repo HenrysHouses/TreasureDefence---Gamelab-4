@@ -1609,6 +1609,100 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e94d14bf41a3ce4296fc12a2eee1447, type: 3}
+--- !u!1 &529383418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 529383421}
+  - component: {fileID: 529383420}
+  - component: {fileID: 529383419}
+  - component: {fileID: 529383422}
+  m_Layer: 0
+  m_Name: SoundTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &529383419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529383418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978abe2a063950a40a50abe667beae31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audio: {fileID: 529383420}
+  parameterName: Valid_Invalid
+  parameterValue: 0
+--- !u!114 &529383420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529383418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2124318598
+      Data2: 1224220531
+      Data3: -73752645
+      Data4: -1238620592
+    Path: event:/VendingMachineSFX
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Valid_Invalid
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &529383421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529383418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3391845, y: 1.5381409, z: 6.8887105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529383422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529383418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1001 &534019108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2982,9 +3076,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978abe2a063950a40a50abe667beae31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: 0
-  value: 0
-  speed: 0
+  _audio: {fileID: 0}
+  parameterName: 
+  parameterValue: 0
 --- !u!4 &1254001227
 Transform:
   m_ObjectHideFlags: 0
@@ -19272,6 +19366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_BarrelProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 2529334758421991308, guid: e392ff29ade10224784d3142c696ea89, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2529334758421991311, guid: e392ff29ade10224784d3142c696ea89, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -29220,7 +29318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6513835444385219211, guid: e5e6262b08ce543478bbd7c2c3bb3f7c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6513835444457106352, guid: e5e6262b08ce543478bbd7c2c3bb3f7c, type: 3}
       propertyPath: m_IsActive

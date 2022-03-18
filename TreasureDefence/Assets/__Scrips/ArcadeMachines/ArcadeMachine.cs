@@ -52,8 +52,8 @@ public abstract class ArcadeMachine : MonoBehaviour
 			//PlaySound
 			if (!FmodExtensions.IsPlaying(_PayingforMinigamesSFX.EventInstance))
 			{
-				_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 0);
 				_PayingforMinigamesSFX.Play();
+				_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 0);
 			}
 			isPlaying  = true;
 			hasReset = false;
@@ -61,8 +61,8 @@ public abstract class ArcadeMachine : MonoBehaviour
 		}
 		else
         {
-			_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 1);
 			_PayingforMinigamesSFX.Play();
+			_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 1);
 		}
 	}
 	

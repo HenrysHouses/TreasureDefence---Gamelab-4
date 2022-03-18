@@ -5,9 +5,11 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class WaveController : MonoBehaviour
 {
+	[SerializeField] StudioEventEmitter _WaveStart, _WaveComplete;
 	[SerializeField] public GameObject EjectParticles;
 	// Level variables
 	private int health;
@@ -81,6 +83,7 @@ public class WaveController : MonoBehaviour
 		{
 			if(!levelComplete)
 			{
+				_WaveStart.Play();
 				waveIsInProgress = true;
 				GameManager.instance.setLights(false);
 			}
@@ -139,6 +142,7 @@ public class WaveController : MonoBehaviour
 	private void EndOfWave()
 	{
 		GameManager.instance.setLights(true);
+		_WaveComplete.Play();
 		// Debug.Log(currentWave);
 		currentWave++;
 		waveProgress = 0;

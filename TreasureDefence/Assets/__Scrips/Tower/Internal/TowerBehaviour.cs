@@ -168,4 +168,12 @@ abstract public class TowerBehaviour : MonoBehaviour
     {
 		dustCloud.Play();
     }
+
+	void OnDestroy()
+	{
+		foreach (var attack in projectile)
+		{
+			Destroy(attack.gameObject);
+		}
+	}
 }
