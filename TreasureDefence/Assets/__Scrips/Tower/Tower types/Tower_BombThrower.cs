@@ -36,51 +36,42 @@ public class Tower_BombThrower : TowerBehaviour
 		foreach (var currentProjectile in projectile)
 		{
 			Vector3 pos = currentProjectile.transform.position;
-			
-			Vector3 newPos = currentProjectile.UpdateProjectile();
-
-			if(currentProjectile.CurrentTarget)
+			if(currentProjectile.enemyPriority[currentProjectile.enemyPriority.Length-1])
+				pos = currentProjectile.UpdateProjectile();
+			else
 			{
-				if(currentProjectile.enemyPriority[currentProjectile.enemyPriority.Length-1])
-					pos = currentProjectile.UpdateProjectile();
-				else
-				{
-					removeProjectiles.Add(currentProjectile);
-				}
-				
-				if(!currentProjectile.hit)
-				{
-					currentProjectile.transform.position = pos;
-					currentProjectile.transform.GetChild(0).LookAt(currentProjectile.CurrentTarget.transform, Vector3.up);
-					Vector3 forward = currentProjectile.transform.TransformDirection(Vector3.right);
-					Vector3 dir = currentProjectile.transform.position - currentProjectile.CurrentTarget.transform.position;
+				removeProjectiles.Add(currentProjectile);
+			}
+			
+			if(!currentProjectile.hit)
+			{
+				currentProjectile.transform.position = pos;
+				currentProjectile.transform.GetChild(0).LookAt(currentProjectile.CurrentTarget.transform, Vector3.up);
+				Vector3 forward = currentProjectile.transform.TransformDirection(Vector3.right);
+				Vector3 dir = currentProjectile.transform.position - currentProjectile.CurrentTarget.transform.position;
 
-					if(Vector3.Dot(forward, dir) > 0.02) // target is on the left
-					{
-						currentProjectile.transform.Rotate(Vector3.up * Time.deltaTime * 200, Space.World);
-					}
-					else if(Vector3.Dot(forward, dir) < -0.02) // target is on the right
-					{
-						currentProjectile.transform.Rotate(-Vector3.up * Time.deltaTime * 200, Space.World);
-					}
-					currentProjectile.transform.Rotate(Vector3.right * Time.deltaTime * 400, Space.Self);
-				}
-				else
+				if(Vector3.Dot(forward, dir) > 0.02) // target is on the left
 				{
-					removeProjectiles.Add(currentProjectile);
+					currentProjectile.transform.Rotate(Vector3.up * Time.deltaTime * 200, Space.World);
 				}
+				else if(Vector3.Dot(forward, dir) < -0.02) // target is on the right
+				{
+					currentProjectile.transform.Rotate(-Vector3.up * Time.deltaTime * 200, Space.World);
+				}
+				currentProjectile.transform.Rotate(Vector3.right * Time.deltaTime * 400, Space.Self);
 			}
 			else
+			{
 				removeProjectiles.Add(currentProjectile);
-
+			}
 		}
 		foreach (var deletingProjectile in removeProjectiles)
 		{
 			// deletingProjectile.print();
-			// Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.identity); 
 
 			if(deletingProjectile.hit)
 			{
+				Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.identity); 
 				deletingProjectile.CurrentTarget.TakeDamage(deletingProjectile.projectileDamage);
 			}
 
@@ -88,5 +79,4 @@ public class Tower_BombThrower : TowerBehaviour
 			Destroy(deletingProjectile.gameObject);
 		}
 	}
-
 }
