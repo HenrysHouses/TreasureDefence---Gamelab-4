@@ -7,7 +7,7 @@ Shader "Unlit/MoneyCounter"
         [Toggle] _Animate ("Animate", int) = 0
         _AnimationSpeed ("Animation Speed", float) = 1
         _AnimationStartTime ("Animation Started At", float) = 0
-        _CurrentTime ("CurrentTime", float) = 0
+        [HideInInspector]_CurrentTime ("CurrentTime", float) = 0
     }
     SubShader
     {
