@@ -4,42 +4,98 @@ using UnityEngine;
 
 public class MineDeployable : TowerBehaviour
 {
-    // Start is called before the first frame update
-    public int Damage, Radius;
 
-	override public void Update()
+	public int maxTargets;
+	public GameObject SpawnMine;
+	public Vector3 SpawnPosition;
+
+    public override void Update()
+    {
+        base.Update();
+		canShoot = true;
+		if (Input.GetKeyDown(KeyCode.M))
+		{
+			Instantiate(SpawnMine, SpawnPosition , Quaternion.identity);
+        }
+    }
+
+    new private void Start()
 	{
 		
+		base.Start();
+		GameManager.instance.AddTowerToList(gameObject);
+	}
+
+	override public void Attack(int damage, EnemyBehaviour[] targets)
+	{
+		if (targets != null)
+		{
+			
+			for (int i = 0; i < maxTargets; i++)
+			{
+				
+				if (i >= targets.Length)
+				{
+					break;
+				}
+				_AudioSource.Play();
+				Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
+				attackData newProjectile = getCurrentAttackData(_projectile, targets);
+				projectile.Add(newProjectile);
+			}
+		}
 	}
 
 	override public void projectileUpdate()
-    {
-
-    }
-
-	override public void Attack(int damage, EnemyBehaviour[] targets)
-    {
-		 if (targets != null)
-		 {
-			Transform _Detonation = Instantiate(ExplotionParticle, projectileSpawnPos.position, Quaternion.identity).transform;
-			attackData newDetonation = getCurrentAttackData(_Detonation, targets);
-			projectile.Add(newDetonation);
-         }
-    }
-
-	override public attackData getCurrentAttackData(Transform projectile, EnemyBehaviour[] targetPriority)
 	{
-		attackData data = new attackData();
-		data.gameObject = projectile.gameObject;
-		data.enemyPriority = targetPriority;
-		data.transform = projectile;
-		data.startPos = projectile.position;
-		data.projectileSpeed = attackSpeed;
-		data.projectileDamage = attackDamage;
-		return data;
+		List<attackData> removeProjectiles = new List<attackData>();
+		foreach (var currentProjectile in projectile)
+		{
+			Vector3 pos = currentProjectile.transform.position;
+			if (currentProjectile.enemyPriority[currentProjectile.enemyPriority.Length - 1])
+				pos = currentProjectile.UpdateProjectile();
+			else
+			{
+				removeProjectiles.Add(currentProjectile);
+			}
+
+			if (!currentProjectile.hit)
+			{
+				currentProjectile.transform.position = pos;
+				currentProjectile.transform.GetChild(0).LookAt(currentProjectile.CurrentTarget.transform, Vector3.up);
+				Vector3 forward = currentProjectile.transform.TransformDirection(Vector3.right);
+				Vector3 dir = currentProjectile.transform.position - currentProjectile.CurrentTarget.transform.position;
+
+				if (Vector3.Dot(forward, dir) > 0.02) // target is on the left
+				{
+					currentProjectile.transform.Rotate(Vector3.up * Time.deltaTime * 200, Space.World);
+				}
+				else if (Vector3.Dot(forward, dir) < -0.02) // target is on the right
+				{
+					currentProjectile.transform.Rotate(-Vector3.up * Time.deltaTime * 200, Space.World);
+				}
+				currentProjectile.transform.Rotate(Vector3.right * Time.deltaTime * 400, Space.Self);
+			}
+			else
+			{
+				removeProjectiles.Add(currentProjectile);
+			}
+		}
+		foreach (var deletingProjectile in removeProjectiles)
+		{
+			// deletingProjectile.print();
+
+			if (deletingProjectile.hit)
+			{
+				Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.identity);
+				deletingProjectile.CurrentTarget.TakeDamage(deletingProjectile.projectileDamage);
+				Destroy(this.gameObject);
+			}
+
+			projectile.Remove(deletingProjectile);
+			Destroy(deletingProjectile.gameObject);
+		}
 	}
-
-
 
 
 }
