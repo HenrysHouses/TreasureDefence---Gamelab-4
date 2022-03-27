@@ -24,6 +24,7 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
     [SerializeField] StudioEventEmitter BottleHit;
     [SerializeField] GameObject BottleShardsParticle, BottleHalfPrefab;
     [SerializeField] Vector3 brokenBottleVelocity;
+    bool IsOpen_animator;
 
     // Base Arcade Behaviour
     // Start the Game. What it costs.
@@ -47,6 +48,19 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
         Target.SetActive(true);
     }
 
+    new void Update()
+    {
+        base.Update();
+
+        if(!holdingGun)
+        {
+            if(animator.GetBool("IsOpen") != IsOpen_animator)
+                animator.SetBool("IsOpen", IsOpen_animator);
+        }
+        else if (!animator.GetBool("IsOpen"))
+            animator.SetBool("IsOpen", true);
+    }
+
     public override void isPlayingUpdate()
     {
         t += TargetMovementSpeed * Time.deltaTime;
@@ -65,7 +79,7 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
         if(shouldTeleport)
         {
             VRPlayer.transform.position = rugTransform.position;
-            VRPlayer.transform.rotation = rugTransform.rotation;
+            // VRPlayer.transform.rotation = rugTransform.rotation;
             shouldTeleport = false;
             VRPlayer.canMove = false;
             VRPlayer.canTeleport = false;
@@ -83,7 +97,7 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
         return false;
     }
 
-    public override bool LooseCondition()
+    public override bool LoseCondition()
     {
         // Debug.Log("Time ran out.");
         if (timeLeft <= 0)
@@ -95,6 +109,10 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
             return false;
         }
     }
+
+    public override void LoseTrigger()
+	{
+	}
 
     public override void Reward()
     {
@@ -157,7 +175,8 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
     public void setIsOpen(bool state)
     {
         if(!isPlaying)
-            animator.SetBool("IsOpen", state);
+            IsOpen_animator = state;
+            // animator.SetBool("IsOpen", state);
     }
 
     public void isHoldingGun(bool state)

@@ -35,34 +35,39 @@ public class Tower_BombThrower : TowerBehaviour
 		List<attackData> removeProjectiles = new List<attackData>();
 		foreach (var currentProjectile in projectile)
 		{
+			bool skip = false;
 			Vector3 pos = currentProjectile.transform.position;
 			if(currentProjectile.enemyPriority[currentProjectile.enemyPriority.Length-1])
 				pos = currentProjectile.UpdateProjectile();
 			else
 			{
 				removeProjectiles.Add(currentProjectile);
+				skip = true;
 			}
 			
-			if(!currentProjectile.hit)
+			if(!skip)
 			{
-				currentProjectile.transform.position = pos;
-				currentProjectile.transform.GetChild(0).LookAt(currentProjectile.CurrentTarget.transform, Vector3.up);
-				Vector3 forward = currentProjectile.transform.TransformDirection(Vector3.right);
-				Vector3 dir = currentProjectile.transform.position - currentProjectile.CurrentTarget.transform.position;
+				if(!currentProjectile.hit)
+				{
+					currentProjectile.transform.position = pos;
+					currentProjectile.transform.GetChild(0).LookAt(currentProjectile.CurrentTarget.transform, Vector3.up);
+					Vector3 forward = currentProjectile.transform.TransformDirection(Vector3.right);
+					Vector3 dir = currentProjectile.transform.position - currentProjectile.CurrentTarget.transform.position;
 
-				if(Vector3.Dot(forward, dir) > 0.02) // target is on the left
-				{
-					currentProjectile.transform.Rotate(Vector3.up * Time.deltaTime * 200, Space.World);
+					if(Vector3.Dot(forward, dir) > 0.02) // target is on the left
+					{
+						currentProjectile.transform.Rotate(Vector3.up * Time.deltaTime * 200, Space.World);
+					}
+					else if(Vector3.Dot(forward, dir) < -0.02) // target is on the right
+					{
+						currentProjectile.transform.Rotate(-Vector3.up * Time.deltaTime * 200, Space.World);
+					}
+					currentProjectile.transform.Rotate(Vector3.right * Time.deltaTime * 400, Space.Self);
 				}
-				else if(Vector3.Dot(forward, dir) < -0.02) // target is on the right
+				else
 				{
-					currentProjectile.transform.Rotate(-Vector3.up * Time.deltaTime * 200, Space.World);
+					removeProjectiles.Add(currentProjectile);
 				}
-				currentProjectile.transform.Rotate(Vector3.right * Time.deltaTime * 400, Space.Self);
-			}
-			else
-			{
-				removeProjectiles.Add(currentProjectile);
 			}
 		}
 		foreach (var deletingProjectile in removeProjectiles)

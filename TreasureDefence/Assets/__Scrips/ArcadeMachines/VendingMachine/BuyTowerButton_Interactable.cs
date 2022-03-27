@@ -56,7 +56,6 @@ public class BuyTowerButton_Interactable : TD_Interactable
                 {
                     _VendingMachineSFX.Play();
                     _VendingMachineSFX.SetParameter("Valid_Invalid", 0);
-                    Debug.Log("valid");
                 }
 
                 Vector3 randomPos = spawnTransform.position;
@@ -70,7 +69,6 @@ public class BuyTowerButton_Interactable : TD_Interactable
                 //Invalid sound
                 _VendingMachineSFX.Play();
                 _VendingMachineSFX.SetParameter("Valid_Invalid", 1);
-                Debug.Log("invalid");
             }
         }
     }

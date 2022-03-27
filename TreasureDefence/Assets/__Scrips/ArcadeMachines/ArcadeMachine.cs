@@ -22,7 +22,7 @@ public abstract class ArcadeMachine : MonoBehaviour
 		// _Audiosource = GetComponent<StudioEventEmitter>();
 	}
 
-	void Update()
+	public void Update()
 	{
 		if(isPlaying)
 			isPlayingUpdate();
@@ -37,8 +37,9 @@ public abstract class ArcadeMachine : MonoBehaviour
 			hasReset = true;
 		}
 		
-		if(LooseCondition() && !hasReset)
+		if(LoseCondition() && isPlaying && !hasReset)  
 		{
+			LoseTrigger();
 			Reset();
 			isPlaying = false;	
 			hasReset = true;		
@@ -68,7 +69,8 @@ public abstract class ArcadeMachine : MonoBehaviour
 	
 	public abstract void isPlayingUpdate();
 	public abstract bool WinCondition();
-	public abstract bool LooseCondition();
+	public abstract bool LoseCondition();
+	public abstract void LoseTrigger();
 	public abstract void Reward();
 	public abstract void Reset();
 	public virtual void StartSetup(){}

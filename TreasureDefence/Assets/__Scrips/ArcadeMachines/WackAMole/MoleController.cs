@@ -36,8 +36,8 @@ public class MoleController : MonoBehaviour
     {
         
 
-        if(Input.GetKey(KeyCode.Space))
-            showMole();
+        // if(Input.GetKey(KeyCode.Space))
+        //     showMole();
         Vector3 pos = transform.localPosition; 
 
         switch(state)

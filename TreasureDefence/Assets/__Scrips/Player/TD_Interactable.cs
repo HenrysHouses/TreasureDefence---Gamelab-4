@@ -15,6 +15,7 @@ abstract public class TD_Interactable : MonoBehaviour
 	public KeyCode interactionButton => _interactionButton;
 
 	public bool canBeHeld;
+	[SerializeField] bool canBeMoved;
 	public bool lookTriggerEnabled;
 	[HideInInspector] public bool lookIsActive;
 	bool lookShouldStay;

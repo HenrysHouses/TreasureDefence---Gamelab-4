@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public static class ExtensionMethods
 {
@@ -50,5 +51,27 @@ public static class ExtensionMethods
 	public static void SawtoothWave(float In, out float Out)
 	{
 		Out = 2 * (In - Mathf.Floor(0.5f + In));
+	}
+
+	public static void PrintCollection(object[] collection)
+	{
+		string Log = "Print of Collection \"" + collection.ToString() + "\": ";
+		foreach (var item in collection)
+		{	
+			Log += item.ToString() + ", ";
+		}
+
+		Debug.Log(Log);
+	}
+
+	public static void PrintCollection(IReadOnlyList<object> collection)
+	{
+		string Log = "Print of Collection \"" + collection.ToString() + "\": ";
+		foreach (var item in collection)
+		{	
+			Log += item.ToString() + ", ";
+		}
+
+		Debug.Log(Log);
 	}
 }

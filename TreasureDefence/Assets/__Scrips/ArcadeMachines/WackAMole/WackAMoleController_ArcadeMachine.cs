@@ -12,6 +12,8 @@ using TMPro;
 public class WackAMoleController_ArcadeMachine : ArcadeMachine
 {
 	[SerializeField] TextMeshPro _RemainingText;
+	[SerializeField] string _StartText;
+	[SerializeField] StudioEventEmitter winSound;
 	[SerializeField] ParticleSystem[] confetti;
 	[SerializeField] MoleController[] moles;
 	List<int> activeMoles = new List<int>();
@@ -29,10 +31,16 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 	[SerializeField] float remainingTime;
 	public bool isHoldingMallet;
 	// Base Arcade Behaviour
+	new void Start()
+	{
+		base.Start();
+		_StartText = _RemainingText.text;
+	}
+
 	public override void isPlayingUpdate()
 	{
 		remainingTime -= Time.deltaTime;
-		_RemainingText.text = ""+ (int)remainingTime;
+		_RemainingText.text = "Remaining Time \n"+ (int)remainingTime;
 		removeInActive();
 			
 		if(!cooldown)
@@ -43,32 +51,39 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 	{
 		if(hitCount >= WinningHits)
 		{
-			foreach (var particle in confetti)
-			{
-				particle.Play();
-			}
 			return true;
 		}
 		return false;
 	}
-	public override bool LooseCondition()
+	public override bool LoseCondition()
 	{
 		if(remainingTime < 0)
 		{
-
 			return true;
 		}
 		return false;
+	}
+
+	public override void LoseTrigger()
+	{
+		_RemainingText.text = "You lose";
 	}
 
 	public override void Reward()
 	{
-
+		// particle confetti feedback
+		foreach (var particle in confetti)
+		{
+			particle.Play();
+		}
+		winSound.Play();
+		_RemainingText.text = "You Won!";
 		GameManager.instance.SpawnTower(towerRewardPrefab, spawnPoint.position);
 	}
 	public override void Reset()
 	{
 		hitCount = 0;
+		StartCoroutine(resetInfo());
 	}
 
 	// Wack A Mole Behaviour
@@ -112,5 +127,11 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 	public void setIsHoldingMallet(bool state)
 	{
 		isHoldingMallet = state;
+	}
+
+	IEnumerator resetInfo()
+	{
+		yield return new WaitForSeconds(5);
+		_RemainingText.text = _StartText;
 	}
 }

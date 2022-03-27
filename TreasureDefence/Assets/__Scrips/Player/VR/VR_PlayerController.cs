@@ -25,8 +25,11 @@ public class VR_PlayerController : MonoBehaviour
 
     public bool leftRayIsActive, rightRayIsActive, leftHandIsActive, rightHandIsActive;
     public bool canMove = true, canTeleport = true, canRotate = true;
+    bool rayShouldDisable;
 
     XRController leftRayController, rightRayController, leftHandController, rightHandController;
+    XRRayInteractor RayHandLeft, RayHandRight, RayPointerLeft, RayPointerRight;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +42,11 @@ public class VR_PlayerController : MonoBehaviour
         rightRayController = pickupRayRight.GetComponent<XRController>();
         leftHandController = handLeft.GetComponent<XRController>();
         rightHandController = handRight.GetComponent<XRController>();
+
+        RayHandLeft = handLeft.GetComponent<XRRayInteractor>();
+        RayHandRight = handRight.GetComponent<XRRayInteractor>();
+        RayPointerLeft = pickupRayLeft.GetComponent<XRRayInteractor>();
+        RayPointerRight = pickupRayRight.GetComponent<XRRayInteractor>();
     }
 
     // Update is called once per frame
@@ -55,7 +63,7 @@ public class VR_PlayerController : MonoBehaviour
         RightDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out secondaryButton_RightHand);
         RightDevice.TryGetFeatureValue(CommonUsages.primaryButton, out primaryButton_RightHand);
 
-        // activate move held item in right hand
+        // move held item in right hand
         if(secondaryButton_LeftHand && rightHandController.moveObjectOut != InputHelpers.Button.PrimaryAxis2DUp)
         {
             XRController[] controllers = new XRController[]{rightRayController, rightHandController};
@@ -68,7 +76,7 @@ public class VR_PlayerController : MonoBehaviour
             enableJoystickMove(controllers, false);
             canRotate = true;
         }
-        // activate move held item in left hand
+        // move held item in left hand
         if(secondaryButton_RightHand && leftHandController.moveObjectOut != InputHelpers.Button.PrimaryAxis2DUp)
         {
             XRController[] controllers = new XRController[]{leftRayController, leftHandController};
@@ -82,6 +90,7 @@ public class VR_PlayerController : MonoBehaviour
             canMove = true;
         }
 
+        // reset player center
         if(leftAxisClick)
         {
             resetPosition();
@@ -109,33 +118,46 @@ public class VR_PlayerController : MonoBehaviour
                 }
             }
         }
-        else // ray pickup
+
+        // ray pickup
+        else
         {
             if(primaryButton_LeftHand)
             {
-                if(!pickupRayLeft.activeSelf)
+                if(!pickupRayLeft.activeSelf || !pickupRayRight.activeSelf)
                 {
                     // show ray interactors
-                        pickupRayLeft.SetActive(true);
-                        handLeft.SetActive(false);
-                        pickupRayRight.SetActive(true);
-                        handRight.SetActive(false);
+                    pickupRayLeft.SetActive(true);
+                    handLeft.SetActive(false);
+                    pickupRayRight.SetActive(true);
+                    handRight.SetActive(false);
                 }
             }   
+            else if (leftRayController.selectInteractionState.active || rightRayController.selectInteractionState.active )
+            {
+                rayShouldDisable = true;
+            }
         }
         
         if(!primaryButton_LeftHand && !primaryButton_RightHand)
         {
             // show hands
-            if(!handLeft.activeSelf)
+            if(!handLeft.activeSelf || !handRight.activeSelf)
             {
-                handLeft.SetActive(true);
-                handRight.SetActive(true);
-                // hide ray interactor
-                pickupRayLeft.SetActive(false);
-                pickupRayRight.SetActive(false);
-                // hide teleport interactor
-                teleportRay.SetActive(false);
+                if(rayShouldDisable)
+                {
+                    DisableRay();
+                }
+                else
+                {
+                    handLeft.SetActive(true);
+                    handRight.SetActive(true);
+                    // hide ray interactor
+                    pickupRayLeft.SetActive(false);
+                    pickupRayRight.SetActive(false);
+                    // hide teleport interactor
+                    teleportRay.SetActive(false);
+                }
             }
         }
         if(!primaryButton_LeftHand)
@@ -160,6 +182,23 @@ public class VR_PlayerController : MonoBehaviour
         }
     }
 
+    void DisableRay()
+    {
+        if(!RayPointerLeft.isSelectActive)
+        {
+            pickupRayLeft.SetActive(false);
+            handLeft.SetActive(true);
+        }
+        if(!RayPointerRight.isSelectActive)
+        {
+            pickupRayRight.SetActive(false);
+            handRight.SetActive(true);  
+        }
+
+        if(!RayPointerRight.isSelectActive && !RayPointerLeft.isSelectActive)
+            rayShouldDisable = false;
+    }
+
     void enableJoystickMove(XRController[] controllers, bool state)
     {
         if(state)
@@ -168,8 +207,8 @@ public class VR_PlayerController : MonoBehaviour
             {
                 controller.moveObjectOut = InputHelpers.Button.PrimaryAxis2DDown;
                 controller.moveObjectIn = InputHelpers.Button.PrimaryAxis2DUp;
-                controller.rotateObjectLeft = InputHelpers.Button.PrimaryAxis2DLeft;
-                controller.rotateObjectRight = InputHelpers.Button.PrimaryAxis2DRight;
+                // controller.rotateObjectLeft = InputHelpers.Button.PrimaryAxis2DLeft;
+                // controller.rotateObjectRight = InputHelpers.Button.PrimaryAxis2DRight;
             }
         }
         else
@@ -178,8 +217,8 @@ public class VR_PlayerController : MonoBehaviour
             {
                 controller.moveObjectOut = InputHelpers.Button.None;
                 controller.moveObjectIn = InputHelpers.Button.None;
-                controller.rotateObjectLeft = InputHelpers.Button.None;
-                controller.rotateObjectRight = InputHelpers.Button.None;
+                // controller.rotateObjectLeft = InputHelpers.Button.None;
+                // controller.rotateObjectRight = InputHelpers.Button.None;
             }
         }
     }

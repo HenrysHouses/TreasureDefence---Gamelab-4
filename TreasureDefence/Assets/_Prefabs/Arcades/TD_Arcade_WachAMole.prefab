@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 8634156752542462422}
   - component: {fileID: 8535259470362395233}
   - component: {fileID: 725267288}
+  - component: {fileID: 2011713507}
   m_Layer: 0
   m_Name: payArcade
   m_TagString: Untagged
@@ -434,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionButton: 323
   canBeHeld: 0
+  canBeMoved: 0
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
@@ -540,6 +542,22 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+--- !u!54 &2011713507
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199897788762248393}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &5670326792155919889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,6 +2944,7 @@ GameObject:
   - component: {fileID: 9075670316895454362}
   - component: {fileID: 9075670316895454363}
   - component: {fileID: 1637254255}
+  - component: {fileID: 1637254256}
   m_Layer: 0
   m_Name: TD_Arcade_WachAMole
   m_TagString: Untagged
@@ -3016,6 +3035,38 @@ MonoBehaviour:
       Data3: -701971270
       Data4: 1999849001
     Path: event:/Paying for MinigamesSFX
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Valid_Invalid
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1637254256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075670316895454361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1283291121
+      Data2: 1093479068
+      Data3: 445587871
+      Data4: 1109833568
+    Path: event:/VictoryFireworkSFX
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -3415,13 +3466,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1a875e89efe5034db5ebfb24f035a35, type: 3}
---- !u!4 &4259200405779025550 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5775314609052371481, guid: c1a875e89efe5034db5ebfb24f035a35, type: 3}
-  m_PrefabInstance: {fileID: 7727528499276694679}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &4259200404113940507 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5775314609635402892, guid: c1a875e89efe5034db5ebfb24f035a35, type: 3}
+  m_PrefabInstance: {fileID: 7727528499276694679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4259200405779025550 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5775314609052371481, guid: c1a875e89efe5034db5ebfb24f035a35, type: 3}
   m_PrefabInstance: {fileID: 7727528499276694679}
   m_PrefabAsset: {fileID: 0}
