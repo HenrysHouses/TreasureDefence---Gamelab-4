@@ -1,22 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+			  //Mikkel did this.
 public class MineDeployable : TowerBehaviour
 {
 
 	public int maxTargets;
-	public GameObject SpawnMine;
-	public Vector3 SpawnPosition;
+	
 
     public override void Update()
     {
         base.Update();
 		canShoot = true;
-		if (Input.GetKeyDown(KeyCode.M))
-		{
-			Instantiate(SpawnMine, SpawnPosition , Quaternion.identity);
-        }
+	
     }
 
     new private void Start()

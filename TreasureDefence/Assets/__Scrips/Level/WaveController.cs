@@ -81,14 +81,19 @@ public class WaveController : MonoBehaviour
 	{
 		if(!levelIsEnding)
 		{
-			if(!levelComplete)
+			if (!levelComplete)
 			{
 				_WaveStart.Play();
 				waveIsInProgress = true;
 				GameManager.instance.setLights(false);
+				//Put mines on side of table here.
+				MineSpawner.Instance.InstantiateMine(2);
 			}
 			else
+			{
 				endLevel();
+				MineSpawner.Instance.DestroyAllMines();
+			}
 		}
 	}
 	
