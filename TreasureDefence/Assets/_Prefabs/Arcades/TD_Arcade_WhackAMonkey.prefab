@@ -469,6 +469,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1 &1810406516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1810406517}
+  m_Layer: 0
+  m_Name: AttachTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1810406517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810406516}
+  m_LocalRotation: {x: 0.53675157, y: 0.46032342, z: -0.5367518, w: 0.46032345}
+  m_LocalPosition: {x: 0.0000000010221771, y: 0.0000000037245276, z: -0.000000014866253}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7563606186796394714}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 81.233, y: -90, z: -180}
 --- !u!1 &18533657990138854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,9 +2928,10 @@ GameObject:
   - component: {fileID: 1894024476887167425}
   - component: {fileID: 4286783327358286074}
   - component: {fileID: 2475902254895876493}
+  - component: {fileID: 1179633855}
   m_Layer: 0
   m_Name: HammerHead
-  m_TagString: Untagged
+  m_TagString: Mallet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2913,8 +2944,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5471448433308507601}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000027564636, y: -0.0120140845, z: -0.0000000012173136}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.000027564636, y: -0.01275, z: -0.0000000012173136}
+  m_LocalScale: {x: 1, y: 0.66078, z: 1}
   m_Children: []
   m_Father: {fileID: 7563606186796394714}
   m_RootOrder: 0
@@ -2968,6 +2999,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1179633855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471448433308507601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005892234, y: 0.0043380056, z: 0.0028974342}
+  m_Center: {x: 0.00002756354, y: -0.002169001, z: -0.000000014901161}
 --- !u!1 &6396243570238781955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3062,6 +3106,7 @@ GameObject:
   - component: {fileID: 1785913862197837261}
   - component: {fileID: 965271896539149130}
   - component: {fileID: 8235118286132744499}
+  - component: {fileID: 343159510}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -3082,6 +3127,7 @@ Transform:
   m_Children:
   - {fileID: 1894024476887167425}
   - {fileID: 79206512709073358}
+  - {fileID: 1810406517}
   m_Father: {fileID: 4135487217896330136}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3228,7 +3274,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1810406517}
   m_AttachEaseInTime: 0.15
   m_MovementType: 0
   m_VelocityDamping: 1
@@ -3265,6 +3311,19 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!65 &343159510
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840701499931873174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0009730529, y: 0.016660912, z: 0.0010231304}
+  m_Center: {x: -0.00006999838, y: -0.0057453606, z: -0.000000016123522}
 --- !u!1 &7668914213849523242
 GameObject:
   m_ObjectHideFlags: 0

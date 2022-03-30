@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -744,6 +744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionButton: 323
   canBeHeld: 1
+  canBeMoved: 0
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
@@ -1587,6 +1588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TD_Arcade_WackAMole
       objectReference: {fileID: 0}
+    - target: {fileID: 9075670316895454361, guid: afd410974d00eb24d8119044af540f3a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9075670316895454362, guid: afd410974d00eb24d8119044af540f3a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1822,6 +1827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionButton: 323
   canBeHeld: 1
+  canBeMoved: 0
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
@@ -5642,6 +5648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionButton: 323
   canBeHeld: 1
+  canBeMoved: 0
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
@@ -7687,6 +7694,10 @@ PrefabInstance:
     - target: {fileID: 5443909815177324731, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
       propertyPath: m_Name
       value: TD_Arcade_ShootingRange
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443909815177324731, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443909815177324741, guid: 1494635c3929a8d4a833d6fd261882f5, type: 3}
       propertyPath: m_RootOrder
