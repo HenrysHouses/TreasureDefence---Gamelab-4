@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class HelpButton : MonoBehaviour
 {
+    [SerializeField] Tutorial_Highlighter tut;
     int tutorialScreen = 1;
     [SerializeField] CanvasController canvasController;
 
     public void nextTutorial()
     {
+        tut.setTutorialText("Grab me " + tutorialScreen + "/5");
+
         if(tutorialScreen+1 > 5)
         {
             tutorialScreen = 1;
             canvasController.CloseCanvas();
+            tut.gameObject.SetActive(false);
             return;
         }
         else

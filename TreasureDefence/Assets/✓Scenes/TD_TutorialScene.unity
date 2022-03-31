@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4979,6 +4979,14 @@ PrefabInstance:
       propertyPath: Tutorial
       value: 
       objectReference: {fileID: 955950316}
+    - target: {fileID: 6662254543281712528, guid: 138cdd0f81c391f4fb19a23aff6c5720, type: 3}
+      propertyPath: onDisable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662254543281712528, guid: 138cdd0f81c391f4fb19a23aff6c5720, type: 3}
+      propertyPath: nextTutorial
+      value: 
+      objectReference: {fileID: 2089726601}
     - target: {fileID: 8503713394629103701, guid: 138cdd0f81c391f4fb19a23aff6c5720, type: 3}
       propertyPath: m_Name
       value: TD_Tutorial_Highlight
@@ -6525,9 +6533,41 @@ PrefabInstance:
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1116434593, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+      propertyPath: tut
+      value: 
+      objectReference: {fileID: 1584829336}
     - target: {fileID: 1274048053, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
       propertyPath: m_Text
       value: Press the exit button to exit the map
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075771175565649471, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075771175565649471, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075771175565649471, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1584829336}
+    - target: {fileID: 3075771175565649471, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075771175565649471, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: setTutorialText
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075771175565649471, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Tutorial_Highlighter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075771175565649471, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4653816760394930490, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
       propertyPath: m_Name

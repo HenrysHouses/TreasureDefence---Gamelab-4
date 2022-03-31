@@ -35,7 +35,8 @@ public class MineDeployable : TowerBehaviour
 					break;
 				}
 				_AudioSource.Play();
-				Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
+				Transform _projectile =  new GameObject().transform;
+				_projectile.position = projectileSpawnPos.position; 
 				attackData newProjectile = getCurrentAttackData(_projectile, targets);
 				projectile.Add(newProjectile);
 			}
@@ -47,6 +48,9 @@ public class MineDeployable : TowerBehaviour
 		List<attackData> removeProjectiles = new List<attackData>();
 		foreach (var currentProjectile in projectile)
 		{
+			if(currentProjectile == null)
+				removeProjectiles.Add(currentProjectile);
+
 			Vector3 pos = currentProjectile.transform.position;
 			if (currentProjectile.enemyPriority[currentProjectile.enemyPriority.Length - 1])
 				pos = currentProjectile.UpdateProjectile();
@@ -58,19 +62,6 @@ public class MineDeployable : TowerBehaviour
 			if (!currentProjectile.hit)
 			{
 				currentProjectile.transform.position = pos;
-				currentProjectile.transform.GetChild(0).LookAt(currentProjectile.CurrentTarget.transform, Vector3.up);
-				Vector3 forward = currentProjectile.transform.TransformDirection(Vector3.right);
-				Vector3 dir = currentProjectile.transform.position - currentProjectile.CurrentTarget.transform.position;
-
-				if (Vector3.Dot(forward, dir) > 0.02) // target is on the left
-				{
-					currentProjectile.transform.Rotate(Vector3.up * Time.deltaTime * 200, Space.World);
-				}
-				else if (Vector3.Dot(forward, dir) < -0.02) // target is on the right
-				{
-					currentProjectile.transform.Rotate(-Vector3.up * Time.deltaTime * 200, Space.World);
-				}
-				currentProjectile.transform.Rotate(Vector3.right * Time.deltaTime * 400, Space.Self);
 			}
 			else
 			{

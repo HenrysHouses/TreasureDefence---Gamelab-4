@@ -87,6 +87,7 @@ public class WaveController : MonoBehaviour
 				waveIsInProgress = true;
 				GameManager.instance.setLights(false);
 				//Put mines on side of table here.
+				MineSpawner.Instance.DestroyAllMines();
 				MineSpawner.Instance.InstantiateMine(2);
 			}
 			else
@@ -100,6 +101,8 @@ public class WaveController : MonoBehaviour
 	public void endLevel(bool lose = false)
 	{
 		waveIsInProgress = false;
+		CanvasController.instance.CloseCanvas();
+
 		if(lose)
 		{
 			Debug.Log("Player Lost");

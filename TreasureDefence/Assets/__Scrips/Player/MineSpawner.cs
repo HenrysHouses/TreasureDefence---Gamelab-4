@@ -20,13 +20,12 @@ public class MineSpawner : MonoBehaviour
         {
             Destroy(this);
         }
+        Debug.Log("Mine Cheat on M button Active");
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.M))
         {
             InstantiateMine(1);
@@ -47,7 +46,7 @@ public class MineSpawner : MonoBehaviour
         for (int i = 0; i < MineList.Count; i++)
         {
             Destroy(MineList[i]);
-            MineList.RemoveAt(i);
         }
+        MineList = new List<GameObject>();
     }
 }

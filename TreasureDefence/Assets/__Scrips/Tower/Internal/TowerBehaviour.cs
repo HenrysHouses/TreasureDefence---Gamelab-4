@@ -38,7 +38,6 @@ abstract public class TowerBehaviour : MonoBehaviour
 	public void Start()
 	{
 		_AudioSource = GetComponent<StudioEventEmitter>();
-		Debug.LogError("I think this needs to be double checked if these targeting methods is actually finding a correctly sorted list - Henrik");
 	}
 
 	virtual public void Update()
@@ -103,6 +102,8 @@ abstract public class TowerBehaviour : MonoBehaviour
 				break;
 			
 			case TargetType.Closest:
+				Debug.LogError("I think the closest targeting method needs to be double checked if its actually working correctly - Henrik");
+
 				// Finding closest enemy 
 				for (int i = 0; i < waveController.enemies.Count; i++)
 				{

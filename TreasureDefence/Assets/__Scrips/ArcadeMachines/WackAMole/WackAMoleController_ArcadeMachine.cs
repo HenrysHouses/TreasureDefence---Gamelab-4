@@ -39,7 +39,7 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 	public override void isPlayingUpdate()
 	{
 		remainingTime -= Time.deltaTime;
-		_RemainingText.text = (int)remainingTime + "\nHits: " + hitCount + " / " + WinningHits;
+		_RemainingText.text = (int)remainingTime + "\n\nHits: " + hitCount + " / " + WinningHits;
 		removeInActive();
 			
 		if(!cooldown)

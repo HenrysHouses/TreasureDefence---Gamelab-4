@@ -30,7 +30,6 @@ public class Tower_BombThrower : TowerBehaviour
 				for (int j = 0; j < currentTargets.Length; j++)
 				{
 					currentTargets[j] = targets[j+i];
-					Debug.Log("projectile; " + i + ", " + currentTargets[j] + ": "+ j );
 				}
 
 
