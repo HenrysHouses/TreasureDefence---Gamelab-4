@@ -22,10 +22,40 @@ public class Tower_BombThrower : TowerBehaviour
                 {
 					break;
                 }
+
 				_AudioSource.Play();
+
+				EnemyBehaviour[] currentTargets = new EnemyBehaviour[targets.Length-i];
+
+				for (int j = 0; j < currentTargets.Length; j++)
+				{
+					currentTargets[j] = targets[j+i];
+					Debug.Log("projectile; " + i + ", " + currentTargets[j] + ": "+ j );
+				}
+
+
 				Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
-				attackData newProjectile = getCurrentAttackData(_projectile, targets);
+				attackData newProjectile = getCurrentAttackData(_projectile, currentTargets);
 				projectile.Add(newProjectile);
+
+				// if(targets.Length > 1)
+				// {
+				// 	EnemyBehaviour[] _SecondaryTargets = new EnemyBehaviour[targets.Length-1];
+					
+				// 	for (int j = 0; j < _SecondaryTargets.Length-1; j++)
+				// 	{
+				// 		_SecondaryTargets[j] = targets[j+1];
+				// 	}
+
+				// 	Transform _projectile2 = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
+				// 	attackData newProjectile2 = getCurrentAttackData(_projectile2, _SecondaryTargets);
+				// 	projectile.Add(newProjectile2);
+
+				// 	foreach (var target in targets)
+				// 	{
+						
+				// 	}
+				// }
 			}
 		}
 	}
