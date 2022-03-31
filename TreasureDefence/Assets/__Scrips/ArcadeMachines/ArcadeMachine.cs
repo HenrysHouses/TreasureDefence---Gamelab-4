@@ -13,9 +13,11 @@ public abstract class ArcadeMachine : MonoBehaviour
 	public Transform spawnPoint;
 	public GameObject towerRewardPrefab;
 	[SerializeField] int Cost;
+	public int _Cost => Cost;
 	public bool isPlaying, hasReset;
 	// StudioEventEmitter _Audiosource;
-	[SerializeField] StudioEventEmitter _PayingforMinigamesSFX;
+	[SerializeField] StudioEventEmitter _PayingforMinigamesSFX, winSFX, loseSFX;
+
 	
 	public void Start()
 	{
@@ -33,6 +35,8 @@ public abstract class ArcadeMachine : MonoBehaviour
 			// _Audiosource.Play();
 			Reward();
 			Reset();
+			if(winSFX)
+				winSFX.Play();
 			isPlaying = false;			
 			hasReset = true;
 		}
@@ -41,6 +45,13 @@ public abstract class ArcadeMachine : MonoBehaviour
 		{
 			LoseTrigger();
 			Reset();
+			if(loseSFX)
+				loseSFX.Play();
+
+			// ! temporary lost game sound
+			loseSFX.SetParameter("Valid_Invalid", 1);
+
+
 			isPlaying = false;	
 			hasReset = true;		
 		}
@@ -51,7 +62,7 @@ public abstract class ArcadeMachine : MonoBehaviour
 		if(CurrencyManager.instance.SubtractMoney(Cost) && !isPlaying)
 		{
 			//PlaySound
-			if (!FmodExtensions.IsPlaying(_PayingforMinigamesSFX.EventInstance))
+			if (!FmodExtensions.IsPlaying(_PayingforMinigamesSFX.EventInstance)) // valid payment sound
 			{
 				_PayingforMinigamesSFX.Play();
 				_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 0);
@@ -60,7 +71,7 @@ public abstract class ArcadeMachine : MonoBehaviour
 			hasReset = false;
 			StartSetup();			
 		}
-		else
+		else // invalid payment sound
         {
 			_PayingforMinigamesSFX.Play();
 			_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 1);

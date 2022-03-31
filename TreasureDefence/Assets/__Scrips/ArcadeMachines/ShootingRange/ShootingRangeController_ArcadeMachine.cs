@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using TMPro;
 
 public class ShootingRangeController_ArcadeMachine : ArcadeMachine
 {   // Mikkel tried to make this.
     // Henrik Revamped this
     public GameObject Target;
+    [SerializeField] TextMeshPro GameInfo;
+    string startText;
     [SerializeField] Rigidbody targetRB;
     public int HitTarget;
     [Tooltip("The Speed of the Target")]
@@ -25,6 +28,14 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
     [SerializeField] GameObject BottleShardsParticle, BottleHalfPrefab;
     [SerializeField] Vector3 brokenBottleVelocity;
     bool IsOpen_animator;
+    [SerializeField] ParticleSystem[] winConfetti;
+
+    new void Start()
+    {
+        base.Start();
+        startText = "Shoot the bottle to start";
+        GameInfo.text = startText;
+    }
 
     // Base Arcade Behaviour
     // Start the Game. What it costs.
@@ -46,6 +57,7 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
             velocity = new Vector3(0, 0, -TargetMovementSpeed);
         startGameBottle.SetActive(false);
         Target.SetActive(true);
+
     }
 
     new void Update()
@@ -72,6 +84,8 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
             randomizeLeftPos();
         targetRB.velocity = velocity;
         timeLeft -= Time.deltaTime;
+
+        GameInfo.text = timeLeft + "\nHits: " + HitTarget + " / 5";
     }
 
     void LateUpdate()
@@ -112,10 +126,17 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
 
     public override void LoseTrigger()
 	{
+		GameInfo.text = "You lose \n"+ HitTarget + " / 5 Hits";
 	}
 
     public override void Reward()
     {
+        foreach (var particle in winConfetti)
+		{
+			particle.Play();
+		}
+
+		GameInfo.text = "You Won! Take your reward!";
         GameManager.instance.SpawnTower(towerRewardPrefab, spawnPoint.position);
         Instantiate(BottleShardsParticle, Target.transform.position, Quaternion.identity);
         GameObject bottle = Instantiate(BottleHalfPrefab, Target.transform.position, Quaternion.identity);
@@ -136,6 +157,7 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
         }
         VRPlayer.canMove = true;
         VRPlayer.canTeleport = true;
+        StartCoroutine(resetInfo());
     }
 
     public void Hit()
@@ -182,5 +204,11 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
     public void isHoldingGun(bool state)
     {
         holdingGun = state;
+    }
+
+    IEnumerator resetInfo()
+    {
+        yield return new WaitForSeconds(15);
+        GameInfo.text = startText;
     }
 }

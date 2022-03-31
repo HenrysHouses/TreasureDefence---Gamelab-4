@@ -6,14 +6,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FMODUnity;
 using TMPro;
 
 public class WackAMoleController_ArcadeMachine : ArcadeMachine
 {
 	[SerializeField] TextMeshPro _RemainingText;
 	[SerializeField] string _StartText;
-	[SerializeField] StudioEventEmitter winSound;
 	[SerializeField] ParticleSystem[] confetti;
 	[SerializeField] MoleController[] moles;
 	List<int> activeMoles = new List<int>();
@@ -34,13 +32,14 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 	new void Start()
 	{
 		base.Start();
-		_StartText = _RemainingText.text;
+		_StartText = "Cost: " + _Cost + " Get " + WinningHits + " hits to win";
+		_RemainingText.text = _StartText;
 	}
 
 	public override void isPlayingUpdate()
 	{
 		remainingTime -= Time.deltaTime;
-		_RemainingText.text = "Remaining Time \n"+ (int)remainingTime;
+		_RemainingText.text = (int)remainingTime + "\nHits: " + hitCount + " / " + WinningHits;
 		removeInActive();
 			
 		if(!cooldown)
@@ -66,7 +65,7 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 
 	public override void LoseTrigger()
 	{
-		_RemainingText.text = "You lose";
+		_RemainingText.text = "You lose \n"+ hitCount + " / " + WinningHits + " Hits";
 	}
 
 	public override void Reward()
@@ -76,8 +75,7 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 		{
 			particle.Play();
 		}
-		winSound.Play();
-		_RemainingText.text = "You Won!";
+		_RemainingText.text = "You Won! Take your reward!";
 		GameManager.instance.SpawnTower(towerRewardPrefab, spawnPoint.position);
 	}
 	public override void Reset()
@@ -131,7 +129,7 @@ public class WackAMoleController_ArcadeMachine : ArcadeMachine
 
 	IEnumerator resetInfo()
 	{
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(15);
 		_RemainingText.text = _StartText;
 	}
 }

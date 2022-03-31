@@ -1,5 +1,195 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &51316476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 51316477}
+  - component: {fileID: 51316480}
+  - component: {fileID: 51316479}
+  - component: {fileID: 51316478}
+  m_Layer: 11
+  m_Name: BackPplanks (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &51316477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51316476}
+  m_LocalRotation: {x: -0, y: 0.7071069, z: -0, w: -0.7071067}
+  m_LocalPosition: {x: -0.0008, y: -0.03982, z: -0.0221}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6880629845908504429}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!33 &51316480
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51316476}
+  m_Mesh: {fileID: -6575677645479929095, guid: 4ac61ffd8ccef424f889a9db672a09e7, type: 3}
+--- !u!23 &51316479
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51316476}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 4c116f428cb4efe42bd7c4d0f7b88e7d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &51316478
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51316476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.025231304, y: 0.050039828, z: 0.0016863924}
+  m_Center: {x: 0.0074222246, y: 0.019519523, z: -0.0094262725}
+--- !u!1 &59057427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59057428}
+  - component: {fileID: 59057431}
+  - component: {fileID: 59057430}
+  - component: {fileID: 59057429}
+  m_Layer: 11
+  m_Name: BackPplanks (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &59057428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59057427}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.00497, y: -0.03982, z: -0.00744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6880629845908504429}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &59057431
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59057427}
+  m_Mesh: {fileID: -6575677645479929095, guid: 4ac61ffd8ccef424f889a9db672a09e7, type: 3}
+--- !u!23 &59057430
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59057427}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 4c116f428cb4efe42bd7c4d0f7b88e7d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &59057429
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59057427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.025231304, y: 0.050039828, z: 0.0016863924}
+  m_Center: {x: 0.0074222246, y: 0.019519523, z: -0.0094262725}
 --- !u!1 &86651948
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +290,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Cost: 10
 
-    Click Me to pay'
+    Grab me to pay'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -253,6 +443,101 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1044129196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1044129197}
+  - component: {fileID: 1044129200}
+  - component: {fileID: 1044129199}
+  - component: {fileID: 1044129198}
+  m_Layer: 11
+  m_Name: BackPplanks (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1044129197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044129196}
+  m_LocalRotation: {x: -0, y: -0.00000025331974, z: -0, w: -1}
+  m_LocalPosition: {x: -0.0095, y: -0.03982, z: -0.01723}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6880629845908504429}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 360, z: 0}
+--- !u!33 &1044129200
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044129196}
+  m_Mesh: {fileID: -6575677645479929095, guid: 4ac61ffd8ccef424f889a9db672a09e7, type: 3}
+--- !u!23 &1044129199
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044129196}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 4c116f428cb4efe42bd7c4d0f7b88e7d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1044129198
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044129196}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.025231304, y: 0.050039828, z: 0.0016863924}
+  m_Center: {x: 0.0074222246, y: 0.019519523, z: -0.0094262725}
 --- !u!1 &1287067843
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,18 +680,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1548961794}
         m_TargetAssemblyTypeName: PayArcade_Interactable, Assembly-CSharp
-        m_MethodName: Pay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1548961794}
-        m_TargetAssemblyTypeName: PayArcade_Interactable, Assembly-CSharp
         m_MethodName: VRInteractionStartTrigger
         m_Mode: 1
         m_Arguments:
@@ -511,7 +784,7 @@ GameObject:
   - component: {fileID: 3949611614001263573}
   - component: {fileID: 4553971037393131232}
   - component: {fileID: 855804745}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6880629845908504429}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,6 +909,9 @@ Transform:
   - {fileID: 7877573004926279043}
   - {fileID: 207899334961339055}
   - {fileID: 5161518053429174078}
+  - {fileID: 59057428}
+  - {fileID: 51316477}
+  - {fileID: 1044129197}
   m_Father: {fileID: 4135487217896330136}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -654,7 +930,7 @@ GameObject:
   - component: {fileID: 705752881}
   - component: {fileID: 705752882}
   - component: {fileID: 705752886}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monkeyhand (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +1100,7 @@ GameObject:
   - component: {fileID: 1015551288}
   - component: {fileID: 1015551289}
   - component: {fileID: 1015551293}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monkeyhand (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +1270,7 @@ GameObject:
   - component: {fileID: 1918356599}
   - component: {fileID: 1918356600}
   - component: {fileID: 1918356604}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monkeyhand (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1161,7 +1437,7 @@ GameObject:
   - component: {fileID: 5163548867597037698}
   - component: {fileID: 798334368703484690}
   - component: {fileID: 2092600020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftPlanks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1256,7 +1532,7 @@ GameObject:
   - component: {fileID: 4894939369630389955}
   - component: {fileID: 9057422791692069406}
   - component: {fileID: 7883130080944098336}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InsideBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1341,7 +1617,7 @@ GameObject:
   - component: {fileID: 2082500601}
   - component: {fileID: 2082500602}
   - component: {fileID: 2082500606}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monkeyhand (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1508,7 +1784,7 @@ GameObject:
   - component: {fileID: 1045793159397093798}
   - component: {fileID: 3947261144261061845}
   - component: {fileID: 253874782}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BackPplanks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1602,7 +1878,7 @@ GameObject:
   - component: {fileID: 3216235642763666499}
   - component: {fileID: 698029623}
   - component: {fileID: 698029622}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SwordRopeAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1750,7 +2026,7 @@ GameObject:
   - component: {fileID: 1670625043}
   - component: {fileID: 1670625044}
   - component: {fileID: 1670625048}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monkeyhand (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1918,7 +2194,7 @@ GameObject:
   - component: {fileID: 4281891362474506773}
   - component: {fileID: 6192383039439733850}
   - component: {fileID: 640779549}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Banana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2031,7 +2307,7 @@ GameObject:
   - component: {fileID: 6644579332068439643}
   - component: {fileID: 4454399059320723764}
   - component: {fileID: 435023237}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopPlanks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2130,7 +2406,7 @@ GameObject:
   - component: {fileID: 1112833917}
   - component: {fileID: 1112833916}
   - component: {fileID: 1112833918}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monkeyhand (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2297,7 +2573,6 @@ GameObject:
   - component: {fileID: 1097977150}
   - component: {fileID: 1097977151}
   - component: {fileID: 1097977152}
-  - component: {fileID: 1441966426821463308}
   m_Layer: 0
   m_Name: TD_Arcade_WhackAMonkey
   m_TagString: Untagged
@@ -2344,9 +2619,10 @@ MonoBehaviour:
   isPlaying: 0
   hasReset: 0
   _PayingforMinigamesSFX: {fileID: 1097977152}
+  winSFX: {fileID: 1097977151}
+  loseSFX: {fileID: 1097977152}
   _RemainingText: {fileID: 9015413652162413477}
   _StartText: 
-  winSound: {fileID: 1097977151}
   confetti:
   - {fileID: 726497748026378040}
   - {fileID: 726497746990835187}
@@ -2366,7 +2642,7 @@ MonoBehaviour:
   cooldownRangeMax: 0.2
   cooldownRangeMin: 1
   hitCount: 0
-  WinningHits: 9
+  WinningHits: 8
   TotalPlayTime: 20
   remainingTime: 0
   isHoldingMallet: 0
@@ -2432,22 +2708,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1441966426821463308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616358728108951842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7103a6e4b72f52243b2c724826f939c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rope: {fileID: 7929281815655339532}
-  pos1: {fileID: 5253502774782740292}
-  pos2: {fileID: 4534714483375825981}
-  pos3: {fileID: 79206512709073358}
 --- !u!1 &3802941450344634096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,7 +2759,7 @@ GameObject:
   - component: {fileID: 7423702024298125055}
   - component: {fileID: 5828849567342399041}
   - component: {fileID: 6033798980606819346}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2598,7 +2858,7 @@ GameObject:
   - component: {fileID: 1816626725}
   - component: {fileID: 1816626726}
   - component: {fileID: 1816626730}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monkeyhand (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2764,7 +3024,7 @@ GameObject:
   - component: {fileID: 4534714483375825981}
   - component: {fileID: 4534714483375825983}
   - component: {fileID: 4534714483375825980}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rope(Sword)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2845,7 +3105,7 @@ GameObject:
   - component: {fileID: 9090077535176607242}
   - component: {fileID: 7016659093851244469}
   - component: {fileID: 1134600069251703210}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Map1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3231,10 +3491,34 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1097977150}
+        m_TargetAssemblyTypeName: WackAMoleController_ArcadeMachine, Assembly-CSharp
+        m_MethodName: setIsHoldingMallet
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_LastSelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1097977150}
+        m_TargetAssemblyTypeName: WackAMoleController_ArcadeMachine, Assembly-CSharp
+        m_MethodName: setIsHoldingMallet
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -3336,7 +3620,7 @@ GameObject:
   - component: {fileID: 3202259963873610276}
   - component: {fileID: 8486416102454716924}
   - component: {fileID: 1366932687}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightPlanks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3431,8 +3715,8 @@ GameObject:
   - component: {fileID: 3546355115053000923}
   - component: {fileID: 4246858267426223587}
   - component: {fileID: 6521631104319000355}
-  - component: {fileID: 2144644332}
-  m_Layer: 0
+  - component: {fileID: 686139041}
+  m_Layer: 11
   m_Name: FrontPlanks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3502,8 +3786,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2144644332
-BoxCollider:
+--- !u!64 &686139041
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3512,9 +3796,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.025231304, y: 0.01678758, z: 0.003456497}
-  m_Center: {x: 0.0000000037252903, y: 0, z: 0.00087191345}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2865758979165963893, guid: 4ac61ffd8ccef424f889a9db672a09e7, type: 3}
 --- !u!1 &7939611303666985015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3530,7 +3815,7 @@ GameObject:
   - component: {fileID: 1588786725}
   - component: {fileID: 1588786726}
   - component: {fileID: 1588786730}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monkeyhand (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3700,7 +3985,7 @@ GameObject:
   - component: {fileID: 866561993}
   - component: {fileID: 866561994}
   - component: {fileID: 866561996}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Monkeyhand (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3866,7 +4151,7 @@ GameObject:
   - component: {fileID: 9015413652162413478}
   - component: {fileID: 9015413652162413476}
   - component: {fileID: 9015413652162413477}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Game Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3880,16 +4165,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9015413652162413479}
-  m_LocalRotation: {x: 0.03464319, y: -0.011207489, z: 0.01042193, w: 0.99928254}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00032}
+  m_LocalRotation: {x: 0.00886214, y: -0.011472523, z: 0.010129444, w: 0.99984366}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00013}
   m_LocalScale: {x: 0.00041250227, y: 0.0008306065, z: 0.00041250215}
   m_Children: []
   m_Father: {fileID: 9090077535176607242}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 3.984, y: -1.245, z: 1.152}
+  m_LocalEulerAnglesHint: {x: 1.029, y: -1.304, z: 1.149}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00016000867, y: 0.00073}
+  m_AnchoredPosition: {x: 0.00015, y: 0.00098}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &9015413652162413476
@@ -3953,9 +4238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cost: 10
-
-    Pick up the hammer to play'
+  m_text: 'Cost: 10 get 9 hits to win'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -4039,7 +4322,7 @@ GameObject:
   - component: {fileID: 7457877738888563559}
   - component: {fileID: 1659579716326195805}
   - component: {fileID: 7929281815655339532}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rope (banana)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4276,14 +4559,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1a875e89efe5034db5ebfb24f035a35, type: 3}
---- !u!4 &726497747585870253 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5775314609052371481, guid: c1a875e89efe5034db5ebfb24f035a35, type: 3}
-  m_PrefabInstance: {fileID: 6499542894486676404}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &726497748026378040 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5775314609635402892, guid: c1a875e89efe5034db5ebfb24f035a35, type: 3}
+  m_PrefabInstance: {fileID: 6499542894486676404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &726497747585870253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5775314609052371481, guid: c1a875e89efe5034db5ebfb24f035a35, type: 3}
   m_PrefabInstance: {fileID: 6499542894486676404}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6499542895605023103

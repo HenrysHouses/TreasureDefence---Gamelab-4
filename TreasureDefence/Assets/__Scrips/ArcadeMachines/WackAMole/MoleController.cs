@@ -98,7 +98,7 @@ public class MoleController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(!isHit && collision.collider.CompareTag("Mallet") && collision.collider.GetComponent<Rigidbody>().velocity.magnitude > 1.5)
+        if(!isHit && collision.collider.CompareTag("Mallet") && collision.collider.transform.parent.GetComponent<Rigidbody>().velocity.magnitude > 1.5)
             OnHit(collision);
     }
 
@@ -106,7 +106,7 @@ public class MoleController : MonoBehaviour
     {
         if(_ArcadeMachine.isHoldingMallet)
         {
-            Debug.Log(collision.collider.GetComponent<Rigidbody>().velocity.magnitude);
+            Debug.Log(collision.collider.transform.parent.GetComponent<Rigidbody>().velocity.magnitude);
             GetComponentInParent<WackAMoleController_ArcadeMachine>().hitCount++;
             isHit = true;
             isMovingUp = false;
