@@ -101,19 +101,18 @@ public class WaveController : MonoBehaviour
 	public void endLevel(bool lose = false)
 	{
 		waveIsInProgress = false;
-		CanvasController.instance.CloseCanvas();
 
 		if(lose)
 		{
 			Debug.Log("Player Lost");
 			// stuff here when player looses
-			CanvasController.instance.OpenCanvas(0, 1, 10f);
+			CanvasController.instance.OpenNewCanvas(1);
 			
 			currentWave = getWaveCount();
 		}
 		else
 		{
-			CanvasController.instance.OpenCanvas(0, 0, 10f);
+			CanvasController.instance.OpenNewCanvas(0);
 		}
 
 		foreach (var enemy in enemies)

@@ -9,10 +9,9 @@ public class CanvasController : MonoBehaviour
     public static CanvasController instance;
     
     public bool open;
-    
     public Animator graphicsAnimator;
     public GameObject[] graphics;
-    private int currentGraphicsNumber;
+    [SerializeField] private int currentGraphicsNumber;
 
     // 0, 1, 2 / front, mid, back
     //public Animator[] canvasAnimators;  // Have only one canvas?
@@ -31,9 +30,9 @@ public class CanvasController : MonoBehaviour
         }
     }
 
-    public void OpenNewCanvas(int graphic = -1, float timeToClose = -1)
+    public void OpenNewCanvas(int graphic = -1)
     {
-        StartCoroutine(OpenCanvasHelper(0, graphic, timeToClose));
+        StartCoroutine(OpenCanvasHelper(0, graphic, 1));
     }
 
     public IEnumerator OpenCanvasHelper(int canvas = -1, int graphic = -1, float timeToClose = -1)
@@ -42,6 +41,7 @@ public class CanvasController : MonoBehaviour
             CloseCanvas();
         if(timeToClose > 0)
             yield return new WaitForSeconds(timeToClose);
+        
         OpenCanvas(canvas, graphic, timeToClose);
     }
 

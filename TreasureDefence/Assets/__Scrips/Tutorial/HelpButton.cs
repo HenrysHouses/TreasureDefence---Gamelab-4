@@ -10,7 +10,8 @@ public class HelpButton : MonoBehaviour
 
     public void nextTutorial()
     {
-        tut.setTutorialText("Grab me " + tutorialScreen + "/5");
+        if(tut)
+            tut.setTutorialText("Grab me " + tutorialScreen + "/5");
 
         if(tutorialScreen+1 > 5)
         {
@@ -24,6 +25,6 @@ public class HelpButton : MonoBehaviour
             tutorialScreen = Mathf.Clamp(tutorialScreen+1, 2, 5);
         }
 
-        canvasController.OpenNewCanvas(tutorialScreen, 1);
+        canvasController.OpenNewCanvas(tutorialScreen);
     }
 }
