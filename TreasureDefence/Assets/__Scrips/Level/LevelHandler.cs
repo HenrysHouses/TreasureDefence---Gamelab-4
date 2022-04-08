@@ -25,6 +25,8 @@ public class LevelHandler : MonoBehaviour
 	bool cloudsSpawned = false;
 	[SerializeField] Transform enemyHolder;
 
+	public ParticleSystem birdParticle;
+
 	void Awake()
 	{
 		if(!GameObject.FindObjectOfType<waveTrigger_Interactable>())
@@ -57,6 +59,7 @@ public class LevelHandler : MonoBehaviour
 					if (cloudsSpawned == false) 
 					{ 
 						cloudParticle.Play();
+						birdParticle.Play();
 						cloudsSpawned = true;
 					}
 				}
@@ -79,6 +82,7 @@ public class LevelHandler : MonoBehaviour
 					Destroy(currentLevel.gameObject);
 					currentLevel = null;									
 					cloudParticle.Stop();
+					birdParticle.Stop();
 					cloudsSpawned = false;
 				}
 			}
