@@ -15,6 +15,8 @@ public class Tower_Interactable : TD_Interactable
 	TowerBehaviour towerBehaviour;
 	Color Color1, Color2;
 	bool invalidPlacement;
+	//River mode is just going to comparetag with River and if it finds river its gonna set it as valid placement.
+	public bool RiverMode;
 	[SerializeField] MeshRenderer RangeHighlight;
 
 	new void Start()
@@ -71,6 +73,12 @@ public class Tower_Interactable : TD_Interactable
 			rot = new Vector3(0, rot.y, 0);
 			transform.eulerAngles = rot;
 		}
+
+		if(RiverMode == false)
+        {
+			
+		}
+		
 	}
 	
 	private void FixedUpdate()
@@ -86,19 +94,40 @@ public class Tower_Interactable : TD_Interactable
 			Debug.DrawRay(detectionRaycastPos.position, Vector3.down, Color.red);
 			
 			if (Physics.Raycast(detectionRaycastPos.position, Vector3.down, out hit, 2f))
-			{				
-				if(!hit.collider.CompareTag("ValidPlacement"))
-				{
-					RangeHighlight.material.SetColor("_Color", Color.red);
-					RangeHighlight.material.SetColor("_Color2", Color.red);
-					invalidPlacement = true;
+			{
+				if (!RiverMode)
+                {
+
+					if (!hit.collider.CompareTag("ValidPlacement"))
+					{
+						RangeHighlight.material.SetColor("_Color", Color.red);
+						RangeHighlight.material.SetColor("_Color2", Color.red);
+						invalidPlacement = true;
+					}
+					else
+					{
+						RangeHighlight.material.SetColor("_Color", Color1);
+						RangeHighlight.material.SetColor("_Color2", Color2);
+						invalidPlacement = false;
+					}
+
 				}
 				else
-				{
-					RangeHighlight.material.SetColor("_Color", Color1);
-					RangeHighlight.material.SetColor("_Color2", Color2);
-					invalidPlacement = false;
-				}
+                {
+					 if (!hit.collider.CompareTag("River"))
+					{
+						RangeHighlight.material.SetColor("_Color", Color.red);
+						RangeHighlight.material.SetColor("_Color2", Color.red);
+						invalidPlacement = true;
+					}
+					else
+					{
+						RangeHighlight.material.SetColor("_Color", Color1);
+						RangeHighlight.material.SetColor("_Color2", Color2);
+						invalidPlacement = false;
+					}
+                }
+				
 
 
 				if(obj)
