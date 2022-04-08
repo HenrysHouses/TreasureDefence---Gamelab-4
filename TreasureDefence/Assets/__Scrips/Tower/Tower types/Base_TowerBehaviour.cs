@@ -18,15 +18,18 @@ public class Base_TowerBehaviour : TowerBehaviour
 		GameManager.instance.AddTowerToList(gameObject);
 	}
 
-	override public void Attack(int damage, EnemyBehaviour[] targets)
+	override public bool Attack(int damage, EnemyBehaviour[] targets)
 	{
+		bool attacked = false;
 		if (targets != null)
 		{
 			_AudioSource.Play();
 			Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
 			attackData newProjectile = getCurrentAttackData(_projectile, targets);
 			projectile.Add(newProjectile);
+			attacked = true;
 		}
+		return attacked;
 	}
 	
 	override public void projectileUpdate()

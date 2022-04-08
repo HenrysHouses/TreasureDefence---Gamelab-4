@@ -3,6 +3,7 @@
  * Henrik - Used old code written by Rune
 */
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 // using TMPro;
@@ -21,8 +22,10 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	bool isAttacking;
 	/// <summary>should always be minimun length of attack anim ! This may be changed to automatic anim length</summary>
 	MeshRenderer mr;
-	
 	float progress;
+	public float speedMod = 1;
+	public List<EnemyDebuff> Debuffs = new List<EnemyDebuff>();
+	public string[] _CurrentDebuffs;
 	
 	// private float health;
 	// private float armor;
@@ -41,9 +44,30 @@ abstract public class EnemyBehaviour : MonoBehaviour
 
 	void Update()
 	{
+		// temp
+		_CurrentDebuffs = new string[Debuffs.Count];
+		for (int i = 0; i < Debuffs.Count; i++)
+		{
+			_CurrentDebuffs[i] = Debuffs[i].GetType().ToString();
+		}
 
+		// Handling debuffs
+		List<EnemyDebuff> expiredDebuffs = new List<EnemyDebuff>();
+		foreach(EnemyDebuff effect in Debuffs)
+		{
+			if(!effect.Update(this))
+			{
+				expiredDebuffs.Add(effect);
+			}
+		}
+		foreach (EnemyDebuff remove in expiredDebuffs)
+		{
+			Debuffs.Remove(remove);
+		}
+
+		// handling enemy behaviour
 		EnemyUpdate();
-		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed, 0, 1);
+		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed * speedMod, 0, 1);
 		
 		op = path.GetEvenPathOP(progress);
 
@@ -99,6 +123,10 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		// Debug.LogWarning("adding money is currently disabled");
 
 		DeathRattle();
+		foreach (var effect in Debuffs)
+		{
+			effect.ExpirationTrigger();
+		}
 		Destroy(gameObject);    // Let's improve this at some point
 	}
 	

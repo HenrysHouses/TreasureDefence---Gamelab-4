@@ -12,8 +12,9 @@ public class Tower_BombThrower : TowerBehaviour
 		GameManager.instance.AddTowerToList(gameObject);
 	}
 	
-    override public void Attack(int damage, EnemyBehaviour[] targets)
+    override public bool Attack(int damage, EnemyBehaviour[] targets)
     {
+		bool attacked = false;
 		if (targets != null)
 		{
 			for( int i = 0; i < maxTargets; i++)
@@ -32,10 +33,13 @@ public class Tower_BombThrower : TowerBehaviour
 					currentTargets[j] = targets[j+i];
 				}
 
-
-				Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
-				attackData newProjectile = getCurrentAttackData(_projectile, currentTargets);
-				projectile.Add(newProjectile);
+				if(currentTargets.Length > 0)
+				{
+					Transform _projectile = Instantiate(projectilePrefab, projectileSpawnPos.position, Quaternion.identity).transform;
+					attackData newProjectile = getCurrentAttackData(_projectile, currentTargets);
+					projectile.Add(newProjectile);
+					attacked = true;
+				}
 
 				// if(targets.Length > 1)
 				// {
@@ -57,6 +61,7 @@ public class Tower_BombThrower : TowerBehaviour
 				// }
 			}
 		}
+		return attacked;
 	}
 
 	override public void projectileUpdate()
