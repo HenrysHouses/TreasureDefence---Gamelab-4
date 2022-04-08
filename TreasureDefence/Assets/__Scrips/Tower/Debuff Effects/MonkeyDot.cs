@@ -30,6 +30,5 @@ public class MonkeyDot : EnemyDebuff
     public override void ExpirationTrigger()
     {
         GameObject.Destroy(monkeyObject.gameObject);
-        Debug.Log("destroyed");
     }
 }
