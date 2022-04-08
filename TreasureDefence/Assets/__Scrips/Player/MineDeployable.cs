@@ -23,8 +23,9 @@ public class MineDeployable : TowerBehaviour
 		GameManager.instance.AddTowerToList(gameObject);
 	}
 
-	override public void Attack(int damage, EnemyBehaviour[] targets)
+	override public bool Attack(int damage, EnemyBehaviour[] targets)
 	{
+		bool attacked = false;
 		if (targets != null)
 		{
 			
@@ -40,8 +41,10 @@ public class MineDeployable : TowerBehaviour
 				_projectile.position = projectileSpawnPos.position; 
 				attackData newProjectile = getCurrentAttackData(_projectile, targets);
 				projectile.Add(newProjectile);
+				attacked = true;
 			}
 		}
+		return attacked;
 	}
 
 	override public void projectileUpdate()
