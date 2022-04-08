@@ -285,6 +285,7 @@ MonoBehaviour:
   held: 0
   detectionRaycastPos: {fileID: 1094629402177194592}
   obj: {fileID: 8510007774984156215}
+  RiverMode: 1
   RangeHighlight: {fileID: 826911468104571194}
 --- !u!1 &1094629402079882998
 GameObject:
@@ -501,13 +502,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1094629401712340871}
     m_Modifications:
+    - target: {fileID: 308813495832321733, guid: 52908120461f6ac42a5259702c40053e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 308813495832321738, guid: 52908120461f6ac42a5259702c40053e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.55
       objectReference: {fileID: 0}
     - target: {fileID: 308813497512052512, guid: 52908120461f6ac42a5259702c40053e, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8730642803838855725, guid: 52908120461f6ac42a5259702c40053e, type: 3}
       propertyPath: m_Name

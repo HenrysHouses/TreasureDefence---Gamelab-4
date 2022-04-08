@@ -11,7 +11,8 @@ public class MineDeployable : TowerBehaviour
     public override void Update()
     {
         base.Update();
-		canShoot = true;
+		//canShoot = true;
+		
 	
     }
 
