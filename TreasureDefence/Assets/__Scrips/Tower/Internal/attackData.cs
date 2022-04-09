@@ -25,8 +25,8 @@ public class attackData
             {
                 if(CurrentTarget != priority)
                     // Debug.Log("New target: " + priority.name);
-
                 CurrentTarget = priority;
+
                 if (curve)
                 {
                     t = t + Time.deltaTime * projectileSpeed;

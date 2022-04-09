@@ -53,18 +53,21 @@ abstract public class TowerBehaviour : MonoBehaviour
 			{
 				if(Cooldown < 0 && enemyTarget.Length > 0)
 				{
-					Attack(attackDamage, enemyTarget);
-					Cooldown = attackCooldown;
+					if(Attack(attackDamage, enemyTarget))
+					{
+						Cooldown = attackCooldown;
+					}
 				}
 			}
 		}
 		projectileUpdate();
+
 	}
 	
 	/// <summary>Start an attack targeting an enemy with a projectile damage</summary>
 	/// <param name="damage">The total damage of the projectile fired</param>
 	/// <param name="targets">Enemy targeted by this projectile</param>
-	abstract public void Attack(int damage, EnemyBehaviour[] targets);
+	abstract public bool Attack(int damage, EnemyBehaviour[] targets);
 	
 	/// <summary>Called at the end of the Tower Update</summary>
 	abstract public void projectileUpdate();
@@ -176,5 +179,12 @@ abstract public class TowerBehaviour : MonoBehaviour
 		{
 			Destroy(attack.gameObject);
 		}
+	}
+
+	public void addDebuff(EnemyBehaviour target, EnemyDebuff debuff, float duration)
+	{
+		debuff.Duration = duration;
+		debuff.Start();
+		target.Debuffs.Add(debuff);
 	}
 }

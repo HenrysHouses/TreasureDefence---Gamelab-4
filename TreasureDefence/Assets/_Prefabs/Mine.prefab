@@ -285,6 +285,7 @@ MonoBehaviour:
   held: 0
   detectionRaycastPos: {fileID: 1094629402177194592}
   obj: {fileID: 8510007774984156215}
+  RiverMode: 1
   RangeHighlight: {fileID: 826911468104571194}
 --- !u!1 &1094629402079882998
 GameObject:
@@ -373,7 +374,7 @@ Transform:
   m_GameObject: {fileID: 4818415566220197454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1720275, y: 1.1720275, z: 1.1720275}
+  m_LocalScale: {x: 0.55358386, y: 0.55358386, z: 0.55358386}
   m_Children: []
   m_Father: {fileID: 1094629401712340871}
   m_RootOrder: 4
@@ -385,7 +386,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4818415566220197454}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 5303924766244107461, guid: 38848ca07a97e13489e8e259839ca3b9, type: 3}
 --- !u!23 &8721741137675331693
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -501,13 +502,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1094629401712340871}
     m_Modifications:
+    - target: {fileID: 308813495832321733, guid: 52908120461f6ac42a5259702c40053e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 308813495832321738, guid: 52908120461f6ac42a5259702c40053e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.55
       objectReference: {fileID: 0}
     - target: {fileID: 308813497512052512, guid: 52908120461f6ac42a5259702c40053e, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8730642803838855725, guid: 52908120461f6ac42a5259702c40053e, type: 3}
       propertyPath: m_Name

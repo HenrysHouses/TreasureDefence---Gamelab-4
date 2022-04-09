@@ -13,7 +13,10 @@ public class TowerInfo : ScriptableObject
 	void OnValidate()
 	{
 		if(this.item)
+		{
 			this.TargetingType = this.item.GetComponent<TowerBehaviour>().targetType;
+			this.Damage = this.item.GetComponent<TowerBehaviour>().attackDamage.ToString();
+		}
 	}
 
 }
