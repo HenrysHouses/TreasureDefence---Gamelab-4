@@ -1483,8 +1483,8 @@ MonoBehaviour:
   m_ActivateUsage: 2
   m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
-  m_RotateAnchorLeft: 0
-  m_RotateAnchorRight: 0
+  m_RotateAnchorLeft: 16
+  m_RotateAnchorRight: 17
   m_MoveObjectIn: 14
   m_MoveObjectOut: 15
   m_PoseProvider: {fileID: 0}
@@ -1987,7 +1987,6 @@ GameObject:
   - component: {fileID: 7721011056117593433}
   - component: {fileID: 7721011056117593435}
   - component: {fileID: -8620765719431195188}
-  - component: {fileID: 266075827}
   m_Layer: 3
   m_Name: VR Camera
   m_TagString: Untagged
@@ -2071,20 +2070,6 @@ MonoBehaviour:
   m_UpdateType: 0
   m_UseRelativeTransform: 0
 --- !u!114 &-8620765719431195188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721011056117593413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
-  ListenerNumber: -1
---- !u!114 &266075827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -10,8 +10,8 @@ using FMODUnity;
 public class LevelHandler : MonoBehaviour
 {
 	[SerializeField] GameObject explotionParticle;
-	[SerializeField] GameObject FlagPrefab, CupPrefab;
-	[SerializeField] Transform FlagSpawn, CupSpawn;
+	[SerializeField] GameObject FlagPrefab;
+	[SerializeField] Transform FlagSpawn;
 
 	[SerializeField] StudioEventEmitter _MapErectingSFX;
 	[SerializeField] StudioEventEmitter _EjectBoardSFX;
@@ -29,8 +29,6 @@ public class LevelHandler : MonoBehaviour
 
 	void Awake()
 	{
-		if(!GameObject.FindObjectOfType<waveTrigger_Interactable>())
-			Instantiate(CupPrefab, CupSpawn.position, CupSpawn.rotation, CupSpawn);	
 		if(!GameObject.FindObjectOfType<FlagPole_Interactable>()) 
 			Instantiate(FlagPrefab, FlagSpawn.position, FlagSpawn.rotation, FlagSpawn);	
 	}

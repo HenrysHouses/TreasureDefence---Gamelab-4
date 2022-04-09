@@ -132,7 +132,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355282764927760
 Transform:
@@ -167,7 +167,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355282809025924
 Transform:
@@ -542,6 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionButton: 323
   canBeHeld: 0
+  canBeMoved: 0
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
@@ -749,7 +750,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355283195334972
 Transform:
@@ -828,7 +829,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355283264682541
 Transform:
@@ -839,7 +840,7 @@ Transform:
   m_GameObject: {fileID: 2101355283264682546}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -5.498, y: -0.83299994, z: 2.8}
-  m_LocalScale: {x: 0.62564665, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2101355284341528394}
   - {fileID: 2101355284474270794}
@@ -864,7 +865,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355283516910857
 Transform:
@@ -956,8 +957,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101355283569391267}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.275, y: 0.019, z: -0.09300045}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.404, y: 0.019, z: -0.09300045}
+  m_LocalScale: {x: 1, y: 1, z: 0.6055941}
   m_Children:
   - {fileID: 2101355283570490563}
   - {fileID: 2101355283120082953}
@@ -1064,6 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionButton: 323
   canBeHeld: 0
+  canBeMoved: 0
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
@@ -1271,7 +1273,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355283647964534
 Transform:
@@ -1524,7 +1526,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 0
 --- !u!4 &2101355283794226329
 Transform:
@@ -1781,7 +1783,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 0
 --- !u!4 &2101355283994862139
 Transform:
@@ -1960,7 +1962,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 0
 --- !u!4 &2101355284084502500
 Transform:
@@ -2041,7 +2043,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 0
 --- !u!4 &2101355284160282348
 Transform:
@@ -2208,7 +2210,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355284239433505
 Transform:
@@ -2218,8 +2220,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101355284239433510}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -0.048, z: -0.0000004470348}
-  m_LocalScale: {x: 1, y: 0.9445575, z: 1}
+  m_LocalPosition: {x: 1.547, y: -0.048, z: -0.0000004470348}
+  m_LocalScale: {x: 0.6256467, y: 0.9445575, z: 1}
   m_Children:
   - {fileID: 2101355282764927760}
   - {fileID: 2101355283516910857}
@@ -2476,7 +2478,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355284340097601
 Transform:
@@ -2510,7 +2512,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355284341528394
 Transform:
@@ -2520,8 +2522,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101355284341528395}
   m_LocalRotation: {x: -0.0022835997, y: 0.13242865, z: 0.017089475, w: 0.9910426}
-  m_LocalPosition: {x: 2.188, y: 1.606, z: -0.224}
-  m_LocalScale: {x: 1.2965022, y: 0.9464942, z: 0.5615909}
+  m_LocalPosition: {x: 1.12, y: 1.585, z: 0.055}
+  m_LocalScale: {x: 0.54303116, y: 0.48145822, z: 0.2856674}
   m_Children: []
   m_Father: {fileID: 2101355283264682541}
   m_RootOrder: 0
@@ -2590,7 +2592,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355284347150925
 Transform:
@@ -2623,7 +2625,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355284374928463
 Transform:
@@ -2715,7 +2717,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &2101355284401758582
 Transform:
@@ -2833,6 +2835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionButton: 323
   canBeHeld: 0
+  canBeMoved: 0
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
@@ -3221,8 +3224,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101355284474270795}
   m_LocalRotation: {x: 0.0056508514, y: 0.13569558, z: 0.05367956, w: 0.9892792}
-  m_LocalPosition: {x: 0, y: 0, z: -0.235}
-  m_LocalScale: {x: 0.6867177, y: 0.58026326, z: 0.41527075}
+  m_LocalPosition: {x: 0, y: 0, z: 0.044}
+  m_LocalScale: {x: 0.28762704, y: 0.29516557, z: 0.21123797}
   m_Children:
   - {fileID: 2101355283878980174}
   m_Father: {fileID: 2101355283264682541}
@@ -3230,7 +3233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -0.194, y: 15.61, z: 6.185}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.193, y: 1.614}
+  m_AnchoredPosition: {x: 1.125, y: 1.593}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &2101355284474270790
@@ -3603,6 +3606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TD_Model_IcoSphere_LowestPoly (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
 --- !u!4 &1919441648539046851 stripped
@@ -3680,6 +3687,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
       propertyPath: m_Name
       value: TD_Model_IcoSphere_LowestPoly (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
@@ -3759,6 +3770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TD_Model_IcoSphere_LowestPoly
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
 --- !u!4 &1919441648407183681 stripped
@@ -3836,6 +3851,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
       propertyPath: m_Name
       value: TD_Model_IcoSphere_LowestPoly (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92dc581b0e6372b40844a2898ed25e9b, type: 3}
