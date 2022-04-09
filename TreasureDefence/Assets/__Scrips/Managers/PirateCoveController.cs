@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class PirateCoveController : MonoBehaviour
 {
-
     private int experience;
     
-    /*
-     ____________________________________________________________________
-    |                                                                   |
-    |    Wall            Decides pirate cove HP                         |
-    |    Chest           Increase money gained from enemies             |
-    |    Tavern          Increase tower damage                          |
-    |    Shooting Range  Increase tower range                           |
-    |    Barracks        Increase tower attack speed                    |
-    |    Guard Tower     Spot for permanent tower that can be upgraded  |  
-    |___________________________________________________________________| 
+    /*                                                                      Descriptions
+     ________________________________________________________________________________________________________________________________ 
+    |                                                                                                                               |
+    |    Wall            Decides pirate cove HP                            Stronger walls will give us an advantage over the brits. |
+    |    Chest           Increase money gained from enemies                Bigger chest, bigger coins! Harrharr                     |
+    |    Tavern          Increase tower range                              Grog is pirate focus-juice!                              |
+    |    Blacksmith      Increase tower damage                             Weapons created for maximum destruction and power.       |
+    |    Barracks        Increase tower attack speed                       A rested pirate is a quick pirate!                       |
+    |    Guard Tower     Spot for permanent tower that can be upgraded     A custom tower specialized for ship destruction          |
+    |_______________________________________________________________________________________________________________________________| 
 
     General Upgrade Effects
     Level 0 : 100%
