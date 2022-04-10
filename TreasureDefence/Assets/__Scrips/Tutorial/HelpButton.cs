@@ -11,7 +11,7 @@ public class HelpButton : MonoBehaviour
     public void nextTutorial()
     {
         if(tut)
-            tut.setTutorialText("Grab me " + tutorialScreen + "/5");
+            tut.setTutorialText("Press me " + tutorialScreen + "/5");
 
         if(tutorialScreen+1 > 5)
         {

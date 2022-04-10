@@ -65,13 +65,13 @@ public class AngularPhysicsButtonController : MonoBehaviour
     {
         _isPressed = true;
         OnPressed?.Invoke();
-        Debug.Log("pressed");
+        // Debug.Log("pressed");
     }
 
     void Released()
     {
         _isPressed = false;
         OnReleased?.Invoke();
-        Debug.Log("released");
+        // Debug.Log("released");
     }
 }
