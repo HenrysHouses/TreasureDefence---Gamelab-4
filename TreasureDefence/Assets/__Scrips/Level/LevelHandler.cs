@@ -74,7 +74,7 @@ public class LevelHandler : MonoBehaviour
 					
 					particle.transform.GetChild(0).localScale *= 15;
 					particle.transform.GetChild(1).localScale *= 15;
-					GameManager.instance.RemoveActiveTowers();
+					// GameManager.instance.RemoveActiveTowers();
 
 					GameManager.instance.setLights(true);
 					Destroy(currentLevel.gameObject);

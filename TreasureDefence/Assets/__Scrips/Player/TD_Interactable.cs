@@ -21,7 +21,7 @@ abstract public class TD_Interactable : MonoBehaviour
 	bool lookShouldStay;
 	public object lookData;
 	[HideInInspector] public bool held;
-	Rigidbody rb;
+	[HideInInspector] public Rigidbody rb;
 	private Transform originalParent;
 
 	Collider _thisCollider;

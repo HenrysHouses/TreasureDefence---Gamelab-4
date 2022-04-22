@@ -52,6 +52,7 @@ MonoBehaviour:
   path: {fileID: 0}
   enemyInfo: {fileID: 11400000, guid: af4b1d2d32099234d9aa1007c89fbbb5, type: 2}
   speedMod: 1
+  _CurrentDebuffs: []
 --- !u!114 &1555303400530459806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +429,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fa7583f4941f3ec4695e3315f9ab341c, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6400008, guid: 2bf2215389819b342a877f12b9473126, type: 3}
+    - {fileID: 6400010, guid: 2bf2215389819b342a877f12b9473126, type: 3}
+    - {fileID: 6400012, guid: 2bf2215389819b342a877f12b9473126, type: 3}
+    - {fileID: 6400006, guid: 2bf2215389819b342a877f12b9473126, type: 3}
+    - {fileID: 6400004, guid: 2bf2215389819b342a877f12b9473126, type: 3}
+    - {fileID: 6400002, guid: 2bf2215389819b342a877f12b9473126, type: 3}
+    - {fileID: 6400000, guid: 2bf2215389819b342a877f12b9473126, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2bf2215389819b342a877f12b9473126, type: 3}
 --- !u!4 &3929955108486173712 stripped
 Transform:

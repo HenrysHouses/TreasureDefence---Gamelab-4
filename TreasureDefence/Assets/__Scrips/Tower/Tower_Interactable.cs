@@ -11,6 +11,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Tower_Interactable : TD_Interactable
 {
 	[SerializeField] Transform detectionRaycastPos;
+	[SerializeField] GameObject InvalidPlacementMarker;
 	public GameObject obj;
 	TowerBehaviour towerBehaviour;
 	Color Color1, Color2;
@@ -25,6 +26,8 @@ public class Tower_Interactable : TD_Interactable
 		Color1 = RangeHighlight.material.GetColor("_Color");
 		Color2 = RangeHighlight.material.GetColor("_Color2");
 		towerBehaviour = GetComponent<TowerBehaviour>();
+		rb = GetComponent<Rigidbody>();
+		InvalidPlacementMarker.SetActive(false);
 	}
 	
 	override public void InteractionStartTrigger(object target = null)
@@ -72,6 +75,10 @@ public class Tower_Interactable : TD_Interactable
 			Vector3 rot = transform.eulerAngles;
 			rot = new Vector3(0, rot.y, 0);
 			transform.eulerAngles = rot;
+			rb.constraints = RigidbodyConstraints.FreezeRotation;
+			
+			if(InvalidPlacementMarker.activeSelf)
+				InvalidPlacementMarker.SetActive(false);
 		}
 
 		if(RiverMode == false)
@@ -143,6 +150,32 @@ public class Tower_Interactable : TD_Interactable
 			{
 				obj.SetActive(false);
 			}
+		}
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.CompareTag("River") && !invalidPlacement && RiverMode)
+		{
+			rb.constraints = RigidbodyConstraints.FreezeAll;
+		}
+		
+		if(other.CompareTag("River") && !RiverMode)
+		{
+			InvalidPlacementMarker.SetActive(true);
+		}
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		if(collision.collider.CompareTag("ValidPlacement") && !invalidPlacement && !RiverMode)
+		{
+			rb.constraints = RigidbodyConstraints.FreezeAll;
+		}
+
+		if(collision.collider.CompareTag("ValidPlacement") && RiverMode)
+		{
+			InvalidPlacementMarker.SetActive(true);
 		}
 	}
 }
