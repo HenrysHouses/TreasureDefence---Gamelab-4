@@ -9,7 +9,7 @@ public class Tower_BombThrower : TowerBehaviour
 	new private void Start()
 	{
 		base.Start();
-		GameManager.instance.AddTowerToList(gameObject);
+		// GameManager.instance.AddTowerToList(gameObject);
 	}
 	
     override public bool Attack(int damage, EnemyBehaviour[] targets)

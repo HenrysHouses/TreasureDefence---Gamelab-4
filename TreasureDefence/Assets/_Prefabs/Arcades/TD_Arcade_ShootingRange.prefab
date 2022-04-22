@@ -5425,6 +5425,7 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  rb: {fileID: 0}
   bulletPrefab: {fileID: 7269488829324584820, guid: fd8ed96b922d5544884167278326496e, type: 3}
   barrelTransform: {fileID: 5443909815796852595}
   shootingrange: {fileID: 5443909815177324730}
@@ -5915,6 +5916,7 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  rb: {fileID: 0}
   arcade: {fileID: 5443909815177324730}
 --- !u!54 &5443909815300076633
 Rigidbody:
@@ -6172,7 +6174,7 @@ MonoBehaviour:
       Data2: 1215458131
       Data3: -1149328497
       Data4: -250449894
-    Path: event:/BottleHit
+    Path: event:/SFX/ShootingRange/BottleHit
   Event: 
   PlayEvent: 0
   StopEvent: 0

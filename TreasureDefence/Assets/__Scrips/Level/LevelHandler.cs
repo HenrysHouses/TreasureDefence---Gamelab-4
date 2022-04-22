@@ -17,7 +17,7 @@ public class LevelHandler : MonoBehaviour
 	[SerializeField] StudioEventEmitter _EjectBoardSFX;
 
 	Transform currentLevel;
-	public bool LevelEnding, LevelStarting;
+	public bool LevelEnding, LevelStarting, LevelStartHasBegun;
 	public bool LevelIsReady => !LevelEnding && !LevelStarting; 
 	[SerializeField] float _offsetValue = 0.613f, riseSpeed = 0.05f;
 
@@ -40,12 +40,18 @@ public class LevelHandler : MonoBehaviour
 		{
 			if(LevelStarting)
 			{
+				if(!LevelStartHasBegun)
+				{
+					LevelStartHasBegun = true;
+					Debug.Log(LevelStartHasBegun);
+					GameManager.instance.StoreCurrentTowers();
+					CurrencyManager.instance.StoreCurrentMoney();
+				}
+
 				//PlaySound
 				if(!FmodExtensions.IsPlaying(_MapErectingSFX.EventInstance))
                 {
 					_MapErectingSFX.Play();
-					GameManager.instance.StoreCurrentTowers();
-					CurrencyManager.instance.StoreCurrentMoney();
                 }
 
 				Vector3 pos = currentLevel.localPosition;
@@ -66,6 +72,7 @@ public class LevelHandler : MonoBehaviour
 			}
 			if(LevelEnding)
 			{
+				LevelStartHasBegun = false;
 				Vector3 pos = currentLevel.localPosition;
 				pos.y += Time.deltaTime * riseSpeed * 9;
 				currentLevel.localPosition = pos;

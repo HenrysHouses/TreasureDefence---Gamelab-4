@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 	
 	[Header("Lighting Controls")]
 	public LightController[] RealtimeLights;
+
 	public void setLights(bool state)
 	{
 		foreach (var light in RealtimeLights)	
@@ -49,7 +50,19 @@ public class GameManager : MonoBehaviour
 
 	public void StoreCurrentTowers()
 	{
-		TowersAtLevelStart = towers;
+		foreach(GameObject tower in towers)
+		{
+			TowersAtLevelStart.Add(tower);
+		}
+
+		for (int i = 0; i < TowersAtLevelStart.Count; i++)
+		{
+			if(TowersAtLevelStart[i] == null)
+			{
+				TowersAtLevelStart.RemoveAt(i);
+			}
+		}
+		Debug.Log("stored");
 	}
 
 	public void restorePreLevelTowers()
@@ -58,10 +71,12 @@ public class GameManager : MonoBehaviour
 		{
 			if(!TowersAtLevelStart.Contains(invalid))
 			{
+				towers.Remove(invalid);
 				Destroy(invalid);
 			}
 			else
 			{
+				// invalid.transform.position = repositionSpawnPoint.position;
 				// reset positions of valid towers.
 			}
 		}

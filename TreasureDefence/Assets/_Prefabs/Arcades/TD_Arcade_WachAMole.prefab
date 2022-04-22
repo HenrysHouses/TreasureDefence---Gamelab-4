@@ -439,6 +439,7 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  rb: {fileID: 0}
   arcade: {fileID: 9075670316895454363}
 --- !u!114 &725267288
 MonoBehaviour:
@@ -1594,7 +1595,7 @@ MonoBehaviour:
       Data2: 1292767919
       Data3: 762433171
       Data4: 1612408541
-    Path: event:/MonkeyHit
+    Path: event:/SFX/Whack-a-monke/MonkeyHit
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -2991,7 +2992,10 @@ MonoBehaviour:
   isPlaying: 0
   hasReset: 0
   _PayingforMinigamesSFX: {fileID: 1637254255}
+  winSFX: {fileID: 0}
+  loseSFX: {fileID: 0}
   _RemainingText: {fileID: 7555430454846420592}
+  _StartText: 
   confetti:
   - {fileID: 9096862580583487510}
   - {fileID: 4259200404113940507}

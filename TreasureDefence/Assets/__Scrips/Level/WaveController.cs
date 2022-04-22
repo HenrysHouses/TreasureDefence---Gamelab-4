@@ -41,7 +41,6 @@ public class WaveController : MonoBehaviour
 		EnemyParent = GameObject.FindGameObjectWithTag("EnemyHolder").transform;
 		GameManager.instance.pathController = LevelData.GetPathController();
 		health = (int)(LevelData.lives * GameManager.instance.healthMultiplier);
-		Debug.Log(LevelData.lives + " * " + GameManager.instance.healthMultiplier);
 		if(flagPole)
 		{
 			flagPole.calculateFlagPositions(LevelData.waves.Length);
