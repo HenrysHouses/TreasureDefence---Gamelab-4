@@ -12,7 +12,7 @@ public class WaveController : MonoBehaviour
 	[SerializeField] StudioEventEmitter _WaveStart, _WaveComplete;
 	[SerializeField] public GameObject EjectParticles;
 	// Level variables
-	private int health;
+	[SerializeField] private int health;
 	public int currentHealth => health;
 	public LevelWaveSequence LevelData;
 	LevelHandler levelHandler;
@@ -41,6 +41,7 @@ public class WaveController : MonoBehaviour
 		EnemyParent = GameObject.FindGameObjectWithTag("EnemyHolder").transform;
 		GameManager.instance.pathController = LevelData.GetPathController();
 		health = (int)(LevelData.lives * GameManager.instance.healthMultiplier);
+		Debug.Log(LevelData.lives + " * " + GameManager.instance.healthMultiplier);
 		if(flagPole)
 		{
 			flagPole.calculateFlagPositions(LevelData.waves.Length);
@@ -51,10 +52,10 @@ public class WaveController : MonoBehaviour
 	// Update is called once per frame
 	void  Update()
 	{
-		if(levelComplete && !levelIsEnding)
+		if(levelComplete && !levelIsEnding) // win condition
 			endLevel();
 
-		if(health <= 0 && !levelIsEnding) // loose condition
+		if(health <= 0 && !levelIsEnding && !levelComplete) // loose condition
 			endLevel(true);
 			
 		if(waveIsInProgress)
@@ -107,12 +108,17 @@ public class WaveController : MonoBehaviour
 			Debug.Log("Player Lost");
 			// stuff here when player looses
 			CanvasController.instance.OpenNewCanvas(1);
+
+			GameManager.instance.restorePreLevelTowers();
+			CurrencyManager.instance.restorePreLevelMoney();
 			
 			currentWave = getWaveCount();
 		}
 		else
 		{
+			Debug.Log("Player won");
 			CanvasController.instance.OpenNewCanvas(0);
+
 		}
 
 		foreach (var enemy in enemies)

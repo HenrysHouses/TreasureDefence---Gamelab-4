@@ -44,6 +44,8 @@ public class LevelHandler : MonoBehaviour
 				if(!FmodExtensions.IsPlaying(_MapErectingSFX.EventInstance))
                 {
 					_MapErectingSFX.Play();
+					GameManager.instance.StoreCurrentTowers();
+					CurrencyManager.instance.StoreCurrentMoney();
                 }
 
 				Vector3 pos = currentLevel.localPosition;
@@ -131,12 +133,15 @@ public class LevelHandler : MonoBehaviour
 			// Debug.Log(currentLevel.GetComponent<WaveController>());
 			currentLevel.GetComponent<WaveController>().EjectParticles.SetActive(true);
 			LevelEnding = true;
-			CurrencyManager.instance.SetMoney(0);
+			// CurrencyManager.instance.SetMoney(0);
 			// for (int i = 0; i < enemyHolder.childCount; i++)
 			// {
 			// 	Destroy(enemyHolder.GetChild(i).gameObject);
 			// }
-			currentLevel.GetComponent<WaveController>().endLevel(true);
+			
+			WaveController waveController = currentLevel.GetComponent<WaveController>(); 
+			if(!waveController.levelWon)
+				waveController.endLevel(true);
 		}
 	}
 

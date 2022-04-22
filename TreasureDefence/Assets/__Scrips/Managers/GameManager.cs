@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 	[Header("Level Specifics")]
 	public PathController pathController;
 	[SerializeField] private List<GameObject> towers = new List<GameObject>();
+	[SerializeField] private List<GameObject> TowersAtLevelStart = new List<GameObject>();
 	private int playerHealth;
 	
 	[Header("Lighting Controls")]
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 	public float damageMultiplier = 1f;
 	public float attSpeedMultiplier = 1f;
 	
+
 	// debugging update
 	void Update()
 	{
@@ -44,6 +46,26 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+
+	public void StoreCurrentTowers()
+	{
+		TowersAtLevelStart = towers;
+	}
+
+	public void restorePreLevelTowers()
+	{
+		foreach(GameObject invalid in towers)
+		{
+			if(!TowersAtLevelStart.Contains(invalid))
+			{
+				Destroy(invalid);
+			}
+			else
+			{
+				// reset positions of valid towers.
+			}
+		}
+	}
 
 	public void AddTowerToList(GameObject tower)
 	{

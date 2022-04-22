@@ -17,7 +17,8 @@ public class HelpButton : MonoBehaviour
         {
             tutorialScreen = 1;
             canvasController.CloseCanvas();
-            tut.gameObject.SetActive(false);
+            if(tut)
+                tut.gameObject.SetActive(false);
             return;
         }
         else

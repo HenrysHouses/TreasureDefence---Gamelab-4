@@ -706,6 +706,7 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  rb: {fileID: 0}
 --- !u!65 &298326394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2154,6 +2155,7 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  rb: {fileID: 0}
 --- !u!65 &728953640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2234,7 +2236,7 @@ Transform:
   m_GameObject: {fileID: 790779155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.385, y: 0.281, z: -1.572}
-  m_LocalScale: {x: 1, y: 0.26145947, z: 1}
+  m_LocalScale: {x: 1, y: 1.1195, z: 1}
   m_Children:
   - {fileID: 188658617}
   m_Father: {fileID: 0}
@@ -2492,6 +2494,7 @@ MonoBehaviour:
   TowerParent: {fileID: 1429660623}
   pathController: {fileID: 0}
   towers: []
+  TowersAtLevelStart: []
   RealtimeLights:
   - {fileID: 372956989}
   - {fileID: 585897666}
@@ -2500,6 +2503,11 @@ MonoBehaviour:
   - {fileID: 191830911}
   - {fileID: 1021849961}
   - {fileID: 1150098954}
+  healthMultiplier: 1
+  moneyMultiplier: 1
+  rangeMultiplier: 1
+  damageMultiplier: 1
+  attSpeedMultiplier: 1
 --- !u!4 &820187319
 Transform:
   m_ObjectHideFlags: 0
@@ -5918,6 +5926,7 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  rb: {fileID: 0}
 --- !u!54 &1707974471
 Rigidbody:
   m_ObjectHideFlags: 0

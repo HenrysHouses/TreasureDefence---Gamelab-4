@@ -13,6 +13,7 @@ public class CurrencyManager : MonoBehaviour
     public Animator moneyBounceAnimation;
     public MoneyAnimationHelper animationHelper;
     public int startMoney;
+    int moneyAtLevelStart;
 
     private void Awake()
     {
@@ -82,5 +83,15 @@ public class CurrencyManager : MonoBehaviour
         //     if(moneyBounceAnimation.gameObject.activeInHierarchy)
         //         moneyBounceAnimation.Play("BounceAnimation");
         animationHelper.animate = true;
+    }
+
+    public void StoreCurrentMoney()
+    {
+        moneyAtLevelStart = money;
+    }
+
+    public void restorePreLevelMoney()
+    {
+        money = moneyAtLevelStart;
     }
 }
