@@ -98,6 +98,9 @@
 		<relationship name="fadeInCurve">
 			<destination>{2d3848c9-76d2-4e57-a9e7-ac4a6ca5ea25}</destination>
 		</relationship>
+		<relationship name="fadeOutCurve">
+			<destination>{ddf60df4-3a50-4cc6-85be-f792ebf82efc}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{9ab5db48-d31c-43a1-becb-328ec0df6eeb}</destination>
 		</relationship>
@@ -123,7 +126,6 @@
 		<property name="length">
 			<value>216.02946315558529</value>
 		</property>
-		<property name="name" />
 		<relationship name="timeline">
 			<destination>{2642195c-b207-470c-8ba5-95bb5c819060}</destination>
 		</relationship>
@@ -147,6 +149,14 @@
 			<destination>{8840977f-0fd1-4552-9c06-ceb39009d4b1}</destination>
 		</relationship>
 	</object>
+	<object class="FadeCurve" id="{ddf60df4-3a50-4cc6-85be-f792ebf82efc}">
+		<relationship name="startPoint">
+			<destination>{a6844868-b3b2-4f6c-8ee3-9101691bdc4f}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{fcfb0c5c-859c-4eb8-8e78-8a15910af1ea}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{4324708d-0773-4bc7-a5b3-5db352e8ee23}">
 		<relationship name="effects">
 			<destination>{4f219ba1-3c67-4b28-88c9-53ff02de44f9}</destination>
@@ -168,10 +178,29 @@
 	</object>
 	<object class="AutomationPoint" id="{8840977f-0fd1-4552-9c06-ceb39009d4b1}">
 		<property name="position">
-			<value>7</value>
+			<value>145</value>
 		</property>
 		<property name="value">
 			<value>1</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{a6844868-b3b2-4f6c-8ee3-9101691bdc4f}">
+		<property name="position">
+			<value>7.7943555008210446</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.25471893</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{fcfb0c5c-859c-4eb8-8e78-8a15910af1ea}">
+		<property name="position">
+			<value>216.5</value>
+		</property>
+		<property name="value">
+			<value>0</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{4f219ba1-3c67-4b28-88c9-53ff02de44f9}" />
