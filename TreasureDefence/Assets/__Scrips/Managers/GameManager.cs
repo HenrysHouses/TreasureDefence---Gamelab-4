@@ -22,11 +22,11 @@ public class GameManager : MonoBehaviour
 		}
 	}
 	
-	public float healthMultiplier;
-	public float moneyMultiplier;
-	public float rangeMultiplier;
-	public float damageMultiplier;
-	public float attSpeedMultiplier;
+	public float healthMultiplier = 1f;
+	public float moneyMultiplier = 1f;
+	public float rangeMultiplier = 1f;
+	public float damageMultiplier = 1f;
+	public float attSpeedMultiplier = 1f;
 	
 	// debugging update
 	void Update()
