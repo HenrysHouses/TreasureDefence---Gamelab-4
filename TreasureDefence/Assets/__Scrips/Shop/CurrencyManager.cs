@@ -59,14 +59,11 @@ public class CurrencyManager : MonoBehaviour
 
     public bool SubtractMoney(int CashOut)
     {
-        // Easy way to multiply costs by 10. Change this later.
-        int val = CashOut * 10;
-        
-        if(money - val < 0)
+        if(money - CashOut < 0)
         {
             return false;
         }
-        money -= val;
+        money -= CashOut;
         if(moneyText)
             moneyText.text = ("Money: " + money);  
         VrMoneyText.text = money.ToString();
