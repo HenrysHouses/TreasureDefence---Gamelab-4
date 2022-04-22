@@ -98,8 +98,11 @@ public class PirateCoveController : MonoBehaviour
             case 0:
                 if (RemoveExperience(CalculateCost(wallLevel)))
                 {
+                    wallModels[wallLevel].SetActive(false);
+                    
                     wallLevel += 1;
 
+                    wallModels[wallLevel].SetActive(true);
                     GameManager.instance.healthMultiplier = wallUpgrades[wallLevel];
                 }
                 else
@@ -110,8 +113,11 @@ public class PirateCoveController : MonoBehaviour
             case 1:
                 if (RemoveExperience(CalculateCost(chestLevel)))
                 {
+                    chestModels[chestLevel].SetActive(false);
+                    
                     chestLevel += 1;
 
+                    chestModels[chestLevel].SetActive(true);
                     GameManager.instance.moneyMultiplier = chestUpgrades[chestLevel];
                 }
                 else
@@ -122,8 +128,11 @@ public class PirateCoveController : MonoBehaviour
             case 2:
                 if (RemoveExperience(CalculateCost(tavernLevel)))
                 {
+                    tavernModels[tavernLevel].SetActive(false);
+                    
                     tavernLevel += 1;
 
+                    tavernModels[tavernLevel].SetActive(true);
                     GameManager.instance.rangeMultiplier = towerUpgrades[tavernLevel];
                 }
                 else
@@ -134,8 +143,11 @@ public class PirateCoveController : MonoBehaviour
             case 3:
                 if (RemoveExperience(CalculateCost(blacksmithLevel)))
                 {
+                    blacksmithModels[blacksmithLevel].SetActive(false);
+                    
                     blacksmithLevel += 1;
-
+                    
+                    blacksmithModels[blacksmithLevel].SetActive(true);
                     GameManager.instance.damageMultiplier = towerUpgrades[blacksmithLevel];
                 }
                 else
@@ -146,9 +158,12 @@ public class PirateCoveController : MonoBehaviour
             case 4:
                 if (RemoveExperience(CalculateCost(barracksLevel)))
                 {
-                barracksLevel += 1;
+                    barracksModels[barracksLevel].SetActive(false);
+                    
+                    barracksLevel += 1;
 
-                GameManager.instance.attSpeedMultiplier = towerUpgrades[barracksLevel];
+                    barracksModels[barracksLevel].SetActive(true);
+                    GameManager.instance.attSpeedMultiplier = towerUpgrades[barracksLevel];
                 }
                 else
                 Debug.Log("Insufficient experience points to purchase Wall Level " + barracksLevel + 1);
