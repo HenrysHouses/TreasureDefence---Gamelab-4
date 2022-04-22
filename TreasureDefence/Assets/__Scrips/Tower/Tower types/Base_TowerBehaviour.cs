@@ -9,9 +9,6 @@ using UnityEngine;
 
 public class Base_TowerBehaviour : TowerBehaviour
 {
-
-	List<Base_TowerBehaviour> towers;
-
 	new private void Start()
 	{
 		base.Start();

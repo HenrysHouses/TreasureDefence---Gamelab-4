@@ -91,6 +91,8 @@ public class LevelHandler : MonoBehaviour
 					cloudParticle.Stop();
 					birdParticle.Stop();
 					cloudsSpawned = false;
+
+					GameManager.instance.resetTowerDispenser();
 				}
 			}
 		}

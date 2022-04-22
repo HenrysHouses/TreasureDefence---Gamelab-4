@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 	
 	[Header("Lighting Controls")]
 	public LightController[] RealtimeLights;
+	[SerializeField] TowerDispenserController towerDispenser;
 
 	public void setLights(bool state)
 	{
@@ -65,6 +66,11 @@ public class GameManager : MonoBehaviour
 		Debug.Log("stored");
 	}
 
+	public void resetTowerDispenser()
+	{
+		towerDispenser.fillDispenser(towers);
+	}
+
 	public void restorePreLevelTowers()
 	{
 		foreach(GameObject invalid in towers)
@@ -76,10 +82,9 @@ public class GameManager : MonoBehaviour
 			}
 			else
 			{
-				// invalid.transform.position = repositionSpawnPoint.position;
-				// reset positions of valid towers.
 			}
 		}
+		resetTowerDispenser();
 	}
 
 	public void AddTowerToList(GameObject tower)

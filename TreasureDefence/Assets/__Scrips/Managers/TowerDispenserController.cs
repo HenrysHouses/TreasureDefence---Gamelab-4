@@ -5,16 +5,40 @@ using UnityEngine;
 public class TowerDispenserController : MonoBehaviour
 {
 	[SerializeField] Transform repositionSpawnPoint, TemporaryTowerPosition;
+    [SerializeField] List<GameObject> StoredTowers = new List<GameObject>();
+    Transform DispensedTower;
 
-    // Start is called before the first frame update
-    void Start()
+    public void fillDispenser(List<GameObject> towers)
     {
-        
+        for (int i = 0; i < towers.Count; i++)
+        {
+            StoredTowers.Add(towers[i]);
+            Debug.Log("repositioned");
+            towers[i].transform.position = TemporaryTowerPosition.position;
+        }
+
+        dispenseTower();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void dispenseTower()
     {
-        
+        if(StoredTowers.Count > 0)
+        {
+            DispensedTower = StoredTowers[0].transform; 
+            StoredTowers[0].transform.position = repositionSpawnPoint.position;
+            StoredTowers.RemoveAt(0);
+        }
+    }
+
+    /// <summary>
+    /// OnTriggerExit is called when the Collider other has stopped touching the trigger.
+    /// </summary>
+    /// <param name="other">The other Collider involved in this collision.</param>
+    void OnTriggerExit(Collider other)
+    {
+        if(other.transform == DispensedTower)
+        {
+            dispenseTower();
+        }
     }
 }

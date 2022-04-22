@@ -117,7 +117,6 @@ public class WaveController : MonoBehaviour
 		{
 			Debug.Log("Player won");
 			CanvasController.instance.OpenNewCanvas(0);
-
 		}
 
 		foreach (var enemy in enemies)
