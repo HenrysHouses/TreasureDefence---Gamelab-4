@@ -47,7 +47,7 @@ public class CurrencyManager : MonoBehaviour
 
     public void AddMoney(int CashIn)
     {
-        money += CashIn;
+        money += Mathf.FloorToInt(CashIn * GameManager.instance.moneyMultiplier);
         VrMoneyText.text = money.ToString();
         if(moneyText)
             moneyText.text = ("Money: " + money);
@@ -59,11 +59,14 @@ public class CurrencyManager : MonoBehaviour
 
     public bool SubtractMoney(int CashOut)
     {
-        if(money - CashOut < 0)
+        // Easy way to multiply costs by 10. Change this later.
+        int val = CashOut * 10;
+        
+        if(money - val < 0)
         {
             return false;
         }
-        money -= CashOut;
+        money -= val;
         if(moneyText)
             moneyText.text = ("Money: " + money);  
         VrMoneyText.text = money.ToString();

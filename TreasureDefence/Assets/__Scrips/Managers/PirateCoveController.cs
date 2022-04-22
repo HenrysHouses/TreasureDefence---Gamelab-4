@@ -5,7 +5,7 @@ using UnityEngine;
 public class PirateCoveController : MonoBehaviour
 {
     private int experience;
-    
+
     /*                                                                      Descriptions
      ________________________________________________________________________________________________________________________________ 
     |                                                                                                                               |
@@ -24,7 +24,7 @@ public class PirateCoveController : MonoBehaviour
     Level 3 : 130%
     Level 4 : 140%
     Level 5 : 150%
-    
+
     Wall Upgrade Effects
     Level 0 : 100%
     Level 1 : 125%
@@ -32,7 +32,7 @@ public class PirateCoveController : MonoBehaviour
     Level 3 : 175%
     Level 4 : 200%
     Level 5 : 250%
-    
+
     Guard Tower Upgrade Effects
     Level 0 : No tower
     Level 1 : Low Damage, Low Attack Speed, Low Range, Max Targets: 1
@@ -40,14 +40,14 @@ public class PirateCoveController : MonoBehaviour
     Level 3 : Med Damage, Med Attack Speed, Low Range, Max Targets: 2
     Level 4 : Med Damage, Max Attack Speed, Med Range, Max Targets: 2
     Level 5 : Med Damage, Max Attack Speed, Max Range, Max Targets: 3
-    
+
     */
 
     /*
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject chest;
     [SerializeField] private GameObject tavern;
-    [SerializeField] private GameObject shootingRange;
+    [SerializeField] private GameObject blacksmith;
     [SerializeField] private GameObject barracks;
     [SerializeField] private GameObject guardTower;
     */
@@ -55,32 +55,39 @@ public class PirateCoveController : MonoBehaviour
     [SerializeField] private GameObject[] wallModels;
     [SerializeField] private GameObject[] chestModels;
     [SerializeField] private GameObject[] tavernModels;
-    [SerializeField] private GameObject[] shootingRangeModels;
+    [SerializeField] private GameObject[] blacksmithModels;
     [SerializeField] private GameObject[] barracksModels;
     [SerializeField] private GameObject[] guardTowerModels;
-    
+
+    private float[] wallUpgrades = { 1f, 1.25f, 1.5f,  1.9f, 2.4f, 3f };
+
+    private float[] towerUpgrades = { 1f, 1.1f, 1.23f,  1.44f, 1.67f, 2f };
+
+    private float[] chestUpgrades = { 1f, 1.1f, 1.23f,  1.44f, 1.67f, 2f };
+
+
     // Upgrades
     private int wallLevel;
     private int chestLevel;
     private int tavernLevel;
-    private int shootingRangeLevel;
+    private int blacksmithLevel;
     private int barracksLevel;
     private int guardTowerLevel;
-    
+
     void Start()
     {
         for (int i = 0; i < 10; i++)
         {
             int temp = i + 1;
-            
+
             Debug.Log("Level " + temp + " : " + CalculateCost(i) + " xp.");
         }
     }
 
     public int CalculateCost(int structureLevel)
     {
-        int val = (structureLevel+1) * 5;
-        
+        int val = (structureLevel + 1) * 5;
+
         return Mathf.FloorToInt(Mathf.Pow(val, 2.22f)) + 1;
     }
 
@@ -90,39 +97,63 @@ public class PirateCoveController : MonoBehaviour
         {
             case 0:
                 if (RemoveExperience(CalculateCost(wallLevel)))
+                {
                     wallLevel += 1;
+
+                    GameManager.instance.healthMultiplier = wallUpgrades[wallLevel];
+                }
                 else
                     Debug.Log("Insufficient experience points to purchase Wall Level " + wallLevel + 1);
+
                 break;
-            
+
             case 1:
                 if (RemoveExperience(CalculateCost(chestLevel)))
+                {
                     chestLevel += 1;
+
+                    GameManager.instance.moneyMultiplier = chestUpgrades[chestLevel];
+                }
                 else
                     Debug.Log("Insufficient experience points to purchase Wall Level " + chestLevel + 1);
+
                 break;
-            
+
             case 2:
                 if (RemoveExperience(CalculateCost(tavernLevel)))
+                {
                     tavernLevel += 1;
+
+                    GameManager.instance.rangeMultiplier = towerUpgrades[tavernLevel];
+                }
                 else
                     Debug.Log("Insufficient experience points to purchase Wall Level " + tavernLevel + 1);
+
                 break;
-            
+
             case 3:
-                if (RemoveExperience(CalculateCost(shootingRangeLevel)))
-                    shootingRangeLevel += 1;
+                if (RemoveExperience(CalculateCost(blacksmithLevel)))
+                {
+                    blacksmithLevel += 1;
+
+                    GameManager.instance.damageMultiplier = towerUpgrades[blacksmithLevel];
+                }
                 else
-                    Debug.Log("Insufficient experience points to purchase Wall Level " + shootingRangeLevel + 1);
+                    Debug.Log("Insufficient experience points to purchase Wall Level " + blacksmithLevel + 1);
+
                 break;
-            
+
             case 4:
                 if (RemoveExperience(CalculateCost(barracksLevel)))
-                    barracksLevel += 1;
+                {
+                barracksLevel += 1;
+
+                GameManager.instance.attSpeedMultiplier = towerUpgrades[barracksLevel];
+                }
                 else
-                    Debug.Log("Insufficient experience points to purchase Wall Level " + barracksLevel + 1);
+                Debug.Log("Insufficient experience points to purchase Wall Level " + barracksLevel + 1);
                 break;
-            
+
             case 5:
                 if (RemoveExperience(CalculateCost(guardTowerLevel)))
                     guardTowerLevel += 1;
@@ -131,8 +162,8 @@ public class PirateCoveController : MonoBehaviour
                 break;
         }
     }
-    
-    
+
+
     public void AddExperience(int num = 1)
     {
         experience += num;
@@ -145,27 +176,27 @@ public class PirateCoveController : MonoBehaviour
         experience -= num;
         return true;
     }
-    
+
     public int GetWallLevel()
     {
         return wallLevel;
     }
-    
+
     public int GetChestLevel()
     {
         return chestLevel;
     }
-    
+
     public int GetTavernLevel()
     {
         return tavernLevel;
     }
-    
-    public int GetShootingRangeLevel()
+
+    public int GetBlacksmithLevel()
     {
-        return shootingRangeLevel;
+        return blacksmithLevel;
     }
-    
+
     public int GetBarracksLevel()
     {
         return barracksLevel;
@@ -175,5 +206,4 @@ public class PirateCoveController : MonoBehaviour
     {
         return guardTowerLevel;
     }
-
 }

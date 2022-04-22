@@ -21,7 +21,13 @@ public class GameManager : MonoBehaviour
 			light.fadeLightSate = state;
 		}
 	}
-
+	
+	public float healthMultiplier;
+	public float moneyMultiplier;
+	public float rangeMultiplier;
+	public float damageMultiplier;
+	public float attSpeedMultiplier;
+	
 	// debugging update
 	void Update()
 	{
