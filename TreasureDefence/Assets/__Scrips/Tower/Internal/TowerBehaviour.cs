@@ -74,87 +74,124 @@ abstract public class TowerBehaviour : MonoBehaviour
 	
 	EnemyBehaviour[] CheckInRange(TargetType type)
 	{
-		float progress = Mathf.Infinity;
-		float minimum = Mathf.Infinity;
+		List<EnemyBehaviour> inRange; // array of enemies within the tower range
 		
-		List<EnemyBehaviour> enemiesInRange = new List<EnemyBehaviour>();
+		List<int> index = new List<int>(); // indexes added to enemyTargetPriority
+		List<EnemyBehaviour> enemyTargetPriority = new List<EnemyBehaviour>(); // list of sorted enemies in range according to the targeting type
 
 		switch (type)
 		{
 			case TargetType.First:
 				// Finding first enemy
 
-				progress = 0f;
-				for (int i = 0; i < waveController.enemies.Count; i++)
-				{
-					float dist = Vector3.Distance(transform.position, waveController.GetPosOfEnemy(i));
-			
-					if (dist < towerRange)
-					{
-						/*if (waveController.GetProgressOfEnemy(i) > progress)
-						{
-							progress = waveController.GetProgressOfEnemy(i);
-						}	 */
-						enemiesInRange.Add(waveController.enemies[i]);
-					}
-				}
+				enemyTargetPriority = FindEnemiesWithinRange();
 				// if a target was found
-				if (enemiesInRange.Count > 0)
-					return enemiesInRange.ToArray();
+				if (enemyTargetPriority.Count > 0)
+					return enemyTargetPriority.ToArray();
 				
 				break;
 			
 			case TargetType.Closest:
-				Debug.LogError("I think the closest targeting method needs to be double checked if its actually working correctly - Henrik");
+				// Finding enemies in range
+				inRange = FindEnemiesWithinRange();
 
-				// Finding closest enemy 
-				for (int i = 0; i < waveController.enemies.Count; i++)
+				// Finding closest enemy
+				if(inRange != null)
 				{
-					float dist = Vector3.Distance(transform.position, waveController.GetPosOfEnemy(i));
-			
-					if (dist < towerRange)
+					for (int i = 0; i < inRange.Count; i++)
 					{
-						if (dist < minimum)
+						int closestTargetIndex = 0;
+						for (int j = 0; j < inRange.Count; j++)
 						{
-							minimum = dist;
-							enemiesInRange.Add(waveController.enemies[i]);
+							float checkDist = Vector3.Distance(transform.position, inRange[j].transform.position);
+							float currentClosestDist = Vector3.Distance(transform.position, inRange[closestTargetIndex].transform.position);
+
+							Debug.Log("i: "+ i + ", j: " + j);
+							if (checkDist < currentClosestDist && !IndexExists(closestTargetIndex, index))
+							{
+								closestTargetIndex = j;
+							}
+						}
+						if(!IndexExists(closestTargetIndex, index))
+						{
+							enemyTargetPriority.Add(waveController.enemies[closestTargetIndex]);
+							index.Add(closestTargetIndex);
 						}
 					}
+
+					// if a target was found
+					if (enemyTargetPriority.Count > 0)
+					{
+						return enemyTargetPriority.ToArray();
+					}
 				}
-				// if a target was found
-				if (enemiesInRange.Count > 0)
-					return enemiesInRange.ToArray();
-				
 				break;
 			
 			case TargetType.Strongest:
-				// Doesn't work yet.
-				Debug.LogWarning("TargetType 'Strongest' is not implemented.");
+				// Finding enemies in range
+				inRange = FindEnemiesWithinRange();
+				// If enemies are in range sort for strongest enemies
+				if(inRange != null)
+				{
+					for (int i = 0; i < inRange.Count; i++)
+					{
+						int currentStrongestIndex = 0;
+						for (int j = 0; j < inRange.Count; j++)
+						{
+							if(inRange[currentStrongestIndex].GetHealth < inRange[j].GetHealth && !enemyTargetPriority.Exists(x => x.gameObject == inRange[currentStrongestIndex].gameObject))
+							{
+								currentStrongestIndex = j;
+							}
+						}
+						if(!enemyTargetPriority.Exists(x => x.gameObject == inRange[currentStrongestIndex].gameObject))
+							enemyTargetPriority.Add(inRange[currentStrongestIndex]);
+					}
+					if (enemyTargetPriority.Count > 0)
+						return enemyTargetPriority.ToArray();
+				}
 				break;
 			
 			case TargetType.Last:
+				// Finding enemies in range
+				inRange = FindEnemiesWithinRange();
 				// Finding last enemy
-				for (int i = 0; i < waveController.enemies.Count; i++)
+				if(inRange != null)
 				{
-					float dist = Vector3.Distance(transform.position, waveController.GetPosOfEnemy(i));
-			
-					if (dist < towerRange)
+					inRange.Reverse();
+					// if a target was found
+					if (inRange.Count > 0)
 					{
-						if (waveController.GetProgressOfEnemy(i) < progress)
-						{
-							progress = waveController.GetProgressOfEnemy(i);
-
-							enemiesInRange.Add(waveController.enemies[i]);
-						}
+						return inRange.ToArray();
 					}
 				}
-				// if a target was found
-				if (enemiesInRange.Count > 0)
-					return enemiesInRange.ToArray();
-				
 				break;
 		}
 		return null; // No enemies in range
+	}
+
+	bool IndexExists(int index, List<int> list)
+	{
+		for (int i = 0; i < list.Count; i++)
+		{
+			if(list[i] == index)
+				return true;
+		}
+		return false;
+	}
+
+	List<EnemyBehaviour> FindEnemiesWithinRange()
+	{
+		List<EnemyBehaviour> enemiesInRange = new List<EnemyBehaviour>();
+		for (int i = 0; i < waveController.enemies.Count; i++)
+		{
+			float dist = Vector3.Distance(transform.position, waveController.GetPosOfEnemy(i));
+	
+			if (dist < towerRange)
+			{
+				enemiesInRange.Add(waveController.enemies[i]);
+			}
+		}
+		return enemiesInRange;
 	}
 	
 	virtual public attackData getCurrentAttackData(Transform projectile, EnemyBehaviour[] targetPriority)
@@ -170,7 +207,8 @@ abstract public class TowerBehaviour : MonoBehaviour
 	}
     private void OnCollisionEnter(Collision collision)
     {
-		dustCloud.Play();
+		if(!dustCloud.isPlaying)
+			dustCloud.Play();
     }
 
 	void OnDestroy()

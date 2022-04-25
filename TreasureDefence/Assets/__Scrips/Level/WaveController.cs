@@ -33,6 +33,7 @@ public class WaveController : MonoBehaviour
 	private float cooldownTimer = 0;
 	private float currentCooldown = 0;
 	private int repeatSpawn = -1;
+	int EnemySpawnCount;
 
 	void Start()
 	{
@@ -184,6 +185,9 @@ public class WaveController : MonoBehaviour
 			
 			// Spawn the next enemy
 			spawn = Instantiate(getEnemyPrefab());
+			EnemySpawnCount++;
+			spawn.name += " " + EnemySpawnCount;
+
 			spawn.transform.SetParent(EnemyParent, true);
 			
 			currentCooldown = getCooldown();
