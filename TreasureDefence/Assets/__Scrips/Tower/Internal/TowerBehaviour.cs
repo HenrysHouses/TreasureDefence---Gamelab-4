@@ -98,6 +98,8 @@ abstract public class TowerBehaviour : MonoBehaviour
 				// Finding closest enemy
 				if(inRange != null)
 				{
+					
+
 					for (int i = 0; i < inRange.Count; i++)
 					{
 						int closestTargetIndex = 0;
@@ -138,13 +140,12 @@ abstract public class TowerBehaviour : MonoBehaviour
 						int currentStrongestIndex = 0;
 						for (int j = 0; j < inRange.Count; j++)
 						{
-							if(inRange[currentStrongestIndex].GetHealth < inRange[j].GetHealth && !enemyTargetPriority.Exists(x => x.gameObject == inRange[currentStrongestIndex].gameObject))
+							if(inRange[currentStrongestIndex].GetHealth < inRange[j].GetHealth && !enemyTargetPriority.Contains(inRange[currentStrongestIndex]))
 							{
 								currentStrongestIndex = j;
 							}
 						}
-						if(!enemyTargetPriority.Exists(x => x.gameObject == inRange[currentStrongestIndex].gameObject))
-							enemyTargetPriority.Add(inRange[currentStrongestIndex]);
+						enemyTargetPriority.Add(inRange[currentStrongestIndex]);
 					}
 					if (enemyTargetPriority.Count > 0)
 						return enemyTargetPriority.ToArray();

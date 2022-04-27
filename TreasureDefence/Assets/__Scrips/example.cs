@@ -5,34 +5,40 @@ using FMODUnity;
 
 public class example : MonoBehaviour
 {
-    public string parameterName;
-    public int parameterValue;
-
-    bool backgroundImageIsActive;
-    Image image;
-
-    StudioParameterTrigger trigger;
-
-    public StudioEventEmitter _audio;
-
-
+    public List<GameObject> unsorted = new List<GameObject>();
+    public List<GameObject> sorted = new List<GameObject>();
     void Start()
     {
-        _audio.Play();
-        _audio.SetParameter("name", 1);
-        _audio.Stop();
+        sortList();
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha0))
-        {
-           backgroundImageIsActive = !backgroundImageIsActive;
-        }
 
-        if(image.enabled != backgroundImageIsActive)
+    }
+
+    void sortList()
+    {
+        for (int i = 0; i < unsorted.Count; i++)
         {
-            image.enabled = backgroundImageIsActive;
+            int closestTargetIndex = 0;
+            float closestDist = Mathf.Infinity;
+            for (int j = 0; j < unsorted.Count; j++)
+            {
+                float checkDist = Vector3.Distance(transform.position, unsorted[j].transform.position);
+
+                Debug.Log("i: "+ i + ", j: " + j);
+                if (checkDist < closestDist && !sorted.Contains(unsorted[closestTargetIndex]))
+                {
+                    closestTargetIndex = j;
+                    closestDist = Vector3.Distance(transform.position, unsorted[closestTargetIndex].transform.position);
+                }
+            }
+            Debug.Log(closestTargetIndex + " : " + closestDist);
+            if(!sorted.Contains(unsorted[closestTargetIndex]))
+            {
+                sorted.Add(unsorted[closestTargetIndex]);
+            }
         }
     }
 }
