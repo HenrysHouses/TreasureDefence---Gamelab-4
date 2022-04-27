@@ -103,18 +103,18 @@ abstract public class TowerBehaviour : MonoBehaviour
 					for (int i = 0; i < inRange.Count; i++)
 					{
 						int closestTargetIndex = 0;
+						float currentClosestDist = Mathf.Infinity;
 						for (int j = 0; j < inRange.Count; j++)
 						{
 							float checkDist = Vector3.Distance(transform.position, inRange[j].transform.position);
-							float currentClosestDist = Vector3.Distance(transform.position, inRange[closestTargetIndex].transform.position);
 
-							Debug.Log("i: "+ i + ", j: " + j);
-							if (checkDist < currentClosestDist && !IndexExists(closestTargetIndex, index))
+							if (checkDist < currentClosestDist && !enemyTargetPriority.Contains(inRange[j]))
 							{
 								closestTargetIndex = j;
+								currentClosestDist =  Vector3.Distance(transform.position, inRange[closestTargetIndex].transform.position);
 							}
 						}
-						if(!IndexExists(closestTargetIndex, index))
+						if(!enemyTargetPriority.Contains(inRange[closestTargetIndex]))
 						{
 							enemyTargetPriority.Add(waveController.enemies[closestTargetIndex]);
 							index.Add(closestTargetIndex);
@@ -140,12 +140,13 @@ abstract public class TowerBehaviour : MonoBehaviour
 						int currentStrongestIndex = 0;
 						for (int j = 0; j < inRange.Count; j++)
 						{
-							if(inRange[currentStrongestIndex].GetHealth < inRange[j].GetHealth && !enemyTargetPriority.Contains(inRange[currentStrongestIndex]))
+							if(inRange[currentStrongestIndex].GetHealth < inRange[j].GetHealth && !enemyTargetPriority.Contains(inRange[j]))
 							{
 								currentStrongestIndex = j;
 							}
 						}
-						enemyTargetPriority.Add(inRange[currentStrongestIndex]);
+						if(!enemyTargetPriority.Contains(inRange[currentStrongestIndex]))
+							enemyTargetPriority.Add(inRange[currentStrongestIndex]);
 					}
 					if (enemyTargetPriority.Count > 0)
 						return enemyTargetPriority.ToArray();

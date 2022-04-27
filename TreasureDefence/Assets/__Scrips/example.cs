@@ -9,12 +9,11 @@ public class example : MonoBehaviour
     public List<GameObject> sorted = new List<GameObject>();
     void Start()
     {
-        sortList();
     }
 
     void Update()
     {
-
+        sortList();
     }
 
     void sortList()
@@ -28,7 +27,7 @@ public class example : MonoBehaviour
                 float checkDist = Vector3.Distance(transform.position, unsorted[j].transform.position);
 
                 Debug.Log("i: "+ i + ", j: " + j);
-                if (checkDist < closestDist && !sorted.Contains(unsorted[closestTargetIndex]))
+                if (checkDist < closestDist && !sorted.Contains(unsorted[j]))
                 {
                     closestTargetIndex = j;
                     closestDist = Vector3.Distance(transform.position, unsorted[closestTargetIndex].transform.position);
