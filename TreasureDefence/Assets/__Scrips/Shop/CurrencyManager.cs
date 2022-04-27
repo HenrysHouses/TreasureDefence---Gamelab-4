@@ -72,7 +72,7 @@ public class CurrencyManager : MonoBehaviour
         return true;
     }
 
-    public void SetMoney(int value = 20)
+    public void SetMoney(int value = 200)
     {
         money = value;
         

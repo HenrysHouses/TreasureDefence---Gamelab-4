@@ -13,6 +13,7 @@ public class EnemyInfo : ScriptableObject
 
 	public int priority = 0;
 	public int moneyReward = 1;
-
+	public int experienceReward = 1;
+	
 	public Mesh[] meshes;
 }

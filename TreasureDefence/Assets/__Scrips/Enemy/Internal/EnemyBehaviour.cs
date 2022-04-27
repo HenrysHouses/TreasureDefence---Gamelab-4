@@ -122,6 +122,8 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		CurrencyManager.instance.AddMoney(enemyInfo.moneyReward);
 		// Debug.LogWarning("adding money is currently disabled");
 
+		PirateCoveController.instance.AddExperience(enemyInfo.experienceReward);
+		
 		DeathRattle();
 		foreach (var effect in Debuffs)
 		{

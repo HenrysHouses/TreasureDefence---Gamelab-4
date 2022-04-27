@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PirateCoveController : MonoBehaviour
 {
+    public static PirateCoveController instance;
+    
     private int experience;
 
     /*                                                                      Descriptions
@@ -76,6 +78,15 @@ public class PirateCoveController : MonoBehaviour
 
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+        
         for (int i = 0; i < 10; i++)
         {
             int temp = i + 1;
@@ -171,7 +182,14 @@ public class PirateCoveController : MonoBehaviour
 
             case 5:
                 if (RemoveExperience(CalculateCost(guardTowerLevel)))
+                {
+                    guardTowerModels[guardTowerLevel].SetActive(false);
+                    
                     guardTowerLevel += 1;
+                    guardTowerModels[guardTowerLevel].SetActive(true);
+                    //Turret.instance.SetLevel(guardTowerLevel);
+                }
+                    
                 else
                     Debug.Log("Insufficient experience points to purchase Wall Level " + guardTowerLevel + 1);
                 break;
