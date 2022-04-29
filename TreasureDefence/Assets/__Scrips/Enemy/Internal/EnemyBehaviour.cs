@@ -23,7 +23,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	/// <summary>should always be minimun length of attack anim ! This may be changed to automatic anim length</summary>
 	MeshRenderer mr;
 	float progress;
-	public float speedMod = 1;
+	public List<modifier> speedMod = new List<modifier>();
 	public List<EnemyDebuff> Debuffs = new List<EnemyDebuff>();
 	public string[] _CurrentDebuffs;
 	
@@ -67,7 +67,8 @@ abstract public class EnemyBehaviour : MonoBehaviour
 
 		// handling enemy behaviour
 		EnemyUpdate();
-		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed * speedMod, 0, 1);
+		float speedEffects = SumOfModifiers(speedMod);
+		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed * speedEffects, 0, 1);
 		
 		op = path.GetEvenPathOP(progress);
 
@@ -80,6 +81,32 @@ abstract public class EnemyBehaviour : MonoBehaviour
 				StartCoroutine(Attack());
 		}
 	}
+
+
+	float SumOfModifiers(List<modifier> modifiers)
+	{
+		float sum = 1;
+		foreach (var mod in modifiers)
+		{
+			switch(mod.type)
+			{
+				case modifierType.multiplicative:
+					sum *= mod.value;
+					break;
+
+				case modifierType.additiveFlat:
+					sum+= mod.value;
+					break;
+
+				case modifierType.additivePercentage:
+					sum += (sum/100*mod.value);
+					break;
+			}
+		}
+		return sum;
+	}
+
+
 
 	/// <summary>Deals damage to this enemy</summary>
 	/// <param name="damageAmount">int amount of damage to deal</param>
@@ -127,7 +154,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		DeathRattle();
 		foreach (var effect in Debuffs)
 		{
-			effect.ExpirationTrigger();
+			effect.ExpirationTrigger(this);
 		}
 		Destroy(gameObject);    // Let's improve this at some point
 	}
@@ -153,4 +180,18 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	
 	/// <summary>Called when an attack is triggered</summary>	
 	public abstract void AnimTrigger();
+}
+
+[System.Serializable]
+public struct modifier
+{
+	public float value;
+	public modifierType type;
+}
+
+public enum modifierType
+{
+	multiplicative,
+	additivePercentage,
+	additiveFlat
 }

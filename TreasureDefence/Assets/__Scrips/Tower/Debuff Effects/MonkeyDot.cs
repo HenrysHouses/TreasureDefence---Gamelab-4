@@ -27,7 +27,7 @@ public class MonkeyDot : EnemyDebuff
         monkeyObject.position = effectedTarget.transform.position;
     }
 
-    public override void ExpirationTrigger()
+    public override void ExpirationTrigger(EnemyBehaviour effectedTarget)
     {
         GameObject.Destroy(monkeyObject.gameObject);
     }

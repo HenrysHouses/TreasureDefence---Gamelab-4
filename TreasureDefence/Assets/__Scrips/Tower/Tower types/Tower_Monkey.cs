@@ -7,7 +7,6 @@ public class Tower_Monkey : TowerBehaviour
 	public float ProjectileLifeTime, Dot_Interval;
 	[SerializeField] GameObject MonkeyMesh;
 
-	[SerializeField]
 	override public bool Attack(int damage, EnemyBehaviour[] targets)
 	{
 		bool attacked = false;

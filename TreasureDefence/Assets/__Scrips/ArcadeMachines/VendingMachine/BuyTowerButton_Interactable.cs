@@ -33,6 +33,7 @@ public class BuyTowerButton_Interactable : TD_Interactable
             spawn.name = "Mesh_DisplayTower";
             Vector3 scaleOffset = new Vector3(0.02f, 0.02f, 0.02f);
             spawn.transform.localScale = spawn.transform.localScale - scaleOffset; 
+            spawn.transform.Rotate(new Vector3(0, 180, 0), Space.World);
         }
     }
 

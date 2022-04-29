@@ -14,19 +14,19 @@ abstract public class EnemyDebuff
         ApplyTime = Time.time;
         HasExpired = false;
     }
-    private void DurationUpdate()
+    private void DurationUpdate(EnemyBehaviour effectedTarget)
     {
         if(Time.time - ApplyTime > Duration)
         {
             HasExpired = true;
-            ExpirationTrigger();
+            ExpirationTrigger(effectedTarget);
             Debug.Log("effect expired");
         }
     }
 
     public bool Update(EnemyBehaviour effectedTarget)
     {
-        DurationUpdate();
+        DurationUpdate(effectedTarget);
         if(HasExpired)
         {
             return false;
@@ -35,7 +35,7 @@ abstract public class EnemyDebuff
         return true;
     }
 
-    public abstract void ExpirationTrigger();
+    public abstract void ExpirationTrigger(EnemyBehaviour effectedTarget);
 
     public abstract void debuffEffect(EnemyBehaviour effectedTarget);
 }
