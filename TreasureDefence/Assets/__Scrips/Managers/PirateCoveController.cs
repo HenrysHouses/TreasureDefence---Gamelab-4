@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class PirateCoveController : MonoBehaviour
 {
     public static PirateCoveController instance;
     
-    private int experience;
+    private int _experience;
 
     /*                                                                      Descriptions
      ________________________________________________________________________________________________________________________________ 
@@ -64,17 +65,19 @@ public class PirateCoveController : MonoBehaviour
     private float[] wallUpgrades = { 1f, 1.25f, 1.5f,  1.9f, 2.4f, 3f };
 
     private float[] towerUpgrades = { 1f, 1.1f, 1.23f,  1.44f, 1.67f, 2f };
+    
+    private float[] rangeUpgrades = { 1f, 1.05f, 1.12f,  1.2f, 1.3f, 1.45f };
 
     private float[] chestUpgrades = { 1f, 1.1f, 1.23f,  1.44f, 1.67f, 2f };
 
 
     // Upgrades
-    private int wallLevel;
-    private int chestLevel;
-    private int tavernLevel;
-    private int blacksmithLevel;
-    private int barracksLevel;
-    private int guardTowerLevel;
+    private int _wallLevel;
+    private int _chestLevel;
+    private int _tavernLevel;
+    private int _blacksmithLevel;
+    private int _barracksLevel;
+    private int _guardTowerLevel;
 
     void Start()
     {
@@ -95,6 +98,45 @@ public class PirateCoveController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            AddExperience(1);
+            Debug.Log("Experience: " + _experience);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Upgrade(0);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Upgrade(1);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Upgrade(2);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            Upgrade(3);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            Upgrade(4);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            Upgrade(5);
+        }
+    }
+
     public int CalculateCost(int structureLevel)
     {
         int val = (structureLevel + 1) * 5;
@@ -107,91 +149,91 @@ public class PirateCoveController : MonoBehaviour
         switch (structure)
         {
             case 0:
-                if (RemoveExperience(CalculateCost(wallLevel)))
+                if (RemoveExperience(CalculateCost(_wallLevel)))
                 {
-                    wallModels[wallLevel].SetActive(false);
+                    //wallModels[_wallLevel].SetActive(false);
                     
-                    wallLevel += 1;
+                    _wallLevel += 1;
 
-                    wallModels[wallLevel].SetActive(true);
-                    GameManager.instance.healthMultiplier = wallUpgrades[wallLevel];
+                    wallModels[_wallLevel].SetActive(true);
+                    GameManager.instance.healthMultiplier = wallUpgrades[_wallLevel];
                 }
                 else
-                    Debug.Log("Insufficient experience points to purchase Wall Level " + wallLevel + 1);
+                    Debug.Log("Insufficient _experience points to purchase Wall Level " + _wallLevel + 1);
 
                 break;
 
             case 1:
-                if (RemoveExperience(CalculateCost(chestLevel)))
+                if (RemoveExperience(CalculateCost(_chestLevel)))
                 {
-                    chestModels[chestLevel].SetActive(false);
+                    //chestModels[_chestLevel].SetActive(false);
                     
-                    chestLevel += 1;
+                    _chestLevel += 1;
 
-                    chestModels[chestLevel].SetActive(true);
-                    GameManager.instance.moneyMultiplier = chestUpgrades[chestLevel];
+                    chestModels[_chestLevel].SetActive(true);
+                    GameManager.instance.moneyMultiplier = chestUpgrades[_chestLevel];
                 }
                 else
-                    Debug.Log("Insufficient experience points to purchase Wall Level " + chestLevel + 1);
+                    Debug.Log("Insufficient _experience points to purchase Wall Level " + _chestLevel + 1);
 
                 break;
 
             case 2:
-                if (RemoveExperience(CalculateCost(tavernLevel)))
+                if (RemoveExperience(CalculateCost(_tavernLevel)))
                 {
-                    tavernModels[tavernLevel].SetActive(false);
+                    //tavernModels[_tavernLevel].SetActive(false);
                     
-                    tavernLevel += 1;
+                    _tavernLevel += 1;
 
-                    tavernModels[tavernLevel].SetActive(true);
-                    GameManager.instance.rangeMultiplier = towerUpgrades[tavernLevel];
+                    tavernModels[_tavernLevel].SetActive(true);
+                    GameManager.instance.rangeMultiplier = rangeUpgrades[_tavernLevel];
                 }
                 else
-                    Debug.Log("Insufficient experience points to purchase Wall Level " + tavernLevel + 1);
+                    Debug.Log("Insufficient _experience points to purchase Wall Level " + _tavernLevel + 1);
 
                 break;
 
             case 3:
-                if (RemoveExperience(CalculateCost(blacksmithLevel)))
+                if (RemoveExperience(CalculateCost(_blacksmithLevel)))
                 {
-                    blacksmithModels[blacksmithLevel].SetActive(false);
+                    //blacksmithModels[_blacksmithLevel].SetActive(false);
                     
-                    blacksmithLevel += 1;
+                    _blacksmithLevel += 1;
                     
-                    blacksmithModels[blacksmithLevel].SetActive(true);
-                    GameManager.instance.damageMultiplier = towerUpgrades[blacksmithLevel];
+                    blacksmithModels[_blacksmithLevel].SetActive(true);
+                    GameManager.instance.damageMultiplier = towerUpgrades[_blacksmithLevel];
                 }
                 else
-                    Debug.Log("Insufficient experience points to purchase Wall Level " + blacksmithLevel + 1);
+                    Debug.Log("Insufficient _experience points to purchase Wall Level " + _blacksmithLevel + 1);
 
                 break;
 
             case 4:
-                if (RemoveExperience(CalculateCost(barracksLevel)))
+                if (RemoveExperience(CalculateCost(_barracksLevel)))
                 {
-                    barracksModels[barracksLevel].SetActive(false);
+                    //barracksModels[_barracksLevel].SetActive(false);
                     
-                    barracksLevel += 1;
+                    _barracksLevel += 1;
 
-                    barracksModels[barracksLevel].SetActive(true);
-                    GameManager.instance.attSpeedMultiplier = towerUpgrades[barracksLevel];
+                    barracksModels[_barracksLevel].SetActive(true);
+                    GameManager.instance.attSpeedMultiplier = 1f / towerUpgrades[_barracksLevel];
                 }
                 else
-                Debug.Log("Insufficient experience points to purchase Wall Level " + barracksLevel + 1);
+                    Debug.Log("Insufficient _experience points to purchase Wall Level " + _barracksLevel + 1);
                 break;
 
             case 5:
-                if (RemoveExperience(CalculateCost(guardTowerLevel)))
+                if (RemoveExperience(CalculateCost(_guardTowerLevel)))
                 {
-                    guardTowerModels[guardTowerLevel].SetActive(false);
+                    //guardTowerModels[_guardTowerLevel].SetActive(false);
                     
-                    guardTowerLevel += 1;
-                    guardTowerModels[guardTowerLevel].SetActive(true);
-                    //Turret.instance.SetLevel(guardTowerLevel);
+                    _guardTowerLevel += 1;
+                    guardTowerModels[_guardTowerLevel].SetActive(true);
+                    //Turret.instance.SetLevel(_guardTowerLevel);
                 }
                     
                 else
-                    Debug.Log("Insufficient experience points to purchase Wall Level " + guardTowerLevel + 1);
+                    Debug.Log("Insufficient _experience points to purchase Wall Level " + _guardTowerLevel + 1);
                 break;
         }
     }
@@ -199,44 +241,44 @@ public class PirateCoveController : MonoBehaviour
 
     public void AddExperience(int num = 1)
     {
-        experience += num;
+        _experience += num;
     }
 
     public bool RemoveExperience(int num)
     {
-        if (experience - num < 0) return false;
+        if (_experience - num < 0) return false;
 
-        experience -= num;
+        _experience -= num;
         return true;
     }
 
     public int GetWallLevel()
     {
-        return wallLevel;
+        return _wallLevel;
     }
 
     public int GetChestLevel()
     {
-        return chestLevel;
+        return _chestLevel;
     }
 
     public int GetTavernLevel()
     {
-        return tavernLevel;
+        return _tavernLevel;
     }
 
     public int GetBlacksmithLevel()
     {
-        return blacksmithLevel;
+        return _blacksmithLevel;
     }
 
     public int GetBarracksLevel()
     {
-        return barracksLevel;
+        return _barracksLevel;
     }
 
     public int GetGuardTowerLevel()
     {
-        return guardTowerLevel;
+        return _guardTowerLevel;
     }
 }
