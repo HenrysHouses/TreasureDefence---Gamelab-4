@@ -73,16 +73,18 @@ public class GameManager : MonoBehaviour
 
 	public void restorePreLevelTowers()
 	{
+		List<GameObject> InvalidTowers = new List<GameObject>();
 		foreach(GameObject invalid in towers)
 		{
 			if(!TowersAtLevelStart.Contains(invalid))
 			{
-				towers.Remove(invalid);
-				Destroy(invalid);
+				InvalidTowers.Add(invalid);
 			}
-			else
-			{
-			}
+		}
+		foreach(GameObject tower in InvalidTowers)
+		{
+			towers.Remove(tower);
+			Destroy(tower);
 		}
 		resetTowerDispenser();
 	}

@@ -12,6 +12,7 @@ public class CanvasController : MonoBehaviour
     public Animator graphicsAnimator;
     public GameObject[] graphics;
     [SerializeField] private int currentGraphicsNumber;
+    public int getCurrentGaphic => currentGraphicsNumber;
 
     // 0, 1, 2 / front, mid, back
     //public Animator[] canvasAnimators;  // Have only one canvas?

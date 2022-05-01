@@ -888,6 +888,36 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!1 &1288396343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1288396344}
+  m_Layer: 3
+  m_Name: VR_HandOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1288396344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288396343}
+  m_LocalRotation: {x: 0.41443855, y: -0.07807953, z: -0.03571584, w: 0.9060181}
+  m_LocalPosition: {x: -0.0295, y: -0.0085, z: 0.007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3915297593190713586}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 48.193, y: -14.871, z: -11.196}
 --- !u!1 &1341245053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,6 +1973,7 @@ Transform:
   - {fileID: 6733836709939101133}
   - {fileID: 6733836708155207626}
   - {fileID: 8238685241565488842}
+  - {fileID: 1798577451850762851}
   m_Father: {fileID: 3915297592914864698}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1996,7 +2027,7 @@ MonoBehaviour:
   m_InteractionLayers:
     m_Bits: 4294967293
   m_AttachTransform: {fileID: 6733836708155207626}
-  m_KeepSelectedTargetValid: 0
+  m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
@@ -2129,7 +2160,7 @@ MonoBehaviour:
   m_HapticHoverCancelDuration: 0
   m_LineType: 0
   m_BlendVisualLinePoints: 1
-  m_MaxRaycastDistance: 0.3
+  m_MaxRaycastDistance: 0.5
   m_RayOriginTransform: {fileID: 0}
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 16
@@ -2225,6 +2256,7 @@ Transform:
   - {fileID: 6733836710042627791}
   - {fileID: 6733836709156108787}
   - {fileID: 6133104801118600709}
+  - {fileID: 1288396344}
   m_Father: {fileID: 3915297592914864698}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2278,7 +2310,7 @@ MonoBehaviour:
   m_InteractionLayers:
     m_Bits: 4294967293
   m_AttachTransform: {fileID: 6733836709156108787}
-  m_KeepSelectedTargetValid: 0
+  m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
@@ -2325,6 +2357,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1759278783373927798}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -2363,6 +2407,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1759278783373927798}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   m_OnHoverEntered:
     m_PersistentCalls:
@@ -2411,8 +2467,8 @@ MonoBehaviour:
   m_HapticHoverCancelDuration: 0
   m_LineType: 0
   m_BlendVisualLinePoints: 1
-  m_MaxRaycastDistance: 0.3
-  m_RayOriginTransform: {fileID: 0}
+  m_MaxRaycastDistance: 0.5
+  m_RayOriginTransform: {fileID: 1288396344}
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 16
   m_Acceleration: 9.8
@@ -3879,6 +3935,36 @@ MonoBehaviour:
   animate: 0
   timeOffset: 0.225
   animationTime: 0.9
+--- !u!1 &8874220262510032937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1798577451850762851}
+  m_Layer: 3
+  m_Name: VR_HandOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1798577451850762851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874220262510032937}
+  m_LocalRotation: {x: 0.41443855, y: -0.07807946, z: -0.03571584, w: 0.9060181}
+  m_LocalPosition: {x: -0.0295, y: -0.0085, z: 0.007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3915297592338371306}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 48.193, y: -14.871, z: -11.196}
 --- !u!1 &9074511038993752165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3968,14 +4054,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25b5eb0761edb6346b0b3444af76b55e, type: 3}
---- !u!1 &6133104801118757413 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100018, guid: 25b5eb0761edb6346b0b3444af76b55e, type: 3}
-  m_PrefabInstance: {fileID: 6133104801118725271}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6133104801118600709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400018, guid: 25b5eb0761edb6346b0b3444af76b55e, type: 3}
+  m_PrefabInstance: {fileID: 6133104801118725271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6133104801118757413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100018, guid: 25b5eb0761edb6346b0b3444af76b55e, type: 3}
   m_PrefabInstance: {fileID: 6133104801118725271}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &396114972

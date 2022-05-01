@@ -168,6 +168,15 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		yield return new WaitForSeconds(enemyInfo.attackCooldown);
 		isAttacking = false;
 	}
+
+	void OnDestroy()
+	{
+		foreach(var effect in Debuffs)
+		{
+			if(effect.gameObject)
+				Destroy(effect.gameObject);
+		}
+	}
 	
 	/// <summary>Called when the enemy dies</summary>
 	public virtual void DeathRattle(){}

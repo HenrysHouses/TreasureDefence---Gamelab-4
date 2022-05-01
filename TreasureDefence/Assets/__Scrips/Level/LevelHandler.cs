@@ -80,7 +80,7 @@ public class LevelHandler : MonoBehaviour
 				{
 					LevelEnding = false;
 					GameObject particle = Instantiate(explotionParticle, currentLevel.transform.position, Quaternion.identity);
-					
+					CanvasController.instance.CloseCanvas();
 					particle.transform.GetChild(0).localScale *= 15;
 					particle.transform.GetChild(1).localScale *= 15;
 					// GameManager.instance.RemoveActiveTowers();
@@ -137,7 +137,7 @@ public class LevelHandler : MonoBehaviour
 			if (!FmodExtensions.IsPlaying(_EjectBoardSFX.EventInstance))
 			{
 				_EjectBoardSFX.Play();
-			}	  // Unity didn't show FMOD sound. Thus we wait with this to after midterm.
+			}
 
 			// Debug.Log(currentLevel.GetComponent<WaveController>());
 			currentLevel.GetComponent<WaveController>().EjectParticles.SetActive(true);

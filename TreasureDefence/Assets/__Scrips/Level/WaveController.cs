@@ -107,7 +107,9 @@ public class WaveController : MonoBehaviour
 		{
 			Debug.Log("Player Lost");
 			// stuff here when player looses
-			CanvasController.instance.OpenNewCanvas(1);
+
+			if(CanvasController.instance.getCurrentGaphic != 1)
+				CanvasController.instance.OpenNewCanvas(1);
 
 			GameManager.instance.restorePreLevelTowers();
 			CurrencyManager.instance.restorePreLevelMoney();

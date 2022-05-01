@@ -324,6 +324,7 @@ MonoBehaviour:
   _WaveStart: {fileID: -8202857677788605401}
   _WaveComplete: {fileID: 6069662096580309796}
   EjectParticles: {fileID: 7236504228659306670}
+  health: 0
   LevelData: {fileID: 11400000, guid: 7d3b83ffecf98ae4cb5c53c0d7787fba, type: 2}
   flagPole: {fileID: 0}
   enemies: []
@@ -349,7 +350,7 @@ MonoBehaviour:
       Data2: 1119801535
       Data3: 862216866
       Data4: -1546567539
-    Path: event:/MUSIC/MUS_StartWave
+    Path: event:/MUS_StartWave
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -379,7 +380,7 @@ MonoBehaviour:
       Data2: 1078603519
       Data3: -208391765
       Data4: 293106735
-    Path: event:/MUSIC/MUS_WaveComplete
+    Path: event:/MUS_WaveComplete
   Event: 
   PlayEvent: 0
   StopEvent: 0

@@ -49,6 +49,14 @@ public class Tower_HarpoonCannon : TowerBehaviour
 
    	override public void projectileUpdate()
 	{
+		if(projectile.Count > 0)
+		{
+			harpoonMesh.SetActive(false);
+		}
+		else if(!harpoonMesh.activeSelf)
+			harpoonMesh.SetActive(true);
+
+
         if(enemyTarget != null)
         {
             if(enemyTarget.Length > 0)
@@ -88,7 +96,9 @@ public class Tower_HarpoonCannon : TowerBehaviour
 				Slow debuff = new Slow();
                 debuff.effect.value = SlowStrength;
                 debuff.effect.type = ModifierCalculationType;
-				debuff.Transform = Instantiate(harpoonMesh).transform;
+				debuff.gameObject = Instantiate(harpoonMesh);
+				debuff.gameObject.SetActive(true);
+				debuff.Transform = debuff.gameObject.transform;
 				addDebuff(deletingProjectile.CurrentTarget, debuff, ProjectileLifeTime);
 			}
 			// Instantiate(ExplotionParticle, deletingProjectile.transform.position, Quaternion.identity);

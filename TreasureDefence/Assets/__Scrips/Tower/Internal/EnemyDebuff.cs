@@ -8,6 +8,7 @@ abstract public class EnemyDebuff
     float ApplyTime;
     public float Duration;
     bool HasExpired;
+    public GameObject gameObject;
 
     virtual public void Start()
     {
