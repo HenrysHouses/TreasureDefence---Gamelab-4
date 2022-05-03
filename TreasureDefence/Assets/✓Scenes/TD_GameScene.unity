@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414735, b: 0.1210785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1115,55 +1115,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417085996}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &432260762
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 432260764}
-  - component: {fileID: 432260763}
-  m_Layer: 0
-  m_Name: COVECONTROLLER
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &432260763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432260762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd8dad8e14e4df4095061a77f24bbc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallModels: []
-  chestModels: []
-  tavernModels: []
-  blacksmithModels: []
-  barracksModels: []
-  guardTowerModels: []
---- !u!4 &432260764
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432260762}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1001935, y: -0.2958846, z: -6.8213263}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &471876894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4889,7 +4840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6524177381413614680, guid: 462ad86d9a0329c49b2bdcc279de45d7, type: 3}
       propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6524177381413614680, guid: 462ad86d9a0329c49b2bdcc279de45d7, type: 3}
       propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4906,10 +4857,6 @@ PrefabInstance:
     - target: {fileID: 6524177381413614680, guid: 462ad86d9a0329c49b2bdcc279de45d7, type: 3}
       propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SceneChanger, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6524177381413614680, guid: 462ad86d9a0329c49b2bdcc279de45d7, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: TD_TutorialScene
       objectReference: {fileID: 0}
     - target: {fileID: 6524177381413614680, guid: 462ad86d9a0329c49b2bdcc279de45d7, type: 3}
       propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5060,7 +5007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7164110495960746334, guid: 3ac409d2e779a7c429b60ac0a4f59bc5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ac409d2e779a7c429b60ac0a4f59bc5, type: 3}
@@ -6371,6 +6318,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1782908588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3494146149698954021, guid: 73049926c7d9ddd4da2d5171376969d2, type: 3}
+  m_PrefabInstance: {fileID: 1809245879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1782908591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782908588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 952391212
+      Data2: 1228920888
+      Data3: 714768530
+      Data4: 854981879
+    Path: event:/HighlightHummingSFX
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1782908592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782908588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc797ef55b9e034a878b99dfddbd181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighlightRenderer: {fileID: 204975818}
+  HighlightSFX: {fileID: 1782908591}
 --- !u!1001 &1809245879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6992,6 +6988,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4d7a28153524645be07113c63fb1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2055506603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8210825484852304138, guid: 73049926c7d9ddd4da2d5171376969d2, type: 3}
+  m_PrefabInstance: {fileID: 1809245879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2055506605 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7850879240679381500, guid: 73049926c7d9ddd4da2d5171376969d2, type: 3}
+  m_PrefabInstance: {fileID: 1809245879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2055506607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055506603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 952391212
+      Data2: 1228920888
+      Data3: 714768530
+      Data4: 854981879
+    Path: event:/HighlightHummingSFX
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2055506608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055506603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc797ef55b9e034a878b99dfddbd181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighlightRenderer: {fileID: 2055506605}
+  HighlightSFX: {fileID: 2055506607}
 --- !u!1001 &2057926203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8001,7 +8051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3915297593865451424, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3915297593865451426, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
       propertyPath: m_RootOrder
