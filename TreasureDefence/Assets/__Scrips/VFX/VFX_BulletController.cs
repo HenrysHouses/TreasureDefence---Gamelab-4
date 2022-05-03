@@ -41,6 +41,7 @@ public class VFX_BulletController : MonoBehaviour
     /// <param name="other">The Collision data associated with this collision.</param>
     void OnCollisionEnter(Collision other)
     {
+        Debug.Log(other.collider.name);
         Quaternion normalDirection = Quaternion.LookRotation(other.GetContact(0).normal);
         Instantiate(impact_VFX, transform.position, normalDirection);
         Destroy(gameObject);
