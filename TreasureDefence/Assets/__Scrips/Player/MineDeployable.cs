@@ -88,5 +88,8 @@ public class MineDeployable : TowerBehaviour
 		}
 	}
 
-
+	void OnDestroy()
+	{
+		GameManager.instance.RemoveTower(gameObject);
+	}
 }

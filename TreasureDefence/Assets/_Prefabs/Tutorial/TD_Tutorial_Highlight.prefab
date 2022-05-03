@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 8503713394629103722}
   - component: {fileID: 6662254543281712528}
   - component: {fileID: 6710577565065781801}
+  - component: {fileID: 8604987446810327436}
   m_Layer: 0
   m_Name: TD_Tutorial_Highlight
   m_TagString: Untagged
@@ -292,6 +293,36 @@ MonoBehaviour:
       Data3: -1803401853
       Data4: 228255198
     Path: event:/Tutorial_Alert
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &8604987446810327436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503713394629103701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 952391212
+      Data2: 1228920888
+      Data3: 714768530
+      Data4: 854981879
+    Path: event:/HighlightHummingSFX
   Event: 
   PlayEvent: 1
   StopEvent: 0

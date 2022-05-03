@@ -104,6 +104,11 @@ public class GameManager : MonoBehaviour
 		towers = new List<GameObject>();
 	}
 
+	public void RemoveTower(GameObject Tower)
+	{
+		towers.Remove(Tower);
+	}
+
 	public void SpawnTower(GameObject tower, Vector3 position)
 	{
 		GameObject spawnedTower = Instantiate(tower, position, Quaternion.identity);

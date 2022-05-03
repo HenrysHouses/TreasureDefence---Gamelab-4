@@ -6,6 +6,8 @@ public class waveTrigger_Interactable : TD_Interactable
 {
 	[SerializeField] LevelHandler levelHandler;
 	[SerializeField] StudioEventEmitter _AudioSource;
+	[Header("Tutorial")]
+	[SerializeField] GameObject tutorialHighlight;
 	
 	new void Start()
 	{
@@ -28,12 +30,18 @@ public class waveTrigger_Interactable : TD_Interactable
 		if(collision.collider.GetComponent<VFX_BulletController>())
 		{
 			tryStartWave();
+			if(tutorialHighlight)
+				Destroy(tutorialHighlight);
 		}
 
 		if(collision.collider.CompareTag("Mallet"))
 		{
 			if(collision.transform.GetComponent<Rigidbody>().velocity.magnitude > 0.1f)
+			{
 				tryStartWave();
+				if(tutorialHighlight)
+					Destroy(tutorialHighlight);
+			}
 		}
 	}	
 
