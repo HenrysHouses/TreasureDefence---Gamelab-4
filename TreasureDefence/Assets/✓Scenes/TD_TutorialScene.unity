@@ -157,7 +157,7 @@ Transform:
   - {fileID: 1323285575}
   - {fileID: 1425284122}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &33897859
 GameObject:
@@ -924,6 +924,63 @@ Transform:
   m_Father: {fileID: 1170585738}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &378589704
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.552
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.719
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.22862421
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.01700862
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.97336346
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0022874016
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.701
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -153.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605124, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318293794268605125, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
+      propertyPath: m_Name
+      value: Gun_easterEgg
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf19dead4dec79e4a871ca000fcd37a1, type: 3}
 --- !u!1 &382725726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 375092020512924587, guid: f38388226f5de874aba95cda8ad74877, type: 3}
@@ -1602,7 +1659,7 @@ Transform:
   m_LocalScale: {x: 1.8884202, y: 1.8884202, z: 1.8884202}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &677594429 stripped
 Transform:
@@ -3627,7 +3684,7 @@ Transform:
   - {fileID: 1128898337}
   - {fileID: 6352122253417253320}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1189938009
 PrefabInstance:
@@ -3859,7 +3916,7 @@ Transform:
   - {fileID: 298326391}
   - {fileID: 1699385152}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1211326411 stripped
 Transform:
@@ -3934,7 +3991,7 @@ MonoBehaviour:
       Data2: 1224242193
       Data3: -1582197602
       Data4: -521695191
-    Path: event:/MapErectingSFX
+    Path: event:/SFX/Enviorment/MapErectingSFX
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -3964,7 +4021,7 @@ MonoBehaviour:
       Data2: 1338988485
       Data3: 1504410288
       Data4: 1214785075
-    Path: event:/EjectBoardSFX2
+    Path: event:/SFX/Enviorment/EjectBoardSFX2
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -4300,7 +4357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1347792360
 PrefabInstance:
@@ -4557,7 +4614,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1464536619 stripped
 Transform:
@@ -5483,7 +5540,7 @@ Transform:
   - {fileID: 905344934}
   - {fileID: 1464536619}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1616088915
 PrefabInstance:
@@ -6000,7 +6057,7 @@ Transform:
   - {fileID: 587541218}
   - {fileID: 326992998}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1699385152 stripped
 Transform:
@@ -6105,7 +6162,7 @@ Transform:
   m_Children:
   - {fileID: 1908187671}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1809245879
 PrefabInstance:
@@ -6317,7 +6374,7 @@ MonoBehaviour:
       Data2: 1228920888
       Data3: 714768530
       Data4: 854981879
-    Path: event:/HighlightHummingSFX
+    Path: event:/SFX/Enviorment/HighlightHummingSFX
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -6347,7 +6404,7 @@ MonoBehaviour:
       Data2: 1228920888
       Data3: 714768530
       Data4: 854981879
-    Path: event:/HighlightHummingSFX
+    Path: event:/SFX/Enviorment/HighlightHummingSFX
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -7367,7 +7424,7 @@ MonoBehaviour:
       Data2: 1218748603
       Data3: -1803401853
       Data4: 228255198
-    Path: event:/Tutorial_Alert
+    Path: event:/SFX/Tutorial_Alert
   Event: 
   PlayEvent: 1
   StopEvent: 0

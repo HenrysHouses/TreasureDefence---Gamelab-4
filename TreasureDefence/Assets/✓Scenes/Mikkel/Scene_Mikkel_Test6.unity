@@ -705,6 +705,7 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  rb: {fileID: 0}
 --- !u!65 &298326394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1741,6 +1742,7 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  rb: {fileID: 0}
 --- !u!65 &728953640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2086,6 +2088,7 @@ MonoBehaviour:
   TowerParent: {fileID: 1429660623}
   pathController: {fileID: 0}
   towers: []
+  TowersAtLevelStart: []
   RealtimeLights:
   - {fileID: 372956989}
   - {fileID: 585897666}
@@ -2094,6 +2097,12 @@ MonoBehaviour:
   - {fileID: 191830911}
   - {fileID: 1021849961}
   - {fileID: 1150098954}
+  towerDispenser: {fileID: 0}
+  healthMultiplier: 1
+  moneyMultiplier: 1
+  rangeMultiplier: 1
+  damageMultiplier: 1
+  attSpeedMultiplier: 1
 --- !u!4 &820187319
 Transform:
   m_ObjectHideFlags: 0
@@ -3398,7 +3407,7 @@ MonoBehaviour:
       Data2: 1224242193
       Data3: -1582197602
       Data4: -521695191
-    Path: event:/MapErectingSFX
+    Path: event:/SFX/Enviorment/MapErectingSFX
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -3428,7 +3437,7 @@ MonoBehaviour:
       Data2: 1338988485
       Data3: 1504410288
       Data4: 1214785075
-    Path: event:/EjectBoardSFX2
+    Path: event:/SFX/Enviorment/EjectBoardSFX2
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -4616,7 +4625,7 @@ MonoBehaviour:
       Data2: 1093479068
       Data3: 445587871
       Data4: 1109833568
-    Path: event:/VictoryFireworkSFX
+    Path: event:/SFX/Enviorment/VictoryFireworkSFX
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -4903,6 +4912,7 @@ MonoBehaviour:
   lookTriggerEnabled: 0
   lookIsActive: 0
   held: 0
+  rb: {fileID: 0}
 --- !u!54 &1707974471
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4932,17 +4942,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.34, z: 2.46}
   m_Center: {x: 0, y: 0.1, z: 1.11}
---- !u!114 &1712929410 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2939775409531134024, guid: 9f7c8994cdcea9f4dbc591fd0ac48ead, type: 3}
-  m_PrefabInstance: {fileID: 2939775408961297098}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925839941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea14a997f37b0543a9fda1d3632505e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1769571000
 GameObject:
   m_ObjectHideFlags: 0
@@ -5216,113 +5215,6 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 1
   OverrideMaxDistance: 4.59
---- !u!1 &1925839941 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2939775409531134134, guid: 9f7c8994cdcea9f4dbc591fd0ac48ead, type: 3}
-  m_PrefabInstance: {fileID: 2939775408961297098}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1925839942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925839941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1522130428}
-  m_Colliders: []
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 1
-  m_SelectMode: 0
-  m_CustomReticle: {fileID: 0}
-  m_FirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1712929410}
-        m_TargetAssemblyTypeName: LevelEjector_Interactable, Assembly-CSharp
-        m_MethodName: VRInteractionStartTrigger
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2042923934}
-        m_TargetAssemblyTypeName: CanvasController, Assembly-CSharp
-        m_MethodName: CloseCanvas
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Deactivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnFirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &1925955624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5693,7 +5585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3447763490772551994, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4653816760394930490, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
       propertyPath: m_Name
@@ -6359,7 +6251,7 @@ PrefabInstance:
     - target: {fileID: 2939775409531134027, guid: 9f7c8994cdcea9f4dbc591fd0ac48ead, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1712929410}
+      objectReference: {fileID: 0}
     - target: {fileID: 2939775409531134027, guid: 9f7c8994cdcea9f4dbc591fd0ac48ead, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
