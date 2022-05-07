@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176965761965868521}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.696, y: -0.401, z: -0.865}
+  m_LocalRotation: {x: -0, y: 0.13197598, z: -0, w: 0.9912529}
+  m_LocalPosition: {x: -2.302, y: -0.40100002, z: -0.472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6618372305076973098}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 15.168, z: 0}
 --- !u!1 &2593175352707570547
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +217,10 @@ GameObject:
   - component: {fileID: 6618372305076973098}
   - component: {fileID: 6618372305076973108}
   - component: {fileID: 6618372305076973109}
+  - component: {fileID: 1226691151}
+  - component: {fileID: 1226691152}
+  - component: {fileID: 1226691153}
+  - component: {fileID: 1226691154}
   m_Layer: 2
   m_Name: TD_GameSystem_LevelHolder
   m_TagString: Untagged
@@ -267,17 +271,128 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0bdc82681e7c74587f37577fd548fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explotionParticle: {fileID: 0}
+  explotionParticle: {fileID: 1595576975666691675, guid: 6f934e29c32d349429826a264258c578, type: 3}
   FlagPrefab: {fileID: 416883426070404293, guid: 3fdae954dd5739e46aa5750d38244fb0, type: 3}
-  CupPrefab: {fileID: 5135493579109380226, guid: 148422806dedeec40a1ccec931ca93ce, type: 3}
   FlagSpawn: {fileID: 1057992112738887686}
-  GhostSpawn: {fileID: 0}
-  CupSpawn: {fileID: 6804962861867135400}
+  _BoardAMBX: {fileID: 0}
+  _BattleTriggerMUS: {fileID: 1226691154}
+  _MapBattleMUS: {fileID: 1226691153}
+  _MapErectingSFX: {fileID: 1226691151}
+  _EjectBoardSFX: {fileID: 1226691152}
   LevelEnding: 0
   LevelStarting: 0
+  LevelStartHasBegun: 0
   _offsetValue: 0.613
   riseSpeed: 0.1
   cloudParticle: {fileID: 0}
+  enemyHolder: {fileID: 6618372305524483601}
+  birdParticle: {fileID: 0}
+--- !u!114 &1226691151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618372305076973099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -449105265
+      Data2: 1224242193
+      Data3: -1582197602
+      Data4: -521695191
+    Path: event:/SFX/Environment/MapErectingSFX
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1226691152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618372305076973099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 27386372
+      Data2: 1338988485
+      Data3: 1504410288
+      Data4: 1214785075
+    Path: event:/SFX/Environment/EjectBoardSFX2
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1226691153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618372305076973099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 943540322
+      Data2: 1182842329
+      Data3: 2117597365
+      Data4: 909033030
+    Path: event:/MUSIC/MUSicPlayer
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1226691154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618372305076973099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  parameter: MusicState
+  TriggerEvent: 0
+  value: 2
 --- !u!1 &6618372305125662389
 GameObject:
   m_ObjectHideFlags: 0

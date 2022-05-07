@@ -22,7 +22,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	bool isAttacking;
 	/// <summary>should always be minimun length of attack anim ! This may be changed to automatic anim length</summary>
 	MeshRenderer mr;
-	float progress;
+	[SerializeField] float progress;
 	public List<modifier> speedMod = new List<modifier>();
 	public List<EnemyDebuff> Debuffs = new List<EnemyDebuff>();
 	public string[] _CurrentDebuffs;
@@ -40,6 +40,8 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		path = GameManager.instance.pathController;
 		_AudioSource = GetComponent<StudioEventEmitter>();
 		health = enemyInfo.health;
+
+		// Debug.Log("Enemy Start " + gameObject.name);
 	}
 
 	void Update()
@@ -68,7 +70,10 @@ abstract public class EnemyBehaviour : MonoBehaviour
 		// handling enemy behaviour
 		EnemyUpdate();
 		float speedEffects = SumOfModifiers(speedMod);
-		progress = Mathf.Clamp(progress + Time.deltaTime * enemyInfo.speed * speedEffects, 0, 1);
+		float pathLength = path.GetApproxLength();
+		float finalSpeed = enemyInfo.speed * speedEffects;
+		finalSpeed = (100 / pathLength) * finalSpeed;
+		progress = Mathf.Clamp(progress + Time.deltaTime * finalSpeed, 0, 1);
 		
 		op = path.GetEvenPathOP(progress);
 
@@ -162,6 +167,7 @@ abstract public class EnemyBehaviour : MonoBehaviour
 	/// <summary>Called when the enemy reaches the end of the path</summary>
 	public virtual IEnumerator Attack()
 	{
+		// Debug.Log("attack " + gameObject.name);
 		isAttacking = true;
 		waveController.dealDamage(enemyInfo.damage);
 		// play attack anim?

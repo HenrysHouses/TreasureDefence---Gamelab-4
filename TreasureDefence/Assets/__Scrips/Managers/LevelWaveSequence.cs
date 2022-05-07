@@ -27,6 +27,6 @@ public struct WaveSequence
 public struct waveEnemyData
 {
 	public GameObject enemyPfb;
-	public float Cooldown;
 	public int repeat;
+	public float Cooldown;
 }

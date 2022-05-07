@@ -13,6 +13,7 @@ public class LevelHandler : MonoBehaviour
 	[SerializeField] GameObject FlagPrefab;
 	[SerializeField] Transform FlagSpawn;
 
+	[SerializeField] StudioEventEmitter _BoardAMBX;
 	[SerializeField] StudioGlobalParameterTrigger _BattleTriggerMUS;
 	[SerializeField] StudioEventEmitter _MapBattleMUS;
 	[SerializeField] StudioEventEmitter _MapErectingSFX;
@@ -48,6 +49,7 @@ public class LevelHandler : MonoBehaviour
 					Debug.Log(LevelStartHasBegun);
 					GameManager.instance.StoreCurrentTowers();
 					CurrencyManager.instance.StoreCurrentMoney();
+					_BoardAMBX.SetParameter("Parameter 1", 1);
 				}
 
 				//PlaySound
@@ -101,6 +103,7 @@ public class LevelHandler : MonoBehaviour
 					cloudsSpawned = false;
 
 					GameManager.instance.resetTowerDispenser();
+					_BoardAMBX.SetParameter("Parameter 1", 0);
 				}
 			}
 		}
