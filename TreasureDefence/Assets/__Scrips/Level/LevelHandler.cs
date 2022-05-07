@@ -13,6 +13,8 @@ public class LevelHandler : MonoBehaviour
 	[SerializeField] GameObject FlagPrefab;
 	[SerializeField] Transform FlagSpawn;
 
+	[SerializeField] StudioGlobalParameterTrigger _BattleTriggerMUS;
+	[SerializeField] StudioEventEmitter _MapBattleMUS;
 	[SerializeField] StudioEventEmitter _MapErectingSFX;
 	[SerializeField] StudioEventEmitter _EjectBoardSFX;
 
@@ -53,6 +55,12 @@ public class LevelHandler : MonoBehaviour
                 {
 					_MapErectingSFX.Play();
                 }
+
+				if (!FmodExtensions.IsPlaying(_MapBattleMUS.EventInstance))
+				{
+					_MapBattleMUS.Play();
+					_BattleTriggerMUS.TriggerParameters();
+				}
 
 				Vector3 pos = currentLevel.localPosition;
 				pos.y += Time.deltaTime * riseSpeed;
