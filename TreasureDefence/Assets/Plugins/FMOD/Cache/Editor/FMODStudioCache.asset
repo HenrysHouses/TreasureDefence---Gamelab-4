@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/VO.bank
   Name: Desktop/VO
   StudioPath: bank:/VO
-  lastModified: 637874265015262522
+  lastModified: 637875407888832154
   FileSizes:
   - Name: 
     Value: 15849888
@@ -145,11 +145,38 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/MUS.bank
   Name: Desktop/MUS
   StudioPath: bank:/MUS
-  lastModified: 637874265005986665
+  lastModified: 637875407858219723
   FileSizes:
   - Name: 
     Value: 67489920
   Exists: 1
+--- !u!114 &-6302576407259255002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Environment/SFX_BellSmack
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Environment/SFX_BellSmack
+  Guid:
+    Data1: 862489500
+    Data2: 1125459598
+    Data3: -197225562
+    Data4: -1329224328
+  Banks:
+  - {fileID: -393314957984553191}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &-6125985534480347353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +246,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/SFX_A.bank
   Name: Desktop/SFX_A
   StudioPath: bank:/SFX_A
-  lastModified: 637874265012721946
+  lastModified: 637875407870408385
   FileSizes:
   - Name: 
     Value: 99352672
@@ -278,6 +305,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4133338927718475167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EasterEggHitSFX
+  m_EditorClassIdentifier: 
+  Path: event:/EasterEggHitSFX
+  Guid:
+    Data1: 117125306
+    Data2: 1232012182
+    Data3: -1377337964
+    Data4: 2135480369
+  Banks:
+  - {fileID: -393314957984553191}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1527
 --- !u!114 &-3755060402655926976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +386,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3011
+--- !u!114 &-2779792148177525955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BottleHit
+  m_EditorClassIdentifier: 
+  Path: event:/BottleHit
+  Guid:
+    Data1: 657356420
+    Data2: 1215458131
+    Data3: -1149328497
+    Data4: -250449894
+  Banks:
+  - {fileID: -393314957984553191}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2470116811426158436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +456,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Stingers.bank
   Name: Desktop/Stingers
   StudioPath: bank:/Stingers
-  lastModified: 637874265014262421
+  lastModified: 637875407881078874
   FileSizes:
   - Name: 
     Value: 419616
@@ -434,7 +515,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
---- !u!114 &-1596460836723750246
+--- !u!114 &-1147789516863350446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,9 +525,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/Mus_StartWave
+  m_Name: event:/MUS_StartWave
   m_EditorClassIdentifier: 
-  Path: event:/MUSIC/Mus_StartWave
+  Path: event:/MUS_StartWave
   Guid:
     Data1: -1499773742
     Data2: 1119801535
@@ -530,10 +611,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/SFX_B.bank
   Name: Desktop/SFX_B
   StudioPath: bank:/SFX_B
-  lastModified: 637874265014212474
+  lastModified: 637875407880138023
   FileSizes:
   - Name: 
-    Value: 23377312
+    Value: 25108192
   Exists: 1
 --- !u!114 &-345721841161708078
 MonoBehaviour:
@@ -577,7 +658,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/AMBX.bank
   Name: Desktop/AMBX
   StudioPath: bank:/AMBX
-  lastModified: 637874265001560365
+  lastModified: 637875407848245148
   FileSizes:
   - Name: 
     Value: 16379712
@@ -662,9 +743,6 @@ MonoBehaviour:
   - {fileID: -9195589411848253726}
   - {fileID: -3431111125346920305}
   - {fileID: 4530922037627911060}
-  - {fileID: 4574593705743291754}
-  - {fileID: 1898891880407764834}
-  - {fileID: 6016352627586631374}
   - {fileID: 4891044502045560615}
   - {fileID: -136136788198425570}
   - {fileID: 135106836791996975}
@@ -679,7 +757,6 @@ MonoBehaviour:
   - {fileID: -6784199816921589500}
   - {fileID: -5563661251206776048}
   - {fileID: 8304819472467832159}
-  - {fileID: -1596460836723750246}
   - {fileID: -1819279884117233094}
   - {fileID: 8688618471318935436}
   - {fileID: -4402398835757527536}
@@ -690,6 +767,12 @@ MonoBehaviour:
   - {fileID: 6230323137377914563}
   - {fileID: 687033930209693827}
   - {fileID: 1211499004558964450}
+  - {fileID: 5907694609626484737}
+  - {fileID: 7911789796062119152}
+  - {fileID: -2779792148177525955}
+  - {fileID: -6302576407259255002}
+  - {fileID: -4133338927718475167}
+  - {fileID: -1147789516863350446}
   EditorParameters:
   - {fileID: 4911049551777021629}
   - {fileID: -164885085145519977}
@@ -697,7 +780,7 @@ MonoBehaviour:
   - {fileID: 8193446255246955345}
   StringsBanks:
   - {fileID: 5192818309007461823}
-  cacheTime: 637874265015262522
+  cacheTime: 637875407888832154
   cacheVersion: 10
 --- !u!114 &135106836791996975
 MonoBehaviour:
@@ -862,33 +945,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 19031
---- !u!114 &1898891880407764834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/ShootingRange/EasterEggHitSFX
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/ShootingRange/EasterEggHitSFX
-  Guid:
-    Data1: 117125306
-    Data2: 1232012182
-    Data3: -1377337964
-    Data4: 2135480369
-  Banks:
-  - {fileID: -393314957984553191}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1527
 --- !u!114 &3669058043975108117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,33 +996,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 6431
---- !u!114 &4574593705743291754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/ShootingRange/EasterEggShiitSFX
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/ShootingRange/EasterEggShiitSFX
-  Guid:
-    Data1: 1302491964
-    Data2: 1310275782
-    Data3: 1251372211
-    Data4: -396011411
-  Banks:
-  - {fileID: -393314957984553191}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 972
 --- !u!114 &4891044502045560615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,10 +1068,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637874265006026651
+  lastModified: 637875407848285192
   FileSizes:
   - Name: 
-    Value: 2878
+    Value: 2960
   Exists: 1
 --- !u!114 &5409561898500084157
 MonoBehaviour:
@@ -1098,7 +1127,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6016352627586631374
+--- !u!114 &5907694609626484737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1108,18 +1137,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/ShootingRange/BottleHit
+  m_Name: event:/SFX_DoorOpening
   m_EditorClassIdentifier: 
-  Path: event:/SFX/ShootingRange/BottleHit
+  Path: event:/SFX_DoorOpening
   Guid:
-    Data1: 657356420
-    Data2: 1215458131
-    Data3: -1149328497
-    Data4: -250449894
+    Data1: -981379806
+    Data2: 1334191134
+    Data3: 1985326774
+    Data4: 1372010647
   Banks:
   - {fileID: -393314957984553191}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -1209,6 +1238,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 7590
+--- !u!114 &7911789796062119152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EasterEggShiitSFX
+  m_EditorClassIdentifier: 
+  Path: event:/EasterEggShiitSFX
+  Guid:
+    Data1: 1302491964
+    Data2: 1310275782
+    Data3: 1251372211
+    Data4: -396011411
+  Banks:
+  - {fileID: -393314957984553191}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 972
 --- !u!114 &8193446255246955345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,7 +1280,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 637874265006016656
+  lastModified: 637875407848265167
   FileSizes:
   - Name: 
     Value: 1454
