@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 				TowersAtLevelStart.RemoveAt(i);
 			}
 		}
-		Debug.Log("stored");
+		// Debug.Log("stored");
 	}
 
 	public void resetTowerDispenser()

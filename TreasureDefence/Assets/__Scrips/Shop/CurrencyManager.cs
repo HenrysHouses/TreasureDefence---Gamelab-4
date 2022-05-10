@@ -18,15 +18,16 @@ public class CurrencyManager : MonoBehaviour
     private void Awake()
     {
         Debug.Log("Money Cheat on K button Active");
-      if(instance == null)
+        if(instance == null)
         {
             instance = this;
         }
-      else
+        else
         {
             Destroy(gameObject);
         }
-        SetMoney(startMoney);
+        if(startMoney != 0)
+            SetMoney(startMoney);
     }
 
     // Update is called once per frame

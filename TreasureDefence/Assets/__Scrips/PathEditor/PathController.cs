@@ -52,7 +52,7 @@ public class PathController : MonoBehaviour
 	{
 		LOD = VertexPathAccuracy*3;
 		length = GetApproxLength();
-		Debug.Log(length);
+		// Debug.Log(length);
 
 	#if UNITY_EDITOR	
 		evenlySpacedPoints = calculateEvenlySpacedPoints(length/LOD);

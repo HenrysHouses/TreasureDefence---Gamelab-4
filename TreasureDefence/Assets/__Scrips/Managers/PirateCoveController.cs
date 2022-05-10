@@ -94,7 +94,7 @@ public class PirateCoveController : MonoBehaviour
         {
             int temp = i + 1;
 
-            Debug.Log("Level " + temp + " : " + CalculateCost(i) + " xp.");
+            // Debug.Log("Level " + temp + " : " + CalculateCost(i) + " xp.");
         }
     }
 

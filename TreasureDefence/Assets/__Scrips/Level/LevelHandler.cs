@@ -46,7 +46,7 @@ public class LevelHandler : MonoBehaviour
 				if(!LevelStartHasBegun)
 				{
 					LevelStartHasBegun = true;
-					Debug.Log(LevelStartHasBegun);
+					// Debug.Log(LevelStartHasBegun);
 					GameManager.instance.StoreCurrentTowers();
 					CurrencyManager.instance.StoreCurrentMoney();
 					_BoardAMBX.SetParameter("Parameter 1", 1);
