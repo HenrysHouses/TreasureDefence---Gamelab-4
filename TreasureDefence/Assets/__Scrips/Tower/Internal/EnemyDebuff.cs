@@ -21,7 +21,7 @@ abstract public class EnemyDebuff
         {
             HasExpired = true;
             ExpirationTrigger(effectedTarget);
-            Debug.Log("effect expired");
+            // Debug.Log("effect expired");
         }
     }
 

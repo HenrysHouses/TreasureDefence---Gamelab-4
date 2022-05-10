@@ -15,7 +15,7 @@ public class TowerDispenserController : MonoBehaviour
             if(!towers[i].GetComponent<MineDeployable>())
             {
                 StoredTowers.Add(towers[i]);
-                Debug.Log("repositioned");
+                // Debug.Log("repositioned");
                 towers[i].transform.position = TemporaryTowerPosition.position;
             }
         }
