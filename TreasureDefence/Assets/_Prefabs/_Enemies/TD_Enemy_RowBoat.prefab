@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5298043758804286667, guid: af9770b30c2376949b4fd52798cea8ee, type: 3}
       propertyPath: m_Name
-      value: TD_Enemy_BabyBoat
+      value: TD_Enemy_RowBoat
       objectReference: {fileID: 0}
     - target: {fileID: 6718437277377263679, guid: af9770b30c2376949b4fd52798cea8ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -317,7 +317,9 @@ MonoBehaviour:
   waveController: {fileID: 0}
   path: {fileID: 0}
   enemyInfo: {fileID: 11400000, guid: 2256eb534931e834ca13cfebb3c32a3a, type: 2}
-  speedMod: 1
+  progress: 0
+  speedMod: []
+  _CurrentDebuffs: []
 --- !u!114 &663628869197792205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +339,7 @@ MonoBehaviour:
       Data2: 1139351440
       Data3: 238565795
       Data4: 1354289039
-    Path: event:/EnemyHit
+    Path: event:/SFX/Tower & Enemy/SFX_EnemyHit
   Event: 
   PlayEvent: 0
   StopEvent: 0

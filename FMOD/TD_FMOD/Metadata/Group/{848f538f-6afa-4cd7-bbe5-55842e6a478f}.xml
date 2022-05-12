@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{848f538f-6afa-4cd7-bbe5-55842e6a478f}">
+		<property name="color">
+			<value>Yellow Light 1</value>
+		</property>
+		<property name="name">
+			<value>Towers &amp; Enemies</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{27a50dcb-7352-4bd7-97f9-e44f356d9501}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{fbd61931-7506-48c7-bb02-d82002a3532a}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{b43c8b62-6daa-4bdc-b879-745e8bf1abc4}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{27a50dcb-7352-4bd7-97f9-e44f356d9501}">
+		<relationship name="effects">
+			<destination>{3d6bd68a-c830-42c8-b69c-b905405cba58}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{fbd61931-7506-48c7-bb02-d82002a3532a}" />
+	<object class="MixerBusFader" id="{3d6bd68a-c830-42c8-b69c-b905405cba58}" />
+</objects>

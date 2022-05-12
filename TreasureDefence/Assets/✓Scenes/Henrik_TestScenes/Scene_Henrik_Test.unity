@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1672,6 +1672,7 @@ MonoBehaviour:
   _WaveStart: {fileID: 0}
   _WaveComplete: {fileID: 0}
   EjectParticles: {fileID: 0}
+  health: 0
   LevelData: {fileID: 11400000, guid: c6507ee1b71c5474fa4de5c4c579c2da, type: 2}
   flagPole: {fileID: 0}
   enemies: []
@@ -2262,9 +2263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978abe2a063950a40a50abe667beae31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audio: {fileID: 529383420}
-  parameterName: Valid_Invalid
-  parameterValue: 0
+  range: 0
+  unsorted: []
+  NewSorted: []
 --- !u!114 &529383420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2284,7 +2285,7 @@ MonoBehaviour:
       Data2: 1224220531
       Data3: -73752645
       Data4: -1238620592
-    Path: event:/VendingMachineSFX
+    Path: event:/SFX/SFX_VendingMachine
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -3939,9 +3940,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978abe2a063950a40a50abe667beae31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audio: {fileID: 0}
-  parameterName: 
-  parameterValue: 0
+  range: 0
+  unsorted: []
+  NewSorted: []
 --- !u!4 &1254001227
 Transform:
   m_ObjectHideFlags: 0
@@ -3975,7 +3976,7 @@ MonoBehaviour:
       Data2: 1139351440
       Data3: 238565795
       Data4: 1354289039
-    Path: event:/EnemyHit
+    Path: event:/SFX/Tower & Enemy/SFX_EnemyHit
   Event: 
   PlayEvent: 0
   StopEvent: 0

@@ -99,7 +99,9 @@ MonoBehaviour:
   waveController: {fileID: 0}
   path: {fileID: 0}
   enemyInfo: {fileID: 11400000, guid: 2256eb534931e834ca13cfebb3c32a3a, type: 2}
-  speedMod: 1
+  progress: 0
+  speedMod: []
+  _CurrentDebuffs: []
 --- !u!114 &8959827175611009116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +121,7 @@ MonoBehaviour:
       Data2: 1139351440
       Data3: 238565795
       Data4: 1354289039
-    Path: event:/EnemyHit
+    Path: event:/SFX/Tower & Enemy/SFX_EnemyHit
   Event: 
   PlayEvent: 0
   StopEvent: 0
