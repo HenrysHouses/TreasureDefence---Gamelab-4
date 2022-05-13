@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 	public PathController pathController;
 	[SerializeField] private List<GameObject> towers = new List<GameObject>();
 	[SerializeField] private List<GameObject> TowersAtLevelStart = new List<GameObject>();
+	[SerializeField] public SaveData SaveData;
+
 	private int playerHealth;
 	
 	[Header("Lighting Controls")]
@@ -145,4 +147,27 @@ public class GameManager : MonoBehaviour
 		LevelPickupHighlight = GameObject.FindGameObjectWithTag("Highlight/LevelPickup").GetComponent<MeshRenderer>();
 		WaterHighlight = GameObject.FindGameObjectWithTag("Highlight/Water").GetComponent<MeshRenderer>();
 	}
+
+	public void SaveLevelComplete(int level)
+	{
+		for (int i = 0; i < level; i++)
+		{
+			Debug.Log(i);
+			if(SaveData.LevelCompletionStates[i] == false)
+				return;
+		}
+		Debug.Log("saved");
+		SaveData.LevelCompletionStates[level] = true;
+	}
+
+	void enableNextLevel()
+	{
+		
+	}
+}
+
+[System.Serializable]
+public struct SaveData
+{
+	public bool[] LevelCompletionStates;
 }

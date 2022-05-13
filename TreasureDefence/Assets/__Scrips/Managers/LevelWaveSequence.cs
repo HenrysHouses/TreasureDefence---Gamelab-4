@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "TreasureDefence/New Level")]
 public class LevelWaveSequence : ScriptableObject
 {
+	public int levelNumber;
 	public GameObject LevelPrefab;
 	public WaveSequence[] waves;
 	

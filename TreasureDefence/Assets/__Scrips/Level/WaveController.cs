@@ -119,6 +119,7 @@ public class WaveController : MonoBehaviour
 		else
 		{
 			Debug.Log("Player won");
+			GameManager.instance.SaveLevelComplete(LevelData.levelNumber);
 			CanvasController.instance.OpenNewCanvas(0);
 		}
 
