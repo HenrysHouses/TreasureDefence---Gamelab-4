@@ -27,7 +27,7 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
     [SerializeField] StudioEventEmitter BottleHit;
     [SerializeField] GameObject BottleShardsParticle, BottleHalfPrefab;
     [SerializeField] Vector3 brokenBottleVelocity;
-    bool IsOpen_animator;
+    [SerializeField] bool IsOpen_animator;
     [SerializeField] ParticleSystem[] winConfetti;
 
     new void Start()
@@ -78,9 +78,11 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
         t += TargetMovementSpeed * Time.deltaTime;
         Vector3 pos = Target.transform.localPosition;
 
-        if(pos.z < leftPos.localPosition.z)
+
+        // Debug.Log(pos.z + ": " + rightPos.localPosition.z + ", " + leftPos.localPosition.z);
+        if(pos.z <= leftPos.localPosition.z)
             randomizeRightPos();
-        if(pos.z > rightPos.localPosition.z)
+        if(pos.z >= rightPos.localPosition.z)
             randomizeLeftPos();
         targetRB.velocity = velocity;
         timeLeft -= Time.deltaTime;
@@ -177,8 +179,9 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
             leftPos.localPosition = pos;
             leftHasChanged = true;
             rightHasChanged = false;
-            velocity = new Vector3(0, 0, -TargetMovementSpeed);
+            velocity = new Vector3(0, 0, -1*velocity.z);
         }
+        Debug.Log("left");
     }
 
     void randomizeRightPos()
@@ -190,8 +193,10 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
             rightPos.localPosition = pos;
             rightHasChanged = true;
             leftHasChanged = false;
-            velocity = new Vector3(0, 0, TargetMovementSpeed);
+            velocity = new Vector3(0, 0, -1*velocity.z);
         }
+        Debug.Log("right");
+
     }
     
     public void setIsOpen(bool state)

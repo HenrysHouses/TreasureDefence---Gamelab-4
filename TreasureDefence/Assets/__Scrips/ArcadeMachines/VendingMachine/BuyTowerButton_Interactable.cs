@@ -80,6 +80,7 @@ public class BuyTowerButton_Interactable : TD_Interactable
         {
             DisplayInfo = Instantiate(infoPrefab, displayPos.position, Quaternion.identity);
             DisplayInfo.GetComponent<DisplayInfo>().setText(info);
+            DisplayInfo.transform.rotation = transform.rotation;
         }
     }
 
