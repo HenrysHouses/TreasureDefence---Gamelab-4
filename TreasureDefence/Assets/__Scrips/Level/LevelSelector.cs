@@ -15,6 +15,7 @@ public class LevelSelector : MonoBehaviour
     private LevelWaveSequence[] levels;
 
     public GameObject[] levelGameObjects;
+    public GameObject[] LevelSelectors;
 
     private GameObject selectedLevel;
 
@@ -54,7 +55,16 @@ public class LevelSelector : MonoBehaviour
         selectedLevel.transform.rotation = displayPos.rotation;
     }
 
-    
+    void FixedUpdate()
+    {
+        for (int i = 1; i < LevelSelectors.Length; i++)
+        {
+            if(LevelSelectors[i].activeSelf != GameManager.instance.SaveData.LevelCompletionStates[i])
+            {
+                LevelSelectors[i].SetActive(GameManager.instance.SaveData.LevelCompletionStates[i]);
+            }
+        }
+    }
     
     
     public void SetLevel(int level, string levelName, string levelInfo, int difficulty)
