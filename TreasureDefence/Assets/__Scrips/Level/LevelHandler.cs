@@ -15,7 +15,9 @@ public class LevelHandler : MonoBehaviour
 
 	[SerializeField] StudioEventEmitter _BoardAMBX;
 	[SerializeField] StudioGlobalParameterTrigger _BattleTriggerMUS;
-	[SerializeField] StudioEventEmitter _MapBattleMUS;
+	public StudioGlobalParameterTrigger _WinTriggerMUS;
+	public StudioGlobalParameterTrigger _LooseTriggerMUS;
+	public StudioEventEmitter _MapBattleMUS;
 	[SerializeField] StudioEventEmitter _MapErectingSFX;
 	[SerializeField] StudioEventEmitter _EjectBoardSFX;
 

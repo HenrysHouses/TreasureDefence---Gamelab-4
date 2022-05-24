@@ -103,24 +103,30 @@ public class WaveController : MonoBehaviour
 	{
 		waveIsInProgress = false;
 
-		if(lose)
-		{
-			Debug.Log("Player Lost");
-			// stuff here when player looses
+        if (lose)
+        {
+            Debug.Log("Player Lost");
+            // stuff here when player looses
 
-			if(CanvasController.instance.getCurrentGaphic != 1)
-				CanvasController.instance.OpenNewCanvas(1);
+            if (CanvasController.instance.getCurrentGaphic != 1)
+                CanvasController.instance.OpenNewCanvas(1);
 
-			GameManager.instance.restorePreLevelTowers();
-			CurrencyManager.instance.restorePreLevelMoney();
-			
-			currentWave = getWaveCount();
-		}
+            GameManager.instance.restorePreLevelTowers();
+            CurrencyManager.instance.restorePreLevelMoney();
+
+            currentWave = getWaveCount();
+
+			levelHandler._LooseTriggerMUS.TriggerParameters();
+			// Will trigger win stinger upon Win. A 2 bar transition between music and stinger
+			// Additional feedback should be delayed by 2 seconds ish to match with stinger
+        }
 		else
 		{
 			Debug.Log("Player won");
 			GameManager.instance.SaveLevelComplete(LevelData.levelNumber);
 			CanvasController.instance.OpenNewCanvas(0);
+
+			levelHandler._WinTriggerMUS.TriggerParameters();
 		}
 
 		foreach (var enemy in enemies)

@@ -221,6 +221,10 @@ GameObject:
   - component: {fileID: 1226691152}
   - component: {fileID: 1226691153}
   - component: {fileID: 1226691154}
+  - component: {fileID: 5475801310123833819}
+  - component: {fileID: 7609925243031871134}
+  - component: {fileID: 6542255621031590448}
+  - component: {fileID: 566064659206667013}
   m_Layer: 2
   m_Name: TD_GameSystem_LevelHolder
   m_TagString: Untagged
@@ -276,9 +280,11 @@ MonoBehaviour:
   FlagSpawn: {fileID: 1057992112738887686}
   _BoardAMBX: {fileID: 0}
   _BattleTriggerMUS: {fileID: 1226691154}
+  _WinTriggerMUS: {fileID: 6542255621031590448}
+  _LooseTriggerMUS: {fileID: 566064659206667013}
   _MapBattleMUS: {fileID: 1226691153}
-  _MapErectingSFX: {fileID: 1226691151}
-  _EjectBoardSFX: {fileID: 1226691152}
+  _MapErectingSFX: {fileID: 5475801310123833819}
+  _EjectBoardSFX: {fileID: 7609925243031871134}
   LevelEnding: 0
   LevelStarting: 0
   LevelStartHasBegun: 0
@@ -306,7 +312,7 @@ MonoBehaviour:
       Data2: 1224242193
       Data3: -1582197602
       Data4: -521695191
-    Path: event:/MapErectingSFX
+    Path: event:/SFX/Environment/MapErectingSFX
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -336,7 +342,7 @@ MonoBehaviour:
       Data2: 1338988485
       Data3: 1504410288
       Data4: 1214785075
-    Path: event:/EjectBoardSFX2
+    Path: event:/SFX/Environment/EjectBoardSFX2
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -393,6 +399,98 @@ MonoBehaviour:
   parameter: MusicState
   TriggerEvent: 0
   value: 2
+--- !u!114 &5475801310123833819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618372305076973099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -449105265
+      Data2: 1224242193
+      Data3: -1582197602
+      Data4: -521695191
+    Path: event:/SFX/Environment/MapErectingSFX
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &7609925243031871134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618372305076973099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 27386372
+      Data2: 1338988485
+      Data3: 1504410288
+      Data4: 1214785075
+    Path: event:/SFX/Environment/EjectBoardSFX2
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &6542255621031590448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618372305076973099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  parameter: MusicState
+  TriggerEvent: 0
+  value: 5
+--- !u!114 &566064659206667013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618372305076973099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  parameter: MusicState
+  TriggerEvent: 0
+  value: 4
 --- !u!1 &6618372305125662389
 GameObject:
   m_ObjectHideFlags: 0

@@ -1987,30 +1987,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603068867}
     m_Modifications:
-    - target: {fileID: 1057992112738887686, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.302
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057992112738887686, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.40100002
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057992112738887686, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.472
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057992112738887686, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9912529
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057992112738887686, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.13197598
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057992112738887686, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 15.168
-      objectReference: {fileID: 0}
     - target: {fileID: 6618372305076973098, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2064,25 +2040,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1908187672}
     - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: enemyHolder
-      value: 
-      objectReference: {fileID: 2118620058}
-    - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
       propertyPath: cloudParticle
       value: 
       objectReference: {fileID: 615530565}
-    - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: _EjectBoardSFX
-      value: 
-      objectReference: {fileID: 1226691152}
-    - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: _MapErectingSFX
-      value: 
-      objectReference: {fileID: 1226691151}
-    - target: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-      propertyPath: explotionParticle
-      value: 
-      objectReference: {fileID: 1595576975666691675, guid: 6f934e29c32d349429826a264258c578, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
 --- !u!4 &806482824 stripped
@@ -2269,7 +2229,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6618372305076973109, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
   m_PrefabInstance: {fileID: 806482823}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226691150}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca0bdc82681e7c74587f37577fd548fc, type: 3}
@@ -3973,71 +3933,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.75, y: 1.52, z: 2.79}
   m_Center: {x: 0, y: 0, z: 0.12}
---- !u!1 &1226691150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6618372305076973099, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-  m_PrefabInstance: {fileID: 806482823}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1226691151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226691150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -449105265
-      Data2: 1224242193
-      Data3: -1582197602
-      Data4: -521695191
-    Path: event:/MapErectingSFX
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1226691152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226691150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 27386372
-      Data2: 1338988485
-      Data3: 1504410288
-      Data4: 1214785075
-    Path: event:/EjectBoardSFX2
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1237224763
 GameObject:
   m_ObjectHideFlags: 0
@@ -5475,7 +5370,7 @@ PrefabInstance:
     - target: {fileID: 8503713395252209892, guid: 138cdd0f81c391f4fb19a23aff6c5720, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cac072e0d97a4a9418b3e971a02aba49, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8503713395252209894, guid: 138cdd0f81c391f4fb19a23aff6c5720, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1.332
@@ -6380,7 +6275,7 @@ MonoBehaviour:
       Data2: 1228920888
       Data3: 714768530
       Data4: 854981879
-    Path: event:/HighlightHummingSFX
+    Path: event:/SFX/Environment/HighlightHummingSFX
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -6410,7 +6305,7 @@ MonoBehaviour:
       Data2: 1228920888
       Data3: 714768530
       Data4: 854981879
-    Path: event:/HighlightHummingSFX
+    Path: event:/SFX/Environment/HighlightHummingSFX
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -7430,7 +7325,7 @@ MonoBehaviour:
       Data2: 1218748603
       Data3: -1803401853
       Data4: 228255198
-    Path: event:/Tutorial_Alert
+    Path: event:/SFX/Tutorial_Alert
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -7648,11 +7543,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090588748}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &2118620058 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6618372305524483601, guid: 71e5e2324bc16be4e8f5cf01016e4fbf, type: 3}
-  m_PrefabInstance: {fileID: 806482823}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &632839185580851193
 Transform:
   m_ObjectHideFlags: 0
@@ -8380,6 +8270,10 @@ PrefabInstance:
     - target: {fileID: 3915297593865451424, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
       propertyPath: m_Name
       value: VR Rig_Teleportation
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915297593865451424, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3915297593865451426, guid: 5f36f44aba8aa004b9d3b9a6f401f284, type: 3}
       propertyPath: m_RootOrder
