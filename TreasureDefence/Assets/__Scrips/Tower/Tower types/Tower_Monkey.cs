@@ -6,9 +6,13 @@ public class Tower_Monkey : TowerBehaviour
 {									
 	public float ProjectileLifeTime, Dot_Interval;
 	[SerializeField] GameObject MonkeyMesh;
+	public Animator MonkeyAnimator;
+	public List<GameObject> Monkeys;
 
 	override public bool Attack(int damage, EnemyBehaviour[] targets)
 	{
+		MonkeyAnimator.SetBool("MonkeyFalling", true);
+		Debug.Log("MOOOOOOOOOONNNKKEEEYYYFALL");
 		bool attacked = false;
 		if (targets != null)
         {
@@ -25,8 +29,12 @@ public class Tower_Monkey : TowerBehaviour
 						isDebuffed = true;
 					}
 				}
-				if(isDebuffed)
+				if (isDebuffed)
+				{
+					//MonkeyAnimator.SetBool("MonkeyDancing", true);	 Animation didn't happen.
+					//Debug.Log("MOOOOOOONNNNKEEEEYYYYDAAANCCEE");
 					continue;
+				}
 				unaffectedTargets.Add(targets[i]);
 			}
 			EnemyBehaviour[] currentValidTargets = unaffectedTargets.ToArray();
