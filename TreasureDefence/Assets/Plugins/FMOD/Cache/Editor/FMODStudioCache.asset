@@ -346,33 +346,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
---- !u!114 &-6139315924326093092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/VO/TD_VO_EnemyIncoming
-  m_EditorClassIdentifier: 
-  Path: event:/VO/TD_VO_EnemyIncoming
-  Guid:
-    Data1: 1002935514
-    Data2: 1095437720
-    Data3: 854038453
-    Data4: -1981193368
-  Banks:
-  - {fileID: 419672692722413291}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-6072039808818674421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +373,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 6431
---- !u!114 &-6001667500163707314
+--- !u!114 &-5978065127483424078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,14 +383,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/VO/TD_VO_TakingDamage
+  m_Name: event:/VO/TD_VO_G_EnemyAtGates
   m_EditorClassIdentifier: 
-  Path: event:/VO/TD_VO_TakingDamage
+  Path: event:/VO/TD_VO_G_EnemyAtGates
   Guid:
     Data1: 1418668627
     Data2: 1204159714
     Data3: 115303075
     Data4: -750927425
+  Banks:
+  - {fileID: 419672692722413291}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5878102613811800632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/TD_VO_AM_NotEnoughMoney
+  m_EditorClassIdentifier: 
+  Path: event:/VO/TD_VO_AM_NotEnoughMoney
+  Guid:
+    Data1: 1855763358
+    Data2: 1202619980
+    Data3: -1264669309
+    Data4: 560598241
   Banks:
   - {fileID: 419672692722413291}
   IsStream: 0
@@ -560,6 +560,33 @@ MonoBehaviour:
   - {fileID: 8831752156935541725}
   IsStream: 0
   Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5250048506162065157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/TD_VO_G_Defeat
+  m_EditorClassIdentifier: 
+  Path: event:/VO/TD_VO_G_Defeat
+  Guid:
+    Data1: 1526881677
+    Data2: 1105004084
+    Data3: 2031771041
+    Data4: 443667098
+  Banks:
+  - {fileID: 419672692722413291}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -794,6 +821,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2382371717590735532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/TD_VO_G_StartWave
+  m_EditorClassIdentifier: 
+  Path: event:/VO/TD_VO_G_StartWave
+  Guid:
+    Data1: -811819475
+    Data2: 1329494172
+    Data3: -2042671954
+    Data4: -152037927
+  Banks:
+  - {fileID: 419672692722413291}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2306945357383296415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,6 +926,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
+--- !u!114 &-1230240930326842805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/TD_VO_AM;_Defeat
+  m_EditorClassIdentifier: 
+  Path: event:/VO/TD_VO_AM;_Defeat
+  Guid:
+    Data1: -1190138824
+    Data2: 1148170332
+    Data3: 1782628265
+    Data4: -1658344305
+  Banks:
+  - {fileID: 419672692722413291}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-960426852028668709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1077,20 +1158,21 @@ MonoBehaviour:
   - {fileID: 8772598720018629964}
   - {fileID: -3287644326514136624}
   - {fileID: 3166004943824595290}
-  - {fileID: 5025474390469735963}
-  - {fileID: 1761516944707103782}
-  - {fileID: -6001667500163707314}
   - {fileID: 7884409430078968662}
   - {fileID: 1318543044888160043}
-  - {fileID: 6016243815819560377}
-  - {fileID: 8314468171176800220}
   - {fileID: 362344807288975250}
-  - {fileID: -6139315924326093092}
   - {fileID: -6563340528045914106}
   - {fileID: -5259076708507105640}
   - {fileID: 3082078395756214051}
   - {fileID: 7501411010957772534}
   - {fileID: 3331201050213878660}
+  - {fileID: -2382371717590735532}
+  - {fileID: -1230240930326842805}
+  - {fileID: 2448201020181065128}
+  - {fileID: -5978065127483424078}
+  - {fileID: -5250048506162065157}
+  - {fileID: -5878102613811800632}
+  - {fileID: 5312274080539268882}
   EditorParameters:
   - {fileID: 4616914684927719335}
   - {fileID: 2579549034534120794}
@@ -1098,7 +1180,7 @@ MonoBehaviour:
   - {fileID: 1523133810467511680}
   StringsBanks:
   - {fileID: 7975405985207771662}
-  cacheTime: 637891775622423652
+  cacheTime: 637891819023063602
   cacheVersion: 10
 --- !u!114 &99011284630868695
 MonoBehaviour:
@@ -1169,10 +1251,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/VO.bank
   Name: Desktop/VO
   StudioPath: bank:/VO
-  lastModified: 637879781751242190
+  lastModified: 637891819023063602
   FileSizes:
   - Name: 
-    Value: 15849888
+    Value: 23041920
   Exists: 1
 --- !u!114 &432826969593630237
 MonoBehaviour:
@@ -1356,7 +1438,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &1761516944707103782
+--- !u!114 &2448201020181065128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1366,9 +1448,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/VO/TD_VO_BossIncoming
+  m_Name: event:/VO/TD_VO_G_BossIncoming
   m_EditorClassIdentifier: 
-  Path: event:/VO/TD_VO_BossIncoming
+  Path: event:/VO/TD_VO_G_BossIncoming
   Guid:
     Data1: -1182758062
     Data2: 1102284363
@@ -1656,7 +1738,7 @@ MonoBehaviour:
   - ArmorHit
   - ArmrorHitDeath
   Exists: 1
---- !u!114 &5025474390469735963
+--- !u!114 &5312274080539268882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1666,14 +1748,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/VO/TD_VO_StartWave
+  m_Name: event:/VO/TD_VO_G_EnemyIncoming
   m_EditorClassIdentifier: 
-  Path: event:/VO/TD_VO_StartWave
+  Path: event:/VO/TD_VO_G_EnemyIncoming
   Guid:
-    Data1: -811819475
-    Data2: 1329494172
-    Data3: -2042671954
-    Data4: -152037927
+    Data1: 1002935514
+    Data2: 1095437720
+    Data3: 854038453
+    Data4: -1981193368
   Banks:
   - {fileID: 419672692722413291}
   IsStream: 0
@@ -1757,33 +1839,6 @@ MonoBehaviour:
   - Name: 
     Value: 99352672
   Exists: 1
---- !u!114 &6016243815819560377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/VO/TD_VO_Defeat
-  m_EditorClassIdentifier: 
-  Path: event:/VO/TD_VO_Defeat
-  Guid:
-    Data1: 1526881677
-    Data2: 1105004084
-    Data3: 2031771041
-    Data4: 443667098
-  Banks:
-  - {fileID: 419672692722413291}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &6056506471052091307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1937,38 +1992,11 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637879781743622809
+  lastModified: 637891819021893346
   FileSizes:
   - Name: 
-    Value: 3452
+    Value: 3536
   Exists: 1
---- !u!114 &8314468171176800220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/VO/TD_VO_OutOfCoin
-  m_EditorClassIdentifier: 
-  Path: event:/VO/TD_VO_OutOfCoin
-  Guid:
-    Data1: 1855763358
-    Data2: 1202619980
-    Data3: -1264669309
-    Data4: 560598241
-  Banks:
-  - {fileID: 419672692722413291}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &8327560625339294877
 MonoBehaviour:
   m_ObjectHideFlags: 0
