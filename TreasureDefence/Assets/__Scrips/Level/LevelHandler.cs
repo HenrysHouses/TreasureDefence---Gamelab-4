@@ -133,7 +133,7 @@ public class LevelHandler : MonoBehaviour
 			CurrencyManager.instance.SetMoney(levelData.StartMoney);
 		}
 		LevelStarting = true;
-		Vector3 offset = Vector3.down * _offsetValue;
+		Vector3 offset = Vector3.down * _offsetValue + new Vector3(0.2f, 0f, 0f);
 		Vector3 newPos = levelData.LevelPrefab.transform.position + offset;
 		currentLevel = Instantiate(levelData.LevelPrefab, newPos, Quaternion.identity).transform;
 		currentLevel.SetParent(transform, false);

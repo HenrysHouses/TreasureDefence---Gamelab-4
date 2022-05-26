@@ -21,7 +21,9 @@ public class PirateCoveController : MonoBehaviour
     
     private float[] mult = { 1f, 1.08f, 1.32f, 1.25f, 1.42f };
 
-    private int[] buildingsLevels = {0,0,0,0,0};
+    private int[] buildingLevels = { 0, 0, 0, 0, 0 };
+
+    private bool[] buildingMaxed = { false, false, false, false, false };
     
     /*                                                                      Descriptions
      ________________________________________________________________________________________________________________________________ 
@@ -106,14 +108,11 @@ public class PirateCoveController : MonoBehaviour
             Destroy(this);
         }
 
-<<<<<<< Updated upstream
-            // Debug.Log("Level " + temp + " : " + CalculateCost(i) + " xp.");
-=======
         for (int i = 0; i < costs.Length; i++)
         {
             costs[i].text = "" + CalculateCost(0, mult[i]);
             checkSigns[i].SetActive(false);
->>>>>>> Stashed changes
+            upgradeIcons[i].SetActive(false);
         }
 
         experienceText.text = "" + _experience;
@@ -122,12 +121,11 @@ public class PirateCoveController : MonoBehaviour
 
     private void Update()
     {
-        if (Application.isEditor)
+        if (Application.isEditor)       // REMOVE BEFORE FINAL HAND IN
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                AddExperience(1);
-                Debug.Log("Experience: " + _experience);
+                AddExperience(10);
             }
         
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -175,9 +173,9 @@ public class PirateCoveController : MonoBehaviour
         }
         */
 
-        for (int i = 0; i < buildingsLevels.Length; i++)
+        for (int i = 0; i < buildingLevels.Length; i++)
         {
-            if (_experience >= CalculateCost(buildingsLevels[i], mult[i]))
+            if (_experience >= CalculateCost(buildingLevels[i], mult[i]))
             {
                 upgradeIcons[i].SetActive(true);
                 checkSigns[i].SetActive(true);
@@ -287,99 +285,236 @@ public class PirateCoveController : MonoBehaviour
 
     public int CalculateCost(int structureLevel, float multiplier)
     {
+        if (structureLevel > 4)
+            return 10000000;
+        
         int val = (structureLevel + 1) * 5;
-
+        
         return (Mathf.FloorToInt(Mathf.Pow(val, 2.22f) * multiplier) + 1);
     }
 
     public void Upgrade(int structure)
     {
-        switch (structure)
+        switch(structure)
         {
-            case 0:
-                if (RemoveExperience(CalculateCost(buildingsLevels[0], mult[0])))
+            case 0:     // WALL        WALL        WALL        WALL
+                if (!buildingMaxed[structure])
                 {
-                    //wallModels[_wallLevel].SetActive(false);
-                    
-                    buildingsLevels[0] += 1;
+                    if (RemoveExperience(CalculateCost(buildingLevels[structure], mult[structure])))
+                    {
+                        wallModels[buildingLevels[structure]].SetActive(true);
+                        
+                        buildingLevels[structure] += 1;
 
-                    wallModels[buildingsLevels[0]].SetActive(true);
-                    GameManager.instance.healthMultiplier = wallUpgrades[buildingsLevels[0]];
+                        GameManager.instance.healthMultiplier = wallUpgrades[buildingLevels[structure]];
 
-                    costs[0].text = "" + CalculateCost(buildingsLevels[0], mult[0]);
+                        if (buildingLevels[structure] <= 4)
+                            costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);
+                        else
+                        {
+                            costs[structure].text = "MAX";
+                            buildingMaxed[structure] = true;
+                        }
+                    }
+                    else
+                        Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingLevels[structure] + 1);
                 }
-                else
-                    Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingsLevels[0] + 1);
-
                 break;
 
-            case 1:
-                if (RemoveExperience(CalculateCost(buildingsLevels[1], mult[1])))
+            case 1:     // CHEST        CHEST       CHEST       CHEST
+                if (!buildingMaxed[structure])
                 {
-                    //chestModels[_chestLevel].SetActive(false);
-                    
-                    buildingsLevels[1] += 1;
+                    if (RemoveExperience(CalculateCost(buildingLevels[structure], mult[structure])))
+                    {
+                        chestModels[buildingLevels[structure]].SetActive(true);
 
-                    chestModels[buildingsLevels[1]].SetActive(true);
-                    GameManager.instance.moneyMultiplier = chestUpgrades[buildingsLevels[1]];
-                    
-                    costs[1].text = "" + CalculateCost(buildingsLevels[1], mult[1]);
+                        buildingLevels[structure] += 1;
+                        
+                        GameManager.instance.moneyMultiplier = chestUpgrades[buildingLevels[structure]];
+
+                        if (buildingLevels[structure] <= 4)
+                            costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);
+                        else
+                        {
+                            costs[structure].text = "MAX";
+                            buildingMaxed[structure] = true;
+                        }
+                    }
+                    else
+                        Debug.Log("Insufficient _experience points to purchase Chest Level " + buildingLevels[structure] + 1);
                 }
-                else
-                    Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingsLevels[1] + 1);
-
                 break;
 
-            case 2:
-                if (RemoveExperience(CalculateCost(buildingsLevels[2], mult[2])))
+            case 2:     // TAVERN       TAVERN      TAVERN      TAVERN
+                if (!buildingMaxed[structure])
                 {
-                    //tavernModels[_tavernLevel].SetActive(false);
-                    
-                    buildingsLevels[2] += 1;
+                    if (RemoveExperience(CalculateCost(buildingLevels[structure], mult[structure])))
+                    {
+                        tavernModels[buildingLevels[structure]].SetActive(true);
 
-                    tavernModels[buildingsLevels[2]].SetActive(true);
-                    GameManager.instance.rangeMultiplier = rangeUpgrades[buildingsLevels[2]];
-                    
-                    costs[2].text = "" + CalculateCost(buildingsLevels[2], mult[2]);
+                        buildingLevels[structure] += 1;
+                        
+                        GameManager.instance.rangeMultiplier = rangeUpgrades[buildingLevels[structure]];
+
+                        if (buildingLevels[structure] <= 4)
+                            costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);
+                        else
+                        {
+                            costs[structure].text = "MAX";
+                            buildingMaxed[structure] = true;
+                        }
+                    }
+                    else
+                        Debug.Log("Insufficient _experience points to purchase Tavern Level " + buildingLevels[structure] + 1);
                 }
-                else
-                    Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingsLevels[2] + 1);
-
                 break;
 
-            case 3:
-                if (RemoveExperience(CalculateCost(buildingsLevels[3], mult[3])))
+            case 3:     // SMITH        SMITH       SMITH       SMITH
+                if (!buildingMaxed[structure])
                 {
-                    //blacksmithModels[_blacksmithLevel].SetActive(false);
-                    
-                    buildingsLevels[3] += 1;
-                    
-                    blacksmithModels[buildingsLevels[3]].SetActive(true);
-                    GameManager.instance.damageMultiplier = towerUpgrades[buildingsLevels[3]];
-                    
-                    costs[3].text = "" + CalculateCost(buildingsLevels[3], mult[3]);
-                }
-                else
-                    Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingsLevels[3] + 1);
+                    if (RemoveExperience(CalculateCost(buildingLevels[structure], mult[structure])))
+                    {
+                        blacksmithModels[buildingLevels[structure]].SetActive(true);
+                        buildingLevels[structure] += 1;
+                        
+                        GameManager.instance.damageMultiplier = towerUpgrades[buildingLevels[structure]];
 
+                        if (buildingLevels[structure] <= 4)
+                            costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);
+                        else
+                        {
+                            costs[structure].text = "MAX";
+                            buildingMaxed[structure] = true;
+                        }
+                    }
+                    else
+                        Debug.Log("Insufficient _experience points to purchase Blacksmith Level " + buildingLevels[structure] + 1);
+                }
                 break;
 
-            case 4:
-                if (RemoveExperience(CalculateCost(buildingsLevels[4], mult[4])))
+            case 4:     // BARRACKS     BARRACKS        BARRACKS        BARRACKS
+                if (!buildingMaxed[structure])
                 {
-                    //barracksModels[_barracksLevel].SetActive(false);
-                    
-                    buildingsLevels[4] += 1;
+                    if (RemoveExperience(CalculateCost(buildingLevels[structure], mult[structure])))
+                    {
+                        barracksModels[buildingLevels[structure]].SetActive(true);
+                        buildingLevels[structure] += 1;
 
-                    barracksModels[buildingsLevels[4]].SetActive(true);
-                    GameManager.instance.attSpeedMultiplier = 1f / towerUpgrades[buildingsLevels[4]];
-                    
-                    costs[4].text = "" + CalculateCost(buildingsLevels[4], mult[4]);
+                        GameManager.instance.attSpeedMultiplier = 1f / towerUpgrades[buildingLevels[structure]];
+
+                        if (buildingLevels[structure] <= 4)
+                            costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);
+                        else
+                        {
+                            costs[structure].text = "MAX";
+                            buildingMaxed[structure] = true;
+                        }
+                    }
+                    else
+                        Debug.Log("Insufficient _experience points to purchase Barracks Level " + buildingLevels[structure] + 1);
                 }
-                else
-                    Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingsLevels[4] + 1);
                 break;
         }
+        
+        ValueChanged();
+        
+        /*
+        switch (structure)
+        {
+            
+            case 0:     // WALL        WALL        WALL        WALL
+                if (!buildingMaxed[0])
+                {
+                    if (RemoveExperience(CalculateCost(buildingLevels[0], mult[0])))
+                    {
+                        buildingLevels[0] += 1;
+
+                        wallModels[buildingLevels[0]].SetActive(true);
+                        GameManager.instance.healthMultiplier = wallUpgrades[buildingLevels[0]];
+
+                        if (buildingLevels[0] <= 4)
+                            costs[0].text = "" + CalculateCost(buildingLevels[0], mult[0]);
+                        else
+                        {
+                            costs[0].text = "MAX";
+                            buildingMaxed[0] = true;
+                        }
+                    }
+                    else
+                        Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingLevels[0] + 1);
+                }
+                break;
+
+            case 1:     // CHEST        CHEST       CHEST       CHEST
+                if (!buildingMaxed[1])
+                {
+                    if (RemoveExperience(CalculateCost(buildingLevels[1], mult[1])))
+                    {
+                        buildingLevels[1] += 1;
+
+                        chestModels[buildingLevels[1]].SetActive(true);
+                        GameManager.instance.moneyMultiplier = chestUpgrades[buildingLevels[1]];
+                    
+                        if (buildingLevels[0] <= 4)
+                            costs[1].text = "" + CalculateCost(buildingLevels[1], mult[1]);
+                        else
+                        {
+                            costs[1].text = "MAX";
+                            buildingMaxed[1] = true;
+                        }
+                    }
+                    else
+                        Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingLevels[1] + 1);
+                }
+
+                break;
+
+            case 2:     // TAVERN       TAVERN      TAVERN      TAVERN
+                if (RemoveExperience(CalculateCost(buildingLevels[2], mult[2])))
+                {
+                    buildingLevels[2] += 1;
+
+                    tavernModels[buildingLevels[2]].SetActive(true);
+                    GameManager.instance.rangeMultiplier = rangeUpgrades[buildingLevels[2]];
+                    
+                    costs[2].text = "" + CalculateCost(buildingLevels[2], mult[2]);
+                }
+                else
+                    Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingLevels[2] + 1);
+
+                break;
+
+            case 3:     // SMITH        SMITH       SMITH       SMITH
+                if (RemoveExperience(CalculateCost(buildingLevels[3], mult[3])))
+                {
+                    buildingLevels[3] += 1;
+                    
+                    blacksmithModels[buildingLevels[3]].SetActive(true);
+                    GameManager.instance.damageMultiplier = towerUpgrades[buildingLevels[3]];
+                    
+                    costs[3].text = "" + CalculateCost(buildingLevels[3], mult[3]);
+                }
+                else
+                    Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingLevels[3] + 1);
+
+                break;
+
+            case 4:     // BARRACKS     BARRACKS        BARRACKS        BARRACKS
+                if (RemoveExperience(CalculateCost(buildingLevels[4], mult[4])))
+                {
+                    buildingLevels[4] += 1;
+
+                    barracksModels[buildingLevels[4]].SetActive(true);
+                    GameManager.instance.attSpeedMultiplier = 1f / towerUpgrades[buildingLevels[4]];
+                    
+                    costs[4].text = "" + CalculateCost(buildingLevels[4], mult[4]);
+                }
+                else
+                    Debug.Log("Insufficient _experience points to purchase Wall Level " + buildingLevels[4] + 1);
+                break;
+        }
+        */
+        
     }
 
     private void ValueChanged()
@@ -409,26 +544,26 @@ public class PirateCoveController : MonoBehaviour
 
     public int GetWallLevel()
     {
-        return buildingsLevels[0];
+        return buildingLevels[0];
     }
 
     public int GetChestLevel()
     {
-        return buildingsLevels[1];
+        return buildingLevels[1];
     }
 
     public int GetTavernLevel()
     {
-        return buildingsLevels[2];
+        return buildingLevels[2];
     }
 
     public int GetBlacksmithLevel()
     {
-        return buildingsLevels[3];
+        return buildingLevels[3];
     }
 
     public int GetBarracksLevel()
     {
-        return buildingsLevels[4];
+        return buildingLevels[4];
     }
 }
