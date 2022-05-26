@@ -17,7 +17,7 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
     public float t, StartTimer;
     float timeLeft;
     [SerializeField] Transform leftPos, rightPos;
-    bool leftHasChanged, rightHasChanged;
+    bool rightHasChanged, leftHasChanged;
     Vector3 velocity;
     [SerializeField] GameObject startGameBottle;
     [SerializeField] Animator animator;
@@ -84,6 +84,7 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
             randomizeRightPos();
         if(pos.z >= rightPos.localPosition.z)
             randomizeLeftPos();
+            
         targetRB.velocity = velocity;
         timeLeft -= Time.deltaTime;
 
@@ -169,9 +170,9 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
         Instantiate(BottleShardsParticle, Target.transform.position, Quaternion.identity);
     }
 
-    //While Playing.  Damit Rune.
     void randomizeLeftPos()
     {
+        velocity = new Vector3(0, 0, TargetMovementSpeed);
         if(!leftHasChanged)
         {
             Vector3 pos = leftPos.localPosition;
@@ -179,13 +180,12 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
             leftPos.localPosition = pos;
             leftHasChanged = true;
             rightHasChanged = false;
-            velocity = new Vector3(0, 0, -1*velocity.z);
         }
-        Debug.Log("left");
     }
 
     void randomizeRightPos()
     {
+        velocity = new Vector3(0, 0, -TargetMovementSpeed);
         if(!rightHasChanged)
         {
             Vector3 pos = rightPos.localPosition;
@@ -193,10 +193,7 @@ public class ShootingRangeController_ArcadeMachine : ArcadeMachine
             rightPos.localPosition = pos;
             rightHasChanged = true;
             leftHasChanged = false;
-            velocity = new Vector3(0, 0, -1*velocity.z);
         }
-        Debug.Log("right");
-
     }
     
     public void setIsOpen(bool state)
