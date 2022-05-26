@@ -111,9 +111,9 @@ public class GameManager : MonoBehaviour
 		towers.Remove(Tower);
 	}
 
-	public void SpawnTower(GameObject tower, Vector3 position)
+	public void SpawnTower(GameObject tower, Vector3 GlobalPosition)
 	{
-		GameObject spawnedTower = Instantiate(tower, position, Quaternion.identity);
+		GameObject spawnedTower = Instantiate(tower, GlobalPosition, Quaternion.identity);
 		towers.Add(spawnedTower);
 		spawnedTower.transform.SetParent(TowerParent, true);
 	}
