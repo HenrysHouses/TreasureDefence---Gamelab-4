@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{b90fec38-b05c-446f-a9bf-406a8fac279d}">
 		<property name="name">
-			<value>TD_VO_AG_Defeat</value>
+			<value>TD_VO_AM;_Defeat</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -33,6 +33,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{cbeb5500-b726-485e-9cfe-ffc05e72d7c7}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{62fa9fa1-202a-467e-8549-a622ebe3964f}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{3426b6cf-79b8-4d8e-9048-2637370590dc}">

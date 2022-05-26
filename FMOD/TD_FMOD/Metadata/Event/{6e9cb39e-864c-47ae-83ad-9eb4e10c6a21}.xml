@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{6e9cb39e-864c-47ae-83ad-9eb4e10c6a21}">
 		<property name="name">
-			<value>TD_VO_OutOfCoin</value>
+			<value>TD_VO_AM_NotEnoughMoney</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -128,7 +128,6 @@
 			<destination>{ebd79c8f-194e-4440-979b-a542e86d7609}</destination>
 			<destination>{a5dcf2ec-5748-4fce-b203-9b33f299dec0}</destination>
 			<destination>{97a61b09-19df-41b9-bb2a-e7294a74b109}</destination>
-			<destination>{b82e9328-ea46-495e-84fd-32e5ef954c65}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{dd66e041-fb3d-444b-8a7a-0ef91e444a6f}" />
@@ -162,11 +161,6 @@
 	<object class="SingleSound" id="{97a61b09-19df-41b9-bb2a-e7294a74b109}">
 		<relationship name="audioFile">
 			<destination>{7b537649-5036-449a-a319-ec2d38a04270}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{b82e9328-ea46-495e-84fd-32e5ef954c65}">
-		<relationship name="audioFile">
-			<destination>{3e87234e-f5e0-4ab9-9110-dfafa59b1d4c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{8df6cfaa-c9bb-4f26-af7c-fa08f1d5fc64}" />
