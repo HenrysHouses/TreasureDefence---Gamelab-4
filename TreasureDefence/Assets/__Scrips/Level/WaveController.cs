@@ -35,6 +35,12 @@ public class WaveController : MonoBehaviour
 	private int repeatSpawn = -1;
 	int EnemySpawnCount;
 
+	// Sound variables
+	[SerializeField] StudioEventEmitter[] VOEmitters;
+	[SerializeField] bool playedDamageVO;
+	[SerializeField] int lastHealth; 
+	
+
 	void Start()
 	{
 		flagPole = GameObject.FindGameObjectWithTag("FlagPole").GetComponent<FlagPole_Interactable>();
@@ -47,6 +53,8 @@ public class WaveController : MonoBehaviour
 			flagPole.calculateFlagPositions(LevelData.waves.Length);
 			flagPole.setFlagPos(currentWave);
 		}
+
+		lastHealth = health;
 	}
 
 	// Update is called once per frame
@@ -57,26 +65,35 @@ public class WaveController : MonoBehaviour
 
 		if(health <= 0 && !levelIsEnding && !levelComplete) // loose condition
 			endLevel(true);
-			
-		if(waveIsInProgress)
+
+		if (waveIsInProgress)
 		{
-			
-			if(waveProgress == getWaveLength() && enemies.Count == 0)
+			if (health != lastHealth && !playedDamageVO)
+			{
+				VOEmitters[3].Play();
+				playedDamageVO = true;
+			}
+			if (waveProgress == getWaveLength() && enemies.Count == 0)
 			{
 				waveIsInProgress = false;
 				EndOfWave();
 			}
-			
-			if(cooldownTimer > currentCooldown)
+
+			if (cooldownTimer > currentCooldown)
 			{
 				EnemyBehaviour spawn = SpawnNextEnemy();
-				
-				if(spawn)
+
+				if (spawn)
 					enemies.Add(spawn);
 			}
 			else
 				cooldownTimer += Time.deltaTime;
-		}		
+		}
+		else
+        {
+			playedDamageVO = false;
+			lastHealth = health;
+		}
 	}
 	public void nextWave()
 	{
@@ -90,6 +107,8 @@ public class WaveController : MonoBehaviour
 				//Put mines on side of table here.
 				MineSpawner.Instance.DestroyAllMines();
 				MineSpawner.Instance.InstantiateMine(2);
+
+				VOEmitters[0].Play();
 			}
 			else
 			{
@@ -103,23 +122,25 @@ public class WaveController : MonoBehaviour
 	{
 		waveIsInProgress = false;
 
-        if (lose)
-        {
-            Debug.Log("Player Lost");
-            // stuff here when player looses
+		if (lose)
+		{
+			Debug.Log("Player Lost");
+			// stuff here when player looses
 
-            if (CanvasController.instance.getCurrentGaphic != 1)
-                CanvasController.instance.OpenNewCanvas(1);
+			if (CanvasController.instance.getCurrentGaphic != 1)
+				CanvasController.instance.OpenNewCanvas(1);
 
-            GameManager.instance.restorePreLevelTowers();
-            CurrencyManager.instance.restorePreLevelMoney();
+			GameManager.instance.restorePreLevelTowers();
+			CurrencyManager.instance.restorePreLevelMoney();
 
-            currentWave = getWaveCount();
+			currentWave = getWaveCount();
 
 			levelHandler._LooseTriggerMUS.TriggerParameters();
 			// Will trigger win stinger upon Win. A 2 bar transition between music and stinger
 			// Additional feedback should be delayed by 2 seconds ish to match with stinger
-        }
+
+			VOEmitters[1].Play(); // Trigger Loose VO, AKA Defeat VO FMOD Event
+		}
 		else
 		{
 			Debug.Log("Player won");
@@ -127,6 +148,7 @@ public class WaveController : MonoBehaviour
 			CanvasController.instance.OpenNewCanvas(0);
 
 			levelHandler._WinTriggerMUS.TriggerParameters();
+			VOEmitters[2].Play(); // Trigger Victory VO
 		}
 
 		foreach (var enemy in enemies)

@@ -12,6 +12,10 @@ GameObject:
   - component: {fileID: 5888351196117565857}
   - component: {fileID: 8943725409461521984}
   - component: {fileID: 6511175251732748594}
+  - component: {fileID: 1014191132816449643}
+  - component: {fileID: -3326174928090030424}
+  - component: {fileID: 3591275431630085170}
+  - component: {fileID: 5266688707846633806}
   m_Layer: 0
   m_Name: TD_Level1_PlayLevel
   m_TagString: CurrentLevel
@@ -110,6 +114,13 @@ MonoBehaviour:
   waveIsInProgress: 0
   levelComplete: 0
   levelIsEnding: 0
+  VOEmitters:
+  - {fileID: 1014191132816449643}
+  - {fileID: -3326174928090030424}
+  - {fileID: 3591275431630085170}
+  - {fileID: 5266688707846633806}
+  playedDamageVO: 0
+  lastHealth: 0
 --- !u!114 &8943725409461521984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +171,126 @@ MonoBehaviour:
       Data3: -208391765
       Data4: 293106735
     Path: event:/MUSIC/MUS_WaveComplete
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1014191132816449643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465638827434190793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -811819475
+      Data2: 1329494172
+      Data3: -2042671954
+      Data4: -152037927
+    Path: event:/VO/TD_VO_G_StartWave
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &-3326174928090030424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465638827434190793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1526881677
+      Data2: 1105004084
+      Data3: 2031771041
+      Data4: 443667098
+    Path: event:/VO/TD_VO_G_Defeat
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3591275431630085170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465638827434190793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1638039612
+      Data2: 1091849842
+      Data3: 357404335
+      Data4: -1546736072
+    Path: event:/VO/TD_VO_Victory
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5266688707846633806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465638827434190793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1418668627
+      Data2: 1204159714
+      Data3: 115303075
+      Data4: -750927425
+    Path: event:/VO/TD_VO_G_EnemyAtGates
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -266,8 +397,8 @@ MonoBehaviour:
   DrawUpVector: 0
   DrawtTest: 0
   tTest: 0
-  startPoint: {fileID: 5725466529265611802}
-  endPoint: {fileID: 534846934105429383}
+  startPoint: {fileID: 2337637446700075024}
+  endPoint: {fileID: 5725466529265611802}
   controlPoints:
   - {fileID: 2337637446700075024}
   - {fileID: 5725466529265611802}

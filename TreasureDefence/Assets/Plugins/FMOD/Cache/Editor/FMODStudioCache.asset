@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/AMBX.bank
   Name: Desktop/AMBX
   StudioPath: bank:/AMBX
-  lastModified: 637879781740085515
+  lastModified: 637891843281630305
   FileSizes:
   - Name: 
     Value: 16379712
@@ -266,33 +266,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
---- !u!114 &-6563340528045914106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: snapshot:/FilterMusic
-  m_EditorClassIdentifier: 
-  Path: snapshot:/FilterMusic
-  Guid:
-    Data1: 1704752933
-    Data2: 1296306450
-    Data3: 1491364242
-    Data4: -373660901
-  Banks:
-  - {fileID: 1523133810467511680}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
 --- !u!114 &-6473137058499901686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,7 +580,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Stingers.bank
   Name: Desktop/Stingers
   StudioPath: bank:/Stingers
-  lastModified: 637879781750416963
+  lastModified: 637891843294528057
   FileSizes:
   - Name: 
     Value: 419616
@@ -680,7 +653,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/MUS.bank
   Name: Desktop/MUS
   StudioPath: bank:/MUS
-  lastModified: 637891775622343639
+  lastModified: 637891843285910228
   FileSizes:
   - Name: 
     Value: 63232928
@@ -926,33 +899,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
---- !u!114 &-1230240930326842805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/VO/TD_VO_AM;_Defeat
-  m_EditorClassIdentifier: 
-  Path: event:/VO/TD_VO_AM;_Defeat
-  Guid:
-    Data1: -1190138824
-    Data2: 1148170332
-    Data3: 1782628265
-    Data4: -1658344305
-  Banks:
-  - {fileID: 419672692722413291}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-960426852028668709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,6 +921,33 @@ MonoBehaviour:
   - {fileID: 8831752156935541725}
   IsStream: 0
   Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-854600813847048619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/TD_VO_AM_Defeat
+  m_EditorClassIdentifier: 
+  Path: event:/VO/TD_VO_AM_Defeat
+  Guid:
+    Data1: -1190138824
+    Data2: 1148170332
+    Data3: 1782628265
+    Data4: -1658344305
+  Banks:
+  - {fileID: 419672692722413291}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -1161,18 +1134,17 @@ MonoBehaviour:
   - {fileID: 7884409430078968662}
   - {fileID: 1318543044888160043}
   - {fileID: 362344807288975250}
-  - {fileID: -6563340528045914106}
   - {fileID: -5259076708507105640}
   - {fileID: 3082078395756214051}
   - {fileID: 7501411010957772534}
   - {fileID: 3331201050213878660}
   - {fileID: -2382371717590735532}
-  - {fileID: -1230240930326842805}
   - {fileID: 2448201020181065128}
   - {fileID: -5978065127483424078}
   - {fileID: -5250048506162065157}
   - {fileID: -5878102613811800632}
   - {fileID: 5312274080539268882}
+  - {fileID: -854600813847048619}
   EditorParameters:
   - {fileID: 4616914684927719335}
   - {fileID: 2579549034534120794}
@@ -1180,7 +1152,7 @@ MonoBehaviour:
   - {fileID: 1523133810467511680}
   StringsBanks:
   - {fileID: 7975405985207771662}
-  cacheTime: 637891819023063602
+  cacheTime: 637891843296099489
   cacheVersion: 10
 --- !u!114 &99011284630868695
 MonoBehaviour:
@@ -1251,7 +1223,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/VO.bank
   Name: Desktop/VO
   StudioPath: bank:/VO
-  lastModified: 637891819023063602
+  lastModified: 637891843296099489
   FileSizes:
   - Name: 
     Value: 23041920
@@ -1406,10 +1378,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 637891775622423652
+  lastModified: 637891843281660344
   FileSizes:
   - Name: 
-    Value: 4012
+    Value: 3118
   Exists: 1
 --- !u!114 &1735179627861589341
 MonoBehaviour:
@@ -1516,7 +1488,7 @@ MonoBehaviour:
   - {fileID: -4201841996598319990}
   MinDistance: 1
   MaxDistance: 20
-  Length: 19031
+  Length: 19368
 --- !u!114 &3082078395756214051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1834,7 +1806,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/SFX_A.bank
   Name: Desktop/SFX_A
   StudioPath: bank:/SFX_A
-  lastModified: 637879781748996054
+  lastModified: 637891843291985743
   FileSizes:
   - Name: 
     Value: 99352672
@@ -1992,10 +1964,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637891819021893346
+  lastModified: 637891843281680348
   FileSizes:
   - Name: 
-    Value: 3536
+    Value: 3482
   Exists: 1
 --- !u!114 &8327560625339294877
 MonoBehaviour:
@@ -2094,7 +2066,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/SFX_B.bank
   Name: Desktop/SFX_B
   StudioPath: bank:/SFX_B
-  lastModified: 637879781750363149
+  lastModified: 637891843294167734
   FileSizes:
   - Name: 
     Value: 25108192
