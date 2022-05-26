@@ -7,6 +7,7 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
     [Header("Claw Machine Specifics")] 
     [SerializeField] PayArcade_Interactable payArcade_Interactable;
     [SerializeField] Transform[] MovementRestriction;
+    int buttonState;
 
 
     override public void isPlayingUpdate()
