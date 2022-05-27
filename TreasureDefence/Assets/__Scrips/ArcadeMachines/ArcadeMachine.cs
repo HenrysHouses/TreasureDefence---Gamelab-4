@@ -17,6 +17,7 @@ public abstract class ArcadeMachine : MonoBehaviour
 	public bool isPlaying, hasReset;
 	// StudioEventEmitter _Audiosource;
 	[SerializeField] StudioEventEmitter _PayingforMinigamesSFX, winSFX, loseSFX;
+	[SerializeField] StudioEventEmitter InitiateGameVO, winVO, loseVO;
 
 	
 	public void Start()
@@ -37,6 +38,8 @@ public abstract class ArcadeMachine : MonoBehaviour
 			Reset();
 			if(winSFX)
 				winSFX.Play();
+
+			winVO.Play();
 			isPlaying = false;			
 			hasReset = true;
 		}
@@ -51,6 +54,7 @@ public abstract class ArcadeMachine : MonoBehaviour
 			// ! temporary lost game sound
 			loseSFX.SetParameter("Valid_Invalid", 1);
 
+			loseVO.Play();
 
 			isPlaying = false;	
 			hasReset = true;		
@@ -66,6 +70,9 @@ public abstract class ArcadeMachine : MonoBehaviour
 			{
 				_PayingforMinigamesSFX.Play();
 				_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 0);
+		
+				InitiateGameVO.Play();
+				InitiateGameVO.SetParameter("Valid_Invalid", 0);
 			}
 			isPlaying  = true;
 			hasReset = false;
@@ -75,6 +82,9 @@ public abstract class ArcadeMachine : MonoBehaviour
         {
 			_PayingforMinigamesSFX.Play();
 			_PayingforMinigamesSFX.SetParameter("Valid_Invalid", 1);
+
+			InitiateGameVO.Play();
+			InitiateGameVO.SetParameter("Valid_Invalid", 1);
 		}
 	}
 	
