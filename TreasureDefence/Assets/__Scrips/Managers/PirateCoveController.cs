@@ -24,6 +24,12 @@ public class PirateCoveController : MonoBehaviour
     private int[] buildingLevels = { 0, 0, 0, 0, 0 };
 
     private bool[] buildingMaxed = { false, false, false, false, false };
+
+    [SerializeField] private ParticleSystem[] wallParticles;
+    [SerializeField] private ParticleSystem[] chestParticles;
+    [SerializeField] private ParticleSystem[] tavernParticles;
+    [SerializeField] private ParticleSystem[] smithyParticles;
+    [SerializeField] private ParticleSystem[] barracksParticles;
     
     /*                                                                      Descriptions
      ________________________________________________________________________________________________________________________________ 
@@ -308,6 +314,11 @@ public class PirateCoveController : MonoBehaviour
 
                         GameManager.instance.healthMultiplier = wallUpgrades[buildingLevels[structure]];
 
+                        for (int i = 0; i < wallParticles.Length; i++)
+                        {
+                            wallParticles[i].Play();
+                        }
+
                         if (buildingLevels[structure] <= 4)
                             costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);
                         else
@@ -331,6 +342,11 @@ public class PirateCoveController : MonoBehaviour
                         buildingLevels[structure] += 1;
                         
                         GameManager.instance.moneyMultiplier = chestUpgrades[buildingLevels[structure]];
+                        
+                        for (int i = 0; i < chestParticles.Length; i++)
+                        {
+                            chestParticles[i].Play();
+                        }
 
                         if (buildingLevels[structure] <= 4)
                             costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);
@@ -355,6 +371,11 @@ public class PirateCoveController : MonoBehaviour
                         buildingLevels[structure] += 1;
                         
                         GameManager.instance.rangeMultiplier = rangeUpgrades[buildingLevels[structure]];
+                        
+                        for (int i = 0; i < tavernParticles.Length; i++)
+                        {
+                            tavernParticles[i].Play();
+                        }
 
                         if (buildingLevels[structure] <= 4)
                             costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);
@@ -378,6 +399,11 @@ public class PirateCoveController : MonoBehaviour
                         buildingLevels[structure] += 1;
                         
                         GameManager.instance.damageMultiplier = towerUpgrades[buildingLevels[structure]];
+                        
+                        for (int i = 0; i < smithyParticles.Length; i++)
+                        {
+                            smithyParticles[i].Play();
+                        }
 
                         if (buildingLevels[structure] <= 4)
                             costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);
@@ -401,6 +427,11 @@ public class PirateCoveController : MonoBehaviour
                         buildingLevels[structure] += 1;
 
                         GameManager.instance.attSpeedMultiplier = 1f / towerUpgrades[buildingLevels[structure]];
+                        
+                        for (int i = 0; i < barracksParticles.Length; i++)
+                        {
+                            barracksParticles[i].Play();
+                        }
 
                         if (buildingLevels[structure] <= 4)
                             costs[structure].text = "" + CalculateCost(buildingLevels[structure], mult[structure]);

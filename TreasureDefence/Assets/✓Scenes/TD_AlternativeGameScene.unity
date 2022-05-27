@@ -5511,62 +5511,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 360623518, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 907724101, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 909876037, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193389786, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1545325531, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1545325531, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.5000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 1545325531, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.49999982
-      objectReference: {fileID: 0}
-    - target: {fileID: 1545325531, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.49999985
-      objectReference: {fileID: 0}
-    - target: {fileID: 1545325531, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.50000024
-      objectReference: {fileID: 0}
-    - target: {fileID: 1545325531, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 1545325531, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 1545325531, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1572072429, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352720884143832045, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5550050475842924195, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
       propertyPath: m_Name
       value: TD_Prefab_PirateCove
@@ -5574,18 +5518,6 @@ PrefabInstance:
     - target: {fileID: 6775587690175257773, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 6775587690175257773, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 6775587690175257773, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 6775587690175257773, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 6775587690175257773, guid: 619f738fede1c1845938846c8d5f0a5d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7618,7 +7550,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.03
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1658566388, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
 --- !u!1001 &1975548883
 PrefabInstance:
@@ -8063,6 +7996,11 @@ MonoBehaviour:
   checkSigns: []
   crossSigns: []
   upgradeIcons: []
+  wallParticles: []
+  chestParticles: []
+  tavernParticles: []
+  smithyParticles: []
+  barracksParticles: []
   wallModels: []
   chestModels: []
   tavernModels: []
