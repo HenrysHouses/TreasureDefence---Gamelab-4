@@ -54,8 +54,8 @@ abstract public class TowerBehaviour : MonoBehaviour
 				if(Cooldown < 0 && enemyTarget.Length > 0)
 				{
 					if(Attack((int)(attackDamage * GameManager.instance.damageMultiplier), enemyTarget))
-                    {
-                        Cooldown = attackCooldown / GameManager.instance.attSpeedMultiplier;
+					{
+						Cooldown = attackCooldown * GameManager.instance.attSpeedMultiplier;
                     }
 				}
 			}
