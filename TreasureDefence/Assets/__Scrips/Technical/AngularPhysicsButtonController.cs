@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AngularPhysicsButtonController : MonoBehaviour
+public class AngularPhysicsButtonController : TD_Interactable
 {
     [SerializeField] float threshold = 0.1f;
     [SerializeField] float deadZone = 0.025f;
     [SerializeField] float linearLimit = 0.03f;
     [SerializeField] float springForce = 30;
-    Rigidbody rb;
+    Rigidbody _rb;
     [SerializeField] Transform ButtonRestingPos;
     bool _isPressed;
     Vector3 _startPos;
@@ -20,11 +20,12 @@ public class AngularPhysicsButtonController : MonoBehaviour
     void Awake()
     {
         _startPos = transform.localPosition;
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
+
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         // Spring physics
         Vector3 up = transform.TransformDirection(Vector3.up);
@@ -32,17 +33,17 @@ public class AngularPhysicsButtonController : MonoBehaviour
         dot = Vector3.Dot(up, dir);
 
         if(dot > 0.001 || dot < -0.001)
-            rb.AddForce(transform.up * dot *-1 * springForce);
+            _rb.AddForce(transform.up * dot *-1 * springForce);
 
         // Constrain X movement
         Vector3 X = transform.TransformDirection(Vector3.right);
         if(Vector3.Dot(X, dir) > 0.001 || Vector3.Dot(X, dir) < -0.001)
-            rb.velocity = transform.right * Vector3.Dot(X, dir) * -1 * 10;
+            _rb.velocity = transform.right * Vector3.Dot(X, dir) * -1 * 10;
         
         // Constrain Y movement
         Vector3 Y = transform.TransformDirection(Vector3.forward);
         if(Vector3.Dot(Y, dir) > 0.001 || Vector3.Dot(Y, dir) < -0.001)
-            rb.velocity = transform.forward * Vector3.Dot(Y, dir) * -1 * 10;
+            _rb.velocity = transform.forward * Vector3.Dot(Y, dir) * -1 * 10;
         
         // Checks state
         if(!_isPressed && GetValue() + threshold >= 1)
@@ -73,5 +74,24 @@ public class AngularPhysicsButtonController : MonoBehaviour
         _isPressed = false;
         OnReleased?.Invoke();
         // Debug.Log("released");
+    }
+
+	override public void VRInteractionStartTrigger()
+    {
+        OnPressed?.Invoke();
+    }
+	override public void InteractionStartTrigger(object target = null)
+    {
+        OnPressed?.Invoke();
+    }
+
+	override public void InteractionEndTrigger(object target = null)
+    {
+        OnReleased?.Invoke();
+    }
+
+	override public void VRInteractionEndTrigger()
+    {
+        OnReleased?.Invoke();
     }
 }
