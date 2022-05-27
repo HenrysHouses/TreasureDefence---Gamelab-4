@@ -149,6 +149,11 @@ public class WaveController : MonoBehaviour
 
 			levelHandler._WinTriggerMUS.TriggerParameters();
 			VOEmitters[2].Play(); // Trigger Victory VO
+
+			for(int i = 0; i< levelHandler.Confetti.Length; i++)
+            {
+			 levelHandler.Confetti[i].Play();
+            }
 		}
 
 		foreach (var enemy in enemies)

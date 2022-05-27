@@ -12,6 +12,7 @@ public class LevelHandler : MonoBehaviour
 	[SerializeField] GameObject explotionParticle;
 	[SerializeField] GameObject FlagPrefab;
 	[SerializeField] Transform FlagSpawn;
+    public ParticleSystem[] Confetti;
 
 	[SerializeField] StudioEventEmitter _BoardAMBX;
 	[SerializeField] StudioGlobalParameterTrigger _BattleTriggerMUS;
@@ -20,6 +21,7 @@ public class LevelHandler : MonoBehaviour
 	public StudioEventEmitter _MapBattleMUS;
 	[SerializeField] StudioEventEmitter _MapErectingSFX;
 	[SerializeField] StudioEventEmitter _EjectBoardSFX;
+
 
 	Transform currentLevel;
 	public bool LevelEnding, LevelStarting, LevelStartHasBegun;
