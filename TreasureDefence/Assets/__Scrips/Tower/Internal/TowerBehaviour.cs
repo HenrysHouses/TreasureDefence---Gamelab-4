@@ -33,7 +33,7 @@ abstract public class TowerBehaviour : MonoBehaviour
 	private List<float> enemyProgress = new List<float>();
 	public EnemyBehaviour[] enemyTarget;
 
-	public ParticleSystem dustCloud;
+	public GameObject dustCloudPrefab;
 
 	public void Start()
 	{
@@ -209,8 +209,8 @@ abstract public class TowerBehaviour : MonoBehaviour
 	}
     private void OnCollisionEnter(Collision collision)
     {
-		if(!dustCloud.isPlaying)
-			dustCloud.Play();
+		Instantiate(dustCloudPrefab, transform.position + new Vector3(0,0.06f,0), dustCloudPrefab.transform.rotation);
+		Debug.Log(transform.position);
     }
 
 	void OnDestroy()

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5350829990201729193}
   - component: {fileID: 5350829990201729195}
   - component: {fileID: 5350829990201729192}
+  - component: {fileID: 5824427961859384361}
   m_Layer: 0
   m_Name: VFX_Puff_DustCloud
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5350829990201729198}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.052512962, y: 0.050391417, z: 0.018975407}
+  m_LocalScale: {x: -0.059967443, y: -0.057544723, z: -0.021669062}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4862,3 +4863,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5824427961859384361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350829990201729198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a37f659593acf4495800820a48d05f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - {fileID: 5350829990201729195}
+  startLifetime: []
+  overrideUpdate: 1
