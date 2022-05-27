@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ClawMachine_ArcadeMachine : ArcadeMachine
 {    
@@ -17,8 +18,8 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
     [SerializeField] float speed = 1;
     [SerializeField] ClawMachine_Grabber grabber;
     bool direction, directionHelper;
-    [SerializeField] bool ClawWaiting, hasDropped, waitingReset;
-
+    bool ClawWaiting, hasDropped, waitingReset;
+    [SerializeField] TextMeshPro buttonText;
 
 
     override public void isPlayingUpdate()
@@ -263,11 +264,13 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
         ClawWaiting = false;
         hasDropped = false;
         waitingReset = false;
+        buttonText.text = "Pay";
     }
 
 	override public void StartSetup()
     {
         state = ClawState.MoveX;
+        buttonText.text = "";
     }
 
 
