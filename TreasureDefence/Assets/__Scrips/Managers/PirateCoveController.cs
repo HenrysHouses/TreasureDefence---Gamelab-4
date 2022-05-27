@@ -121,7 +121,8 @@ public class PirateCoveController : MonoBehaviour
             upgradeIcons[i].SetActive(false);
         }
 
-        experienceText.text = "" + _experience;
+        if(experienceText)
+            experienceText.text = "" + _experience;
 
     }
 

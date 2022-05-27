@@ -31,12 +31,15 @@ public class BuyTowerButton_Interactable : TD_Interactable
                 }
             }
 
-            GameObject spawn = Instantiate(mesh, displayPos.position, Quaternion.identity);
-            spawn.transform.SetParent(transform, true); 
-            spawn.name = "Mesh_DisplayTower";
-            Vector3 scaleOffset = new Vector3(0.02f, 0.02f, 0.02f);
-            spawn.transform.localScale = spawn.transform.localScale - scaleOffset; 
-            spawn.transform.Rotate(new Vector3(0, 180, 0), Space.World);
+            if(mesh)
+            {
+                GameObject spawn = Instantiate(mesh, displayPos.position, Quaternion.identity);
+                spawn.transform.SetParent(transform, true); 
+                spawn.name = "Mesh_DisplayTower";
+                Vector3 scaleOffset = new Vector3(0.02f, 0.02f, 0.02f);
+                spawn.transform.localScale = spawn.transform.localScale - scaleOffset; 
+                spawn.transform.Rotate(new Vector3(0, 180, 0), Space.World);
+            }
         }
     }
 
