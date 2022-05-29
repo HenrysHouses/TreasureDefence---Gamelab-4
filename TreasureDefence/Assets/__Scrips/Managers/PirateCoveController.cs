@@ -105,6 +105,7 @@ public class PirateCoveController : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Experience Cheat active, button '+'");
         if (instance == null)
         {
             instance = this;
@@ -128,12 +129,13 @@ public class PirateCoveController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.Alpha9))
+        {
+            AddExperience(10);
+        }
+        
         if (Application.isEditor)       // REMOVE BEFORE FINAL HAND IN
         {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                AddExperience(10);
-            }
         
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {

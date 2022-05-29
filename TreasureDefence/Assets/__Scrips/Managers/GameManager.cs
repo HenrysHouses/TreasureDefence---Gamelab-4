@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
 	public float damageMultiplier = 1f;
 	public float attSpeedMultiplier = 1f;
 	
+	void Start()
+	{
+		Debug.Log("Slow motion Cheats active, buttons Alpha 0, and 1");
+		Debug.Log("Unlock levels Cheats active, buttons Alpha 7");
+	}
 
 	// debugging update
 	void Update()
@@ -47,6 +52,14 @@ public class GameManager : MonoBehaviour
 		{
 			Time.timeScale = 1;
 			Debug.Log("time is normal");
+		}
+
+		if(Input.GetKeyDown(KeyCode.Alpha7))
+		{
+			SaveLevelComplete(0);
+			SaveLevelComplete(1);
+			SaveLevelComplete(2);
+			Debug.Log("unlocked all levels");
 		}
 	}
 

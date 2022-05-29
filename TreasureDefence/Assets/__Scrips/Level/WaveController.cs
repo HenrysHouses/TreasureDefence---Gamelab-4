@@ -152,7 +152,7 @@ public class WaveController : MonoBehaviour
 
 			for(int i = 0; i< levelHandler.Confetti.Length; i++)
             {
-			 levelHandler.Confetti[i].Play();
+				levelHandler.Confetti[i].Play();
             }
 		}
 
