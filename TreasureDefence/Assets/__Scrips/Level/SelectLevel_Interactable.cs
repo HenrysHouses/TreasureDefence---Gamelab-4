@@ -27,6 +27,8 @@ public class SelectLevel_Interactable : TD_Interactable
 
         if(GameManager.instance)
             GameManager.instance.LevelPickupHighlight.enabled = true;
+
+        mapdropSFX.Play();
     }
 
     override public void LookInteraction()
@@ -43,6 +45,7 @@ public class SelectLevel_Interactable : TD_Interactable
 	override public void VRInteractionStartTrigger()
     {
         LevelSelector.instance.SetLevel(levelNumber, levelName, levelInfo, levelDifficulty);
+        Debug.Log("PlayingSFX?");
         mapdropSFX.Play();
 
     }
