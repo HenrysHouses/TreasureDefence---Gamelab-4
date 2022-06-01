@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class SelectLevel_Interactable : TD_Interactable
     [SerializeField] private string levelName;
     [TextArea(4,10)][SerializeField] private string levelInfo;
     [Range(1,6)][SerializeField] private int levelDifficulty = 1;
+
+    [SerializeField] StudioEventEmitter mapdropSFX;
 
     new void Start()
     {
@@ -40,6 +43,7 @@ public class SelectLevel_Interactable : TD_Interactable
 	override public void VRInteractionStartTrigger()
     {
         LevelSelector.instance.SetLevel(levelNumber, levelName, levelInfo, levelDifficulty);
+        mapdropSFX.Play();
 
     }
 

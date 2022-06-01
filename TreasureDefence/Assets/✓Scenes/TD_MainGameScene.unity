@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7294,6 +7294,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603068867}
     m_Modifications:
+    - target: {fileID: 2101355283120082952, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
+      propertyPath: mapdropSFX
+      value: 
+      objectReference: {fileID: 1925955627}
     - target: {fileID: 2101355283120082954, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -7358,10 +7362,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level1 Selector
       objectReference: {fileID: 0}
+    - target: {fileID: 2101355283570490562, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
+      propertyPath: mapdropSFX
+      value: 
+      objectReference: {fileID: 1925955627}
     - target: {fileID: 2101355283570490620, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 718109866126654567}
+    - target: {fileID: 2101355283794226334, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2101355284417308835, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
       propertyPath: m_Name
       value: Level3 Selector
@@ -7370,6 +7382,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2101355284417308893, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
+      propertyPath: mapdropSFX
+      value: 
+      objectReference: {fileID: 1925955627}
     - target: {fileID: 2101355284417308895, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -7397,6 +7413,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2101355283264682541, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
   m_PrefabInstance: {fileID: 1925955624}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1925955626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2101355283569391267, guid: 12b0ccbebec8c4b488cc9c2649d5d4e0, type: 3}
+  m_PrefabInstance: {fileID: 1925955624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1925955627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925955626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 492640433
+      Data2: 1329161976
+      Data3: 701592964
+      Data4: -1064154208
+    Path: event:/SFX/Environment/SFX_Mapdrop
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &1959694589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7299448537749086802, guid: b7a05ea9106366645b2a78d3cb3257d0, type: 3}
