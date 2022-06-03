@@ -95,16 +95,6 @@ public class PirateCoveController : MonoBehaviour
     private float[] chestUpgrades = { 1f, 1.1f, 1.23f,  1.44f, 1.67f, 2f };
 
 
-    // Upgrades
-    /*
-    private int _wallLevel;
-    private int _chestLevel;
-    private int _tavernLevel;
-    private int _blacksmithLevel;
-    private int _barracksLevel;
-    */
-    //private int _guardTowerLevel;
-
     void Start()
     {
         Debug.Log("Experience Cheat active, button '+'");
