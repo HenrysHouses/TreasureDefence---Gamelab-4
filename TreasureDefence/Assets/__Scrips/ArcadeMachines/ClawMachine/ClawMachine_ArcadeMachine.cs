@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using FMODUnity;
 
 public class ClawMachine_ArcadeMachine : ArcadeMachine
 {    
@@ -23,6 +24,8 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
     [SerializeField] GameObject LeftRightIcon;
     [SerializeField] GameObject UpDownIcon;
 
+    [SerializeField] StudioEventEmitter MoveCraneLoopSFX, ClawMachineTriggerSFX;
+
 
     override public void isPlayingUpdate()
     {
@@ -36,7 +39,11 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
         switch(state)
         {
             case ClawState.MoveX:
-                if(direction)
+                if (!FmodExtensions.IsPlaying(MoveCraneLoopSFX.EventInstance))
+                {
+                    MoveCraneLoopSFX.Play();
+                }
+                if (direction)
                 {
                     X.x += diff;
                     _base.x += diff;
@@ -60,7 +67,11 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
                 break;
 
             case ClawState.MoveY:
-                if(direction)
+                if (!FmodExtensions.IsPlaying(MoveCraneLoopSFX.EventInstance))
+                {
+                    MoveCraneLoopSFX.Play();
+                }
+                if (direction)
                 {
                     Z.z += diff;
                     _base.z += diff;
@@ -207,8 +218,14 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
                     StartCoroutine(DropItem());
                 if(hasDropped)
                 {
+
                     if(waitingReset)
                     {
+                        if (!FmodExtensions.IsPlaying(MoveCraneLoopSFX.EventInstance))
+                        {
+                            MoveCraneLoopSFX.Play();
+                        }
+                        ClawMachineTriggerSFX.Play();
                         state = ClawState.Reset;
                         waitingReset = false;
                         ClawWaiting = false;
@@ -225,6 +242,7 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
 
     IEnumerator DropItem() 
     {
+        MoveCraneLoopSFX.Stop();
         ClawWaiting = true;
         yield return new WaitForSeconds(1);
         grabber.drop();
@@ -267,6 +285,7 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
         hasDropped = false;
         waitingReset = false;
         buttonText.text = "Pay";
+        MoveCraneLoopSFX.Stop();
     }
 
 	override public void StartSetup()

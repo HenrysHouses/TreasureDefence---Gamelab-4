@@ -84,6 +84,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7814325327846538899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_ClawMachineTrigger
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_ClawMachineTrigger
+  Guid:
+    Data1: -2080504209
+    Data2: 1329969903
+    Data3: 850912131
+    Data4: 344684398
+  Banks:
+  - {fileID: -6799258196938689101}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 521
 --- !u!114 &-7709748855124913598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,10 +207,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/SFX_B.bank
   Name: Desktop/SFX_B
   StudioPath: bank:/SFX_B
-  lastModified: 637898534694739983
+  lastModified: 637898645963185455
   FileSizes:
   - Name: 
-    Value: 33933536
+    Value: 34576672
   Exists: 1
 --- !u!114 &-6663770509677331478
 MonoBehaviour:
@@ -227,7 +254,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/AMBX.bank
   Name: Desktop/AMBX
   StudioPath: bank:/AMBX
-  lastModified: 637891872583368975
+  lastModified: 637898638027035811
   FileSizes:
   - Name: 
     Value: 16379712
@@ -530,6 +557,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1734
+--- !u!114 &-2040163059465916918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Tower & Enemy/SFX_Mine_PlacedDown
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Tower & Enemy/SFX_Mine_PlacedDown
+  Guid:
+    Data1: 637014472
+    Data2: 1325198098
+    Data3: -1315621961
+    Data4: -2044782951
+  Banks:
+  - {fileID: -6799258196938689101}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2019451144462937813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,7 +680,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/MUS.bank
   Name: Desktop/MUS
   StudioPath: bank:/MUS
-  lastModified: 637891775622343639
+  lastModified: 637898638030599060
   FileSizes:
   - Name: 
     Value: 63232928
@@ -700,7 +754,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Stingers.bank
   Name: Desktop/Stingers
   StudioPath: bank:/Stingers
-  lastModified: 637879781750416963
+  lastModified: 637898638038350761
   FileSizes:
   - Name: 
     Value: 419616
@@ -850,8 +904,11 @@ MonoBehaviour:
   - {fileID: 3151710090780860084}
   - {fileID: -4324895725198997882}
   - {fileID: -7709748855124913598}
-  - {fileID: 6072153607447799282}
   - {fileID: -1529421375720835512}
+  - {fileID: -7814325327846538899}
+  - {fileID: 542543317561675617}
+  - {fileID: -2040163059465916918}
+  - {fileID: 6758681900920105333}
   EditorParameters:
   - {fileID: -9214916878408126347}
   - {fileID: 1628279329059227826}
@@ -859,7 +916,7 @@ MonoBehaviour:
   - {fileID: 3970426991408954875}
   StringsBanks:
   - {fileID: 7565415939680396136}
-  cacheTime: 637898534694739983
+  cacheTime: 637898645963185455
   cacheVersion: 10
 --- !u!114 &36230827687167624
 MonoBehaviour:
@@ -903,11 +960,38 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/SFX_A.bank
   Name: Desktop/SFX_A
   StudioPath: bank:/SFX_A
-  lastModified: 637898534692959589
+  lastModified: 637898638035388439
   FileSizes:
   - Name: 
     Value: 99352672
   Exists: 1
+--- !u!114 &542543317561675617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ArcadeMachines/DispenceTower
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ArcadeMachines/DispenceTower
+  Guid:
+    Data1: 124362334
+    Data2: 1170819929
+    Data3: 691723664
+    Data4: -632892380
+  Banks:
+  - {fileID: -6799258196938689101}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &591179777271474830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1137,7 +1221,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 637898501911026343
+  lastModified: 637898638027065853
   FileSizes:
   - Name: 
     Value: 3118
@@ -1329,33 +1413,6 @@ MonoBehaviour:
   - ArmorHit
   - ArmrorHitDeath
   Exists: 1
---- !u!114 &6072153607447799282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_ClawMachineStop
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_ClawMachineStop
-  Guid:
-    Data1: -2080504209
-    Data2: 1329969903
-    Data3: 850912131
-    Data4: 344684398
-  Banks:
-  - {fileID: -6799258196938689101}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 187
 --- !u!114 &6278511497922728054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,6 +1497,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10050
+--- !u!114 &6758681900920105333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Tower & Enemy/SFX_Tower_PlacedDown
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Tower & Enemy/SFX_Tower_PlacedDown
+  Guid:
+    Data1: -1330741032
+    Data2: 1225452249
+    Data3: 128840368
+    Data4: -940031729
+  Banks:
+  - {fileID: -6799258196938689101}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6835256835551620987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,7 +1539,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/VO.bank
   Name: Desktop/VO
   StudioPath: bank:/VO
-  lastModified: 637894641694475571
+  lastModified: 637898638040232535
   FileSizes:
   - Name: 
     Value: 27774080
@@ -1528,10 +1612,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637898534687788423
+  lastModified: 637898645960863356
   FileSizes:
   - Name: 
-    Value: 3846
+    Value: 3986
   Exists: 1
 --- !u!114 &7779027964838352122
 MonoBehaviour:
