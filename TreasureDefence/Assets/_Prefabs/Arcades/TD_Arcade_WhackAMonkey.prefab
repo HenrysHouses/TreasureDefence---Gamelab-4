@@ -4135,7 +4135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9177097752029233897, guid: 7542e7384dbae984cbc64902203e560b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.02759
+      value: -0.027732
       objectReference: {fileID: 0}
     - target: {fileID: 9177097752029233897, guid: 7542e7384dbae984cbc64902203e560b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4198,6 +4198,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &890490790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8047065937698000032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4077f7f12ca4c449ee40f51441fcfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionButton: 323
+  canBeHeld: 0
+  canBeMoved: 0
+  lookTriggerEnabled: 0
+  lookIsActive: 0
+  held: 0
+  rb: {fileID: 0}
+  arcade: {fileID: 1097977150}
 --- !u!114 &6136625672400609910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4288,26 +4308,6 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &890490790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8047065937698000032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4077f7f12ca4c449ee40f51441fcfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionButton: 323
-  canBeHeld: 0
-  canBeMoved: 0
-  lookTriggerEnabled: 0
-  lookIsActive: 0
-  held: 0
-  rb: {fileID: 0}
-  arcade: {fileID: 1097977150}
 --- !u!1001 &6499542894486676404
 PrefabInstance:
   m_ObjectHideFlags: 0

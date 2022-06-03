@@ -95,6 +95,7 @@ public class WaveController : MonoBehaviour
 			lastHealth = health;
 		}
 	}
+
 	public void nextWave()
 	{
 		if(!levelIsEnding)
@@ -170,11 +171,22 @@ public class WaveController : MonoBehaviour
 	public void	dealDamage(int damage)
 	{
 		health -= damage;
+		updateCoveVFX();
 	}
 	
 	public void	heal(int life)
 	{
 		health += life;
+		updateCoveVFX();
+	}
+
+	private void updateCoveVFX()
+	{
+		int fireCount = (int)((float)(LevelData.lives-health) / ((float)LevelData.lives / (float)levelHandler.fireParticles.Length));
+		for (int i = 0; i < fireCount; i++)
+		{
+			levelHandler.fireParticles[i].SetActive(true);
+		}
 	}
 	
 	private int getWaveLength()

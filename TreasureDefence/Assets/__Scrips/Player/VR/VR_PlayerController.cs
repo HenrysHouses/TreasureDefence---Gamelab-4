@@ -97,27 +97,27 @@ public class VR_PlayerController : MonoBehaviour
         }
 
         // teleporting
-        if(primaryButton_RightHand)
-        {
-            if(!teleportRay.activeSelf)
-            {
-                // show teleport interactor
-                teleportRay.SetActive(true);
-                // hide hands
-                if(!leftHandIsActive)
-                    handLeft.SetActive(false);
-                if(!rightHandIsActive)
-                    handRight.SetActive(false);
-            }
-            else if(primaryButton_LeftHand && !hasTeleported && canTeleport)
-            {
-                if(teleportHighlight.material.color != Color.white)
-                {
-                    teleportPos = TeleportInteractor_Highlight.transform.position;
-                    shouldTeleport  = true;
-                }
-            }
-        }
+        // if(primaryButton_RightHand)
+        // {
+        //     if(!teleportRay.activeSelf)
+        //     {
+        //         // show teleport interactor
+        //         teleportRay.SetActive(true);
+        //         // hide hands
+        //         if(!leftHandIsActive)
+        //             handLeft.SetActive(false);
+        //         if(!rightHandIsActive)
+        //             handRight.SetActive(false);
+        //     }
+        //     else if(primaryButton_LeftHand && !hasTeleported && canTeleport)
+        //     {
+        //         if(teleportHighlight.material.color != Color.white)
+        //         {
+        //             teleportPos = TeleportInteractor_Highlight.transform.position;
+        //             shouldTeleport  = true;
+        //         }
+        //     }
+        // }
 
         // ray pickup
         else

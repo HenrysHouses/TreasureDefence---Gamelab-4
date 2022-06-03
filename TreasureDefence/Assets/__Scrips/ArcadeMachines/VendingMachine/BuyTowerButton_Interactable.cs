@@ -53,7 +53,7 @@ public class BuyTowerButton_Interactable : TD_Interactable
         buyTower();
     }
 
-    private void buyTower()
+    public void buyTower()
     {
         if(info)
         {

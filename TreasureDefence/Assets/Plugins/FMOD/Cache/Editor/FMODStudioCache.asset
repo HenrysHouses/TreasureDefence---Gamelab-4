@@ -84,6 +84,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7709748855124913598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_MovingCraneLoop
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_MovingCraneLoop
+  Guid:
+    Data1: 1202524424
+    Data2: 1319584341
+    Data3: -623045233
+    Data4: 1849449991
+  Banks:
+  - {fileID: -6799258196938689101}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4459
 --- !u!114 &-7093156193173128150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,10 +180,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/SFX_B.bank
   Name: Desktop/SFX_B
   StudioPath: bank:/SFX_B
-  lastModified: 637897738509469393
+  lastModified: 637898534694739983
   FileSizes:
   - Name: 
-    Value: 31864288
+    Value: 33933536
   Exists: 1
 --- !u!114 &-6663770509677331478
 MonoBehaviour:
@@ -200,7 +227,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/AMBX.bank
   Name: Desktop/AMBX
   StudioPath: bank:/AMBX
-  lastModified: 637892415407662508
+  lastModified: 637891872583368975
   FileSizes:
   - Name: 
     Value: 16379712
@@ -396,6 +423,32 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-3261402448705739158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_M_ClawClamb/Valid_Invalid
+  m_EditorClassIdentifier: 
+  Name: Valid_Invalid
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3990079253
+    data2: 612936490
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Valid
+  - Invalid
+  Exists: 1
 --- !u!114 &-3013429967403355728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +583,34 @@ MonoBehaviour:
   - Valid
   - Invalid
   Exists: 1
+--- !u!114 &-1529421375720835512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_ClawClamb
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_ClawClamb
+  Guid:
+    Data1: 2111866237
+    Data2: 1277954844
+    Data3: -1706308972
+    Data4: 980424711
+  Banks:
+  - {fileID: -6799258196938689101}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -3261402448705739158}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1419067060525295486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +626,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/MUS.bank
   Name: Desktop/MUS
   StudioPath: bank:/MUS
-  lastModified: 637891803826630148
+  lastModified: 637891775622343639
   FileSizes:
   - Name: 
     Value: 63232928
@@ -619,7 +700,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Stingers.bank
   Name: Desktop/Stingers
   StudioPath: bank:/Stingers
-  lastModified: 637891803834679333
+  lastModified: 637879781750416963
   FileSizes:
   - Name: 
     Value: 419616
@@ -768,6 +849,9 @@ MonoBehaviour:
   - {fileID: 8366219438638493005}
   - {fileID: 3151710090780860084}
   - {fileID: -4324895725198997882}
+  - {fileID: -7709748855124913598}
+  - {fileID: 6072153607447799282}
+  - {fileID: -1529421375720835512}
   EditorParameters:
   - {fileID: -9214916878408126347}
   - {fileID: 1628279329059227826}
@@ -775,7 +859,7 @@ MonoBehaviour:
   - {fileID: 3970426991408954875}
   StringsBanks:
   - {fileID: 7565415939680396136}
-  cacheTime: 637897738509469393
+  cacheTime: 637898534694739983
   cacheVersion: 10
 --- !u!114 &36230827687167624
 MonoBehaviour:
@@ -819,7 +903,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/SFX_A.bank
   Name: Desktop/SFX_A
   StudioPath: bank:/SFX_A
-  lastModified: 637891803833191819
+  lastModified: 637898534692959589
   FileSizes:
   - Name: 
     Value: 99352672
@@ -1053,7 +1137,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 637897738507513925
+  lastModified: 637898501911026343
   FileSizes:
   - Name: 
     Value: 3118
@@ -1245,6 +1329,33 @@ MonoBehaviour:
   - ArmorHit
   - ArmrorHitDeath
   Exists: 1
+--- !u!114 &6072153607447799282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_ClawMachineStop
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ArcadeMachines/ClawMachine/SFX_M_ClawMachineStop
+  Guid:
+    Data1: -2080504209
+    Data2: 1329969903
+    Data3: 850912131
+    Data4: 344684398
+  Banks:
+  - {fileID: -6799258196938689101}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 187
 --- !u!114 &6278511497922728054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,7 +1455,7 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/VO.bank
   Name: Desktop/VO
   StudioPath: bank:/VO
-  lastModified: 637896939862674142
+  lastModified: 637894641694475571
   FileSizes:
   - Name: 
     Value: 27774080
@@ -1417,10 +1528,10 @@ MonoBehaviour:
   Path: ../FMOD/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637897738507523946
+  lastModified: 637898534687788423
   FileSizes:
   - Name: 
-    Value: 3664
+    Value: 3846
   Exists: 1
 --- !u!114 &7779027964838352122
 MonoBehaviour:
@@ -1558,7 +1669,7 @@ MonoBehaviour:
   - {fileID: 7467061351382796735}
   MinDistance: 1
   MaxDistance: 20
-  Length: 35922
+  Length: 1093
 --- !u!114 &9205904137541593360
 MonoBehaviour:
   m_ObjectHideFlags: 0

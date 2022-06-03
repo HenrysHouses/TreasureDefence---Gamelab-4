@@ -13,7 +13,7 @@ public class DestroyParticleOnEnd : MonoBehaviour
 		foreach (var vfx in particles)
 		{
 			float totalDuration = vfx.main.duration + vfx.startLifetime;
-			Debug.Log(totalDuration);
+			// Debug.Log(totalDuration);
 			Destroy(vfx.gameObject, totalDuration);
 		}
 	}

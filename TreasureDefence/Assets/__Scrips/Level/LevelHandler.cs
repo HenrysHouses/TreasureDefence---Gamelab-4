@@ -33,6 +33,7 @@ public class LevelHandler : MonoBehaviour
 	[SerializeField] Transform enemyHolder;
 
 	public ParticleSystem birdParticle;
+	public GameObject[] fireParticles;
 
 	void Awake()
 	{
@@ -65,8 +66,8 @@ public class LevelHandler : MonoBehaviour
 				if (!FmodExtensions.IsPlaying(_MapBattleMUS.EventInstance))
 				{
 					_MapBattleMUS.Play();
-					_BattleTriggerMUS.TriggerParameters();
 				}
+				_BattleTriggerMUS.TriggerParameters();
 
 				Vector3 pos = currentLevel.localPosition;
 				pos.y += Time.deltaTime * riseSpeed;
@@ -108,6 +109,11 @@ public class LevelHandler : MonoBehaviour
 
 					GameManager.instance.resetTowerDispenser();
 					_BoardAMBX.SetParameter("Parameter 1", 0);
+
+					foreach(GameObject _particle in fireParticles)
+					{
+						_particle.SetActive(false);
+					}
 				}
 			}
 		}

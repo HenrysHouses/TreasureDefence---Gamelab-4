@@ -20,6 +20,8 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
     bool direction, directionHelper;
     bool ClawWaiting, hasDropped, waitingReset;
     [SerializeField] TextMeshPro buttonText;
+    [SerializeField] GameObject LeftRightIcon;
+    [SerializeField] GameObject UpDownIcon;
 
 
     override public void isPlayingUpdate()
@@ -271,6 +273,7 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
     {
         state = ClawState.MoveX;
         buttonText.text = "";
+        LeftRightIcon.SetActive(true);
     }
 
 
@@ -284,10 +287,13 @@ public class ClawMachine_ArcadeMachine : ArcadeMachine
             
             case ClawState.MoveX:
                 state = ClawState.MoveY;
+                LeftRightIcon.SetActive(false);
+                UpDownIcon.SetActive(true);
                 break;
             
             case ClawState.MoveY:
                 state = ClawState.Grab;
+                UpDownIcon.SetActive(false);
                 direction = false;
                 break;
         }
