@@ -179,11 +179,11 @@ public class GameManager : MonoBehaviour
 	{
 		for (int i = 0; i < level; i++)
 		{
-			Debug.Log(i);
+			// Debug.Log(i);
 			if(SaveData.LevelCompletionStates[i] == false)
 				return;
 		}
-		Debug.Log("saved");
+		// Debug.Log("saved");
 		SaveData.LevelCompletionStates[level] = true;
 	}
 

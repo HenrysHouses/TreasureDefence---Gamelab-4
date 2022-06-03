@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerDispenserController : MonoBehaviour
 {
 	[SerializeField] Transform repositionSpawnPoint, TemporaryTowerPosition;
+    [SerializeField] Transform[] VisiblePositions;
     [SerializeField] List<GameObject> StoredTowers = new List<GameObject>();
     Transform DispensedTower;
 
@@ -17,6 +18,13 @@ public class TowerDispenserController : MonoBehaviour
                 StoredTowers.Add(towers[i]);
                 // Debug.Log("repositioned");
                 towers[i].transform.position = TemporaryTowerPosition.position;
+                if(towers.Count - i < VisiblePositions.Length+1)
+                {
+                    towers[i].transform.position = VisiblePositions[towers.Count - i-1].position;
+                    towers[i].transform.rotation = VisiblePositions[towers.Count - i-1].rotation;
+                    towers[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    towers[i].GetComponent<Collider>().enabled = false;
+                }
             }
         }
 
@@ -29,6 +37,8 @@ public class TowerDispenserController : MonoBehaviour
         {
             DispensedTower = StoredTowers[0].transform; 
             StoredTowers[0].transform.position = repositionSpawnPoint.position;
+            StoredTowers[0].GetComponent<Collider>().enabled = true;
+            StoredTowers[0].transform.rotation = Quaternion.identity;
             StoredTowers.RemoveAt(0);
         }
     }

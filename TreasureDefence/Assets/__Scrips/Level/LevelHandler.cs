@@ -24,6 +24,7 @@ public class LevelHandler : MonoBehaviour
 
 
 	Transform currentLevel;
+	public static bool LevelIsOngoing;
 	public bool LevelEnding, LevelStarting, LevelStartHasBegun;
 	public bool LevelIsReady => !LevelEnding && !LevelStarting; 
 	[SerializeField] float _offsetValue = 0.613f, riseSpeed = 0.05f;
@@ -46,6 +47,7 @@ public class LevelHandler : MonoBehaviour
 	{
 		if(currentLevel)
 		{
+			LevelIsOngoing = true;
 			if(LevelStarting)
 			{
 				if(!LevelStartHasBegun)
@@ -117,6 +119,8 @@ public class LevelHandler : MonoBehaviour
 				}
 			}
 		}
+		else
+			LevelIsOngoing = false;
 	}
 	
 	/// <summary>

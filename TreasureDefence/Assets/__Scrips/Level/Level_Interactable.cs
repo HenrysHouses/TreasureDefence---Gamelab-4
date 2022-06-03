@@ -27,7 +27,8 @@ public class Level_Interactable : TD_Interactable
 		if(GameManager.instance)
 		{
 			GameManager.instance.LevelPickupHighlight.enabled = false;
-			GameManager.instance.WaterHighlight.enabled = true;
+			if(!LevelHandler.LevelIsOngoing)
+				GameManager.instance.WaterHighlight.enabled = true;
 		}
 	}
 	
@@ -43,7 +44,8 @@ public class Level_Interactable : TD_Interactable
 		if(GameManager.instance)
 		{
 			GameManager.instance.LevelPickupHighlight.enabled = false;
-			GameManager.instance.WaterHighlight.enabled = true;
+			if(!LevelHandler.LevelIsOngoing)
+				GameManager.instance.WaterHighlight.enabled = true;
 		}
 	}
 }
