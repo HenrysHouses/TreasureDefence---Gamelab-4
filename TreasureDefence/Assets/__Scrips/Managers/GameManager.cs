@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 			Debug.Log("unlocked all levels");
 		}
 
-		if(TimeState)
+		if(!TimeState)
 			timeOfDay = Mathf.Clamp01(timeOfDay + Time.deltaTime * TimeSpeed);
 		else
 			timeOfDay = Mathf.Clamp01(timeOfDay - Time.deltaTime * TimeSpeed);

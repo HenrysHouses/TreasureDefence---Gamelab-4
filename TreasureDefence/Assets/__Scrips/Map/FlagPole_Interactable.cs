@@ -58,6 +58,10 @@ public class FlagPole_Interactable : TD_Interactable
 		// Vector3 rot = transform.eulerAngles;
 		// Vector3 resetRot = new Vector3(0, rot.y, 0);
 		// transform.eulerAngles = resetRot;
+		Vector3 eulers = transform.eulerAngles;
+		eulers.x = 0;
+		eulers.z = 0;
+		transform.eulerAngles = eulers;
 	}
 	
 	public override void InteractionEndTrigger(object target = null)
@@ -73,6 +77,10 @@ public class FlagPole_Interactable : TD_Interactable
 		PlayerInteraction player = target as PlayerInteraction;
 		
 		SetHeld(false, player.GetHoldPoint);
+		Vector3 eulers = transform.eulerAngles;
+		eulers.x = 0;
+		eulers.z = 0;
+		transform.eulerAngles = eulers;
 		// Vector3 rot = transform.eulerAngles;
 		// Vector3 resetRot = new Vector3(0, rot.y, 0);
 		// transform.eulerAngles = resetRot;
