@@ -18,9 +18,15 @@ public class GameManager : MonoBehaviour
 	[Header("Lighting Controls")]
 	public LightController[] RealtimeLights;
 	[SerializeField] TowerDispenserController towerDispenser;
+	[SerializeField] MeshRenderer skybox;
+	[SerializeField] Light directionalLight;
+	[SerializeField] bool TimeState = true;
+	[SerializeField] float TimeSpeed = 1;
+	float timeOfDay;
 
 	public void setLights(bool state)
 	{
+		TimeState = state;
 		foreach (var light in RealtimeLights)	
 		{
 			light.fadeLightSate = state;
@@ -61,6 +67,14 @@ public class GameManager : MonoBehaviour
 			SaveLevelComplete(2);
 			Debug.Log("unlocked all levels");
 		}
+
+		if(TimeState)
+			timeOfDay = Mathf.Clamp01(timeOfDay + Time.deltaTime * TimeSpeed);
+		else
+			timeOfDay = Mathf.Clamp01(timeOfDay - Time.deltaTime * TimeSpeed);
+		directionalLight.color = Vector4.Lerp(Color.white, Color.black, timeOfDay);
+		skybox.material.SetFloat("_TimeOfDay", timeOfDay);
+
 	}
 
 
