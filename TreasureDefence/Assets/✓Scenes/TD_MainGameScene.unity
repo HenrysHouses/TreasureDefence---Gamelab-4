@@ -2354,6 +2354,41 @@ Transform:
   m_Father: {fileID: 1170585738}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &722407270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5544668090292653938, guid: 6728d415fc71340478efbc3266d35001, type: 3}
+  m_PrefabInstance: {fileID: 5544668089669015765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &722407272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722407270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 124362334
+      Data2: 1170819929
+      Data3: 691723664
+      Data4: -632892380
+    Path: event:/SFX/ArcadeMachines/DispenceTower
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &724929290 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1097977150, guid: 8f94ce5ee1e891e4185ba2672f0b5063, type: 3}
@@ -7366,7 +7401,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5544668090292653948, guid: 6728d415fc71340478efbc3266d35001, type: 3}
   m_PrefabInstance: {fileID: 5544668089669015765}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 722407270}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac58d002947c9a64db147f83c9d53257, type: 3}
@@ -9737,6 +9772,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TD_GameSystem_TowerDispenser
       objectReference: {fileID: 0}
+    - target: {fileID: 5544668090292653948, guid: 6728d415fc71340478efbc3266d35001, type: 3}
+      propertyPath: DispenceTowerSFX
+      value: 
+      objectReference: {fileID: 722407272}
     - target: {fileID: 5544668090292653948, guid: 6728d415fc71340478efbc3266d35001, type: 3}
       propertyPath: VisiblePositions.Array.size
       value: 5

@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class TowerDispenserController : MonoBehaviour
     [SerializeField] List<GameObject> StoredTowers = new List<GameObject>();
     Transform DispensedTower;
 
+    [SerializeField] StudioEventEmitter DispenceTowerSFX;
     public void fillDispenser(List<GameObject> towers)
     {
         for (int i = 0; i < towers.Count; i++)
@@ -40,6 +42,10 @@ public class TowerDispenserController : MonoBehaviour
             StoredTowers[0].GetComponent<Collider>().enabled = true;
             StoredTowers[0].transform.rotation = Quaternion.identity;
             StoredTowers.RemoveAt(0);
+        }
+        if (!FmodExtensions.IsPlaying(DispenceTowerSFX.EventInstance))
+        {
+            DispenceTowerSFX.Play();
         }
     }
 
