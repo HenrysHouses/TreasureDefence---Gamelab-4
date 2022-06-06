@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7994,6 +7994,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1522130428}
+    - target: {fileID: 1658566389, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+      propertyPath: CanvasSFX
+      value: 
+      objectReference: {fileID: 2137238130}
     - target: {fileID: 480174487631062744, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.85
@@ -8892,6 +8896,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130480782}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2137238128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4653816760394930490, guid: ab5f72c4f0636ec4db899f1152af66f2, type: 3}
+  m_PrefabInstance: {fileID: 1970140867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2137238130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137238128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1886463810
+      Data2: 1170374347
+      Data3: 1454722442
+      Data4: -2141327682
+    Path: event:/SFX/Environment/Canvas/SFX_CanvasRoll
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Valid_Invalid
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2140346149
 GameObject:
   m_ObjectHideFlags: 0

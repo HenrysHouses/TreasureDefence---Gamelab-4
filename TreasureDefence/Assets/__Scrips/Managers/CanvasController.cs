@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ public class CanvasController : MonoBehaviour
     // 0, 1, 2 / front, mid, back
     //public Animator[] canvasAnimators;  // Have only one canvas?
     public Animator canvasAnimator;
+
+    [SerializeField] StudioEventEmitter CanvasSFX;
     
 
     private void Start()
@@ -61,6 +64,10 @@ public class CanvasController : MonoBehaviour
             graphicsAnimator.Play("Open");
         
             canvasAnimator.Play("OpenCanvas");
+            CanvasSFX.Play();
+            CanvasSFX.SetParameter("Valid_Invalid", 0);
+            
+
             //canvasesOpen[canvas] = true;
 
             open = true;
@@ -84,6 +91,8 @@ public class CanvasController : MonoBehaviour
         {
             ghapic.SetActive(false);
         }
+        CanvasSFX.Play();
+        CanvasSFX.SetParameter("Valid_Invalid", 1);
 
         /*
         for (int i = 0; i < canvasesOpen.Length; i++)
