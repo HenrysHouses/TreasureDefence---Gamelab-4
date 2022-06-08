@@ -51,14 +51,14 @@ public class GameManager : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Alpha0))
 		{
-			Time.timeScale = 0.3f;
-			Debug.Log("time is slowed");
+			setLights(true);
+			Debug.Log("time is Day");
 		}
 
 		if(Input.GetKeyDown(KeyCode.Alpha1))
 		{
-			Time.timeScale = 1;
-			Debug.Log("time is normal");
+			setLights(false);
+			Debug.Log("time is night");
 		}
 
 		if(Input.GetKeyDown(KeyCode.Alpha7))
@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
 			SaveLevelComplete(2);
 			Debug.Log("unlocked all levels");
 		}
+
+
 
 		if(!TimeState)
 			timeOfDay = Mathf.Clamp01(timeOfDay + Time.deltaTime * TimeSpeed);
