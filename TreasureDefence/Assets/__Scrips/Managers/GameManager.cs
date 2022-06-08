@@ -16,11 +16,12 @@ public class GameManager : MonoBehaviour
 	private int playerHealth;
 	
 	[Header("Lighting Controls")]
+	[SerializeField] bool TimeState = true;
 	public LightController[] RealtimeLights;
 	[SerializeField] TowerDispenserController towerDispenser;
 	[SerializeField] MeshRenderer skybox;
+	[SerializeField] Color NightFogColor, DayFogColor;
 	[SerializeField] Light directionalLight;
-	[SerializeField] bool TimeState = true;
 	[SerializeField] float TimeSpeed = 1;
 	float timeOfDay;
 
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour
 			timeOfDay = Mathf.Clamp01(timeOfDay - Time.deltaTime * TimeSpeed);
 		directionalLight.color = Vector4.Lerp(Color.white, Color.black, timeOfDay);
 		skybox.material.SetFloat("_TimeOfDay", timeOfDay);
-
+		RenderSettings.fogColor = Color.Lerp(DayFogColor, NightFogColor, timeOfDay);
 	}
 
 

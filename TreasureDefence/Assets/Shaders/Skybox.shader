@@ -57,9 +57,9 @@ Shader "Unlit/Skybox"
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                float4 day = lerp(_DayColorMain, _DayColorSecondary, i.uv.y + _ColorOffset);
-                float4 Night = lerp(_NightColorMain, _NightColorSecondary, i.uv.y + _ColorOffset);
-                return lerp(day, Night, _TimeOfDay);
+                float4 day = saturate(lerp(_DayColorMain, _DayColorSecondary, i.uv.y + _ColorOffset)) ;
+                float4 Night = saturate(lerp(_NightColorMain, _NightColorSecondary, i.uv.y + _ColorOffset));
+                return saturate(lerp(day, Night, _TimeOfDay));
             }
             ENDCG
         }
