@@ -20,12 +20,12 @@ public class TowerDispenserController : MonoBehaviour
                 StoredTowers.Add(towers[i]);
                 // Debug.Log("repositioned");
                 towers[i].transform.position = TemporaryTowerPosition.position;
+                towers[i].GetComponent<Collider>().enabled = false;
                 if(towers.Count - i < VisiblePositions.Length+1)
                 {
                     towers[i].transform.position = VisiblePositions[towers.Count - i-1].position;
                     towers[i].transform.rotation = VisiblePositions[towers.Count - i-1].rotation;
                     towers[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    towers[i].GetComponent<Collider>().enabled = false;
                 }
             }
         }
