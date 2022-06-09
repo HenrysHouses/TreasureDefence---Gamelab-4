@@ -105,13 +105,13 @@ public class Tower_Interactable : TD_Interactable
 				if (!RiverMode)
                 {
 
-					if (!hit.collider.CompareTag("ValidPlacement"))
+					if (!hit.collider.CompareTag("ValidPlacement")) // In Water
 					{
 						RangeHighlight.material.SetColor("_Color", Color.red);
 						RangeHighlight.material.SetColor("_Color2", Color.red);
 						invalidPlacement = true;
 					}
-					else
+					else // On Land
 					{
 						RangeHighlight.material.SetColor("_Color", Color1);
 						RangeHighlight.material.SetColor("_Color2", Color2);
@@ -121,13 +121,13 @@ public class Tower_Interactable : TD_Interactable
 				}
 				else
                 {
-					 if (!hit.collider.CompareTag("River"))
+					 if (!hit.collider.CompareTag("River")) // In Water
 					{
 						RangeHighlight.material.SetColor("_Color", Color.red);
 						RangeHighlight.material.SetColor("_Color2", Color.red);
 						invalidPlacement = true;
 					}
-					else
+					else // On Land
 					{
 						RangeHighlight.material.SetColor("_Color", Color1);
 						RangeHighlight.material.SetColor("_Color2", Color2);
