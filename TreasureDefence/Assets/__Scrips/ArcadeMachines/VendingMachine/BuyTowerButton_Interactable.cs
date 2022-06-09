@@ -53,6 +53,21 @@ public class BuyTowerButton_Interactable : TD_Interactable
         buyTower();
     }
 
+	public override void LookInteraction()
+    {
+        if(lookIsActive)
+        {
+            if(!DisplayInfo)
+                SpawnInfo();
+        }
+        else
+        {
+            if(DisplayInfo)
+                DeleteInfo();
+        }
+    }
+
+
     public void buyTower()
     {
         if(info)
@@ -93,7 +108,9 @@ public class BuyTowerButton_Interactable : TD_Interactable
         {
             DisplayInfo = Instantiate(infoPrefab, displayPos.position, Quaternion.identity);
             DisplayInfo.GetComponent<DisplayInfo>().setText(info);
-            DisplayInfo.transform.rotation = transform.rotation;
+            Vector3 rot = transform.eulerAngles;
+            rot.y += 180;
+            DisplayInfo.transform.eulerAngles = rot;
         }
     }
 
