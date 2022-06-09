@@ -88,7 +88,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5318293794268605125}
-  m_LocalRotation: {x: -0.51656187, y: -0.53626394, z: 0.46307266, w: 0.48077914}
+  m_LocalRotation: {x: -0.5165615, y: -0.536265, z: 0.46306846, w: 0.48078233}
   m_LocalPosition: {x: -4.826, y: 0.379, z: -2.002}
   m_LocalScale: {x: 0.063001595, y: 0.063001595, z: 0.06300155}
   m_Children:
@@ -130,6 +130,16 @@ MonoBehaviour:
   lookIsActive: 0
   held: 0
   rb: {fileID: 0}
+  _renderer:
+  - {fileID: 7299186288970660335}
+  - {fileID: 8376988132347039593}
+  - {fileID: 7755203113718295236}
+  - {fileID: 5907737707559530021}
+  - {fileID: 3999734639786429900}
+  - {fileID: 6644362496403989014}
+  - {fileID: 7214124372429574503}
+  - {fileID: 9068387367478023879}
+  - {fileID: 2121878634248381098}
   bulletPrefab: {fileID: 7269488829324584820, guid: fd8ed96b922d5544884167278326496e, type: 3}
   barrelTransform: {fileID: 5318293793797562777}
   shootingrange: {fileID: 0}
@@ -187,6 +197,18 @@ MonoBehaviour:
           m_StringArgument: isOpen
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 5318293794268605122}
+        m_TargetAssemblyTypeName: TD_Interactable, Assembly-CSharp
+        m_MethodName: SetHighlight
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_LastHoverExited:
     m_PersistentCalls:
       m_Calls:
@@ -200,6 +222,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: isOpen
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5318293794268605122}
+        m_TargetAssemblyTypeName: TD_Interactable, Assembly-CSharp
+        m_MethodName: SetHighlight
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_HoverEntered:
@@ -235,6 +269,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 5318293794268605122}
+        m_TargetAssemblyTypeName: TD_Interactable, Assembly-CSharp
+        m_MethodName: setHighlightOffOverride
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_LastSelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -253,6 +299,18 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShootingRangeController_ArcadeMachine, Assembly-CSharp
         m_MethodName: setIsOpen
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5318293794268605122}
+        m_TargetAssemblyTypeName: TD_Interactable, Assembly-CSharp
+        m_MethodName: setHighlightOffOverride
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -480,5 +538,50 @@ PrefabInstance:
 --- !u!4 &8665882303045396040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3570516733262650015, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
+  m_PrefabInstance: {fileID: 5318293794710895831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7299186288970660335 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3208123444811482424, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
+  m_PrefabInstance: {fileID: 5318293794710895831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8376988132347039593 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4435881075060601790, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
+  m_PrefabInstance: {fileID: 5318293794710895831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7755203113718295236 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2481030550488782355, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
+  m_PrefabInstance: {fileID: 5318293794710895831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5907737707559530021 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1743702449386689266, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
+  m_PrefabInstance: {fileID: 5318293794710895831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3999734639786429900 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 9101644494601957659, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
+  m_PrefabInstance: {fileID: 5318293794710895831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6644362496403989014 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1584110914808733377, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
+  m_PrefabInstance: {fileID: 5318293794710895831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7214124372429574503 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3302220318878150064, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
+  m_PrefabInstance: {fileID: 5318293794710895831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &9068387367478023879 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3753471309556935184, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
+  m_PrefabInstance: {fileID: 5318293794710895831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2121878634248381098 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6105769932823567997, guid: 1cf80060b4d3b0d4ab46410a9a376af7, type: 3}
   m_PrefabInstance: {fileID: 5318293794710895831}
   m_PrefabAsset: {fileID: 0}

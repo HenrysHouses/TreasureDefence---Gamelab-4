@@ -23,6 +23,9 @@ abstract public class TD_Interactable : MonoBehaviour
 	[HideInInspector] public bool held;
 	[HideInInspector] public Rigidbody rb;
 	private Transform originalParent;
+	[SerializeField] Renderer[] _renderer;
+	bool highlightOffOverride;
+	[SerializeField] static Shader highlight;
 
 	Collider _thisCollider;
 	public Collider getCollider()
@@ -50,6 +53,54 @@ abstract public class TD_Interactable : MonoBehaviour
 		}
 		LookInteraction();
 		lookShouldStay = false;
+
+		if(Input.GetKeyDown(KeyCode.L))
+			toggleHighlight();
+	}
+
+	public void toggleHighlight()
+	{
+		if(!highlightOffOverride)
+		{
+			foreach (var rend in _renderer)
+			{
+				foreach (var mat in rend.materials)
+				{
+					if(mat.shader == highlight)
+					{
+						float state = mat.GetFloat("_FernelToggle");
+						mat.SetFloat("_FernelToggle", 1-state);
+					}
+				}
+			}
+		}
+	}
+
+	public void setHighlightOffOverride(bool state)
+	{	 
+		if(state)
+			SetHighlight(false);
+		highlightOffOverride = state;
+	}
+
+	public void SetHighlight(bool state)
+	{
+		if(!highlightOffOverride)
+		{
+			foreach (var rend in _renderer)
+			{
+				foreach (var mat in rend.materials)
+				{
+					if(mat.shader == highlight)
+					{
+						if(state)
+							mat.SetFloat("_FernelToggle", 1);
+						else
+							mat.SetFloat("_FernelToggle", 0);
+					}
+				}
+			}
+		}
 	}
 
 	public bool SetHeld(bool state, Transform parent)

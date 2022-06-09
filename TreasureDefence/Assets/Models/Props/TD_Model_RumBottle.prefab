@@ -39,9 +39,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8556324161612851164}
-  - component: {fileID: 1729064358}
   - component: {fileID: 1729064357}
   - component: {fileID: 8370084717736329643}
+  - component: {fileID: 6672812445968062215}
+  - component: {fileID: 962762639}
   m_Layer: 8
   m_Name: TD_Model_RumBottle
   m_TagString: Untagged
@@ -65,22 +66,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1729064358
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4615900798702671526}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1729064357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +194,43 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.49, y: 1, z: 0.47}
   m_Center: {x: 0, y: 0.19, z: 0}
+--- !u!114 &6672812445968062215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615900798702671526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94554ff25b32d8048b24b17d103b2769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionButton: 323
+  canBeHeld: 1
+  canBeMoved: 0
+  lookTriggerEnabled: 0
+  lookIsActive: 0
+  held: 0
+  rb: {fileID: 0}
+  _renderer:
+  - {fileID: 3745966554433357257}
+--- !u!54 &962762639
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615900798702671526}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8821685445872357866
 GameObject:
   m_ObjectHideFlags: 0

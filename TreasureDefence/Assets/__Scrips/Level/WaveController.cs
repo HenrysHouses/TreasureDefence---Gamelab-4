@@ -53,7 +53,7 @@ public class WaveController : MonoBehaviour
 			flagPole.calculateFlagPositions(LevelData.waves.Length);
 			flagPole.setFlagPos(currentWave);
 		}
-
+		MineSpawner.Instance.InstantiateMine(2);
 		lastHealth = health;
 	}
 
@@ -106,8 +106,7 @@ public class WaveController : MonoBehaviour
 				waveIsInProgress = true;
 				GameManager.instance.setLights(false);
 				//Put mines on side of table here.
-				MineSpawner.Instance.DestroyAllMines();
-				MineSpawner.Instance.InstantiateMine(2);
+				MineSpawner.Instance.RespawnMines();
 
 				VOEmitters[0].Play();
 			}

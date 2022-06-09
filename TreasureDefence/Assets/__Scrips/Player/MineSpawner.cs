@@ -41,6 +41,21 @@ public class MineSpawner : MonoBehaviour
 
     }
 
+    public void RespawnMines()
+    {
+        List<int> index = new List<int>();
+        for (int i = 0; i < MineList.Count; i++)
+        {
+            if(MineList[i] == null)
+                index.Add(i);
+        }
+        foreach (var i in index)
+        {
+            MineList.RemoveAt(i);
+        }
+        InstantiateMine(index.Count);
+    }
+
     public void DestroyAllMines()
     {
         for (int i = 0; i < MineList.Count; i++)
