@@ -12,7 +12,7 @@ public class Tower_Monkey : TowerBehaviour
 	override public bool Attack(int damage, EnemyBehaviour[] targets)
 	{
 		MonkeyAnimator.SetBool("MonkeyFalling", true);
-		Debug.Log("MOOOOOOOOOONNNKKEEEYYYFALL");
+		// Debug.Log("MOOOOOOOOOONNNKKEEEYYYFALL");
 		bool attacked = false;
 		if (targets != null)
         {
