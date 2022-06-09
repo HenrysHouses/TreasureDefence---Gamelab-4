@@ -22,6 +22,7 @@ public class LevelHandler : MonoBehaviour
 	[SerializeField] StudioEventEmitter _MapErectingSFX;
 	[SerializeField] StudioEventEmitter _EjectBoardSFX;
 
+	public StudioEventEmitter FireLooseSFX, ConfettiSFX;
 
 	Transform currentLevel;
 	public static bool LevelIsOngoing;
@@ -115,6 +116,10 @@ public class LevelHandler : MonoBehaviour
 					foreach(GameObject _particle in fireParticles)
 					{
 						_particle.SetActive(false);
+					}
+					if (FmodExtensions.IsPlaying(FireLooseSFX.EventInstance))
+					{
+						FireLooseSFX.Stop();
 					}
 				}
 			}

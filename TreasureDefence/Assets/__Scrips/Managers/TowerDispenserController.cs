@@ -42,10 +42,11 @@ public class TowerDispenserController : MonoBehaviour
             StoredTowers[0].GetComponent<Collider>().enabled = true;
             StoredTowers[0].transform.rotation = Quaternion.identity;
             StoredTowers.RemoveAt(0);
-        }
-        if (!FmodExtensions.IsPlaying(DispenceTowerSFX.EventInstance))
-        {
-            DispenceTowerSFX.Play();
+
+            if (!FmodExtensions.IsPlaying(DispenceTowerSFX.EventInstance))
+            {
+                DispenceTowerSFX.Play();
+            }
         }
     }
 

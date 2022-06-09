@@ -148,12 +148,16 @@ public class WaveController : MonoBehaviour
 			CanvasController.instance.OpenNewCanvas(0);
 
 			levelHandler._WinTriggerMUS.TriggerParameters();
+			if (!FmodExtensions.IsPlaying(levelHandler.ConfettiSFX.EventInstance))
+			{
+				levelHandler.ConfettiSFX.Play();
+			}
 			VOEmitters[2].Play(); // Trigger Victory VO
 
 			for(int i = 0; i< levelHandler.Confetti.Length; i++)
             {
 				levelHandler.Confetti[i].Play();
-            }
+			}
 		}
 
 		foreach (var enemy in enemies)
@@ -185,6 +189,10 @@ public class WaveController : MonoBehaviour
 		for (int i = 0; i < fireCount; i++)
 		{
 			levelHandler.fireParticles[i].SetActive(true);
+		}
+		if (!FmodExtensions.IsPlaying(levelHandler.FireLooseSFX.EventInstance))
+		{
+			levelHandler.FireLooseSFX.Play();
 		}
 	}
 	

@@ -1,5 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &469570937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469570939}
+  - component: {fileID: 469570940}
+  - component: {fileID: 469570938}
+  m_Layer: 2
+  m_Name: PirateCoveSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &469570939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469570937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.521, y: -0.419, z: -0.937}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6618372305076973098}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &469570940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469570937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 28991173
+      Data2: 1224526391
+      Data3: 1399827625
+      Data4: -853343307
+    Path: event:/SFX/Environment/SFX_Level_Fire
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &469570938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469570937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1283291121
+      Data2: 1093479068
+      Data3: 445587871
+      Data4: 1109833568
+    Path: event:/SFX/Environment/VictoryFireworkSFX
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1355129091
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +376,7 @@ Transform:
   - {fileID: 1057992112738887686}
   - {fileID: 6804962861867135400}
   - {fileID: 1355129092}
+  - {fileID: 469570939}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -326,6 +419,8 @@ MonoBehaviour:
   _MapBattleMUS: {fileID: 1226691153}
   _MapErectingSFX: {fileID: 5475801310123833819}
   _EjectBoardSFX: {fileID: 7609925243031871134}
+  FireLooseSFX: {fileID: 469570940}
+  ConfettiSFX: {fileID: 469570938}
   LevelEnding: 0
   LevelStarting: 0
   LevelStartHasBegun: 0
@@ -1040,14 +1135,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c41cfdfc5aad789428c1260e03c2237e, type: 3}
---- !u!1 &7073438732609949869 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7073438731206711776, guid: c41cfdfc5aad789428c1260e03c2237e, type: 3}
-  m_PrefabInstance: {fileID: 1470384461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7073438732609950173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7073438731206711440, guid: c41cfdfc5aad789428c1260e03c2237e, type: 3}
+  m_PrefabInstance: {fileID: 1470384461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7073438732609949869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7073438731206711776, guid: c41cfdfc5aad789428c1260e03c2237e, type: 3}
   m_PrefabInstance: {fileID: 1470384461}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1733906468
